@@ -98,7 +98,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Email: </label>
-                                            <input type="email" class="form-control" name="email"  placeholder="Enter Email" required>
+                                            <input type="email" class="form-control" name="email"  placeholder="example@gmail.com" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
