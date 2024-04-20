@@ -89,7 +89,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Contact Number:</label>
-                                            <input type="tel" class="form-control" name="contact" maxlength="11" pattern="[0-9]{11}" placeholder="Enter Contact Number" required>
+                                            <input type="tel" class="form-control" name="contact"  <input type="tel" class="form-control" name="contact" name="contact" maxlength="11" pattern="^(09|\+639)\d{9}$" placeholder="Enter Contact Number" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
