@@ -391,9 +391,18 @@ INSERT INTO `tbl_user` (`id_user`, `email`, `password`, `lname`, `fname`, `mi`, 
 --
 -- Structure for view `masked_admin`
 --
-DROP TABLE IF EXISTS `masked_admin`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `masked_admin`  AS SELECT `tbl_admin`.`id_admin` AS `id_admin`, concat(substr(`tbl_admin`.`email`,1,3),rpad(conv(floor(rand() * 9999),10,16),4,'X')) AS `masked_email`, concat(substr(`tbl_admin`.`password`,1,3),rpad(conv(floor(rand() * 9999),10,16),4,'X')) AS `masked_password`, concat(substr(`tbl_admin`.`lname`,1,3),rpad(conv(floor(rand() * 9999),10,16),4,'X')) AS `masked_lname`, concat(substr(`tbl_admin`.`fname`,1,3),rpad(conv(floor(rand() * 9999),10,16),4,'X')) AS `masked_fname`, concat(substr(`tbl_admin`.`mi`,1,3),rpad(conv(floor(rand() * 9999),10,16),4,'X')) AS `masked_mi`, concat(substr(`tbl_admin`.`role`,1,3),rpad(conv(floor(rand() * 9999),10,16),4,'X')) AS `masked_role` FROM `tbl_admin` ;
+CREATE VIEW `masked_admin` AS 
+SELECT 
+    `id_admin`,
+    CONCAT(SUBSTR(`email`, 1, 3), RPAD(CONV(FLOOR(RAND() * 9999), 10, 16), 4, 'X')) AS `masked_email`,
+    CONCAT(SUBSTR(`password`, 1, 3), RPAD(CONV(FLOOR(RAND() * 9999), 10, 16), 4, 'X')) AS `masked_password`,
+    CONCAT(SUBSTR(`lname`, 1, 3), RPAD(CONV(FLOOR(RAND() * 9999), 10, 16), 4, 'X')) AS `masked_lname`,
+    CONCAT(SUBSTR(`fname`, 1, 3), RPAD(CONV(FLOOR(RAND() * 9999), 10, 16), 4, 'X')) AS `masked_fname`,
+    CONCAT(SUBSTR(`mi`, 1, 3), RPAD(CONV(FLOOR(RAND() * 9999), 10, 16), 4, 'X')) AS `masked_mi`,
+    CONCAT(SUBSTR(`role`, 1, 3), RPAD(CONV(FLOOR(RAND() * 9999), 10, 16), 4, 'X')) AS `masked_role`
+FROM 
+    `tbl_admin`;
 
 -- --------------------------------------------------------
 

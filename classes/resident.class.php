@@ -27,10 +27,19 @@
                 $voter = $_POST['voter'];
                 $familyrole = $_POST['family_role'];
                 $role = $_POST['role'];
+                
           
 
-                $min_age = 18;
+                $min_age = 1;
                 $max_age = 150;
+         
+
+if (isset($_POST['addedby'])){
+    $addedby = $_POST['addedby'];
+} else {
+    // Handle the case when 'addedby' is not set
+    $addedby = ''; // or any default value
+}
 
                 if ($this->check_resident($email) == 0 ) {
 
@@ -48,8 +57,7 @@
                         `bplace`, `nationality`,`voter` ,`family_role`,
                         `role`, `addedby`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?)");
     
-                        $stmt->Execute([ $email, $hashed_password, $lname, $fname, $mi, $age, $sex, $status, 
-                        $houseno, $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $role, $addedby]);
+                        $stmt->Execute([ $email, $hashed_password, $lname, $fname, $mi, $age, $sex, $status, $houseno, $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $role, $addedby]);
 
                         $message2 = "Account added, you can now continue logging in";
                         echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -141,7 +149,12 @@
 
     public function get_single_resident($id_resident){
 
-        $id_resident = $_GET['id_resident'];
+        if(isset($_POST['id_resident'])) {
+            $id_resident = $_POST['id_resident'];
+        } else {
+            //bakit naman kasi wala
+            $id_resident = null; 
+        }
         
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_resident where id_resident = ?");

@@ -14,7 +14,13 @@
     require('classes/main.class.php');
     $bmis->login();
 
-   
+   // Function to generate OTP
+function generateOTP() {
+    // Generate a random 6-digit OTP
+    $otp = rand(100000, 999999);
+    return $otp;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,54 +34,41 @@
     <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
     <script src="customjs/main.js" type="text/javascript"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="shortcut icon" href="icons/yuson1.png" type="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
-            background: url('icons/bgg.jpg') fixed; /* Set background image to fixed */
-            background-size: cover; /* Ensure the background image covers the entire viewport */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            background: url('icons/bgg.jpg') fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
         }
 
         .logo-container {
-            position: fixed; /* Set position to fixed */
-            top: 50%; /* Center vertically */
-            left: -50px; /* Adjust right position */
-            transform: translateY(-50%); /* Center vertically */
-            z-index: 999; /* Set a high z-index to ensure it's above other elements */
-            text-align: right; /* Align text to right */
-            padding: 20px; /* Add padding */
+            text-align: center;
             margin-top: 30px;
-            border-radius: 10px; /* Add border radius */
+            border-radius: 10px;
         }
 
         .logo {
-            width: 80%; /* Adjust the size as needed */
+            max-width: 80%;
             height: auto;
-            background-color: transparent; /* Remove background color */
         }
 
         .title-text {
-            font-size: 30px; /* Adjust the font size as needed */
-            color: #000000; /* Set the desired text color */
-            margin-top: 10px; /* Adjust the spacing */
+            font-size: 24px;
+            color: #000000;
+            margin-top: 10px;
             font-weight: bold;
         }
 
         .form-container {
-            position: fixed; /* Set position to fixed */
-            top: 50%; /* Center vertically */
-            right: 10%; /* Adjust right position */
-            transform: translateY(-50%); /* Center vertically */
-            max-width: 500px; /* Set max width for the form */
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            padding: 20px; /* Increase padding for better spacing */
+            padding: 20px;
         }
 
-        /* Adjust the margin of the login button */
-        .btn-primary:hover {
-            background-color: #007bff;
-        }
         .input-container .icon {
             padding: 10px;
             background: dodgerblue;
@@ -86,26 +79,15 @@
             border-bottom-left-radius: 5px;
         }
 
-        .input-container .input-field {
-            width: 85%; /* Set input field width to 100% */
-            height: 40px;
-            padding: 10px;
-            outline: none;
-            border: 1px solid #ccc;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-
-            
-        .icon {
-            padding: 15px;
-            background: dodgerblue;
-            color: white;
-            min-width: 80px;
-            text-align: center;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
+  .input-container .input-field {
+    width: 85%;
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
         .login-button {
             margin-top: 20px;
@@ -155,6 +137,7 @@
                                 <input class="input-field" type="password" id="password" placeholder="Enter Password" name="password" required>
                             </div>
                         </div>
+                     
                             <div class="mb-3">
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" onclick="myFunction()" class="custom-control-input" id="switch1">
@@ -162,9 +145,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="g-recaptcha" data-sitekey="6LeXNDApAAAAAPzozQ-xzLGfG0OtcZDTB2bcMla7"></div>
-                                </div>
-
+                    <div class="g-recaptcha" data-sitekey="6LfHLcApAAAAAKyOyOJFNkXUBEuFLxx6qn8DbnHT"></div>
+                </div>
                             <button class="btn btn-primary login-button" type="submit" name="login">Log-in</button>
                         </form>
 
@@ -182,6 +164,7 @@
     </div>
 </section>
 
+
 <script>
     function myFunction() {
         var x = document.getElementById("password");
@@ -195,6 +178,19 @@
     function trying() {
         window.location.href = "resident_registration.php";
     }
+</script>
+<script>
+    $(document).ready(function(){
+        end_loader();
+    });
+
+    $(document).on('click', '.login-button', function(e){
+        var response = grecaptcha.getResponse();
+        if(response.length === 0) {
+            alert("Please verify that you are not a robot");
+            e.preventDefault(); // Prevent form submission if reCAPTCHA is not checked
+        }
+    });
 </script>
 
 </body>

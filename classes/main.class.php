@@ -1,39 +1,28 @@
 <?php 
 
 class BMISClass {
-
-//------------------------------------------ DATABASE CONNECTION ----------------------------------------------------
     
-    protected $server = "mysql:host=localhost;dbname=bmis";
-    protected $user = "root";
-    protected $pass = "";
-    protected $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
-    protected $con;
+    protected $server = "localhost";
+    protected $dbname = "u813203284_bmis";
+    protected $user = "u813203284_webyu";
+    protected $pass = "Webyu@2023";
+    protected $conn;
 
-
-    public function show_404()
-    {
-        http_response_code(404);
-        echo "Page is currently unavailable";
-        die;
-    }
-
+    // Database connection
     public function openConn() {
         try {
-            $this->con = new PDO($this->server, $this->user, $this->pass, $this->options);
-            return $this->con;
-        }
-
-        catch(PDOException $e) {
-            echo "Datbase Connection Error! ", $e->getMessage();
+            $this->conn = new PDO("mysql:host={$this->server};dbname={$this->dbname}", $this->user, $this->pass);
+            // Set PDO to throw exceptions on error
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $this->conn;
+        } catch(PDOException $e) {
+            echo "Database Connection Error! ", $e->getMessage();
         }
     }
 
-    //eto yung nag c close ng connection ng db
     public function closeConn() {
-        $this->con = null;
+        $this->conn = null;
     }
-
 
     //------------------------------------------ AUTHENTICATION & SESSION HANDLING --------------------------------------------
         //authentication function para sa sa tatlong type ng accounts
@@ -1125,7 +1114,6 @@ class BMISClass {
     public function create_certofres() {
 
         if(isset($_POST['create_certofres'])) {
-            $id_rescert = $_POST['id_rescert'];
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
@@ -1142,11 +1130,11 @@ class BMISClass {
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_rescert (`id_rescert`, `id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_rescert ( `id_resident`, `lname`, `fname`, `mi`,
              `age`,`nationality`, `houseno`, `street`,`brgy`, `municipal`, `date`,`purpose`)
-            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
 
-            $stmt->execute([$id_rescert, $id_resident, $lname, $fname, $mi,  $age, $nationality, $houseno,  $street, $brgy,$municipal, $date,$purpose]);
+            $stmt->execute([$id_resident, $lname, $fname, $mi,  $age, $nationality, $houseno,  $street, $brgy,$municipal, $date,$purpose]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -1557,9 +1545,22 @@ public function create_travelpermit() {
 
 
     public function create_brgyid() {
-
         if(isset($_POST['create_brgyid'])) {
-            $id_brgyid = $_POST['id_brgyid'];
+            
+            $res_photo_path = '';
+            $inc_municipal_path = ''; 
+            
+            if(isset($_FILES['res_photo']['tmp_name']) && !empty($_FILES['res_photo']['tmp_name'])) {
+                $res_photo_path = $_SERVER['DOCUMENT_ROOT'] . '/gallery_photo/' . $_FILES['res_photo']['name'];
+                move_uploaded_file($_FILES['res_photo']['tmp_name'], $res_photo_path);
+            }
+            
+            if(isset($_FILES['inc_municipal']['tmp_name']) && !empty($_FILES['inc_municipal']['tmp_name'])) {
+                $inc_municipal_path = $_SERVER['DOCUMENT_ROOT'] . '/gallery_photo/' . $_FILES['inc_municipal']['name'];
+                move_uploaded_file($_FILES['inc_municipal']['tmp_name'], $inc_municipal_path);
+            }
+            
+            
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
@@ -1570,7 +1571,7 @@ public function create_travelpermit() {
             $municipal = $_POST['municipal'];
             $bplace = $_POST['bplace'];
             $bdate = $_POST['bdate'];
-            $res_photo = $_POST['res_photo'];
+            $res_photo = $_FILES['res_photo'];
 
             $inc_lname = $_POST['inc_lname']; 
             $inc_fname = $_POST['inc_fname'];
@@ -1582,14 +1583,15 @@ public function create_travelpermit() {
             $inc_municipal = $_FILES['res_photo'];
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_brgyid (`id_brgyid`, `id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_brgyid (`id_resident`, `lname`, `fname`, `mi`,
             `houseno`, `street`,`brgy`, `municipal`, `bplace`, `bdate`, `res_photo`, `inc_lname`,
             `inc_fname`, `inc_mi`, `inc_contact`, `inc_houseno`, `inc_street`, `inc_brgy`, `inc_municipal`)
-            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_brgyid, $id_resident, $lname, $fname, $mi, $houseno,  $street, $brgy, $municipal, 
-            $bplace, $bdate, $res_photo, $inc_lname, $inc_fname, $inc_mi, $inc_contact, $inc_houseno, 
-            $inc_street, $inc_brgy, $inc_municipal ]);
+            $stmt->execute([$id_resident, $lname, $fname, $mi, $houseno, $street, $brgy, $municipal, 
+            $bplace, $bdate, $res_photo_path, $inc_lname, $inc_fname, $inc_mi, $inc_contact, 
+            $inc_houseno, $inc_street, $inc_brgy, $inc_municipal_path ]);
+
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -1646,7 +1648,20 @@ public function create_travelpermit() {
     public function create_blotter() {
 
         if(isset($_POST['create_blotter'])) {
+            
+           $blot_photo_path = '';
+            if(isset($_FILES['blot_photo']['tmp_name']) && !empty($_FILES['blot_photo']['tmp_name'])) {
+                // Process blot_photo file upload and move it to the desired directory
+                $blot_photo_path = $_SERVER['DOCUMENT_ROOT'] . '/gallery_photo/' . $_FILES['blot_photo']['name']; 
+                move_uploaded_file($_FILES['blot_photo']['tmp_name'], $blot_photo_path);
+            }
+            
+            if(isset($_POST['id_blotter'])) {
             $id_blotter = $_POST['id_blotter'];
+            } else {
+                //nugagawen pag wala
+                $id_blotter = null; 
+            }
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
@@ -1655,17 +1670,17 @@ public function create_travelpermit() {
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
             $municipal = $_POST['municipal'];
-            $blot_photo = $_FILES['blot_photo'];
             $contact = $_POST['contact'];
             $narrative = $_POST['narrative'];
-
+            
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_blotter (`id_blotter`, `id_resident`, `lname`, `fname`, `mi`,
-            `houseno`, `street`,`brgy`, `municipal`, `blot_photo`, `contact`, `narrative`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                `houseno`, `street`, `brgy`, `municipal`, `blot_photo`, `contact`, `narrative`)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            
+            $stmt->execute([$id_blotter, $id_resident, $lname, $fname, $mi, $houseno, $street, $brgy, $municipal, 
+                $blot_photo_path, $contact, $narrative]);
 
-            $stmt->execute([$id_blotter, $id_resident, $lname, $fname, $mi, $houseno,  $street, $brgy, $municipal, 
-            $blot_photo, $contact, $narrative]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";

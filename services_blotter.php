@@ -1,8 +1,8 @@
 <?php 
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
-    $id_resident = $_GET['id_resident'];
-    $resident = $residentbmis->get_single_resident($id_resident);
+    
+    
 
     $bmis->create_blotter();
 

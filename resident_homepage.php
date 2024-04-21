@@ -32,7 +32,7 @@
         <!-- responsive tags for screen compatibility -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css --> 
-        <link href="customcss/pagestyle.css" rel="stylesheet" type="text/css">
+        <link href="css/pagestyle.css" rel="stylesheet" type="text/css">
         <!-- bootstrap css --> 
         <link href="bootstrap.css" rel="stylesheet" type="text/css">
         <!-- fontawesome icons --> 

@@ -1,9 +1,13 @@
 <?php 
-     require('classes/resident.class.php');
-    $residentbmis->create_resident();
-     //$data = $bms->get_userdata();
+require('classes/resident.class.php');
+$residentbmis = new ResidentClass(); // Instantiate the ResidentClass object
 
-     
+// Assuming $addedby contains the appropriate value
+$addedby = ''; // Add your value here
+
+// Call the create_resident() method with the $addedby parameter
+$residentbmis->create_resident($addedby);
+//$data = $bms->get_userdata();
 ?>
 
 <!DOCTYPE html> 
@@ -89,7 +93,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Contact Number:</label>
-                                            <input type="tel" class="form-control" name="contact"  <input type="tel" class="form-control" name="contact" name="contact" maxlength="11" pattern="^(09|\+639)\d{9}$" placeholder="Enter Contact Number" required>
+                                            <input type="tel" class="form-control" name="contact" maxlength="11" pattern="[0-9]{11}" placeholder="Enter Contact Number" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -98,7 +102,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Email: </label>
-                                            <input type="email" class="form-control" name="email"  placeholder="example@gmail.com" required>
+                                            <input type="email" class="form-control" name="email"  placeholder="Enter Email" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -274,7 +278,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                <div class="g-recaptcha" data-sitekey="6LeXNDApAAAAAPzozQ-xzLGfG0OtcZDTB2bcMla7"></div>
+
                                 </div>
                                 <br>
                                 
