@@ -159,7 +159,7 @@ class BMISClass {
         if(isset($_POST['add_admin'])) {
         
             $email = $_POST['email'];
-            $password = ($_POST['password']);
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
@@ -1132,7 +1132,7 @@ class BMISClass {
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_rescert ( `id_resident`, `lname`, `fname`, `mi`,
              `age`,`nationality`, `houseno`, `street`,`brgy`, `municipal`, `date`,`purpose`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
+            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
 
             $stmt->execute([$id_resident, $lname, $fname, $mi,  $age, $nationality, $houseno,  $street, $brgy,$municipal, $date,$purpose]);
 
@@ -1245,7 +1245,6 @@ public function create_travelpermit() {
      public function create_certofindigency() {
 
         if(isset($_POST['create_certofindigency'])) {
-            $id_indigency = $_POST['id_indigency'];
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
@@ -1259,11 +1258,11 @@ public function create_travelpermit() {
             $date = $_POST['date'];
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_indigency (`id_indigency`, `id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_indigency (`id_resident`, `lname`, `fname`, `mi`,
              `nationality`, `houseno`, `street`,`brgy`, `municipal`,`purpose`, `date`)
-            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
 
-            $stmt->execute([$id_indigency, $id_resident, $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
+            $stmt->execute([$id_resident, $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -1321,7 +1320,6 @@ public function create_travelpermit() {
      public function create_brgyclearance() {
 
         if(isset($_POST['create_brgyclearance'])) {
-            $id_clearance = $_POST['id_clearance'];
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
@@ -1335,11 +1333,11 @@ public function create_travelpermit() {
             $age = $_POST['age'];
             
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`id_clearance`, `id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`id_resident`, `lname`, `fname`, `mi`,
              `purpose`, `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
-            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_clearance, $id_resident, $lname, $fname, $mi,  $purpose, 
+            $stmt->execute([$id_resident, $lname, $fname, $mi,  $purpose, 
             $houseno,  $street, $brgy,   $municipal, $status, $age]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
@@ -1445,7 +1443,6 @@ public function create_travelpermit() {
     public function create_bspermit() {
 
         if(isset($_POST['create_bspermit'])) {
-            $id_bspermit = $_POST['id_bspermit'];
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
@@ -1460,11 +1457,11 @@ public function create_travelpermit() {
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_bspermit`, `id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `lname`, `fname`, `mi`,
              `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`)
-            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_bspermit, $id_resident, $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
+            $stmt->execute([$id_resident, $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
