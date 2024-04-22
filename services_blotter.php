@@ -987,12 +987,12 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="list-unstyled collapse" id="Contact-Us">
+                         <ul class="list-unstyled collapse" id="Contact-Us">
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Rafael.jpg" alt="Person" width="96" height="96">
-                                         Rafael M. Tosper Jr. | 09677690471
+                                       <img src="icons/Contact/Rafael.jpg" alt="Person" width="96" height="96">
+                                       HON. RENATO S. CONCEPTION SR. | BRGY. CAPTAIN
                                     </div>
                                 </div>
                             </li>
@@ -1000,7 +1000,7 @@
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
                                         <img src="icons/Contact/yanyan.jpg" alt="Person" width="96" height="96">
-                                    Marian C. Simon| 09669982735
+                                         HON. EDWIN A. FACUNLA| SECRETARY
                                     </div>
                                 </div>
                             </li>
@@ -1008,7 +1008,7 @@
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
                                         <img src="icons/Contact/Katrina.jpg" alt="Person" width="96" height="96">
-                                         Katrina T Obena | 09062586156
+                                         HON. DAHREN L. CABTBAT| TREASURER
                                     </div>
                                 </div>
                             </li>
@@ -1016,7 +1016,7 @@
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
                                          <img src="icons/Contact/kristine.jpg" alt="Person" width="96" height="96">
-                                        Kristine Joy G Villiano | 09301112368
+                                          HON. JOCELYN D. FACUNLA | COUNCILOR
                                     </div>
                                 </div>
                             </li>
@@ -1024,17 +1024,25 @@
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
                                         <img src="icons/Contact/Jayvee.jpg" alt="Person" width="96" height="96">
-                                        Jayvee T Mangalino| 09464092423
-                                    </div>
-                                </div>
-                                <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Marjun.jpg" alt="Person" width="96" height="96">
-                                        Marjun A. Tayag | 09133456775
+                                         HON. RODRIGO A. CABINIAN | COUNCILOR
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                        <img src="icons/Contact/Marjun.jpg" alt="Person" width="96" height="96">
+                                         HON. DENNIS F. FELIPE | COUNCILOR
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                        <img src="icons/Contact/Marjun.jpg" alt="Person" width="96" height="96">
+                                         HON. EDWIN A. MAGBALOT | COUNCILOR
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </div>
