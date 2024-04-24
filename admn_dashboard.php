@@ -243,6 +243,21 @@
 </div>
 <!-- End of Main Content -->
 
+<script>
+    // Wait for the document to fully load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Remove all elements with class "box-border"
+        document.querySelectorAll('.box-border').forEach(function(element) {
+            element.remove();
+        });
+        // Remove the scispace extension root element
+        var scispaceRoot = document.getElementById('scispace-extension-root');
+        if (scispaceRoot) {
+            scispaceRoot.remove();
+        }
+    });
+</script>
+
 <br>
 <br>
 
