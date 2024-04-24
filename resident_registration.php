@@ -100,13 +100,25 @@ $residentbmis->create_resident($addedby);
                                     </div>
 
                                     <div class="col">
-                                        <div class="form-group">
-                                            <label>Email: </label>
-                                            <input type="email" class="form-control" name="email"  placeholder="Enter Email" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
+    <div class="form-group">
+        <label>Email: </label>
+        <input type="email" class="form-control" name="email" placeholder="Enter Email" required oninput="validateEmail()">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please enter a valid email address ending with '@gmail.com'.</div>
+    </div>
+</div>
+
+<script>
+    function validateEmail() {
+        var input = document.getElementsByName('email')[0];
+        var pattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (pattern.test(input.value)) {
+            input.setCustomValidity('');
+        } else {
+            input.setCustomValidity("Please enter a valid email address ending with '@gmail.com'.");
+        }
+    }
+</script>
                                     
                                     <div class="col">
                                         <div class="form-group">
