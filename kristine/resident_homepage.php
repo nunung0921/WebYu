@@ -592,51 +592,82 @@
                         </div>
                         <ul class="list-unstyled collapse" id="Contact-Us">
                             <li>
-                                <div class="zoom">
+                                <div class="zoom">        
                                     <div class="chip" style="font-size:10px;">
-                                       <img src="icons/Contact/Rafael.jpg" alt="Person" width="96" height="96">
-                                       Rafael M Tosper Jr | 09677690471
+                                       <img src="icons/Contact/Renato.jpg" alt="Person" width="96" height="96">
+                                       Renato S. Conception Sr. | 09675322508
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/yanyan.jpg" alt="Person" width="96" height="96">
-                                    Marian C. Simon| 09669982735
+                                        <img src="icons/Contact/Romeo.jpg" alt="Person" width="96" height="96">
+                                     Remeo M. Castro| 09657854323
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Katrina.jpg" alt="Person" width="96" height="96">
-                                         Katrina T Obena| 09062586156
+                                        <img src="icons/Contact/Liffi.jpg" alt="Person" width="96" height="96">
+                                         Liffi M. Abubakar| 09673402656
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                         <img src="icons/Contact/kristine.jpg" alt="Person" width="96" height="96">
-                                        Kristine Joy G Villiano | 09301112368
+                                        <img src="icons/Contact/Edwin.jpg" alt="Person" width="96" height="96">
+                                         Edwin A. Magbalot| 09673905796
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Jayvee.jpg" alt="Person" width="96" height="96">
-                                        Jayvee T Mangalino | 09464092423
+                                         <img src="icons/Contact/Dennis.jpg" alt="Person" width="96" height="96">
+                                        Dennis F. Felipe | 09179867073
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Marjun.jpg" alt="Person" width="96" height="96">
-                                        Marjun A. Tayag | 09133456775
+                                        <img src="icons/Contact/Vergel.jpg" alt="Person" width="96" height="96">
+                                        Vergel P. Castro | 09264331270
                                     </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                        <img src="icons/Contact/Jocelyn.jpg" alt="Person" width="96" height="96">
+                                        Jocelyn D. Facunla | 09636147158
+                                    </div>
+                                 </div>
+                            </li>
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                        <img src="icons/Contact/Marcelina.jpg" alt="Person" width="96" height="96">
+                                        Marcelina A. Gacita | 09362076338
+                                </div>
+                             </div>
+                            </li>
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                        <img src="icons/Contact/Joey.jpg" alt="Person" width="96" height="96">
+                                        Joey F. Cabatbat | 0919629563
+                                 </div>
+                             </div>   
+                            </li>
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                        <img src="icons/Contact/Felisa.jpg" alt="Person" width="96" height="96">
+                                        Felisa C. Cabatbat | 09677760698
                                 </div>
                             </li>
                         </ul>
