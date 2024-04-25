@@ -8,11 +8,36 @@ $addedby = ''; // Add your value here
 // Call the create_resident() method with the $addedby parameter
 $residentbmis->create_resident($addedby);
 //$data = $bms->get_userdata();
+
+if(isset($_POST['add_resident']) && isset($_POST['email'])) {
+    // Generate OTP
+    $otp = rand(100000, 999999); // Generate a 6-digit OTP
+
+    // Send OTP via email
+    $to = $_POST['email'];
+    $subject = 'OTP for Registration';
+    $message = 'Your OTP for registration is: ' . $otp;
+    $headers = 'From: webyu@webyu.online'; // Replace with your email address
+
+    if(mail($to, $subject, $message, $headers)) {
+        // Set OTP in session to verify later
+        session_start();
+        $_SESSION['otp'] = $otp;
+        $_SESSION['email'] = $_POST['email'];
+
+        // Redirect user to OTP verification page
+        header('Location: otp_verification.php');
+        exit();
+    } else {
+        echo 'Failed to send OTP. Please try again.';
+    }
+}
 ?>
 
 <!DOCTYPE html> 
 <html> 
     <head> 
+        <link rel="shortcut icon" href="icons/yuson1.png" type="">
         <title> Barangay Yuson Information Management System </title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
@@ -34,17 +59,32 @@ $residentbmis->create_resident($addedby);
         position: absolute;
         z-index: 2;
         }
+        
+        .navbar-brand img {
+            max-height: 40px; /* Adjust the maximum height of the logo */
+            margin-right: 5px; /* Adjust margin to separate logo from text */
+              body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
+    #footer {
+        margin-top: auto;
+    }
     </style>
     
     <body >
 
         <!-- eto yung navbar -->
-        <nav class="navbar navbar-dark bg-primary sticky-top">
-            <a class="navbar-brand" style="color: white;">Barangay Yuson Information Management System</a>
+      <nav class="navbar navbar-dark bg-primary sticky-top">
+            <a class="navbar-brand" href="login.php">
+                <img src="icons/yuson1.png" alt="Yuson Logo"> <!-- Add your logo here -->
+                Barangay Yuson Information Management System
+            </a>
         </nav>
 
-        <div class="container-fluid"  style="margin-top: 4em;">
+    
             <div class="row">
                 <div class="col-12">
                     <h1 class="text-center">Registration Form</h1>
@@ -107,18 +147,6 @@ $residentbmis->create_resident($addedby);
         <div class="invalid-feedback">Please enter a valid email address ending with '@gmail.com'.</div>
     </div>
 </div>
-
-<script>
-    function validateEmail() {
-        var input = document.getElementsByName('email')[0];
-        var pattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-        if (pattern.test(input.value)) {
-            input.setCustomValidity('');
-        } else {
-            input.setCustomValidity("Please enter a valid email address ending with '@gmail.com'.");
-        }
-    }
-</script>
                                     
                                     <div class="col">
                                         <div class="form-group">
@@ -295,8 +323,9 @@ $residentbmis->create_resident($addedby);
                                 <br>
                                 
                                 <input type="hidden" class="form-control" name="role" value="resident">
-                                <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="index.php"> Back to Login</a>
-                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident"> Submit </button>
+                                <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="login.php"> Back to Login</a>
+                                <form action="index.php" method="post">
+                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="login.php"> Submit  </button>
                                 
                             </form>
                         </div>
@@ -348,6 +377,17 @@ $residentbmis->create_resident($addedby);
         document.getElementById('age').value = age;
     }
         </script>
+        <script>
+    function validateEmail() {
+        var input = document.getElementsByName('email')[0];
+        var pattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (pattern.test(input.value)) {
+            input.setCustomValidity('');
+        } else {
+            input.setCustomValidity("Please enter a valid email address ending with '@gmail.com'.");
+        }
+    }
+</script>
 
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
     </body>
