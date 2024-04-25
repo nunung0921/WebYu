@@ -11,6 +11,8 @@
 
 <html>
   <head> 
+
+   <link rel="shortcut icon" href="icons/yuson1.png" type="">
     <title> Barangay Yuson Information Management System </title>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
@@ -19,6 +21,12 @@
       <link href="bootstrap.css" rel="stylesheet" type="text/css">
       <!-- fontawesome icons --> 
       <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
+      
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
   
         <style>
 
@@ -364,7 +372,18 @@
             -webkit-transform: scale(1.4); /* Safari 3-8 */
             transform: scale(1.4); 
             }
-
+.logo {
+    max-height: 70px;
+    margin-right: 5px;
+}
+.info_section .info_col {
+  height: 200px; /* Set a fixed height for each row */
+  overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
+}
+.dropdown-menu {
+    min-width: 15rem;
+}
+   
         </style>
   </head>
 
@@ -380,6 +399,7 @@
         <!-- Eto yung navbar -->
 
         <nav class="navbar navbar-dark bg-primary sticky-top">
+            <img src="images/yuson1.png" alt="Yuson Logo" class="logo"  style="background-size: cover; background-repeat: no-repeat;">
             <a class="navbar-brand" href="resident_homepage.php">Barangay Yuson Information Management System</a>
             <a href="resident_homepage.php" data-toggle="tooltip" title="Home" class="btn1 bg-primary"><i class="fa fa-home fa-lg"></i></a>
             <a href="#down3" data-toggle="tooltip" title="Procedure" class="btn5 bg-primary"><i class="fa fa-question fa-lg"></i></a>
@@ -768,195 +788,104 @@
         <br>
 
         <!-- Footer -->
+        <footer>
 
-        <footer id="footer" class="bg-primary text-white d-flex-column text-center">
-            <hr class="mt-0">
+       <section class="info_section layout_padding2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-3 info_col">
+        <div class="info_contact">
+          <h4>
+            Contact Us
+          </h4>
+          <div class="contact_link_box">
+            <a href="https://www.google.com/maps/place/Yuson,+Nueva+Ecija/@15.6957075,120.7008206,15z/data=!3m1!4b1!4m6!3m5!1s0x3391327d2c1823c3:0x638916b810c7aaf!8m2!3d15.6957143!4d120.703379!16s%2Fg%2F11gbfbpd45?entry=ttu">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Yuson, Nueva Ejica
+              </span>
+            </a>
+            <a href="https://web.facebook.com/profile.php?id=61553042492757" target="_blank"><i class="fab fa-facebook-f"></i> Sanguniang Kabataan Ng Yuson</a>
+            <a href="mailto:skyuson01@gmail.com"><i class="far fa-envelope"></i> skyuson01@gmail.com</a>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-6 col-lg-3 info_col">
+        <div class="info_detail">
+          <h4>
+            Info
+          </h4>
+          <p>
+            Yuson is a barangay in the municipality of Guimba, in the province of Nueva Ecija. Its population as determined by the 2020 Census was 987.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-2 mx-auto info_col">
+        <div class="info_link_box">
+          <h4>
+            Services
+          </h4>
+          <div class="info_links">
+            <a class="active" href="services_business.php">
+              
+              Business Permit
+            </a>
+            <a class="" href="services_travelpermit.php">
+              
+              Travel Permit
+            </a>
+            <a class="" href="services_certofindigency.php">
+             
+              Indigency
+            </a>
 
-            <div class="text-center">
-                <h1>Services</h1>
-                <ul class="list-unstyled list-inline">
+            <a class="" href="services_certofres.php">
+              
+              Residency
+            </a>
+             <a class="" href="services_brgyclearance.php">
+              
+              Barangay Clearance
+            </a>
+             <a class="" href="services_blotter.php">
+              
+              Peace and Order
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 info_col">
+        <div class="info_contact">
+          <h4>
+            Developer
+          </h4>
+          <div class="contact_link_box">
+    
+            <a href="https://www.facebook.com/rafaeltosper21" target="_blank"><i class="fab fa-facebook-f"></i> Rafael M. Tosper Jr.</a>
+            <a href="https://www.facebook.com/katrina.t.obena" target="_blank"><i class="fab fa-facebook-f"></i> Katrina T. Obena</a>
+            <a href="https://www.facebook.com/profile.php?id=100007062167999&_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i> Marian C. Simon</a>
+            <a href="https://www.facebook.com/kristinejoy.villano.9" target="_blank"><i class="fab fa-facebook-f"></i> Kristine Joy G. Villano</a>
+            <a href="https://www.facebook.com/jayvee.mangalino.1" target="_blank"><i class="fab fa-facebook-f"></i> Jayvee T. Mangalino</a>
+            <a href="https://www.facebook.com/Marjuntayag11?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i> Marjun A. Tayag</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                &nbsp;
+<!-- end info section -->
 
-                <li class="list-inline-item">
-                    <a href="#!" class="sbtn btn-large mx-1" title="Documents">
-                    <i class="fas fa-file fa-2x"></i>
-                    </a>
-                </li>
-
-                &nbsp;
-
-                <li class="list-inline-item">
-                    <a href="#!" class="sbtn btn-large mx-1" title="Card">
-                    <i class="fas fa-id-card fa-2x"></i>
-                    </a>
-                </li>
-
-                &nbsp;
-
-                <li class="list-inline-item">
-                    <a href="#!" class="sbtn btn-large mx-1" title="Friend">
-                    <i class="fas fa-user-friends fa-2x"></i>
-                    </a>
-                </li>
-
-                &nbsp;
-
-                <li class="list-inline-item">
-                    <a href="#!" class="sbtn btn-large mx-1" title="Blotter">
-                    <i class="fas fa-user-shield fa-2x"></i>
-                    </a>
-                </li>
-
-                &nbsp;
-
-                <li class="list-inline-item">
-                    <a href="#!" class="sbtn btn-large mx-1" title="Contact">
-                    <i class="fas fa-phone fa-2x"></i>
-                    </a>
-                </li>
-                </ul>
-            </div>
-
-            <hr class="mb-0">
-
-            <!--Footer Links-->
-
-            <div class="container text-left text-md-center">
-                <div class="row">
-
-                    <!--First column-->
-
-                    <div class="col-md-3 mx-auto shfooter">
-                        <h5 class="my-2 font-weight-bold d-none d-md-block">Documentation</h5>
-                        <div class="d-md-none title" data-target="#Documentation" data-toggle="collapse">
-                            <div class="mt-3 font-weight-bold">Documentation
-                                <div class="float-right navbar-toggler">
-                                    <i class="fas fa-angle-down"></i>
-                                    <i class="fas fa-angle-up"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="list-unstyled collapse" id="Documentation">
-                            <li><a href="services_certofres.php">Certificate of Residency</a></li>
-                            <li><a href="services_brgyclearance.php">Barangay Clearance</a></li>
-                            <li><a href="services_certofindigency.php">Certificate of Indigency</a></li>
-                            <li><a href="services_business.php">Business Permit</a></li>
-                            <li><a href="services_brgyid.php">Barangay ID</a></li>
-                        </ul>
-                    </div>
-
-                    <!--/.First column-->
-
-                    <hr class="clearfix w-100 d-md-none mb-0">
-
-                    <!--Third column-->
-
-                    <div class="col-md-3 mx-auto shfooter">
-                        <h5 class="my-2 font-weight-bold d-none d-md-block">Other Services</h5>
-                        <div class="d-md-none title" data-target="#OtherServices" data-toggle="collapse">
-                            <div class="mt-3 font-weight-bold">Other Services
-                                <div class="float-right navbar-toggler">
-                                    <i class="fas fa-angle-down"></i>
-                                    <i class="fas fa-angle-up"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <ul class="list-unstyled collapse" id="OtherServices">
-                            <li><a href="services_blotter.php">Peace and Order</a></li>
-                        </ul>
-                    </div>
-
-                    <!--/.Third column-->
-
-                    <hr class="clearfix w-100 d-md-none mb-0">
- 
-                    <!--Fourth column-->
-
-                    <div class="col-md-3 mx-auto shfooter" id="down">
-                        <h5 class="my-2 font-weight-bold d-none d-md-block">Contact Us:</h5>
-                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
-                        <div class="mt-3 font-weight-bold">Contact Us:
-                            <div class="float-right navbar-toggler">
-                            <i class="fas fa-angle-down"></i>
-                            <i class="fas fa-angle-up"></i>
-                            </div>
-                        </div>
-                        </div>
-                         <ul class="list-unstyled collapse" id="Contact-Us">
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                       <img src="icons/Contact/Rafael.jpg" alt="Person" width="96" height="96">
-                                       HON. RENATO S. CONCEPTION SR. | BRGY. CAPTAIN
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/yanyan.jpg" alt="Person" width="96" height="96">
-                                         HON. EDWIN A. FACUNLA| SECRETARY
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Katrina.jpg" alt="Person" width="96" height="96">
-                                         HON. DAHREN L. CABTBAT| TREASURER
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                         <img src="icons/Contact/kristine.jpg" alt="Person" width="96" height="96">
-                                          HON. JOCELYN D. FACUNLA | COUNCILOR
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Jayvee.jpg" alt="Person" width="96" height="96">
-                                         HON. RODRIGO A. CABINIAN | COUNCILOR
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Marjun.jpg" alt="Person" width="96" height="96">
-                                         HON. DENNIS F. FELIPE | COUNCILOR
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                        <img src="icons/Contact/Marjun.jpg" alt="Person" width="96" height="96">
-                                         HON. EDWIN A. MAGBALOT | COUNCILOR
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-             <!--/.Footer Links-->
-
-            <hr class="mb-0">
-
-            <!--Copyright-->
-
-            <div class="py-3 text-center">
-                 2023 -
-                <script>
-                document.write(new Date().getFullYear())
-                </script> 
-                Barangay Yuson Information Management System
-            </div>
+<!-- footer section -->
+<section class="footer_section">
+  <div class="container">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved By
+      <a href="https://html.design/">Barangay Yuson Information Management System</a>
+    </p>
+  </div>
+</section>
         </footer>
 
         <script>
