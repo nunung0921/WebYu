@@ -342,7 +342,7 @@ if(isset($_POST['add_resident']) && isset($_POST['email'])) {
             <!--Copyright-->
 
             <div class="py-3 text-center">
-              2023 - 
+                2023 - 
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
@@ -392,4 +392,3 @@ if(isset($_POST['add_resident']) && isset($_POST['email'])) {
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
     </body>
 </html>
-
