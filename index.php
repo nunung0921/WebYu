@@ -1210,7 +1210,7 @@ nav {
       <center><h2 class="section__header">Barangay Officials</h2>
       <p class="section__description">
       A barangay councilor (Filipino: kagawad or konsehal) is an elected government official who is a member of the Sangguniang Barangay (Barangay Council) of a particular barangay. The barangay is the smallest political unit in the Philippines.
-      </p></center>
+      </p></center><br>
     <div class="table-responsive">
         <table class="table table-hover text-center table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead class="thead-light"> <!-- Use thead-light class for header styling -->
@@ -1547,7 +1547,7 @@ nav {
           <p>Biclatan Barangay Hall
 7WG8+QH6, Green Breeze Village, General Trias, Cavite</p></center>
 <br>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29764.41689857513!2d120.89564494764015!3d14.279164304934103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7fe85ac7b9e9%3A0x48fed9f90c1f68b7!2sBiclatan%20Barangay%20Hall!5e1!3m2!1sfil!2sph!4v1714840498332!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.237827872654!2d120.69341562388198!3d15.6859489180609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339133c9d1b6f1cd%3A0x9280b25e2e704eac!2sBrgy.%20Hall%20of%20Yuson!5e1!3m2!1sfil!2sph!4v1715253206913!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </section><br><br>
 
       <style>
