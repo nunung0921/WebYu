@@ -323,7 +323,7 @@ if(isset($_POST['add_resident']) && isset($_POST['email'])) {
                                 <br>
                                 
                                 <input type="hidden" class="form-control" name="role" value="resident">
-                                <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="login.php"> Back to Login</a>
+                                <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="index_login.php"> Back to Login</a>
                                 <form action="index.php" method="post">
                                 <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="login.php"> Submit  </button>
                                 
