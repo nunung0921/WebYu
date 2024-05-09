@@ -1207,8 +1207,8 @@ nav {
     </section>
 
     <section class="section__container testimonial__container" id="testimonial">
-      <h2 class="section__header">Barangay Officials</h2>
-      <center><p class="section__description">
+      <center><h2 class="section__header">Barangay Officials</h2>
+      <p class="section__description">
       A barangay councilor (Filipino: kagawad or konsehal) is an elected government official who is a member of the Sangguniang Barangay (Barangay Council) of a particular barangay. The barangay is the smallest political unit in the Philippines.
       </p></center>
     <div class="table-responsive">
