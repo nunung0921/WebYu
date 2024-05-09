@@ -1612,7 +1612,7 @@ nav {
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the second latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 1");
 
     // Execute the query
     $stmt->execute();
@@ -1668,7 +1668,7 @@ nav {
     require('classes/conn.php');
 
     // Prepare the SQL query to select the latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1");
 
     // Execute the query
     $stmt->execute();
@@ -1692,7 +1692,7 @@ nav {
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the second latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 1");
 
     // Execute the query
     $stmt->execute();
@@ -1716,7 +1716,7 @@ nav {
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the third latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 2");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 2");
 
     // Execute the query
     $stmt->execute();
