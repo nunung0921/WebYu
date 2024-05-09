@@ -376,7 +376,7 @@ a:hover{
         <div class="login-content">
         <form method="post" class="input-container">
                 <!--<img src="assets/goloo.png">-->
-                <h2 class="title">WebYu</h2>
+                <h2 class="title">WebYu Login Form</h2>
                 <div class="input-div one">
                    <div class="i">
                         <i class="fas fa-user"></i>
