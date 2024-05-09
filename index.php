@@ -90,7 +90,7 @@ header {
       rgba(0, 0, 0, 0.8),
       rgba(0, 0, 0, 0.2)
     ),
-    url("PHOTOJPG.jpg");
+    url("bg.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1591,15 +1591,15 @@ nav {
     <br><br><br><br><br><footer class="footer">
       <div class="section__container footer__container">
         <div class="footer__content">
-          <h4>Brgy Biclatan, <br>General Trias Cavite</h4>
+          <h4>Brgy Yuson, <br>Guimba Nueva Ecija</h4>
           <p>
           Yuson is a barangay in the municipality of Guimba, in the province of Nueva Ecija. Its population as determined by the 2020 Census was 987.
           </p>
         </div>
         <div class="footer__form">
            <ul class="footer__nav">
-          <li class="footer__link"><a>brgybiclatan@gmail.com</a></li>
-          <li class="footer__link"><a>046-509-1664</a></li>
+          <li class="footer__link"><a>skyuson1@gmail.com</a></li>
+          <li class="footer__link"><a>0995-265-0331</a></li>
         </ul>
         </div>
       </div>
