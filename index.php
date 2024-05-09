@@ -1141,7 +1141,7 @@ nav {
           ?>
       </div>
       <div class="choose__image">
-        <img src="assets/goloo1.png" alt="choose" />
+        <img src="icons/logong.jpg" alt="choose" />
       </div>
       <div class="choose__image">
         <img src="assets/goloo.png" alt="modern" class="modern__img-1" />
