@@ -1222,7 +1222,7 @@ nav {
 
                 try {
                     // Establish database connection
-                    $conn = new PDO('mysql:host=localhost;dbname=u792431185_bmis', 'u792431185_biclatan', 'brgyBiclatan24');
+                    $conn = new PDO('mysql:host=localhost;dbname=u813203284_bmis', 'u813203284_webyu', 'Webyu@2023');
 
                     // Set PDO error mode to exception
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
