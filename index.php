@@ -1581,7 +1581,87 @@ nav {
 
 
     <section class="section__container blog_container" id="blog">
-      <h2 class="section__header">Recent Activities</h2>
+      <h2 class="section__header">Activities</h2>
+      <div class="offer__grid">
+      <div class="offer__card">
+    <?php
+    require('classes/conn.php');
+
+    // Prepare the SQL query to select the latest activity
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1");
+
+    // Execute the query
+    $stmt->execute();
+
+    // Fetch the result
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        // Display the activity details
+        $filename = $result['image'];
+        echo '<img src="' . $filename . '" alt="Service Image">';
+        echo '<h4>' . $result['name'] . '</h4>';
+        echo '<p>' . $result['date'] . '</p>';
+    } else {
+        // Handle the case when no activity is found
+        echo 'No activity found.';
+    }
+    ?>
+</div>
+
+<div class="offer__card">
+    <?php
+    // Prepare the SQL query to select the second latest activity
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 1");
+
+    // Execute the query
+    $stmt->execute();
+
+    // Fetch the result
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        // Display the activity details
+        $filename = $result['image'];
+        echo '<img src="' . $filename . '" alt="Service Image">';
+        echo '<h4>' . $result['name'] . '</h4>';
+        echo '<p>' . $result['date'] . '</p>';
+    } else {
+        // Handle the case when no activity is found
+        echo 'No activity found.';
+    }
+    ?>
+</div>
+
+<div class="offer__card">
+    <?php
+    // Prepare the SQL query to select the third latest activity
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 2");
+
+    // Execute the query
+    $stmt->execute();
+
+    // Fetch the result
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        // Display the activity details
+        $filename = $result['image'];
+        echo '<img src="' . $filename . '" alt="Service Image">';
+        echo '<h4>' . $result['name'] . '</h4>';
+        echo '<p>' . $result['date'] . '</p>';
+    } else {
+        // Handle the case when no activity is found
+        echo 'No activity found.';
+    }
+    ?>
+</div>
+
+      </div>
+    </section>
+
+    <section class="section__container blog_container" id="blog">
+      <h2 class="section__header">Activities of Sangguniang Kabataan</h2>
       <div class="offer__grid">
       <div class="offer__card">
     <?php
