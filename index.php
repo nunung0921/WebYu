@@ -1274,7 +1274,7 @@ nav {
     require('classes/conn.php');
 
     // Assuming $id_services contains the ID of the service
-    $id_services = 4; // Example service ID
+    $id_services = 1; // Example service ID
 
     // Query the database to fetch the filename of the image associated with the service ID
     $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
