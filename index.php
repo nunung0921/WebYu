@@ -1297,9 +1297,9 @@ nav {
 
     <div>
         <div>
-            <br><h4>BUSINESS CLEARANCE</h4>
+            <br><h4>BUSINESS PERMIT</h4>
             <p>
-                A business clearance is a permit allowing a business to operate legally within a specific area by meeting local regulations and requirements.
+            Before you can start operating your business in the Philippines, you need to secure a Mayor’s Permit or Business Permit from the Local Government Unit (LGU) where your company office is located.
             </p>
         </div>
     </div>
@@ -1331,9 +1331,9 @@ nav {
           ?>
           <div>
             <div>
-              <br><h4>BARANGAY CLEARANCE</h4>
+              <br><h4>TRAVEL PERMIT</h4>
               <p>
-                A barangay clearance is a document certifying a person's residence and good standing within a local community in the Philippines.
+              A travel document is issued to a Filipino citizen being sent back to the Philippines or who needs to urgently travel home but is unable to fully comply with the requirements for the issuance of a regular passport.
               </p>
             </div>
             
@@ -1368,7 +1368,7 @@ nav {
             <div>
               <br><h4>CERTIFICATE OF INDIGENCY</h4>
               <p>
-                A document issued by a local government unit certifying that an individual or family is financially disadvantaged, often required for availing of social services or benefits.
+              A Certificate of Indigency or a Certificate of Low Income is a document that are sometimes required by the Philippine government or a private institution as proof of an individual's financial situation.
               </p>
             </div>
             
@@ -1403,7 +1403,75 @@ nav {
             <div>
               <br><h4>CERTIFICATE OF RESIDENCY</h4>
               <p>
-                A Certificate of Residency is an official document confirming an individual's address within a specific area, often required for government services or local applications.
+              Certificate of Residency is one the Philippine government issued identification documents needed for many important business, job, or personal transactions.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="service__card">
+          <?php
+            require('classes/conn.php');
+
+            // Assuming $id_services contains the ID of the service
+            $id_services = 2; // Example service ID
+
+            // Query the database to fetch the filename of the image associated with the service ID
+            $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id', $id_services);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Output the filename of the image
+            if ($row) {
+                $filename = $row['image_service'];
+
+                // Construct the <img> tag to display the image
+                echo '<img src="' . $filename . '" alt="Service Image">';
+            } else {
+                echo "No image found for service ID $id_services";
+            }
+          ?>
+          <div>
+            <div>
+              <br><h4>BARANGAY CLEARANCE</h4>
+              <p>
+              A Barangay Clearance is a document issued by the Barangay Secretary and signed by the Barangay Captain stating that you are a living at that specific place and you are of good moral character.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="service__card">
+          <?php
+            require('classes/conn.php');
+
+            // Assuming $id_services contains the ID of the service
+            $id_services = 2; // Example service ID
+
+            // Query the database to fetch the filename of the image associated with the service ID
+            $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id', $id_services);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Output the filename of the image
+            if ($row) {
+                $filename = $row['image_service'];
+
+                // Construct the <img> tag to display the image
+                echo '<img src="' . $filename . '" alt="Service Image">';
+            } else {
+                echo "No image found for service ID $id_services";
+            }
+          ?>
+          <div>
+            <div>
+              <br><h4>PEACE AND ORDER</h4>
+              <p>
+              Blotter reports are important because they serve as written records of incidents and activities that occur within a police station or jurisdiction. They provide a detailed account of crimes, arrests, and other incidents.
               </p>
             </div>
           </div>
