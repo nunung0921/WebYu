@@ -90,7 +90,7 @@ header {
       rgba(0, 0, 0, 0.8),
       rgba(0, 0, 0, 0.2)
     ),
-    url("bg.jpg");
+    url("icons/bg.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
