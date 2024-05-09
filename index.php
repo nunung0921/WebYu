@@ -1228,7 +1228,7 @@ nav {
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     // Prepare and execute SQL query
-                    $stmt = $conn->prepare("SELECT name, position FROM tbl_officials");
+                    $stmt = $conn->prepare("SELECT name, position, avatar FROM tbl_officials");
                     $stmt->execute();
 
                     // Check if there are rows returned
