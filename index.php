@@ -1144,7 +1144,7 @@ nav {
         <img src="icons/logong.jpg" alt="choose" />
       </div>
       <div class="choose__image">
-        <img src="assets/goloo.png" alt="modern" class="modern__img-1" />
+        <img src="icons/yuson1.png" alt="modern" class="modern__img-1" />
       </div>
       <div class="choose__content">
         <br><h2 class="section__header">
