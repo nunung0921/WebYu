@@ -6,7 +6,7 @@
     $bmis->validate_admin();
     $servicesbmis->create_service();
     $view = $servicesbmis->view_service();
-    $upservices = $servicesbmis->update_service();
+    $servicesbmis->update_service();
     $servicesbmis->delete_service();
 ?>
 
