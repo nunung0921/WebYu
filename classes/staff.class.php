@@ -289,7 +289,7 @@
                 
                     $connection = $this->openConn();
                     $stmt = $connection->prepare("UPDATE tbl_officials SET name =?, 
-                    position = ?, termstart =?, termend =? avatar =? WHERE id_official = ?");
+                    position = ?, termstart =?, termend =?, avatar =? WHERE id_official = ?");
                     $stmt->execute([ $name, $position, $termstart, $termend, $avatar, $id_official]);
                    
                     $message2 = "Official's Information Updated";
