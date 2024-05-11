@@ -39,7 +39,7 @@
 
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="mb-4 text-center">Barangay Activities</h1>
+    <h1 class="mb-4 text-center">Sangguiang Kabataan Activities</h1>
     <hr>
     <br>
     <div class="col-md-12">
