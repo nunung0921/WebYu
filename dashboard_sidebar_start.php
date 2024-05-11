@@ -63,10 +63,10 @@
                 User Management
             </div>
 
-            <li class="nav-item">
+            <li id="request" class="nav-item">
                 <a class="nav-link" href="admn_resident_request.php">
-                    <i class="fas fa-user-tie"></i>
-                    <span>Pending of Approvals</span></a>
+                    <i class="fas fa-paper-plane"></i>
+                    <span> Pending of Approvals</span></a>
             </li>
 
             <li class="nav-item">
