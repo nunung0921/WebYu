@@ -6,7 +6,7 @@
     $bmis->validate_admin();
     $infobmis->create_activity();
     $view = $infobmis->view_activity();
-    $upservices = $infobmis->update_activity();
+    $infobmis->update_activity();
     $infobmis->delete_activity();
 ?>
 

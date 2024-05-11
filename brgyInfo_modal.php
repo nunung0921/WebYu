@@ -6,7 +6,7 @@
     //$bmis->validate_admin();
     $view = $infobmis->view_brgy_info();
     $infobmis->create_brgy_info();
-    $upinfo = $infobmis->update_brgy_info();
+    $infobmis->update_brgy_info();
     $infobmis->delete_brgy_info();
     $id_brgy_info = $_GET['id_brgy_info'];
     $info = $infobmis->get_brgy_info($id_brgy_info);
