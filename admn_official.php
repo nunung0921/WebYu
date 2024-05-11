@@ -6,7 +6,7 @@
     $bmis->validate_admin();
     $staffbmis->create_official();
     $view = $staffbmis->view_official();
-    $upstaff = $staffbmis->update_official();
+    $staffbmis->update_official();
     $staffbmis->delete_official();
     $id_official = $_GET['id_official'];
     $staff = $staffbmis->get_single_official($id_official);
