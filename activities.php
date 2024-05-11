@@ -126,7 +126,7 @@
                             </td>
                             <td>
                                 <form action="" onsubmit="return confirmAction();" method="post">
-                                    <a href="update_activity_form.php?id_activity=<?= $view['id_activity']; ?>" class="btn btn-success" style="width: 100px; font-size: 15px; border-radius:5px; margin-bottom: 2px;"> Update </a>-->
+                                    <!--<a href="update_activity_form.php?id_activity=<?= $view['id_activity']; ?>" class="btn btn-success" style="width: 100px; font-size: 15px; border-radius:5px; margin-bottom: 2px;"> Update </a>-->
                                     <input type="hidden" name="id_activity" value="<?= $view['id_activity']; ?>">
                                     <button class="btn btn-danger" type="submit" name="delete_activity" style="width: 100px; font-size: 15px; border-radius:5px;"> Delete </button>
                                 </form>
