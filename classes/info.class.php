@@ -113,7 +113,7 @@ public function update_brgy_info() {
             $date = ($_POST['date']);
 
             if (!empty($_FILES["image"]["name"])) {
-            $target_dir = "uploads/";
+            $target_dir = "icons/";
             $target_file = $target_dir . basename($_FILES["image"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
