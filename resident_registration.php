@@ -1,6 +1,6 @@
 <?php 
 require('classes/resident.class.php');
-$residentbmis = new ResidentClass(); // Instantiate the ResidentClass object
+/*$residentbmis = new ResidentClass(); // Instantiate the ResidentClass object
 
 // Assuming $addedby contains the appropriate value
 $addedby = ''; // Add your value here
@@ -9,7 +9,7 @@ $addedby = ''; // Add your value here
 $residentbmis->create_resident($addedby);
 //$data = $bms->get_userdata();
 
-if(isset($_POST['add_resident']) && isset($_POST['email'])) {
+/*if(isset($_POST['add_resident']) && isset($_POST['email'])) {
     // Generate OTP
     $otp = rand(100000, 999999); // Generate a 6-digit OTP
 
@@ -31,7 +31,7 @@ if(isset($_POST['add_resident']) && isset($_POST['email'])) {
     } else {
         echo 'Failed to send OTP. Please try again.';
     }
-}
+}*/
 ?>
 
 <!DOCTYPE html> 
@@ -325,7 +325,7 @@ if(isset($_POST['add_resident']) && isset($_POST['email'])) {
                                 <input type="hidden" class="form-control" name="role" value="resident">
                                 <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="index_login.php"> Back to Login</a>
                                 <form action="index.php" method="post">
-                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="login.php"> Submit  </button>
+                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="Index_login.php"> Submit  </button>
                                 
                             </form>
                         </div>
