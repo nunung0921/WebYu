@@ -176,6 +176,6 @@ class SkClass extends BMISClass {
 
 }
 
-$infobmis = new InfoClass();
+$skbmis = new SkClass();
 
 ?>

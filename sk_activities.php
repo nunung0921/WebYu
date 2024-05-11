@@ -4,10 +4,10 @@
     require 'classes/sk.class.php';
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
-    $infobmis->create_activity();
-    $view = $infobmis->view_activity();
-    $infobmis->update_activity();
-    $infobmis->delete_activity();
+    $skbmis->create_activity();
+    $view = $skbmis->view_activity();
+    $skbmis->update_activity();
+    $skbmis->delete_activity();
 ?>
 
 <?php include 'dashboard_sidebar_start.php'; ?>
