@@ -54,7 +54,7 @@ ini_set('display_errors', 1);
                             </div>
                             <div class="col">
                                 <label class="mtop">Date: </label>
-                                            <input type="date" class="form-control" name="date" required max="<?php echo date('Y-m-d'); ?>" value="<?= $info['date'];?>" required>
+                                            <input type="date" class="form-control" name="date" value="<?= $info['date'];?>" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
