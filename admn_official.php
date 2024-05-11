@@ -168,7 +168,7 @@
                         <?php foreach($view as $view) {?>
                             <tr>
                                 <td> <?= $view['id_official'];?> </td>
-                                <td> <img src="icons/<?= $view['avatar']; ?>" alt="Avatar"> </td>
+                                <td> <img src="icons/<?= $view['avatar']; ?>" alt="Avatar" style="height: 100px; width: 100px;"> </td>
                                 <td> <?= $view['name'];?> </td>
                                 <td> <?= $view['position'];?> </td>
                                 <td> <?= $view['termstart'];?> </td>
