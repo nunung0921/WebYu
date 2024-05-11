@@ -110,7 +110,7 @@
                     <th style="width: 20%;"> Title </th>
                     <th style="width: 20%;"> Date </th>
                     <th style="width: 10%;"> Image </th>
-                    <th style="width: 20%;"> Actions </th>
+                    <!--<th style="width: 20%;"> Actions </th>-->
                 </tr>
             </thead>
             <tbody>
