@@ -1,5 +1,6 @@
 <?php 
 require('classes/resident.class.php');
+$residentbmis->create_resident();
 /*$residentbmis = new ResidentClass(); // Instantiate the ResidentClass object
 
 // Assuming $addedby contains the appropriate value
@@ -325,7 +326,7 @@ $residentbmis->create_resident($addedby);
                                 <input type="hidden" class="form-control" name="role" value="resident">
                                 <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="index_login.php"> Back to Login</a>
                                 <form action="index.php" method="post">
-                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="Index_login.php"> Submit  </button>
+                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="index_login.php"> Submit  </button>
                                 
                             </form>
                         </div>
