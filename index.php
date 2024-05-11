@@ -1689,6 +1689,7 @@ nav {
     ?>
 </div>
 
+
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the second latest activity
