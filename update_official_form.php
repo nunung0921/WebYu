@@ -75,7 +75,7 @@ ini_set('display_errors', 1);
                     <center><button class="btn btn-primary" type="submit" name="update_official" style="width: 120px; font-size: 18px; border-radius:5px;">
                         Update 
                     </button>
-                    <a href="admn_officials.php" class="btn btn-danger" style="width: 120px; font-size: 18px; border-radius:5px;"> Back </a></center>
+                    <a href="admn_official.php" class="btn btn-danger" style="width: 120px; font-size: 18px; border-radius:5px;"> Back </a></center>
                 </form>         
             </div>
         </div>

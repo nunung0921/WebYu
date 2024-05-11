@@ -295,7 +295,8 @@
                     $message2 = "Official's Information Updated";
     
                     echo "<script type='text/javascript'>alert('$message2');</script>";
-                    header('refresh:0');
+                    header('Location: admn_officials.php');
+                    exit;
 
             }
         }
