@@ -152,7 +152,23 @@
                     <span>Peace and Order Report</span></a>
             </li>
 
-            
+            <div class="sidebar-heading">
+                Settings
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="activities.php">
+                    <i class="fas fa-info-circle"></i>
+                    <span> Barangay Activities</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="brgyInfo_modal.php">
+                    <i class="fas fa-info-circle"></i>
+                    <span> Barangay Info</span></a>
+            </li>
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
