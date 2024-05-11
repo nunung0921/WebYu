@@ -685,7 +685,7 @@ if($hashed_old_password !== $result['password']) {
         $stmt->execute();
         $pwdcount = $stmt->fetchColumn();
         return $pwdcount;
-    }*/
+    }
     public function count_single_parent() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE single_parent = 'yes' and request_status = 'approved'");
@@ -732,7 +732,7 @@ if($hashed_old_password !== $result['password']) {
         $stmt->execute();
         $pregnancycount = $stmt->fetchColumn();
         return $pregnancycount;
-    }
+    }*/
     public function count_residency() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_rescert");
