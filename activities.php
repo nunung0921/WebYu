@@ -122,7 +122,7 @@
                             <td> <?= $view['name']; ?> </td>
                             <td> <?= $view['date']; ?> </td>
                             <td>
-                                <img src="icons/<?= $view['image']; ?>" alt="Image" style="width: 180px; height: 100px;">
+                                <img src="<?= $view['image']; ?>" alt="Image" style="width: 180px; height: 100px;">
                             </td>
                             <td>
                                 <form action="" onsubmit="return confirmAction();" method="post">
