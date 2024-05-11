@@ -238,7 +238,8 @@ public function update_brgy_info() {
         
         $message = "Activity Updated";
         echo "<script type='text/javascript'>alert('$message');</script>";
-        header('refresh:0');
+        header('Location: activities.php');
+        exit;
     }
 }
 
