@@ -1,12 +1,12 @@
 <?php
-    ini_set('display_errors', 0);
+    ini_set('display_errors', 1);
     error_reporting(E_ALL ^ E_WARNING);
     require 'classes/info.class.php';
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
     $infobmis->create_activity();
     $view = $infobmis->view_activity();
-    $upservices = $infobmis->update_activity();
+    $infobmis->update_activity();
     $infobmis->delete_activity();
 ?>
 
@@ -126,8 +126,8 @@
                             </td>
                             <td>
                                 <form action="" onsubmit="return confirmAction();" method="post">
-                                    <a href="update_activity_form.php" class="btn btn-success" style="width: 100px; font-size: 15px; border-radius:5px; margin-bottom: 2px;"> Update </a>
-                                    <!--<input type="hidden" name="id_activity" value="<?= $view['id_activity']; ?>">-->
+                                    <a href="update_activity_form.php?id_activity=<?= $view['id_activity']; ?>" class="btn btn-success" style="width: 100px; font-size: 15px; border-radius:5px; margin-bottom: 2px;"> Update </a>
+                                    <input type="hidden" name="id_activity" value="<?= $view['id_activity']; ?>">
                                     <button class="btn btn-danger" type="submit" name="delete_activity" style="width: 100px; font-size: 15px; border-radius:5px;"> Delete </button>
                                 </form>
                                 <script>
