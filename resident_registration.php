@@ -324,10 +324,8 @@ $residentbmis->create_resident($addedby);
                                 <br>
                                 
                                 <input type="hidden" class="form-control" name="role" value="resident">
-                                <a style="width: 130px; margin-left:35%;" class="btn btn-danger" href="index_login.php"> Back to Login</a>
-                                <form action="index.php" method="post">
-                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident" href="index_login.php"> Submit  </button>
-                                
+                                <button style="width: 130px;" class="btn btn-primary" type="submit" name="add_resident"> Submit  </button>
+                                <a style="width: 130px;" class="btn btn-danger" href="index_login.php"> Back to Login</a>
                             </form>
                         </div>
                     </div> 
