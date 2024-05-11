@@ -1,12 +1,12 @@
 <?php
-    ini_set('display_errors', 1);
+    ini_set('display_errors', 0);
     error_reporting(E_ALL ^ E_WARNING);
     require 'classes/info.class.php';
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
     $infobmis->create_activity();
     $view = $infobmis->view_activity();
-    $infobmis->update_activity();
+    $upservices = $infobmis->update_activity();
     $infobmis->delete_activity();
 ?>
 
