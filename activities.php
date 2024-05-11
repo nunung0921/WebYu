@@ -75,7 +75,7 @@
                             <div class="col">
                                 <div class="form-group">
                                             <label class="mtop">Date: </label>
-                                            <input type="date" class="form-control" name="date" required max="<?php echo date('Y-m-d'); ?>" required>
+                                            <input type="date" class="form-control" name="date" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
