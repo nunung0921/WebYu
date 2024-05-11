@@ -56,6 +56,12 @@
                 User Management
             </div>
 
+            <li class="nav-item">
+                <a class="nav-link" href="admn_resident_request.php">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Pending of Approvals</span></a>
+            </li>
+
             <!-- Barangay Staff CRUD -->
             <li class="nav-item">
                 <a class="nav-link" href="admn_staff_crud.php">
