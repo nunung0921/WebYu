@@ -14,7 +14,7 @@ class InfoClass extends BMISClass {
             $openhours = $_POST['openhours'];
             $background = $_POST['background'];
             $vision = $_POST['vision'];
-            $mision = $_POST['mission'];
+            $mission = $_POST['mission'];
 
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO brgy_info (`brgy`,`municipal`,`province`,`email`, `contact`,`openhours`,`background`, `vision`,`mission`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -87,7 +87,7 @@ public function update_brgy_info() {
         if(isset($_POST['delete_services'])) {
             $connection = $this->openConn();
             $stmt = $connection->prepare("DELETE FROM brgy_info where id_brgy_info = ?");
-            $stmt->execute([$id_services]);
+            $stmt->execute([$id_brgy_info]);
             
             $message2 = "Barangay Information Deleted";
             
