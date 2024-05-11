@@ -21,6 +21,13 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
 </head>
+<style>
+
+.clicked {
+    color: white;
+    background-color: #023EBA !important; /* Change to desired background color */
+}
+</style>
 
 <body id="page-top">
 
@@ -80,6 +87,12 @@
                 <a class="nav-link" href="admn_resident_crud.php">
                     <i class="fas fa-users"></i>
                     <span>Barangay Residents</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="list_of_services.php">
+                    <i class="fas fa-list"></i>
+                    <span> List of Services</span></a>
             </li>
 
             <!-- Divider -->
@@ -216,3 +229,18 @@
                 </nav>
                 
                 <!-- End of Topbar -->
+<script>
+    // Get the current URL
+    var url = window.location.href;
+    // Get the sidebar items
+    var sidebarItems = document.querySelectorAll('.nav-item');
+
+    // Loop through each sidebar item
+    sidebarItems.forEach(function(item) {
+        // Check if the item's link matches the current URL
+        if (item.querySelector('a').href === url) {
+            // Add the 'clicked' class to the item
+            item.classList.add('clicked');
+        }
+    });
+</script>
