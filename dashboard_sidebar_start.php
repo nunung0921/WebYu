@@ -163,6 +163,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="sk_activities.php">
+                    <i class="fas fa-info-circle"></i>
+                    <span> Sk Activities</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="brgyInfo_modal.php">
                     <i class="fas fa-info-circle"></i>
                     <span> Barangay Info</span></a>
