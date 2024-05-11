@@ -32,7 +32,7 @@ ini_set('display_errors', 1);
         <div class="card"> 
             <div class="card-header bg-primary text-white"> Update Official's Data </div>
             <div class="card-body"> 
-                < method="post">
+                <form method="post">
                     <div class="row">
                         <div class="col">
                             <label class="form-group">Full Name:</label>
