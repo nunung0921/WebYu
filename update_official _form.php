@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
     $userdetails = $bmis->get_userdata();
     //$bmis->validate_admin();
     $view = $staffbmis->view_official();
-    $upstaff = $staffbmis->update_official();
+    $staffbmis->update_official();
     $staffbmis->delete_official();
     $id_official = $_GET['id_official'];
     $staff = $staffbmis->get_single_official($id_official);
