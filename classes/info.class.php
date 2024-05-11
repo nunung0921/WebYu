@@ -194,7 +194,7 @@ public function update_brgy_info() {
             $image = $_FILES['image']['name']; // Get the filename
             
             // Move the uploaded file to a permanent location
-            $target_dir = 'uploads/'; // Directory where uploaded images will be stored
+            $target_dir = 'icons/'; // Directory where uploaded images will be stored
             
             // Ensure the directory exists
             if (!file_exists($target_dir)) {
