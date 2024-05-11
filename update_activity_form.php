@@ -13,7 +13,7 @@ ini_set('display_errors', 1);
     $view = $infobmis->view_activity();
     
     // Call update_service method
-    $infobmis->update_activity();
+    $upservices = $infobmis->update_activity();
     
     // Call delete_service method
     $infobmis->delete_activity();
