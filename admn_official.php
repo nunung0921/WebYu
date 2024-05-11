@@ -71,21 +71,20 @@
                                 <div class="row"> 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="avatar">Choose Image:</label>
-                                            <input type="file" class="form-control-file" id="avatar" name="avatar" accept="image/*" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
                                             <label for="name">Fullname:</label>
                                             <input name="name" type="text" class="form-control" placeholder="Enter Official's name" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="avatar">Choose Image:</label>
+                                            <input type="file" class="form-control-file" id="avatar" name="avatar" accept="image/*" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
                                 </div>
 <hr>
                                 <div class="row">
