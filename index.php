@@ -1241,7 +1241,7 @@ nav {
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                             <tr>
-                                <td><img src="<?= $row['avatar']; ?>" alt="Avatar"></td>
+                            <td><img src="<?= $row['avatar']; ?>" alt="Avatar"></td>
                                 <td><?= $row['name']; ?></td>
                                 <td><?= $row['position']; ?></td>
                             </tr>
