@@ -1214,10 +1214,11 @@ nav {
     <div class="table-responsive">
         <table class="table table-hover text-center table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead class="thead-light"> <!-- Use thead-light class for header styling -->
-                <!--<tr>
+                <tr>
+                  <th style="width: 50%;">Photo</th>
                     <th style="width: 50%;">Full Name</th>
                     <th style="width: 50%;">Position</th>
-                </tr>-->
+                </tr>
             </thead>
             <tbody>
                 <?php
@@ -1240,7 +1241,7 @@ nav {
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                             <tr>
-                                <td><?= $row['avatar']; ?></td>
+                                <td><img src="<?= $row['avatar']; ?>" alt="Avatar"></td>
                                 <td><?= $row['name']; ?></td>
                                 <td><?= $row['position']; ?></td>
                             </tr>
