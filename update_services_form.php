@@ -13,7 +13,7 @@ ini_set('display_errors', 1);
     $view = $servicesbmis->view_service();
     
     // Call update_service method
-    $upservices = $servicesbmis->update_service();
+    $servicesbmis->update_service();
     
     // Call delete_service method
     $servicesbmis->delete_service();
