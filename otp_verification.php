@@ -65,6 +65,8 @@
 </body>
 </html>
 <?php
+require('classes/resident.class.php');
+$residentbmis->create_resident();
 session_start();
 
 // Check if OTP verification is successful
@@ -81,7 +83,7 @@ if(isset($_POST['verify_otp'])) {
                 function showAlert() {
                     // Create a div element for the alert
                     var alertBox = document.createElement("div");
-                    alertBox.innerHTML = "<p style=\"text-align: center;\">OTP verification successful!</p><button onclick=\"continueToLogin()\">Continue to Login</button>";
+                    alertBox.innerHTML = "<p style=\"text-align: center;\">OTP verification successful!</p><button onclick=\"continueToLogin()\" name="add_resident">Continue to Login</button>";
                     alertBox.style.position = "fixed";
                     alertBox.style.top = "50%";
                     alertBox.style.left = "50%";
@@ -95,7 +97,7 @@ if(isset($_POST['verify_otp'])) {
 
                 // Define a function to redirect to login.php
                 function continueToLogin() {
-                    window.location.href = "login.php";
+                    window.location.href = "index_login.php";
                 }
 
                 // Call the function to show the custom alert
