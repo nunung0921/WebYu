@@ -24,7 +24,7 @@ $rescountsenior = $residentbmis->count_resident_senior();
 // Count different requests and approvals
 $reqscount = $residentbmis->count_approval();
 $minorcount = $residentbmis->count_minor();
-$pwdcount = $residentbmis->count_pwd();
+//$pwdcount = $residentbmis->count_pwd();
 $spcount = $residentbmis->count_single_parent();
 $fourpscount = $residentbmis->count_fourps();
 $indigentcount = $residentbmis->count_indigent();
