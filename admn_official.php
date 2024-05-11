@@ -69,7 +69,14 @@
                             <form method="post">
 
                                 <div class="row"> 
-
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="avatar">Choose Image:</label>
+                                            <input type="file" class="form-control-file" id="avatar" name="avatar" accept="image/*" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="name">Fullname:</label>
@@ -147,6 +154,7 @@
                 <thead class="alert-info"> 
                     <tr>
                         <th style="width: 3%;"> No. </th>
+                        <th style="width: 17%;"> Photo </th>
                         <th style="width: 17%;"> Full Name </th>
                         <th style="width: 10%;"> Position </th>
                         <th style="width: 8%;"> Term Started </th>
@@ -160,6 +168,7 @@
                         <?php foreach($view as $view) {?>
                             <tr>
                                 <td> <?= $view['id_official'];?> </td>
+                                <td> <?= $view['avatar'];?> </td>
                                 <td> <?= $view['name'];?> </td>
                                 <td> <?= $view['position'];?> </td>
                                 <td> <?= $view['termstart'];?> </td>

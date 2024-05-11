@@ -242,15 +242,16 @@
         public function create_official() {
 
             if(isset($_POST['add_official'])) {
+                $avatar = $_POST['avatar'];
                 $name = $_POST['name'];
                 $position = ($_POST['position']);
                 $termstart = $_POST['termstart'];
                 $termend = $_POST['termend'];
 
                     $connection = $this->openConn();
-                    $stmt = $connection->prepare("INSERT INTO tbl_officials (`name`,`position`,`termstart`,`termend`) VALUES (?, ?, ?, ?)");
+                    $stmt = $connection->prepare("INSERT INTO tbl_officials (`avatar`, `name`,`position`,`termstart`,`termend`) VALUES (?, ?, ?, ?, ?)");
     
-                    $stmt->Execute([$name, $position, $termstart, $termend]);
+                    $stmt->Execute([$avatar, $name, $position, $termstart, $termend]);
                     $message2 = "New Official Adedd";
     
                     echo "<script type='text/javascript'>alert('$message2');</script>";
