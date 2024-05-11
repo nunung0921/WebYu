@@ -90,7 +90,7 @@
 
 
                 <div class="col-md-12">
-                    <form method="POST" action="">
+                    <!--<form method="POST" action="">
                         <div class="input-icons" >
                             <i class="fa fa-search icon"></i>
                             <input type="search" class="form-control search" name="keyword" style="border-radius: 30px;" value="" required=""/>
@@ -98,9 +98,8 @@
                             <center><button class="btn btn-success" name="search_resident" style="width: 70px; font-size: 14px; border-radius:5px;">Search</button>
                             <a href="admn_resident_crud.php" class="btn btn-info" style="width: 70px; font-size: 14px; border-radius:5px;">Reload</a></center>
                         
-                    </form>
+                    </form>-->
                     </div>
-                    <br>
                 <table class="table table-hover table-bordered text-center table-responsive">
                 <thead class="alert-info">
                     <tr>
