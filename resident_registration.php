@@ -1,4 +1,7 @@
 <?php 
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require('classes/resident.class.php');
 $residentbmis->create_resident();
 /*$residentbmis = new ResidentClass(); // Instantiate the ResidentClass object

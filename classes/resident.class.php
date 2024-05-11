@@ -43,7 +43,7 @@ public function create_resident() {
 
             try {
                 // Prepare the SQL query
-                $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
                 // Bind parameters and execute the query
                 $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $family_role, $role, $request_status]);
@@ -69,7 +69,7 @@ public function create_resident() {
 
                 try {
                     // Prepare the SQL query
-                    $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
                     // Bind parameters and execute the query
                     $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $family_role, $role, $request_status]);
