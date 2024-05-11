@@ -1,5 +1,5 @@
-    <?php
-        ini_set('display_errors',0);
+<?php
+        ini_set('display_errors',1);
         error_reporting(E_ALL ^ E_WARNING);
         include('classes/staff.class.php');
         include('classes/resident.class.php');
@@ -22,7 +22,7 @@
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
         $upstaff = $residentbmis->update_resident();
-        $residentbmis->delete_resident();
+        $residentbmis->reject_request();
         $id_resident = $_GET['id_resident'];
     ?>
 
@@ -38,7 +38,7 @@
             <meta name="description" content="">
             <meta name="author" content="">
 
-            <title>Barangay Yuson Information Management System</title>
+            <title>Barangay Yuson Information Management qSystem</title>
 
             <!-- Custom fonts for this template-->
             <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -118,13 +118,6 @@
                         <th> Nationality </th>
                         <th> Family Head </th>
                         <th> Registered Voter </th>
-                        <th> PWD </th>
-                        <th> Indigent </th>
-                        <th> Single Parent </th>
-                        <th> Malnourished </th>
-                        <th> 4Ps </th>
-                        <th> Vaccinated </th>
-                        <th> Pregnant </th>
 
                     </tr>
                 </thead>
@@ -134,11 +127,27 @@
                                     <?php foreach($view as $view) {?>
                                         <tr>
                                             <td>
-                                                <form method="POST" action="">
-                                                    <button type="submit" name="approve_request" class="btn btn-primary">Approve</button>
-                                                    <!-- Use a hidden input to pass the id_resident -->
+                                                <form method="POST" action="" onsubmit="return confirmAction();">
                                                     <input type="hidden" name="id_resident" value="<?= $view['id_resident']; ?>">
+                                                    <button type="submit" name="approve_request" class="btn btn-primary" style="margin-bottom: 10px;">Approve</button>
+                                                    <button type="submit" name="reject_request" class="btn btn-danger" style="width: 85px;">Reject</button>
+                                                    <!-- Use a hidden input to pass the id_resident -->
+                                                    
                                                 </form>
+                                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                                             </td>
                                             <td> <?= $view['email'];?> </td>
                                             <td> <?= $view['lname'];?> </td>
@@ -153,13 +162,6 @@
                                             <td> <?= $view['nationality'];?> </td>
                                             <td> <?= $view['family_role'];?> </td>
                                             <td> <?= $view['voter'];?> </td>
-                                            <td> <?= $view['pwd'];?> </td>
-                                            <td> <?= $view['indigent'];?> </td>  
-                                            <td> <?= $view['single_parent'];?> </td>
-                                            <td> <?= $view['malnourished'];?> </td>
-                                            <td> <?= $view['four_ps'];?> </td>    
-                                            <td> <?= $view['vaccinated'];?> </td>
-                                            <td> <?= $view['pregnancy'];?> </td>  
                                         </tr>
                                     <?php }?>
                                 <?php } ?>

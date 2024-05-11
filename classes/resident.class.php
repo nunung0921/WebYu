@@ -802,6 +802,7 @@ if($hashed_old_password !== $result['password']) {
             "color" => $color
         );
     }
+    
 
 
  public function view_logs(){
