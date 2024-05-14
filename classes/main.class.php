@@ -1227,9 +1227,15 @@ class BMISClass {
             }
         }
     
+        // Reset session variable at the end of the day
+        if(isset($_SESSION['last_reset']) && $_SESSION['last_reset'] !== date('Y-m-d')) {
+            $_SESSION['cert_created_today'] = false;
+        }
+    
         // Debugging: Check if session variable is set
         var_dump($_SESSION['cert_created_today']);
     }
+    
     
         
 
