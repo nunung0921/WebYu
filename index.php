@@ -1579,7 +1579,6 @@ nav {
 </style>
 
 
-
     <section class="section__container blog_container" id="blog">
       <h2 class="section__header">Activities of the Barangay</h2>
       <div class="offer__grid">
