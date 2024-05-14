@@ -1188,50 +1188,37 @@ class BMISClass {
     }
 
     public function create_certofres() {
+
         if(isset($_POST['create_certofres'])) {
-            // Get the resident's ID from the form
             $id_resident = $_POST['id_resident'];
-    
-            // Check if a certificate has already been created for the resident today
-            $connection = $this->openConn();
-            $stmt = $connection->prepare("SELECT COUNT(*) FROM tbl_rescert WHERE id_resident = ? AND DATE(date) = CURDATE()");
-            $stmt->execute([$id_resident]);
-            $count = $stmt->fetchColumn();
-    
-            if($count > 0) {
-                // If a certificate already exists for the resident today, show an error message
-                $message = "A certificate has already been created for this resident today.";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-            } else {
-                // If no certificate exists for the resident today, proceed with creating the certificate
-                $lname = $_POST['lname'];
-                $fname = $_POST['fname'];
-                $mi = $_POST['mi'];
-                $age = $_POST['age'];
-                $nationality = $_POST['nationality']; 
-                $houseno = $_POST['houseno'];
-                $street = $_POST['street'];
-                $brgy = $_POST['brgy'];
-                $municipal = $_POST['municipal'];
-                $date = $_POST['date'];
-                $purpose = $_POST['purpose'];
-    
-                $connection = $this->openConn();
-                $stmt = $connection->prepare("INSERT INTO tbl_rescert ( `id_resident`, `lname`, `fname`, `mi`,
-                    `age`, `nationality`, `houseno`, `street`, `brgy`, `municipal`, `date`, `purpose`)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    
-                $stmt->execute([$id_resident, $lname, $fname, $mi, $age, $nationality, $houseno, $street, $brgy, $municipal, $date, $purpose]);
-    
-                $message2 = "Application applied. You will receive our text message for further details.";
-                echo "<script type='text/javascript'>alert('$message2');</script>";
-            }
+            $lname = $_POST['lname'];
+            $fname = $_POST['fname'];
+            $mi = $_POST['mi'];
+            $age = $_POST['age'];
+            $nationality = $_POST['nationality']; 
+            $houseno = $_POST['houseno'];
+            $street = $_POST['street'];
+            $brgy = $_POST['brgy'];
+            $municipal = $_POST['municipal'];
+            $date = $_POST['date'];
+            $purpose = $_POST['purpose'];
             
-            // Redirect to prevent resubmission of form data
-            header("Location: ".$_SERVER['PHP_SELF']);
-            exit();
+
+
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("INSERT INTO tbl_rescert ( `id_resident`, `lname`, `fname`, `mi`,
+             `age`,`nationality`, `houseno`, `street`,`brgy`, `municipal`, `date`,`purpose`)
+            VALUES (?,?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
+
+            $stmt->execute([$id_resident, $lname, $fname, $mi,  $age, $nationality, $houseno,  $street, $brgy,$municipal, $date,$purpose]);
+
+            $message2 = "Application Applied, you will receive our text message for further details";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
         }
-    }    
+        
+        
+    }
 
     public function view_certofres(){
         $connection = $this->openConn();
