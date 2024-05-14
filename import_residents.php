@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require 'vendor/custom_autoload.php';
 
 use phpoffice\phpspreadsheet\src\PhpSreadsheet\IOFactory;
 
