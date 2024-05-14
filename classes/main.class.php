@@ -1227,8 +1227,7 @@ class BMISClass {
                 echo "<script type='text/javascript'>alert('$message2');</script>";
             }
         }
-    }
-    
+    }    
 
     public function view_certofres(){
         $connection = $this->openConn();
