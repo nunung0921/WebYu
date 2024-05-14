@@ -12,7 +12,17 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
 
 <!-- Modify the CSS to show the background image only when printing -->
 <style>
+    @media screen {
+            p.print-padding {
+                font-size: 14px;
+                padding-left: 30px;
+                padding-right: 30px; /* Add your desired padding here */
+            }
+    }
     @media print {
+        body{
+            overflow: hidden;
+        }
         img{
             display: block !important;
         }
@@ -20,6 +30,13 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
             display: none !important;
         }
     }
+    @page {
+            size: A4;
+            margin-top: 0.15in;
+            margin-bottom: 0.15in;
+            margin-left: 1in;
+            margin-right: 1in;
+        }
 </style>
 
  <head>
