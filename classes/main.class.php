@@ -1188,23 +1188,20 @@ class BMISClass {
     }
 
     public function create_certofres() {
+        // Start the session
+        session_start();
     
         if(isset($_POST['create_certofres'])) {
-            // Get the resident's ID from the form
-            $id_resident = $_POST['id_resident'];
-    
             // Check if a certificate has already been created for the resident today
-            $connection = $this->openConn();
-            $stmt = $connection->prepare("SELECT COUNT(*) FROM tbl_rescert WHERE id_resident = ? AND DATE(date) = CURDATE()");
-            $stmt->execute([$id_resident]);
-            $count = $stmt->fetchColumn();
-    
-            if($count > 0) {
-                // If a certificate already exists for the resident today, show an error message
+            if(isset($_SESSION['cert_created_today']) && $_SESSION['cert_created_today'] === true) {
+                // If a certificate has already been created for the resident today, show an error message
                 $message = "A certificate has already been created for this resident today.";
                 echo "<script type='text/javascript'>alert('$message');</script>";
             } else {
-                // If no certificate exists for the resident today, proceed with creating the certificate
+                // Get the resident's ID from the form
+                $id_resident = $_POST['id_resident'];
+    
+                // Proceed with creating the certificate
                 $lname = $_POST['lname'];
                 $fname = $_POST['fname'];
                 $mi = $_POST['mi'];
@@ -1235,6 +1232,7 @@ class BMISClass {
         // Debugging: Check if session variable is set
         var_dump($_SESSION['cert_created_today']);
     }
+    
         
 
     public function view_certofres(){
