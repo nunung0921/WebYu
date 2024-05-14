@@ -30,7 +30,7 @@ if (isset($_POST['import'])) {
 
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = md5($password); // Hash the password
 
                 $data = [
                     'email' => $column[0],
@@ -48,7 +48,10 @@ if (isset($_POST['import'])) {
                     'bplace' => $column[12],
                     'nationality' => $column[13],
                     'voter' => $column[14],
-                    'password' => $hashedPassword
+                    'password' => $hashedPassword,
+                    'family_role' => 'member', // Default or retrieved value
+                    'role' => 'resident', // Default or retrieved value
+                    'request_status' => 'approved' // Default or retrieved value
                 ];
 
                 $residentbmis->create_resident($data);
@@ -66,7 +69,7 @@ if (isset($_POST['import'])) {
 
             foreach ($rows as $row) {
                 $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = md5($password); // Hash the password
 
                 $data = [
                     'email' => $row[0],
@@ -84,7 +87,10 @@ if (isset($_POST['import'])) {
                     'bplace' => $row[12],
                     'nationality' => $row[13],
                     'voter' => $row[14],
-                    'password' => $hashedPassword
+                    'password' => $hashedPassword,
+                    'family_role' => 'member', // Default or retrieved value
+                    'role' => 'resident', // Default or retrieved value
+                    'request_status' => 'approved' // Default or retrieved value
                 ];
 
                 $residentbmis->create_resident($data);

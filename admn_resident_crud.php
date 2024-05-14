@@ -164,12 +164,10 @@
             <h1 class="mb-4 text-center">Import Residents Data</h1>
             <hr>
             <form action="import_residents.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="file">Choose File (CSV, XLS, XLSX)</label>
-                    <input type="file" name="file" class="form-control-file" id="file" accept=".csv, .xls, .xlsx" required>
-                </div>
-                <button type="submit" name="import" class="btn btn-primary">Import</button>
+                <input type="file" name="file" required>
+                <button type="submit" name="import">Import</button>
             </form>
+
         </div>
 
 
