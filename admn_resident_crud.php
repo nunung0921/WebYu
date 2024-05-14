@@ -159,7 +159,7 @@
                             <?php } ?>
                                         </tbody>
         </table>
-<!--
+
         <div class="container">
             <h1 class="mb-4 text-center">Import Residents Data</h1>
             <hr>
@@ -171,7 +171,7 @@
                 <button type="submit" name="import" class="btn btn-primary">Import</button>
             </form>
         </div>
-                                                -->
+                                                
 
         </div>
 
