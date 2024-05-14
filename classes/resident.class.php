@@ -26,16 +26,16 @@ public function create_resident() {
         $age = $_POST['age'];
         $sex = $_POST['sex'];
         $voter = $_POST['voter'];
-        //$family_role = $_POST['family_role'];
-        $pwd = $_POST['pwd'];
+        $family_role = $_POST['family_role'];
+        /*$pwd = $_POST['pwd'];
         $indigent = $_POST['indigent'];
         $single_parent = $_POST['single_parent'];
         $malnourished = $_POST['malnourished'];
-        $four_ps = $_POST['four_ps'];
+        $four_ps = $_POST['four_ps'];*/
         $role = $_POST['role'];
 
 
-        if ($_SERVER['PHP_SELF'] === '/resident_registration.php' && $_SERVER['HTTP_HOST'] === 'biclataninfosystem.com') {
+        if ($_SERVER['PHP_SELF'] === '/resident_registration.php' && $_SERVER['HTTP_HOST'] === 'webyu.online') {
             $request_status = 'pending';
 
             // Open the database connection
@@ -43,10 +43,10 @@ public function create_resident() {
 
             try {
                 // Prepare the SQL query
-                $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, pwd, indigent, single_parent, malnourished, four_ps, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
                 // Bind parameters and execute the query
-                $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $pwd, $indigent, $single_parent, $malnourished, $four_ps, $role, $request_status]);
+                $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $family_role, $role, $request_status]);
 
                 // Provide feedback to the user
                 $message = "Thanks for signing up. Your account has been created!";
@@ -69,10 +69,10 @@ public function create_resident() {
 
                 try {
                     // Prepare the SQL query
-                    $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, pwd, indigent, single_parent, malnourished, four_ps, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
                     // Bind parameters and execute the query
-                    $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $pwd, $indigent, $single_parent, $malnourished, $four_ps, $role, $request_status]);
+                    $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $family_role, $role, $request_status]);
 
                     // Provide feedback to the user
                     $message = "Resident account added successfully!";
@@ -679,7 +679,7 @@ if($hashed_old_password !== $result['password']) {
         return $minorcount;
     }
 
-    public function count_pwd() {
+    /*public function count_pwd() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE pwd = 'yes' and request_status = 'approved'");
         $stmt->execute();
@@ -732,7 +732,7 @@ if($hashed_old_password !== $result['password']) {
         $stmt->execute();
         $pregnancycount = $stmt->fetchColumn();
         return $pregnancycount;
-    }
+    }*/
     public function count_residency() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_rescert");
@@ -802,6 +802,7 @@ if($hashed_old_password !== $result['password']) {
             "color" => $color
         );
     }
+    
 
 
  public function view_logs(){

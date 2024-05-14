@@ -26,61 +26,137 @@ class BMISClass {
 
     //------------------------------------------ AUTHENTICATION & SESSION HANDLING --------------------------------------------
         //authentication function para sa sa tatlong type ng accounts
-    public function login() {
-    if(isset($_POST['login'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        public function login() {
+            if(isset($_POST['login'])) {
+                $email = $_POST['email'];
+                $password = $_POST['password'];
         
-        // Debugging: Output the email and password to check their values
-        echo "Email: " . $email . "<br>";
-        echo "Password: " . $password . "<br>";
+                // Verify the reCAPTCHA response
+                if (isset($_POST['g-recaptcha-response'])) {
+                    $captchaResponse = $_POST['g-recaptcha-response'];
         
-        // Hash the entered password for comparison with the stored hashed password
-        $hashed_password = md5($password);
+                    // Your secret key provided by reCAPTCHA
+                    $secretKey = '6LfIv9gpAAAAAHwR0o653AnIc7cobvtQ6tRQTs0H';
         
-        $connection = $this->openConn();
-
-        // Check if the user is an administrator
-        $stmt_admin = $connection->prepare("SELECT * FROM tbl_admin WHERE email = ? AND password = ?");
-        $stmt_admin->execute([$email, $hashed_password]);
-        $admin = $stmt_admin->fetch();
+                    // Send a POST request to Google's reCAPTCHA verification endpoint
+                    $url = 'https://www.google.com/recaptcha/api/siteverify';
+                    $data = [
+                        'secret' => $secretKey,
+                        'response' => $captchaResponse
+                    ];
         
-        if($admin) {
-            // Redirect the admin to the admin dashboard
-            $this->set_userdata($admin);
-            header('Location: admn_dashboard.php');
-            exit;
+                    $options = [
+                        'http' => [
+                            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                            'method' => 'POST',
+                            'content' => http_build_query($data)
+                        ]
+                    ];
+        
+                    $context = stream_context_create($options);
+                    $response = file_get_contents($url, false, $context);
+        
+                    if ($response !== false) {
+                        $responseData = json_decode($response, true);
+        
+                        // Check if reCAPTCHA verification was successful
+                        if ($responseData && $responseData['success']) {
+                            // reCAPTCHA verification passed, continue with login
+                            $connection = $this->openConn();
+        
+                            // Hash the entered password for comparison with the stored hashed password
+                            $hashed_password = md5($password);
+        
+                            // Check if the user is an administrator
+                            $stmt_admin = $connection->prepare("SELECT * FROM tbl_admin WHERE email = ? AND password = ?");
+                            $stmt_admin->execute([$email, $hashed_password]);
+                            $admin = $stmt_admin->fetch();
+        
+                            if($admin) {
+                                // Redirect the admin to the admin dashboard
+                                $this->set_userdata($admin);
+                                header('Location: admin_dashboard.php');
+                                exit;
+                            }
+        
+                            // Check if the user is a regular user
+                $stmt_user = $connection->prepare("SELECT * FROM tbl_user WHERE email = ? AND password = ?");
+                $stmt_user->execute([$email, $hashed_password]);
+                $user = $stmt_user->fetch();
+                
+                if($user) {
+                    // Redirect the user to the staff dashboard
+                    $this->set_userdata($user);
+                    header('Location: staff_dashboard.php');
+                    exit;
+                }
+                
+                // Check if the user is a resident with an approved request_status
+                $stmt_resident = $connection->prepare("SELECT * FROM tbl_resident WHERE email = ? AND password = ?");
+                $stmt_resident->execute([$email, $hashed_password]);
+                $resident = $stmt_resident->fetch();
+                
+                if($resident) {
+                    if ($resident['request_status'] === 'pending') {
+                        $message = "Your account is pending approval by the admin. Please wait for the admin to approve your request.";
+                        echo <<<EOT
+                        <div id="pendingApprovalModal" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 9999;">
+                            <h5 style="margin: 0; font-weight: bold; color: red; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: #000; font-size: 30px;">Account Pending Approval</span>
+                                <div style="background-color: red; padding: 5px; border-radius: 50%; cursor: pointer;">
+                                    <button onclick="closeModal()" style="background: none; border: none; font-size: 20px; color: white;">&times;</button>
+                                </div>
+                            </h5>
+                            <p style="margin-bottom: 10px; font-size: 20px;">$message</p>
+                        </div>
+        
+                        <script type="text/javascript">
+                            function closeModal() {
+                                var modal = document.getElementById('pendingApprovalModal');
+                                modal.style.display = 'none';
+                                window.location.href = 'index.php';
+                            }
+        
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var modal = document.getElementById('pendingApprovalModal');
+                                modal.style.display = 'block';
+        
+                                setTimeout(function() {
+                                    modal.style.display = 'none';
+                                    window.location.href = 'index.php'; // Redirect to index.php
+                                }, 60000); // Adjust the delay time (in milliseconds) as needed
+                            });
+                        </script>
+                        EOT;
+                        exit;
+                    } elseif ($resident['request_status'] === 'approved') {
+                        // Redirect the resident to their homepage
+                        $this->set_userdata($resident);
+                        $message = "Successfully logged in!";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        header('Location: resident_homepage.php');
+                        exit;
+                    }
+                }
+                            $message = "Invalid Email or Password";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                        } else {
+                            // reCAPTCHA verification failed, show an error message
+                            $message = "reCAPTCHA verification failed. Please try again.";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                        }
+                    } else {
+                        // Unable to contact Google's reCAPTCHA verification endpoint
+                        $message = "Unable to verify reCAPTCHA. Please try again later.";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                    }
+                } else {
+                    // reCAPTCHA response not found, show an error message
+                    $message = "reCAPTCHA response not found. Please complete the reCAPTCHA challenge.";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                }
+            }
         }
-        
-        // Check if the user is a regular user
-        $stmt_user = $connection->prepare("SELECT * FROM tbl_user WHERE email = ? AND password = ?");
-        $stmt_user->execute([$email, $hashed_password]);
-        $user = $stmt_user->fetch();
-        
-        if($user) {
-            // Redirect the user to the staff dashboard
-            $this->set_userdata($user);
-            header('Location: staff_dashboard.php');
-            exit;
-        }
-        
-        // Check if the user is a resident
-        $stmt_resident = $connection->prepare("SELECT * FROM tbl_resident WHERE email = ? AND password = ?");
-        $stmt_resident->execute([$email, $hashed_password]);
-        $resident = $stmt_resident->fetch();
-        
-        if($resident) {
-            // Redirect the resident to their homepage
-            $this->set_userdata($resident);
-            header('Location: resident_homepage.php');
-            exit;
-        }
-
-        // If none of the above conditions matched, display an error message
-        $message = "Invalid Email or Password";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
-}
 
 
 

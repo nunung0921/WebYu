@@ -24,13 +24,13 @@ $rescountsenior = $residentbmis->count_resident_senior();
 // Count different requests and approvals
 $reqscount = $residentbmis->count_approval();
 $minorcount = $residentbmis->count_minor();
-$pwdcount = $residentbmis->count_pwd();
-$spcount = $residentbmis->count_single_parent();
+//$pwdcount = $residentbmis->count_pwd();
+/*$spcount = $residentbmis->count_single_parent();
 $fourpscount = $residentbmis->count_fourps();
 $indigentcount = $residentbmis->count_indigent();
 $malcount = $residentbmis->count_malnourished();
 $vacxcount = $residentbmis->count_vaccinated();
-$pregnancycount = $residentbmis->count_pregnancy();
+$pregnancycount = $residentbmis->count_pregnancy();*/
 $residencycount = $residentbmis->count_residency();
 $count = $residencycount['count'];
 $color = $residencycount['color'];
@@ -135,7 +135,7 @@ const ctxOther = document.getElementById('otherChart').getContext('2d');
 
 // Data for the charts (assuming these variables are correctly defined earlier in your code)
 const documentData = [
-    { documentType: 'Request for Approval', count: <?= $reqscount ?> },
+    //{ documentType: 'Request for Approval', count: <?= $reqscount ?> },
     { documentType: 'Certificate of Residency', count: <?= $count ?> },
     { documentType: 'Business Clearance', count: <?= $countbs ?> },
     { documentType: 'Barangay Clearance', count: <?= $countbc ?> },
@@ -145,7 +145,7 @@ const documentData = [
 
 // URL mapping for document types
 const documentUrlMapping = {
-    'Request for Approval': 'admn_resident_request.php',
+    //'Request for Approval': 'admn_resident_request.php',
     'Certificate of Residency': 'admn_certofres.php',
     'Business Clearance': 'admn_bspermit.php',
     'Barangay Clearance': 'admn_brgyclearance.php',
@@ -259,7 +259,7 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
             label: 'Senior Residents',
             value: <?= $rescountsenior ?>
         },
- {
+ /*{
             label: 'PWD Residents',
             value: <?= $pwdcount ?>
         },
@@ -278,7 +278,7 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
  {
             label: 'Malnourished Residents',
             value: <?= $malcount ?>
-        },
+        },*/
  
     ];
 
@@ -328,12 +328,12 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     'Male Residents': 'admn_resident_Male.php',
     'Female Residents': 'admn_resident_female.php',
     'Minor Residents': 'admn_resident_minor.php',
-    'Senior Residents': 'admn_resident_senior.php',
-    'PWD Residents': 'admn_resident_pwd.php',
+    'Senior Residents': 'admn_resident_senior.php'
+    /*'PWD Residents': 'admn_resident_pwd.php',
     'Single Parents': 'admn_resident_single.php',
     '4Ps Members': 'admn_resident_4ps.php',
     'Indigent Residents': 'admn_resident_indigent.php',
-    'Malnourished Residents': 'admn_resident_Mal.php'
+    'Malnourished Residents': 'admn_resident_Mal.php'*/
 };
 
 // Add click event listener to the other chart

@@ -1,4 +1,6 @@
-<?php 
+<?php  
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL ^ E_WARNING);
 
     require_once('main.class.php');
 
@@ -234,8 +236,190 @@
         }
 
 
+        //================ OFFICIALS ===============
 
 
+        public function create_official() {
+
+            if(isset($_POST['add_official'])) {
+                $avatar = $_POST['avatar'];
+                $name = $_POST['name'];
+                $position = ($_POST['position']);
+                $termstart = $_POST['termstart'];
+                $termend = $_POST['termend'];
+
+                    $connection = $this->openConn();
+                    $stmt = $connection->prepare("INSERT INTO tbl_officials (`avatar`, `name`,`position`,`termstart`,`termend`) VALUES (?, ?, ?, ?, ?)");
+    
+                    $stmt->Execute([$avatar, $name, $position, $termstart, $termend]);
+                    $message2 = "New Official Adedd";
+    
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header('refresh:0');
+
+            }
+        }
+
+
+        public function view_official(){
+
+            $connection = $this->openConn();
+
+            $stmt = $connection->prepare("SELECT * from tbl_officials");
+            $stmt->execute();
+            $view = $stmt->fetchAll();
+
+            //$rows = $stmt->
+            return $view;
+           
+        }
+
+
+        public function update_official() {
+            if (isset($_POST['update_official'])) {
+                $id_official = $_GET['id_official'];
+                $lname = $_POST['lname']; // Assuming these are the values from the form
+                $fname = $_POST['fname'];
+                $mi = $_POST['mi'];
+                $name = $fname . ' ' . $mi . ' ' . $lname;
+                $position = $_POST['position'];
+                $termstart = $_POST['termstart'];
+                $termend = $_POST['termend'];
+                $avatar = $_POST['avatar'];
+                
+                    $connection = $this->openConn();
+                    $stmt = $connection->prepare("UPDATE tbl_officials SET name =?, 
+                    position = ?, termstart =?, termend =?, avatar =? WHERE id_official = ?");
+                    $stmt->execute([ $name, $position, $termstart, $termend, $avatar, $id_official]);
+                   
+                    $message2 = "Official's Information Updated";
+    
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header('Location: admn_officials.php');
+                    exit;
+
+            }
+        }
+
+        public function delete_official(){
+
+            $id_official = $_POST['id_official'];
+
+            if(isset($_POST['delete_official'])) {
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("DELETE FROM tbl_officials where id_official = ?");
+                $stmt->execute([$id_official]);
+                
+                $message2 = "Official Account Deleted";
+                
+                echo "<script type='text/javascript'>alert('$message2');</script>";
+                 header('refresh:0');
+            }
+        }
+
+        public function get_single_official($id_official){
+
+                $id_official = $_GET['id_official'];
+                
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("SELECT * FROM tbl_officials where id_official = ?");
+                $stmt->execute([$id_official]);
+                $user = $stmt->fetch();
+                $total = $stmt->rowCount();
+
+                if($total > 0 )  {
+                    return $user;
+                }
+                else{
+                    return false;
+                }
+        }
+
+        //========================== POSITION ==========================================
+
+        public function create_position() {
+
+            if(isset($_POST['add_position'])) {
+                $position = ($_POST['position']);
+                $pos_order = $_POST['pos_order'];
+
+                    $connection = $this->openConn();
+                    $stmt = $connection->prepare("INSERT INTO position (`position`,`pos_order`) VALUES (?, ?)");
+    
+                    $stmt->Execute([$position, $pos_order]);
+                    $message2 = "New Position Adedd";
+    
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header('refresh:0');
+
+            }
+        }
+
+         public function view_position(){
+
+            $connection = $this->openConn();
+
+            $stmt = $connection->prepare("SELECT * from position");
+            $stmt->execute();
+            $view = $stmt->fetchAll();
+
+            //$rows = $stmt->
+            return $view;
+           
+        }
+
+
+        public function update_position() {
+            if (isset($_POST['update_position'])) {
+                $id_position = $_GET['id_position'];
+                $position = $_POST['position']; // Assuming these are the values from the form
+                $pos_order = $_POST['pos_order'];
+                
+                    $connection = $this->openConn();
+                    $stmt = $connection->prepare("UPDATE position SET position = ?, pos_order =? WHERE id_position = ?");
+                    $stmt->execute([$position, $pos_order, $id_position]);
+                   
+                    $message2 = "Position Information Updated Successfully!";
+    
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header('refresh:0');
+
+            }
+        }
+
+        public function delete_position(){
+
+            $id_position = $_POST['id_position'];
+
+            if(isset($_POST['delete_position'])) {
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("DELETE FROM position where id_position = ?");
+                $stmt->execute([$id_position]);
+                
+                $message2 = "Position Deleted";
+                
+                echo "<script type='text/javascript'>alert('$message2');</script>";
+                 header('refresh:0');
+            }
+        }
+
+        public function get_single_position($id_position){
+
+                $id_position = $_GET['id_position'];
+                
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("SELECT * FROM position where id_position = ?");
+                $stmt->execute([$id_position]);
+                $user = $stmt->fetch();
+                $total = $stmt->rowCount();
+
+                if($total > 0 )  {
+                    return $user;
+                }
+                else{
+                    return false;
+                }
+        }
 
     }
     $staffbmis = new StaffClass();

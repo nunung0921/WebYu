@@ -1214,10 +1214,11 @@ nav {
     <div class="table-responsive">
         <table class="table table-hover text-center table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead class="thead-light"> <!-- Use thead-light class for header styling -->
-                <!--<tr>
-                    <th style="width: 50%;">Full Name</th>
-                    <th style="width: 50%;">Position</th>
-                </tr>-->
+                <tr>
+                  <th style="width: 50%;">Position</th>
+                  <th style="width: 50%;">Full Name</th>
+                  <th style="width: 50%;">Photo</th>
+                </tr>
             </thead>
             <tbody>
                 <?php
@@ -1240,9 +1241,9 @@ nav {
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                             <tr>
-                                <td><?= $row['avatar']; ?></td>
-                                <td><?= $row['name']; ?></td>
                                 <td><?= $row['position']; ?></td>
+                                <td><?= $row['name']; ?></td>
+                                <td><img src="icons/<?= $row['avatar']; ?>" alt="Avatar" style="height: 100px; width: 100px;"></td>
                             </tr>
                             <?php
                         }
@@ -1309,7 +1310,7 @@ nav {
             require('classes/conn.php');
 
             // Assuming $id_services contains the ID of the service
-            $id_services = 1; // Example service ID
+            $id_services = 2; // Example service ID
 
             // Query the database to fetch the filename of the image associated with the service ID
             $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
@@ -1379,7 +1380,7 @@ nav {
             require('classes/conn.php');
 
             // Assuming $id_services contains the ID of the service
-            $id_services = 2; // Example service ID
+            $id_services = 4; // Example service ID
 
             // Query the database to fetch the filename of the image associated with the service ID
             $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
@@ -1413,7 +1414,7 @@ nav {
             require('classes/conn.php');
 
             // Assuming $id_services contains the ID of the service
-            $id_services = 2; // Example service ID
+            $id_services = 5; // Example service ID
 
             // Query the database to fetch the filename of the image associated with the service ID
             $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
@@ -1447,7 +1448,7 @@ nav {
             require('classes/conn.php');
 
             // Assuming $id_services contains the ID of the service
-            $id_services = 2; // Example service ID
+            $id_services = 6; // Example service ID
 
             // Query the database to fetch the filename of the image associated with the service ID
             $sql = "SELECT image_service FROM tbl_services WHERE id_services = :id";
@@ -1587,7 +1588,7 @@ nav {
     require('classes/conn.php');
 
     // Prepare the SQL query to select the latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1");
 
     // Execute the query
     $stmt->execute();
@@ -1611,7 +1612,7 @@ nav {
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the second latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 1");
 
     // Execute the query
     $stmt->execute();
@@ -1635,7 +1636,7 @@ nav {
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the third latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 2");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activities ORDER BY date DESC LIMIT 1 OFFSET 2");
 
     // Execute the query
     $stmt->execute();
@@ -1667,7 +1668,7 @@ nav {
     require('classes/conn.php');
 
     // Prepare the SQL query to select the latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_act_sk ORDER BY date DESC LIMIT 1");
 
     // Execute the query
     $stmt->execute();
@@ -1688,10 +1689,11 @@ nav {
     ?>
 </div>
 
+
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the second latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 1");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_act_sk ORDER BY date DESC LIMIT 1 OFFSET 1");
 
     // Execute the query
     $stmt->execute();
@@ -1715,7 +1717,7 @@ nav {
 <div class="offer__card">
     <?php
     // Prepare the SQL query to select the third latest activity
-    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_activies ORDER BY date DESC LIMIT 1 OFFSET 2");
+    $stmt = $conn->prepare("SELECT name, date, image FROM tbl_act_sk ORDER BY date DESC LIMIT 1 OFFSET 2");
 
     // Execute the query
     $stmt->execute();

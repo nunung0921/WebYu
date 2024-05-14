@@ -21,6 +21,13 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
 </head>
+<style>
+
+.clicked {
+    color: white;
+    background-color: #023EBA !important; /* Change to desired background color */
+}
+</style>
 
 <body id="page-top">
 
@@ -56,6 +63,18 @@
                 User Management
             </div>
 
+            <li id="request" class="nav-item">
+                <a class="nav-link" href="admn_resident_request.php">
+                    <i class="fas fa-paper-plane"></i>
+                    <span> Pending of Approvals</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="admn_official.php">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Barangay Officials</span></a>
+            </li>
+
             <!-- Barangay Staff CRUD -->
             <li class="nav-item">
                 <a class="nav-link" href="admn_staff_crud.php">
@@ -68,6 +87,12 @@
                 <a class="nav-link" href="admn_resident_crud.php">
                     <i class="fas fa-users"></i>
                     <span>Barangay Residents</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="list_of_services.php">
+                    <i class="fas fa-list"></i>
+                    <span> List of Services</span></a>
             </li>
 
             <!-- Divider -->
@@ -127,7 +152,29 @@
                     <span>Peace and Order Report</span></a>
             </li>
 
-            
+            <div class="sidebar-heading">
+                Settings
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="activities.php">
+                    <i class="fas fa-info-circle"></i>
+                    <span> Barangay Activities</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="sk_activities.php">
+                    <i class="fas fa-info-circle"></i>
+                    <span> Sk Activities</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="brgyInfo_modal.php">
+                    <i class="fas fa-info-circle"></i>
+                    <span> Barangay Info</span></a>
+            </li>
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -204,3 +251,18 @@
                 </nav>
                 
                 <!-- End of Topbar -->
+<script>
+    // Get the current URL
+    var url = window.location.href;
+    // Get the sidebar items
+    var sidebarItems = document.querySelectorAll('.nav-item');
+
+    // Loop through each sidebar item
+    sidebarItems.forEach(function(item) {
+        // Check if the item's link matches the current URL
+        if (item.querySelector('a').href === url) {
+            // Add the 'clicked' class to the item
+            item.classList.add('clicked');
+        }
+    });
+</script>
