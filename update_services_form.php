@@ -104,7 +104,7 @@ ini_set('display_errors', 1);
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
-                | Barangay Biclatan Information System
+                | Barangay Yuson Information Management System
             </div>
 
         </footer>
