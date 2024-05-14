@@ -75,16 +75,40 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
 
                         <div style="text-align: center;">
                             <div style="display: inline-block; text-align: justify;">
-                                <input type="checkbox" id="option1" name="options[]" value="Presently confined at the hospital;" style="transform: scale(1.5);">
-                                <label for="option1"><span style="font-weight: normal;">&nbsp;<b>1.</b> Presently confined at the hospital;</span></label><br>
-
-                                <input type="checkbox" id="option2" name="options[]" value="Need burial assistance;" style="transform: scale(1.5);">
-                                <label for="option2"><span style="font-weight: normal;">&nbsp;<b>2.</b> Need burial assistance;</span></label><br>
+                                <input type="checkbox" id="option1" name="options[]" value="Presently confined at the hospital" style="transform: scale(1.5);">
+                                <label for="option1"><span style="font-weight: normal;">&nbsp;Presently confined at the hospital</span></label><br>
+                                
+                                <input type="checkbox" id="option2" name="options[]" value="Need burial assistance" style="transform: scale(1.5);">
+                                <label for="option2"><span style="font-weight: normal;">&nbsp;<b>2.</b> Need burial assistance</span></label><br>
 
                                 <input type="checkbox" id="option3" name="options[]" value="Others" style="transform: scale(1.5);">
                                 <label for="option3"><span style="font-weight: normal;">&nbsp;<b>3.</b> Others (Specify): <u><b> <?= $resident['purpose'];?></b></u></span></label> 
                             </div>
                         </div><br>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var purpose = "<?php echo $resident['purpose']; ?>".trim(); // Get the purpose from PHP
+
+                                // Your existing JavaScript code to check the appropriate checkbox based on the purpose
+                                var checkboxes = document.querySelectorAll('input[name="options[]"]');
+                                var otherCheckbox = document.getElementById('option5'); // Assuming this is the "Others" checkbox
+
+                                // Uncheck all checkboxes except the "Others" checkbox
+                                checkboxes.forEach(function(checkbox) {
+                                    checkbox.checked = false;
+                                });
+
+                                // Check the appropriate checkbox based on the purpose
+                                if (purpose === 'Presently confined at the hospital') {
+                                    document.getElementById('option1').checked = true;
+                                } else if (purpose === 'Need burial assistance') {
+                                    document.getElementById('option2').checked = true;
+                                } else {
+                                    otherCheckbox.checked = true; // Check the "Others" checkbox if purpose does not match any predefined option
+                                }
+                            });
+                        </script>
 
                         <p style="text-indent:40px;text-align: justify;">Any assistance in favor of the bearer and/or his/her relative/s will be highly appreciated by this office. </p>
 
