@@ -92,7 +92,7 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
 
                                 // Your existing JavaScript code to check the appropriate checkbox based on the purpose
                                 var checkboxes = document.querySelectorAll('input[name="options[]"]');
-                                var otherCheckbox = document.getElementById('option5'); // Assuming this is the "Others" checkbox
+                                var otherCheckbox = document.getElementById('option3'); // Assuming this is the "Others" checkbox
 
                                 // Uncheck all checkboxes except the "Others" checkbox
                                 checkboxes.forEach(function(checkbox) {
