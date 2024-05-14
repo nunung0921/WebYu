@@ -1,7 +1,7 @@
 {
-    "name": "phpmailer/phpmailer",
-    "type": "library",
-    "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+    "name": "myproject/myproject",
+    "type": "project",
+    "description": "My Project Description",
     "authors": [
         {
             "name": "Marcus Bointon",
@@ -34,7 +34,9 @@
         "php": ">=5.5.0",
         "ext-ctype": "*",
         "ext-filter": "*",
-        "ext-hash": "*"
+        "ext-hash": "*",
+        "phpmailer/phpmailer": "^6.5",
+        "phpoffice/phpspreadsheet": "^1.25"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -59,7 +61,8 @@
     },
     "autoload": {
         "psr-4": {
-            "PHPMailer\\PHPMailer\\": "src/"
+            "PHPMailer\\PHPMailer\\": "src/",
+            "PhpOffice\\PhpSpreadsheet\\": "vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/"
         }
     },
     "autoload-dev": {
