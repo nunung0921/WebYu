@@ -1188,6 +1188,9 @@ class BMISClass {
     }
 
     public function create_certofres() {
+        // Start the session
+        session_start();
+    
         if(isset($_POST['create_certofres'])) {
             // Get the resident's ID from the form
             $id_resident = $_POST['id_resident'];
@@ -1230,7 +1233,11 @@ class BMISClass {
                 echo "<script type='text/javascript'>alert('$message2');</script>";
             }
         }
-    }    
+    
+        // Debugging: Check if session variable is set
+        var_dump($_SESSION['cert_created_today']);
+    }
+        
 
     public function view_certofres(){
         $connection = $this->openConn();
