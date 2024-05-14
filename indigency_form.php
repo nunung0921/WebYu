@@ -76,7 +76,7 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
                         <div style="text-align: center;">
                             <div style="display: inline-block; text-align: justify;">
                                 <input type="checkbox" id="option1" name="options[]" value="Presently confined at the hospital" style="transform: scale(1.5);">
-                                <label for="option1"><span style="font-weight: normal;">&nbsp;Presently confined at the hospital</span></label><br>
+                                <label for="option1"><span style="font-weight: normal;">&nbsp;<b>1.</b> Presently confined at the hospital</span></label><br>
                                 
                                 <input type="checkbox" id="option2" name="options[]" value="Need burial assistance" style="transform: scale(1.5);">
                                 <label for="option2"><span style="font-weight: normal;">&nbsp;<b>2.</b> Need burial assistance</span></label><br>
