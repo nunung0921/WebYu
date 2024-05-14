@@ -1226,6 +1226,10 @@ class BMISClass {
                 $message2 = "Application applied. You will receive our text message for further details.";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
             }
+            
+            // Redirect to prevent resubmission of form data
+            header("Location: ".$_SERVER['PHP_SELF']);
+            exit();
         }
     }    
 
