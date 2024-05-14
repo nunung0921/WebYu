@@ -90,13 +90,13 @@ if (isset($_POST['import'])) {
                 $residentbmis->create_resident($data);
             }
         } else {
-            echo "<script>alert('Invalid file format'); window.location.href = 'your_import_page.php';</script>";
+            echo "<script>alert('Invalid file format'); window.location.href = 'admn_resident_crud.php';</script>";
             exit;
         }
 
-        echo "<script>alert('Residents imported successfully'); window.location.href = 'your_dashboard_page.php';</script>";
+        echo "<script>alert('Residents imported successfully'); window.location.href = 'admn_resident_crud.php';</script>";
     } else {
-        echo "<script>alert('Invalid file size or format'); window.location.href = 'your_import_page.php';</script>";
+        echo "<script>alert('Invalid file size or format'); window.location.href = 'admn_resident_crud.php';</script>";
     }
 }
 ?>
