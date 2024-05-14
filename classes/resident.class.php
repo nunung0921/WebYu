@@ -6,89 +6,62 @@
     class ResidentClass extends BMISClass {
         //------------------------------------ RESIDENT CRUD FUNCTIONS ----------------------------------------
 
-public function create_resident() {
-    if (isset($_POST['add_resident'])) {
-        // Retrieve form data
-        $lname = $_POST['lname'];
-        $fname = $_POST['fname'];
-        $mi = $_POST['mi'];
-        $contact = $_POST['contact'];
-        $email = $_POST['email'];
-        $password = md5($_POST['password']); // Hash the password
-        $houseno = $_POST['houseno'];
-        $street = $_POST['street'];
-        $brgy = $_POST['brgy'];
-        $municipal = $_POST['municipal'];
-        $bdate = $_POST['bdate'];
-        $bplace = $_POST['bplace'];
-        $nationality = $_POST['nationality'];
-        $status = $_POST['status'];
-        $age = $_POST['age'];
-        $sex = $_POST['sex'];
-        $voter = $_POST['voter'];
-        $family_role = $_POST['family_role'];
-        /*$pwd = $_POST['pwd'];
-        $indigent = $_POST['indigent'];
-        $single_parent = $_POST['single_parent'];
-        $malnourished = $_POST['malnourished'];
-        $four_ps = $_POST['four_ps'];*/
-        $role = $_POST['role'];
-
-
-        if ($_SERVER['PHP_SELF'] === '/resident_registration.php' && $_SERVER['HTTP_HOST'] === 'webyu.online') {
-            $request_status = 'pending';
-
-            // Open the database connection
-            $connection = $this->openConn();
-
-            try {
-                // Prepare the SQL query
-                $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-                // Bind parameters and execute the query
-                $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $family_role, $role, $request_status]);
-
-                // Provide feedback to the user
-                $message = "Thanks for signing up. Your account has been created!";
-                echo "<script type='text/javascript'>alert('$message'); window.location.href = 'index_login.php';</script>";
-                
-                // Redirect the user
-                //header("Location: index_login.php");
-                exit;
-            } catch (PDOException $e) {
-                // Handle any potential errors
-                echo "Error: " . $e->getMessage();
-            }
-        }
-
-            else{
-                $request_status = 'approved';
-
+        public function create_resident($data = null) {
+            // Check if data is provided (batch import) or form is submitted (individual entry)
+            if ($data !== null || isset($_POST['add_resident'])) {
+                // If data is provided, use it; otherwise, retrieve form data
+                $lname = $data['lname'] ?? $_POST['lname'];
+                $fname = $data['fname'] ?? $_POST['fname'];
+                $mi = $data['mi'] ?? $_POST['mi'];
+                $contact = $data['contact'] ?? $_POST['contact'];
+                $email = $data['email'] ?? $_POST['email'];
+                $password = $data['password'] ?? md5($_POST['password']); // If batch import, password is already hashed
+                $houseno = $data['houseno'] ?? $_POST['houseno'];
+                $street = $data['street'] ?? $_POST['street'];
+                $brgy = $data['brgy'] ?? $_POST['brgy'];
+                $municipal = $data['municipal'] ?? $_POST['municipal'];
+                $bdate = $data['bdate'] ?? $_POST['bdate'];
+                $bplace = $data['bplace'] ?? $_POST['bplace'];
+                $nationality = $data['nationality'] ?? $_POST['nationality'];
+                $status = $data['status'] ?? $_POST['status'];
+                $age = $data['age'] ?? $_POST['age'];
+                $sex = $data['sex'] ?? $_POST['sex'];
+                $voter = $data['voter'] ?? $_POST['voter'];
+                $family_role = $data['family_role'] ?? $_POST['family_role'];
+                $role = $data['role'] ?? $_POST['role'];
+                $request_status = $data['request_status'] ?? ($_SERVER['PHP_SELF'] === '/resident_registration.php' && $_SERVER['HTTP_HOST'] === 'webyu.online' ? 'pending' : 'approved');
+        
                 // Open the database connection
                 $connection = $this->openConn();
-
+        
                 try {
                     // Prepare the SQL query
                     $stmt = $connection->prepare("INSERT INTO tbl_resident (lname, fname, mi, contact, email, password, houseno, street, brgy, municipal, bdate, bplace, nationality, status, age, sex, voter, family_role, role, request_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
+        
                     // Bind parameters and execute the query
                     $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $family_role, $role, $request_status]);
-
+        
                     // Provide feedback to the user
-                    $message = "Resident account added successfully!";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    if ($data === null) {
+                        $message = $request_status === 'pending' ? "Thanks for signing up. Your account has been created!" : "Resident account added successfully!";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        if ($request_status === 'pending') {
+                            echo "<script type='text/javascript'>window.location.href = 'index_login.php';</script>";
+                        } else {
                             header("Refresh:0;");
-                            exit;
-                }
-                catch (PDOException $e) {
+                        }
+                        exit;
+                    }
+                } catch (PDOException $e) {
                     // Handle any potential errors
                     echo "Error: " . $e->getMessage();
                 }
-            } 
-        // Close the database connection
-        $connection = null;
-    }
-}
+        
+                // Close the database connection
+                $connection = null;
+            }
+        }
+        
 
 
 
