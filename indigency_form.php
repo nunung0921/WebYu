@@ -69,7 +69,7 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
        
        <div class="col-xs-12 col-sm-6 col-md-8">
        <div style="width: 100%; height:100%; max-height: 550px; background-color: white;">
-                <div style="width: 100%; height:100%; max-height: 550px;">
+       <div style="margin-top:5px; opacity: 0.6; display: flex; justify-content: space-between;">
                     <div style="margin-top:20px; opacity: 0.6; display: flex; justify-content: space-between;">
                         <image src="icons/logong.jpg" style="width:80px;height:80px; margin-top: 10px;"/>
                         <center><p style="margin-top: 20px;">Republic of the Philippines<br>
