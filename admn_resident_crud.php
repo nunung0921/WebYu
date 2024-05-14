@@ -162,6 +162,7 @@
 
         <div class="container">
             <h1 class="mb-4 text-center">Import Residents Data</h1>
+            <hr>
             <form action="import_residents.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="file">Choose File (CSV, XLS, XLSX)</label>
@@ -189,6 +190,12 @@
     <!-- bootstrap css --> 
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
     <!-- fontawesome icons -->
+    <!-- Scripts and styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
+    <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"></script>
+
     <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
