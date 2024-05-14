@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // Ensure you have installed PhpSpreadsheet via Composer
+require 'vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
