@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
+use phpoffice\phpspreadsheet\src\PhpSreadsheet\IOFactory;
 
 include('classes/staff.class.php');
 include('classes/resident.class.php');
