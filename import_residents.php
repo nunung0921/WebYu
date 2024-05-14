@@ -6,6 +6,16 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 include('classes/staff.class.php');
 include('classes/resident.class.php');
 
+function generateRandomPassword($length = 8) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
@@ -19,6 +29,9 @@ if (isset($_POST['import'])) {
             fgetcsv($file);
 
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+                $password = generateRandomPassword();
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
                 $data = [
                     'email' => $column[0],
                     'lname' => $column[1],
@@ -34,7 +47,8 @@ if (isset($_POST['import'])) {
                     'bdate' => $column[11],
                     'bplace' => $column[12],
                     'nationality' => $column[13],
-                    'voter' => $column[14]
+                    'voter' => $column[14],
+                    'password' => $hashedPassword
                 ];
 
                 $residentbmis->create_resident($data);
@@ -51,6 +65,9 @@ if (isset($_POST['import'])) {
             array_shift($rows);
 
             foreach ($rows as $row) {
+                $password = generateRandomPassword();
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
                 $data = [
                     'email' => $row[0],
                     'lname' => $row[1],
@@ -66,7 +83,8 @@ if (isset($_POST['import'])) {
                     'bdate' => $row[11],
                     'bplace' => $row[12],
                     'nationality' => $row[13],
-                    'voter' => $row[14]
+                    'voter' => $row[14],
+                    'password' => $hashedPassword
                 ];
 
                 $residentbmis->create_resident($data);
