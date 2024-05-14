@@ -26,7 +26,7 @@ class Config implements ConfigInterface
     private string $cacheFile = '.php-cs-fixer.cache';
 
     /**
-     * @var FixerInterface[]
+     * @var list<FixerInterface>
      */
     private array $customFixers = [];
 
@@ -88,9 +88,7 @@ class Config implements ConfigInterface
      */
     public function getFinder(): iterable
     {
-        if (null === $this->finder) {
-            $this->finder = new Finder();
-        }
+        $this->finder ??= new Finder();
 
         return $this->finder;
     }

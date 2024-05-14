@@ -3,6 +3,113 @@ CHANGELOG for PHP CS Fixer
 
 This file contains changelogs for stable releases only.
 
+Changelog for v3.56.1
+---------------------
+
+* chore: improve PHPDoc typehints (#7994)
+* CI: Allow any integer in PHPStan error for Token's constructor (#8000)
+* fix: Better array shape in `PhpUnitDedicateAssertFixer` (#7999)
+* fix: `ConstantCaseFixer` - do not touch typed constants (#7998)
+
+Changelog for v3.56.0
+---------------------
+
+* feat: `TrailingCommaInMultilineFixer` - handle trailing comma in language constructs (#7989)
+* fix: `TrailingCommaInMultilineFixer` - language constructs should be covered by arguments, not parameters (#7990)
+* chore: remove invalid comment (#7987)
+* DX: Cache optimisation (#7985)
+
+Changelog for v3.55.0
+---------------------
+
+* feat: Introduce `OrderedAttributesFixer` (#7395)
+* chore: few SCA fixes and dev-tools update (#7969)
+* chore: fix phpdoc types (#7977)
+* chore: narrow PHPDoc types (#7979)
+* chore: Normalize implicit backslahes in single quoted strings internally (#7786)
+* chore: phpdoc - rely on strict list/tuple/assoc instead of array (#7978)
+* chore: PhpUnitDataProviderNameFixer - follow config creation pattern (#7980)
+* chore: Preg - drop half-support for array-pattern (#7976)
+* chore: re-use CodeHasher (#7984)
+* chore: RuleSetsTest - assert that Fixer is configurable (#7961)
+* chore: sugar syntax (#7986)
+* chore: Tokens should be always a list (#7698)
+* CI: Ad-hoc fix for MacOS jobs (#7970)
+* CI: Fix calculating diff between branches in PRs (#7973)
+* DX: allow to enforce cache mechanism by env var (#7983)
+* DX: do not typehint fixed-length arrays as lists (#7974)
+* DX: Prevent having deprecated fixers listed as successors of other deprecated fixers (#7967)
+* DX: Resolve/Ignore PHPStan issues on level 6 + bump to level 7 with new baseline (#7971)
+* DX: use `list` type in PHPDoc (#7975)
+* fix: `PhpUnitAttributesFixer` - fix for `#[RequiresPhp]` exceeding its constructor parameters (#7966)
+* test: don't count comment after class as another classy element (#7982)
+
+Changelog for v3.54.0
+---------------------
+
+* feat: introduce `PhpUnitAttributesFixer` (#7831)
+* chore: Properly determine self-approval trigger commit (#7936)
+* chore: Revert ref for self-approval Git checkout (#7944)
+* CI: check if proper array key is declared (#7912)
+* DX: cleanup `FullyQualifiedStrictTypesFixerTest` (#7954)
+* DX: cleanup `PhpdocNoAccessFixerTest` (#7933)
+* DX: cleanup `PhpUnitMethodCasingFixerTest` (#7948)
+* DX: cleanup `PhpUnitStrictFixerTest` (#7938)
+* DX: Improve internal dist config for Fixer (#7952)
+* DX: Improve issue templates (#7942)
+* DX: there is no namespace if there is no PHP code (#7953)
+* DX: update .gitattributes (#7931)
+* fix: Remove Infection during Docker release (#7937)
+* fix: `FullyQualifiedStrictTypesFixer` - do not add imports before PHP opening tag (#7955)
+* fix: `PhpUnitMethodCasingFixer` - do not double underscore (#7949)
+* fix: `PhpUnitTestClassRequiresCoversFixer` - do not add annotation when there are attributes (#7880)
+* test: Ignore PHP version related mutations (#7935)
+
+Changelog for v3.53.0
+---------------------
+
+* chore: Use `list` over `array` in more places (#7905)
+* CI: allow for self-approvals for maintainers (#7921)
+* CI: Improve Infection setup (#7913)
+* CI: no need to trigger enable auto-merge when self-approve (#7929)
+* DX: reduce `array_filter` function usages (#7923)
+* DX: remove duplicated character from `trim` call (#7930)
+* DX: update actions producing warnings (#7925)
+* DX: update actions producing warnings (#7928)
+* DX: update `phpstan/phpstan-strict-rules` (#7924)
+* feat: Add trailing comma in multiline to PER-CS 2.0 (#7916)
+* feat: Introduce `AttributeAnalysis` (#7909)
+* feat: `@PHP84Migration` introduction (#7774)
+* fix: Constant invocation detected in typed constants (#7892)
+* fix: `PhpdocArrayTypeFixer` - JIT stack limit exhausted (#7895)
+* test: Introduce Infection for mutation tests (#7874)
+
+Changelog for v3.52.1
+---------------------
+
+* fix: StatementIndentationFixer - do not crash on ternary operator in class property (#7899)
+* fix: `PhpCsFixer\Tokenizer\Tokens::setSize` return type (#7900)
+
+Changelog for v3.52.0
+---------------------
+
+* chore: fix PHP 8.4 deprecations (#7894)
+* chore: fix PHPStan 1.10.60 issues (#7873)
+* chore: list over array in more places (#7876)
+* chore: replace template with variable in Preg class (#7882)
+* chore: update PHPStan (#7871)
+* depr: `nullable_type_declaration_for_default_null_value` - deprecate option that is against `@PHP84Migration` (#7872)
+* docs: Fix typo (#7889)
+* feat: Add support for callable template in PHPDoc parser (#7084)
+* feat: Add `array_indentation` to `PER-CS2.0` ruleset (#7881)
+* feat: `@Symfony:risky` - add `no_unreachable_default_argument_value` (#7863)
+* feat: `PhpCsFixer` ruleset - enable `nullable_type_declaration_for_default_null_value` (#7870)
+* fix: Constant invocation detected in DNF types (#7869)
+* fix: Correctly indent multiline constants and properties (#7875)
+* fix: `no_useless_concat_operator` - do not break variable (#7827)
+* fix: `TokensAnalyzer` - handle unary operator in arrow functions (#7862)
+* fix: `TypeExpression` - fix "JIT stack limit exhausted" error (#7843)
+
 Changelog for v3.51.0
 ---------------------
 
