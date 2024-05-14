@@ -1188,8 +1188,6 @@ class BMISClass {
     }
 
     public function create_certofres() {
-        // Start the session
-        session_start();
     
         if(isset($_POST['create_certofres'])) {
             // Check if a certificate has already been created for the resident today
