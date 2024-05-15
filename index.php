@@ -1097,25 +1097,28 @@ nav {
 </nav>
 
 <style>
-    /* Custom styling for dropdown toggle */
-    .navbar-light .navbar-nav .nav-link.dropdown-toggle {
-        background-color: #007bff; /* Set background color to #007bff */
-        margin-top: 5px;
-    }
-    .navbar-light .navbar-toggler-icon {
-        background-color: #ffffff; /* Set color of the toggle icon to white */
-    }
-    @media screen and (max-width: 768px) {
-        .bg-light {
-            background-color: rgba(255, 255, 255, 0.3) !important; /* Set background color to white with 30% opacity on small screens */
-        }
-    }
-    @media screen and (min-width: 769px) {
-      .navbar {
+ /* Custom styling for dropdown toggle */
+.navbar-light .navbar-nav .nav-link.dropdown-toggle {
+    background-color: #007bff; /* Set background color to #007bff */
+    margin-top: 5px;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: #ffffff; /* Set color of the toggle icon to white */
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
         display: flex;
         justify-content: center; /* Center the navbar items horizontally */
     }
-  }
+    .dropdown-menu {
+        top: 100% !important; /* Ensure dropdown menu appears below the dropdown toggle */
+        margin-top: 0; /* Reset default margin */
+        margin-bottom: 0; /* Reset default margin */
+        transform: translateX(-50%); /* Center the dropdown menu horizontally */
+    }
+}
 </style>
 
           <li class="link"><a href="index_login.php">LOGIN</a></li>
