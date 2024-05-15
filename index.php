@@ -1105,8 +1105,17 @@ nav {
     .navbar-light .navbar-toggler-icon {
         background-color: #ffffff; /* Set color of the toggle icon to white */
     }
-    .bg-light {
-        background-color: rgba(255, 255, 255, 0.1) !important; /* Set background color to white with 50% opacity */
+    @media screen and (max-width: 768px) {
+        .bg-light {
+            background-color: rgba(255, 255, 255, 0.3) !important; /* Set background color to white with 30% opacity on small screens */
+        }
+    }
+    @media screen and (min-width: 769px) {
+        .bg-light {
+            background-color: rgba(255, 255, 255, 1) !important; /* Set background color to white with 100% opacity on big screens */
+            display: flex;
+            justify-content: center; /* Center the navbar on big screens */
+        }
     }
 </style>
 
