@@ -11,6 +11,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <title>Brgy. Yuson Information Management System</title>
   </head>
 
@@ -78,6 +80,8 @@ a {
 html,
 body {
   scroll-behavior: smooth;
+  width: 100%; /* Set body width to full width */
+        overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 body {
@@ -146,6 +150,24 @@ nav {
   .nav__links.open {
     transform: scaleY(1);
   }
+}
+
+.nav__logo {
+  flex: 1;
+}
+
+.nav__logo a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 .nav__logo {
   flex: 1;
@@ -736,14 +758,13 @@ nav {
 .nav__links.open {
   transform: scaleY(1);
 }
-
   .nav__menu__btn {
     display: block;
   }
 
   .header__container h1 {
     margin-top: 4rem;
-    font-size: 3.5rem;
+    font-size: 3.0rem;
   }
 
   .offer__grid__top,
@@ -825,8 +846,8 @@ nav {
 @media screen and (max-width: 768px) {
     #scrollTopBtn {
         bottom: 20px;
-        right: 60px;
-        padding: 10px; /* Adjust padding for smaller screens */
+        right: 40px;
+        padding: 5px; /* Adjust padding for smaller screens */
         font-size: 30px; /* Adjust font size for smaller screens */
     }
 }
@@ -1049,6 +1070,53 @@ nav {
 }
 
 
+/* Custom styling for dropdown toggle */
+.navbar-light .navbar-nav .nav-link.dropdown-toggle {
+    background-color: #007bff; /* Set background color to #007bff */
+    margin-top: 5px;
+    margin-left: -5px;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: #ffffff; /* Set color of the toggle icon to white */
+}
+.dropdown-item {
+    color: black; /* Set text color to blue */
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: center; /* Center the navbar items horizontally */
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+    .dropdown-menu {
+        top: 100% !important; /* Ensure dropdown menu appears below the dropdown toggle */
+        margin-top: 0; /* Reset default margin */
+        margin-bottom: 0; /* Reset default margin */
+        padding: 0;
+        transform: translateX(-20%); /* Center the dropdown menu horizontally */
+    }
+    .dropdown-item {
+    color: black; /* Set text color to blue */
+}
+}
+
+/* Media query for other mobile devices */
+@media screen and (max-width: 480px) {
+    .navbar-light .navbar-toggler {
+        padding-right: 10px; /* Adjust padding for the toggle button */
+        padding-left: 10px; /* Adjust padding for the toggle button */
+    }
+    .navbar-light .navbar-toggler-icon {
+        font-size: 1.25rem; /* Increase size of the toggle icon for smaller screens */
+    }
+    .dropdown-item {
+    color: black; /* Set text color to blue */
+}
+}
+
 
   </style>
   <body>
@@ -1057,13 +1125,25 @@ nav {
         <div class="logo">
             <a href="#"><img src="icons/yuson1.png" alt="logo" height="70px" /></a>
           </div>
-        <div class="nav__logo"><a href="#home">WebYu</a></div>
+        <div class="nav__logo"><a href="#home"> <b>WebYu</b></a></div>
         <ul class="nav__links" id="nav-links">
           <li class="link"><a href="#home">Home</a></li>
           <li class="link"><a href="#choose">About</a></li>
           <li class="link"><a href="#service">Services</a></li>
           <li class="link"><a href="#location">Location</a></li>
-          <li class="link"><a href="#blog">Activities</a></li>
+          <nav class="navbar navbar-light">
+            <li class="nav-item dropdown" style="list-style-type: none;"> <!-- Added style to remove default list styles -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed background-color property -->
+                    Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
+                    <!-- Dropdown items -->
+                    <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
+                    <a class="dropdown-item" href="#activities-sk">SK Activities</a>
+                    <!-- Additional dropdown items can be added here -->
+                </div>
+            </li>
+        </nav>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
@@ -1548,7 +1628,16 @@ nav {
           <p>Brgy. Hall of Yuson, MMPW+C97, Guimba, Nueva Ecija</p></center>
 <br>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.237827872654!2d120.69341562388198!3d15.6859489180609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339133c9d1b6f1cd%3A0x9280b25e2e704eac!2sBrgy.%20Hall%20of%20Yuson!5e1!3m2!1sfil!2sph!4v1715253206913!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </section><br><br>
+      </section>
+     
+     
+      <section class="weather__container weather_container" id="weather">
+      <center><h2 class="section__header"><br><br><br>Weather Forecast</h2></center>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/15d67120d73/guimba/" data-label_1="GUIMBA" data-label_2="WEATHER" data-theme="original" >GUIMBA WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+</section><br><br>
 
       <style>
 .location__container {
@@ -1579,9 +1668,9 @@ nav {
 </style>
 
 
-    <section class="section__container blog_container" id="blog">
-      <h2 class="section__header">Activities of the Barangay</h2>
-      <div class="offer__grid">
+<section class="section__container blog_container" id="activities-barangay">
+    <h2 class="section__header">Activities of the Barangay</h2>
+    <div class="offer__grid">
       <div class="offer__card">
     <?php
     require('classes/conn.php');
@@ -1659,9 +1748,9 @@ nav {
       </div>
     </section>
 
-    <section class="section__container blog_container" id="blog">
-      <h2 class="section__header">Activities of Sangguniang Kabataan</h2>
-      <div class="offer__grid">
+    <section class="section__container blog_container" id="activities-sk">
+    <h2 class="section__header">Activities of Sangguniang Kabataan</h2>
+    <div class="offer__grid">
       <div class="offer__card">
     <?php
     require('classes/conn.php');
@@ -1768,7 +1857,9 @@ nav {
       <i class="ri-arrow-up-s-line"></i>
     </button>
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
@@ -1789,4 +1880,27 @@ nav {
         }
       };
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Get the menu button and navigation links
+    var menuBtn = document.getElementById('menu-btn');
+    var navLinks = document.getElementById('nav-links');
+
+    // Add a click event listener to the menu button
+    menuBtn.addEventListener('click', function () {
+        // Toggle the 'open' class on the navigation links
+        navLinks.classList.toggle('open');
+
+        // Change the icon based on whether the navigation links are open or not
+        var icon = menuBtn.querySelector('i');
+        if (navLinks.classList.contains('open')) {
+            icon.classList.remove('ri-menu-line');
+            icon.classList.add('ri-close-line');
+        } else {
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
+        }
+    });
+});
+</script>
 </html>
