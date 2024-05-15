@@ -1066,7 +1066,7 @@ nav {
     <li class="link"><a href="#service">Services</a></li>
     <li class="link"><a href="#location">Location</a></li>
     <li class="link">
-    <a class="link" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Activities
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
