@@ -1,8 +1,5 @@
 <?php
-require 'vendor/autoload.php';
-require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/PHPMailer.php';
-require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/SMTP.php';
-require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/Exception.php';
+require 'vendor/autoload.php'; // Ensure you have installed PhpSpreadsheet via Composer
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -10,7 +7,9 @@ use PHPMailer\PHPMailer\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 include('classes/staff.class.php');
 include('classes/resident.class.php');
 
