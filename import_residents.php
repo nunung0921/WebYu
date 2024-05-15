@@ -24,6 +24,34 @@ function generateRandomPassword($length = 8) {
     return $randomString;
 }
 
+function sendEmail($email, $password) {
+    $mail = new PHPMailer(true);
+    try {
+        //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.example.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'your-email@example.com';  // SMTP username
+        $mail->Password   = 'your-email-password';  // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        //Recipients
+        $mail->setFrom('your-email@example.com', 'Mailer');
+        $mail->addAddress($email);
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Welcome to Our Service';
+        $mail->Body    = "Dear user,<br><br>Your account has been created. Here are your login details:<br>Email: $email<br>Password: $password<br><br>Please change your password after logging in for the first time.<br><br>Best regards,<br>Your Company";
+
+        $mail->send();
+    } catch (Exception $e) {
+        error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+    }
+}
+
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
@@ -34,7 +62,7 @@ if (isset($_POST['import'])) {
             fgetcsv($file);
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $password = generateRandomPassword();
-                $hashedPassword = md5($password);
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'email' => $column[0],
@@ -58,7 +86,9 @@ if (isset($_POST['import'])) {
                     'request_status' => 'approved'
                 ];
 
-                $residentbmis->create_resident($data);
+                if ($residentbmis->create_resident($data)) {
+                    sendEmail($column[0], $password);
+                }
             }
 
             fclose($file);
@@ -71,7 +101,7 @@ if (isset($_POST['import'])) {
 
             foreach ($rows as $row) {
                 $password = generateRandomPassword();
-                $hashedPassword = md5($password);
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'email' => $row[0],
@@ -95,14 +125,16 @@ if (isset($_POST['import'])) {
                     'request_status' => 'approved'
                 ];
 
-                $residentbmis->create_resident($data);
+                if ($residentbmis->create_resident($data)) {
+                    sendEmail($row[0], $password);
+                }
             }
         } else {
             echo "<script>alert('Invalid file format'); window.location.href = 'admn_resident_crud.php';</script>";
             exit;
         }
 
-        echo "<script>alert('Residents imported successfully'); window.location.href = 'admn_resident_crud.php';</script>";
+        echo "<script>alert('Residents imported successfully. You will receive an email shortly!'); window.location.href = 'admn_resident_crud.php';</script>";
     } else {
         echo "<script>alert('Invalid file size or format'); window.location.href = 'admn_resident_crud.php';</script>";
     }
