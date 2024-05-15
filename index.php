@@ -1873,20 +1873,5 @@ nav {
         }
     });
 
-    // Get all the links inside the navigation menu
-    var links = navLinks.querySelectorAll('a');
-
-    // Add click event listeners to each link
-    links.forEach(function(link) {
-        link.addEventListener('click', function() {
-            // Close the navigation menu
-            navLinks.classList.remove('open');
-            // Change the icon back to the menu icon
-            icon.classList.remove('ri-close-line');
-            icon.classList.add('ri-menu-line');
-        });
-    });
-});
-
 </script>
 </html>
