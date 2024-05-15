@@ -1871,7 +1871,7 @@ nav {
         }
       };
     </script>
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
@@ -1956,5 +1956,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+
 
 </html>
