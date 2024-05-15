@@ -1871,8 +1871,7 @@ nav {
         }
       };
     </script>
-  
-  <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
@@ -1882,44 +1881,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var aboutLink = document.getElementById('about-link');
     var locationLink = document.getElementById('location-link');
     var servicesLink = document.getElementById('services-link');
-
-    // Function to close the menu
-    function closeMenu() {
-        navLinks.classList.remove('open');
-        var icon = menuBtn.querySelector('i');
-        icon.classList.remove('ri-close-line');
-        icon.classList.add('ri-menu-line');
-    }
-
-    // Function to handle link clicks and close the menu
-    function handleLinkClick(linkElement) {
-        linkElement.addEventListener('click', function(event) {
-            event.preventDefault();
-            closeMenu();
-            var url = linkElement.getAttribute('href');
-            if (url) {
-                window.location.href = url;
-            }
-        });
-    }
-
-    // Add click event listeners to dropdown items
-    dropdownItems.forEach(function(item) {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            closeMenu();
-            var url = item.getAttribute('href');
-            if (url) {
-                window.location.href = url;
-            }
-        });
-    });
-
-    // Add click event listeners to other navigation links
-    handleLinkClick(homeLink);
-    handleLinkClick(aboutLink);
-    handleLinkClick(locationLink);
-    handleLinkClick(servicesLink);
 
     // Add a click event listener to the menu button
     menuBtn.addEventListener('click', function () {
@@ -1936,10 +1897,65 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.add('ri-menu-line');
         }
     });
+
+    // Function to close the menu
+    function closeMenu() {
+        navLinks.classList.remove('open');
+        var icon = menuBtn.querySelector('i');
+        icon.classList.remove('ri-close-line');
+        icon.classList.add('ri-menu-line');
+    }
+
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
+
+    // Add click event listeners to other navigation links
+    homeLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = homeLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+
+    aboutLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = aboutLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+
+    locationLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = locationLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+
+    servicesLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = servicesLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
 });
 </script>
-
-
 
 
 </html>
