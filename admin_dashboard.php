@@ -135,7 +135,7 @@ const ctxOther = document.getElementById('otherChart').getContext('2d');
 
 // Data for the charts (assuming these variables are correctly defined earlier in your code)
 const documentData = [
-    //{ documentType: 'Request for Approval', count: <?= $reqscount ?> },
+    { documentType: 'Request for Approval', count: <?= $reqscount ?> },
     { documentType: 'Certificate of Residency', count: <?= $count ?> },
     { documentType: 'Business Clearance', count: <?= $countbs ?> },
     { documentType: 'Barangay Clearance', count: <?= $countbc ?> },
@@ -145,7 +145,7 @@ const documentData = [
 
 // URL mapping for document types
 const documentUrlMapping = {
-    //'Request for Approval': 'admn_resident_request.php',
+    'Request for Approval': 'admn_resident_request.php',
     'Certificate of Residency': 'admn_certofres.php',
     'Business Clearance': 'admn_bspermit.php',
     'Barangay Clearance': 'admn_brgyclearance.php',
