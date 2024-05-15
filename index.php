@@ -1065,17 +1065,17 @@ nav {
     <li class="link"><a href="#choose">About</a></li>
     <li class="link"><a href="#service">Services</a></li>
     <li class="link"><a href="#location">Location</a></li>
-    <li class="link dropdown">
-        <a class="dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Activities
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
-            <!-- Dropdown items -->
-            <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
-            <a class="dropdown-item" href="#activities-sk">SK Activities</a>
-            <!-- Additional dropdown items can be added here -->
-        </div>
-    </li>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Activities
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
+        <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
+        <a class="dropdown-item" href="#activities-sk">SK Activities</a>
+        <!-- Additional dropdown items can be added here -->
+    </div>
+</li>
+
     <li class="link"><a href="index_login.php">LOGIN</a></li>
 </ul>
 
