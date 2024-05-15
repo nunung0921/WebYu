@@ -1091,7 +1091,7 @@ nav {
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
-          <span><i class="ri-close-line"></i></span>
+          <span><i class="ri-menu-line"></i></span>
         </div>
       </nav>
       <div class="section__container header__container" id="home">
@@ -1815,4 +1815,11 @@ nav {
         }
       };
     </script>
+    <script>
+    $(document).ready(function(){
+        $('#menu-btn').click(function(){
+            $('nav').toggleClass('active');
+        });
+    });
+</script>
 </html>
