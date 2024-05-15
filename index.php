@@ -237,7 +237,7 @@ nav {
 
 .header__container h1 {
   margin-bottom: 1rem;
-  font-size: 4.5rem;
+  font-size: 4.0rem;
   font-weight: 600;
   font-family: var(--header-font);
 }
@@ -1142,7 +1142,7 @@ nav {
         </div>
       </nav>
       <div class="section__container header__container" id="home">
-        <h1>Barangay Yuson <br>Information<center>Management</center> System</h1><br><br>
+        <h1>Barangay Yuson <br>Information Management System</h1><br><br>
         <div class="contact-box">
         <h2>Details</h2>
         <?php
