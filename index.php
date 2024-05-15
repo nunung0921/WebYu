@@ -1066,8 +1066,7 @@ nav {
           <li class="link"><a href="#service">Services</a></li>
           <li class="link"><a href="#location">Location</a></li>
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <ul class="navbar-nav mr-auto">
+    
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Activities
@@ -1079,9 +1078,7 @@ nav {
                     <!-- Additional dropdown items can be added here -->
                 </div>
             </li>
-        </ul>
-    </div>
-</nav>
+       
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
