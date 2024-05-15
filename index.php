@@ -1871,6 +1871,7 @@ nav {
         }
       };
     </script>
+  
   <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Get the menu button, navigation links, and dropdown items
@@ -1890,18 +1891,6 @@ document.addEventListener('DOMContentLoaded', function () {
         icon.classList.add('ri-menu-line');
     }
 
-    // Add click event listeners to dropdown items
-    dropdownItems.forEach(function(item) {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            closeMenu();
-            var url = item.getAttribute('href');
-            if (url) {
-                window.location.href = url;
-            }
-        });
-    });
-
     // Function to handle link clicks and close the menu
     function handleLinkClick(linkElement) {
         linkElement.addEventListener('click', function(event) {
@@ -1913,6 +1902,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
 
     // Add click event listeners to other navigation links
     handleLinkClick(homeLink);
@@ -1937,6 +1938,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+
 
 
 
