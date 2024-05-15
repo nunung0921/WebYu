@@ -1065,17 +1065,23 @@ nav {
           <li class="link"><a href="#choose">About</a></li>
           <li class="link"><a href="#service">Services</a></li>
           <li class="link"><a href="#location">Location</a></li>
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#blog" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Activities
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <!-- Dropdown items -->
-                  <a class="dropdown-item" href="#blog">Barangay Activities</a>
-                  <a class="dropdown-item" href="#blog">SK Activities</a>
-                  <!-- Additional dropdown items can be added here -->
-              </div>
-          </li>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
+                    <!-- Dropdown items -->
+                    <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
+                    <a class="dropdown-item" href="#activities-sk">SK Activities</a>
+                    <!-- Additional dropdown items can be added here -->
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
@@ -1591,9 +1597,9 @@ nav {
 </style>
 
 
-    <section class="section__container blog_container" id="blog">
-      <h2 class="section__header">Activities of the Barangay</h2>
-      <div class="offer__grid">
+<section class="section__container blog_container" id="activities-barangay">
+    <h2 class="section__header">Activities of the Barangay</h2>
+    <div class="offer__grid">
       <div class="offer__card">
     <?php
     require('classes/conn.php');
@@ -1671,9 +1677,9 @@ nav {
       </div>
     </section>
 
-    <section class="section__container blog_container" id="blog">
-      <h2 class="section__header">Activities of Sangguniang Kabataan</h2>
-      <div class="offer__grid">
+    <section class="section__container blog_container" id="activities-sk">
+    <h2 class="section__header">Activities of Sangguniang Kabataan</h2>
+    <div class="offer__grid">
       <div class="offer__card">
     <?php
     require('classes/conn.php');
