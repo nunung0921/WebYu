@@ -133,11 +133,10 @@ if (isset($_POST['import'])) {
                 ];
 
                 if ($residentbmis->create_resident($data)) {
-                    var_dump($row[0], $password); // Check the values
-                    sendEmail($row[0], $password);
-                    die(); // Stop further execution to see the output
+                    echo "Resident record created successfully for email: $data['email']<br>";
+                    sendEmail($data['email'], $password);
                 } else {
-                    echo "Failed to create resident record.<br>";
+                    echo "Failed to create resident record for email: $data['email']<br>";
                 }
             }
         } else {
