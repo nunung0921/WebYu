@@ -1068,35 +1068,6 @@ nav {
 }
 
 
-
-  </style>
-  <body>
-    <header class="header">
-      <nav>
-        <div class="logo">
-            <a href="#"><img src="icons/yuson1.png" alt="logo" height="70px" /></a>
-          </div>
-        <div class="nav__logo"><a href="#home">WebYu</a></div>
-        <ul class="nav__links" id="nav-links">
-          <li class="link"><a href="#home">Home</a></li>
-          <li class="link"><a href="#choose">About</a></li>
-          <li class="link"><a href="#service">Services</a></li>
-          <li class="link"><a href="#location">Location</a></li>
-          <nav class="navbar navbar-expand-lg navbar-light">
-    <li class="nav-item dropdown" style="list-style-type: none;"> <!-- Added style to remove default list styles -->
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed background-color property -->
-            Activities
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
-            <!-- Dropdown items -->
-            <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
-            <a class="dropdown-item" href="#activities-sk">SK Activities</a>
-            <!-- Additional dropdown items can be added here -->
-        </div>
-    </li>
-</nav>
-
-<style>
 /* Custom styling for dropdown toggle */
 .navbar-light .navbar-nav .nav-link.dropdown-toggle {
     background-color: #007bff; /* Set background color to #007bff */
@@ -1135,8 +1106,33 @@ nav {
     }
 }
 
-</style>
 
+  </style>
+  <body>
+    <header class="header">
+      <nav>
+        <div class="logo">
+            <a href="#"><img src="icons/yuson1.png" alt="logo" height="70px" /></a>
+          </div>
+        <div class="nav__logo"><a href="#home">WebYu</a></div>
+        <ul class="nav__links" id="nav-links">
+          <li class="link"><a href="#home">Home</a></li>
+          <li class="link"><a href="#choose">About</a></li>
+          <li class="link"><a href="#service">Services</a></li>
+          <li class="link"><a href="#location">Location</a></li>
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <li class="nav-item dropdown" style="list-style-type: none;"> <!-- Added style to remove default list styles -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed background-color property -->
+                    Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
+                    <!-- Dropdown items -->
+                    <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
+                    <a class="dropdown-item" href="#activities-sk">SK Activities</a>
+                    <!-- Additional dropdown items can be added here -->
+                </div>
+            </li>
+        </nav>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
