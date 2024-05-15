@@ -1067,7 +1067,7 @@ nav {
           <li class="link"><a href="#location">Location</a></li>
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
-            <li class="nav-item dropdown" style="background-color: #007bff;">
+            <li class="nav-item dropdown" style="background-color: #007bff; color:white;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Activities
                 </a>
