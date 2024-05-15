@@ -1110,7 +1110,7 @@ nav {
 
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
-    .navbar {
+  .navbar-light .navbar-nav .nav-link.dropdown-toggle {
         display: flex;
         justify-content: center; /* Center the navbar items horizontally */
         background-color: rgba(0, 123, 255, 0.1);
