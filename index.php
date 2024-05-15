@@ -1873,9 +1873,10 @@ nav {
     </script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-    // Get the menu button and navigation links
+    // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
 
     // Add a click event listener to the menu button
     menuBtn.addEventListener('click', function () {
@@ -1892,6 +1893,27 @@ nav {
             icon.classList.add('ri-menu-line');
         }
     });
+
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+            // Close the menu
+            navLinks.classList.remove('open');
+            // Change the icon back to the menu icon
+            var icon = menuBtn.querySelector('i');
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
+            // Check if the clicked item is a dropdown item
+            var isDropdownItem = item.closest('.dropdown-menu');
+            // If it's not a dropdown item, close the menu
+            if (!isDropdownItem) {
+                navLinks.classList.remove('open');
+            }
+        });
+    });
 });
+
 </script>
 </html>
