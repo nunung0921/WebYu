@@ -1633,8 +1633,10 @@ nav {
      
       <section class="weather__container weather_container" id="weather">
       <center><h2 class="section__header"><br><br><br>Location</h2></center>
-      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-4e7debec-1ac6-4dca-bafd-fe3d5d0329ac" data-elfsight-app-lazy></div>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/15d67120d73/guimba/" data-label_1="GUIMBA" data-label_2="WEATHER" data-theme="original" >GUIMBA WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
 </section><br><br>
 
       <style>
