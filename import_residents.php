@@ -1,6 +1,14 @@
 <?php
-require 'vendor/autoload.php'; // Ensure you have installed PhpSpreadsheet via Composer
+require 'vendor/autoload.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/PHPMailer.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/SMTP.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/Exception.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 include('classes/staff.class.php');
@@ -60,7 +68,7 @@ if (isset($_POST['import'])) {
             fclose($file);
         } else if (in_array($fileType, ['xls', 'xlsx'])) {
             // Handle Excel file
-            $spreadsheet = IOFactory::load($fileName);
+            $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($fileName);
             $sheet = $spreadsheet->getActiveSheet();
             $rows = $sheet->toArray();
 
