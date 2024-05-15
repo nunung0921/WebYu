@@ -1909,8 +1909,19 @@ document.addEventListener('DOMContentLoaded', function () {
             var targetId = link.getAttribute('href').substring(1); // Remove the '#' character
             var targetElement = document.getElementById(targetId);
             if (targetElement) {
-                // Scroll smoothly to the target section
-                targetElement.scrollIntoView({
+                // Calculate the offset to consider fixed header height if present
+                var offset = 0;
+                var header = document.querySelector('header');
+                if (header) {
+                    offset = header.offsetHeight;
+                }
+
+                // Calculate the target position
+                var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                // Scroll smoothly to the target position
+                window.scrollTo({
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
