@@ -1100,12 +1100,13 @@ nav {
     /* Custom styling for dropdown toggle */
     .navbar-light .navbar-nav .nav-link.dropdown-toggle {
         background-color: #007bff; /* Set background color to #007bff */
+        margin-top: 5px;
     }
     .navbar-light .navbar-toggler-icon {
         background-color: #ffffff; /* Set color of the toggle icon to white */
     }
     .bg-light {
-        background-color: rgba(255, 255, 255, 0.9) !important; /* Set background color to white with 50% opacity */
+        background-color: rgba(255, 255, 255, 0.1) !important; /* Set background color to white with 50% opacity */
     }
 </style>
 
