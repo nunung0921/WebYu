@@ -27,18 +27,18 @@ function generateRandomPassword($length = 8) {
 function sendEmail($email, $password) {
     $mail = new PHPMailer(true);
     try {
-        //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.hostinger.com'; // Hostinger's SMTP server
         $mail->SMTPAuth   = true;
-        $mail->Username = 'olshco.electionupdates@gmail.com'; // Gmail email
-        $mail->Password = 'ljzujblsyyprijmx'; // Gmail app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Username   = 'webyu@webyu.online'; // SMTP username
+        $mail->Password   = 'Tosperjr@092103'; // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
+        $mail->Port       = 587; // TCP port to connect to
 
-        //Recipients
-        $mail->setFrom('olshco.electionupdates@gmail.com', 'EL-UPS');
+        // Recipients
+        $mail->setFrom('webyu@webyu.online', 'WebYu');
         $mail->addAddress($email);
 
         // Content
@@ -47,10 +47,13 @@ function sendEmail($email, $password) {
         $mail->Body    = "Dear user,<br><br>Your account has been created. Here are your login details:<br>Email: $email<br>Password: $password<br><br>Please change your password after logging in for the first time.<br><br>Best regards,<br>Your Company";
 
         $mail->send();
+        echo "Message has been sent to $email<br>";
     } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}<br>";
         error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
     }
 }
+
 
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
@@ -87,7 +90,9 @@ if (isset($_POST['import'])) {
                 ];
 
                 if ($residentbmis->create_resident($data)) {
+                    var_dump($column[0], $password); // Check the values
                     sendEmail($column[0], $password);
+                    die(); // Stop further execution to see the output
                 }
             }
 
@@ -126,7 +131,9 @@ if (isset($_POST['import'])) {
                 ];
 
                 if ($residentbmis->create_resident($data)) {
+                    var_dump($row[0], $password); // Check the values
                     sendEmail($row[0], $password);
+                    die(); // Stop further execution to see the output
                 }
             }
         } else {
@@ -139,4 +146,5 @@ if (isset($_POST['import'])) {
         echo "<script>alert('Invalid file size or format'); window.location.href = 'admn_resident_crud.php';</script>";
     }
 }
+
 ?>
