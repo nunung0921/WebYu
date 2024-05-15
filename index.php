@@ -1081,10 +1081,11 @@ nav {
         
 </nav>
 <style>
-    /* Custom styling for dropdown menu */
-    .navbar-light .navbar-nav .dropdown-menu .dropdown-item {
-        color: #fff; /* Set font color to white */
+    /* Custom styling for dropdown toggle */
+    .navbar-light .navbar-nav .nav-link.dropdown-toggle {
+        color: #ffffff; /* Set font color to white */
         background-color: #007bff; /* Set background color to #007bff */
+        border-color: transparent; /* Set border color to transparent */
     }
 </style>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
