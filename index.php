@@ -1893,11 +1893,10 @@ nav {
             icon.classList.add('ri-menu-line');
         }
     });
-
-    // Add click event listener to regular navigation links
-    var regularLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+// Add click event listener to regular navigation links
+var regularLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
     regularLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(event) {
             // Close the menu
             navLinks.classList.remove('open');
             // Change the icon back to the menu icon
@@ -1905,6 +1904,8 @@ nav {
             icon.classList.remove('ri-close-line');
             icon.classList.add('ri-menu-line');
         });
+    });
+});
     // Add click event listeners to dropdown items
     dropdownItems.forEach(function(item) {
         item.addEventListener('click', function(event) {
