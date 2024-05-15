@@ -3,7 +3,7 @@
         'name' => 'phpoffice/phpspreadsheet',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '7f721083c2a5527ac8a944a87bcaede8fce2ca59',
+        'reference' => 'b4eb8022c6c1c2b613e82fe60cf431080e31cc57',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -237,7 +237,7 @@
         'phpoffice/phpspreadsheet' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '7f721083c2a5527ac8a944a87bcaede8fce2ca59',
+            'reference' => 'b4eb8022c6c1c2b613e82fe60cf431080e31cc57',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

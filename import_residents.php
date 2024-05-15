@@ -1,15 +1,16 @@
 <?php
-require 'vendor/autoload.php'; // Ensure you have installed PhpSpreadsheet via Composer
+require 'vendor/autoload.php';
 require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/PHPMailer.php';
 require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/SMTP.php';
 require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/Exception.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 include('classes/staff.class.php');
 include('classes/resident.class.php');
 
@@ -29,15 +30,11 @@ if (isset($_POST['import'])) {
 
     if ($_FILES['file']['size'] > 0) {
         if ($fileType == 'csv') {
-            // Handle CSV file
             $file = fopen($fileName, "r");
-
-            // Skip the first line (header)
             fgetcsv($file);
-
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $password = generateRandomPassword();
-                $hashedPassword = md5($password); // Hash the password
+                $hashedPassword = md5($password);
 
                 $data = [
                     'email' => $column[0],
@@ -56,9 +53,9 @@ if (isset($_POST['import'])) {
                     'nationality' => $column[13],
                     'voter' => $column[14],
                     'password' => $hashedPassword,
-                    'family_role' => 'member', // Default or retrieved value
-                    'role' => 'resident', // Default or retrieved value
-                    'request_status' => 'approved' // Default or retrieved value
+                    'family_role' => 'member',
+                    'role' => 'resident',
+                    'request_status' => 'approved'
                 ];
 
                 $residentbmis->create_resident($data);
@@ -66,17 +63,15 @@ if (isset($_POST['import'])) {
 
             fclose($file);
         } else if (in_array($fileType, ['xls', 'xlsx'])) {
-            // Handle Excel file
-            $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($fileName);
+            $spreadsheet = IOFactory::load($fileName);
             $sheet = $spreadsheet->getActiveSheet();
             $rows = $sheet->toArray();
 
-            // Skip the first row (header)
             array_shift($rows);
 
             foreach ($rows as $row) {
                 $password = generateRandomPassword();
-                $hashedPassword = md5($password); // Hash the password
+                $hashedPassword = md5($password);
 
                 $data = [
                     'email' => $row[0],
@@ -95,9 +90,9 @@ if (isset($_POST['import'])) {
                     'nationality' => $row[13],
                     'voter' => $row[14],
                     'password' => $hashedPassword,
-                    'family_role' => 'member', // Default or retrieved value
-                    'role' => 'resident', // Default or retrieved value
-                    'request_status' => 'approved' // Default or retrieved value
+                    'family_role' => 'member',
+                    'role' => 'resident',
+                    'request_status' => 'approved'
                 ];
 
                 $residentbmis->create_resident($data);
