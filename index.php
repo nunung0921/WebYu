@@ -1928,7 +1928,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             closeMenu();
-            var url = link.getAttribute('href');
+            var url = link.getAttribute('#href');
             if (url) {
                 window.location.href = url;
             }
