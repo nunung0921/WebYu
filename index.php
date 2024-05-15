@@ -1082,7 +1082,7 @@ nav {
           <li class="link"><a href="#choose">About</a></li>
           <li class="link"><a href="#service">Services</a></li>
           <li class="link"><a href="#location">Location</a></li>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light">
     <li class="nav-item dropdown" style="list-style-type: none;"> <!-- Added style to remove default list styles -->
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed background-color property -->
             Activities
