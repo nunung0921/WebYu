@@ -1905,6 +1905,23 @@ nav {
             icon.classList.remove('ri-close-line');
             icon.classList.add('ri-menu-line');
         });
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+            // Close the menu
+            navLinks.classList.remove('open');
+            // Change the icon back to the menu icon
+            var icon = menuBtn.querySelector('i');
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
+            // Get the URL of the selected dropdown item and navigate to it
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
     });
 });
 
