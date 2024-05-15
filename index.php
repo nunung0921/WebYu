@@ -1080,6 +1080,9 @@ nav {
 .navbar-light .navbar-toggler-icon {
     background-color: #ffffff; /* Set color of the toggle icon to white */
 }
+.dropdown-item {
+    color: black; /* Set text color to blue */
+}
 
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
@@ -1095,6 +1098,9 @@ nav {
         padding: 0;
         transform: translateX(-20%); /* Center the dropdown menu horizontally */
     }
+    .dropdown-item {
+    color: black; /* Set text color to blue */
+}
 }
 
 /* Media query for other mobile devices */
@@ -1106,6 +1112,9 @@ nav {
     .navbar-light .navbar-toggler-icon {
         font-size: 1.25rem; /* Increase size of the toggle icon for smaller screens */
     }
+    .dropdown-item {
+    color: black; /* Set text color to blue */
+}
 }
 
 
