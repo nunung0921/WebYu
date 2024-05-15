@@ -1878,6 +1878,22 @@ document.addEventListener('DOMContentLoaded', function () {
     var navLinks = document.getElementById('nav-links');
     var dropdownItems = document.querySelectorAll('.dropdown-item');
     var links = document.querySelectorAll('.link');
+
+    // Add a click event listener to the menu button
+    menuBtn.addEventListener('click', function () {
+        // Toggle the 'open' class on the navigation links
+        navLinks.classList.toggle('open');
+
+        // Change the icon based on whether the navigation links are open or not
+        var icon = menuBtn.querySelector('i');
+        if (navLinks.classList.contains('open')) {
+            icon.classList.remove('ri-menu-line');
+            icon.classList.add('ri-close-line');
+        } else {
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
+        }
+    });
 // Function to close the menu
 function closeMenu() {
     navLinks.classList.remove('open');
