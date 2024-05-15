@@ -823,7 +823,7 @@ nav {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 70px;
+    right: 50px;
     z-index: 99;
     border: none;
     outline: none;
@@ -844,7 +844,7 @@ nav {
 @media screen and (max-width: 768px) {
     #scrollTopBtn {
         bottom: 20px;
-        right: 60px;
+        right: 45px;
         padding: 10px; /* Adjust padding for smaller screens */
         font-size: 30px; /* Adjust font size for smaller screens */
     }
