@@ -30,15 +30,15 @@ function sendEmail($email, $password) {
         //Server settings
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host       = 'smtp.example.com';  // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.hostiger.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'your-email@example.com';  // SMTP username
-        $mail->Password   = 'your-email-password';  // SMTP password
+        $mail->Username   = 'webyu@webyu.online';  // SMTP username
+        $mail->Password   = 'Tosperjr@092103';  // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         //Recipients
-        $mail->setFrom('your-email@example.com', 'Mailer');
+        $mail->setFrom('webyu@webyu.online', 'WebYu');
         $mail->addAddress($email);
 
         // Content
