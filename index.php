@@ -1125,7 +1125,7 @@ nav {
         <div class="logo">
             <a href="#"><img src="icons/yuson1.png" alt="logo" height="70px" /></a>
           </div>
-        <div class="nav__logo"><a href="#home"> WebYu</a></div>
+        <div class="nav__logo"><a href="#home"> <b>WebYu</b></a></div>
         <ul class="nav__links" id="nav-links">
           <li class="link"><a href="#home">Home</a></li>
           <li class="link"><a href="#choose">About</a></li>
