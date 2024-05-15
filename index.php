@@ -1083,26 +1083,23 @@ nav {
           <li class="link"><a href="#service">Services</a></li>
           <li class="link"><a href="#location">Location</a></li>
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-            <li class="nav-item dropdown" >
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #007bff; color: #ffffff; padding: 0;">
-                    Activities
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
-                    <!-- Dropdown items -->
-                    <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
-                    <a class="dropdown-item" href="#activities-sk">SK Activities</a>
-                    <!-- Additional dropdown items can be added here -->
-                </div>
-            </li>
-        
+    <li class="nav-item dropdown" style="list-style-type: none;"> <!-- Added style to remove default list styles -->
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #007bff; color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed border property -->
+            Activities
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
+            <!-- Dropdown items -->
+            <a class="dropdown-item" href="#activities-barangay">Barangay Activities</a>
+            <a class="dropdown-item" href="#activities-sk">SK Activities</a>
+            <!-- Additional dropdown items can be added here -->
+        </div>
+    </li>
 </nav>
 <style>
     /* Custom styling for dropdown toggle */
     .navbar-light .navbar-nav .nav-link.dropdown-toggle {
         color: #ffffff; /* Set font color to white */
         background-color: #007bff; /* Set background color to #007bff */
-        border-color: transparent; /* Set border color to transparent */
     }
 </style>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
