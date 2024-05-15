@@ -1894,18 +1894,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Add click event listeners to dropdown items
-    dropdownItems.forEach(function(item) {
-        item.addEventListener('click', function(event) {
-            // Close the menu
-            navLinks.classList.remove('open');
-            // Change the icon back to the menu icon
-            var icon = menuBtn.querySelector('i');
-            icon.classList.remove('ri-close-line');
-            icon.classList.add('ri-menu-line');
-        });
-    });
-
     // Add click event listener to regular navigation links
     var regularLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
     regularLinks.forEach(function(link) {
@@ -1919,6 +1907,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 
 
 
