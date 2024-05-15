@@ -1872,7 +1872,7 @@ nav {
       };
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
     // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
@@ -1905,15 +1905,15 @@ nav {
             var icon = menuBtn.querySelector('i');
             icon.classList.remove('ri-close-line');
             icon.classList.add('ri-menu-line');
-            // Check if the clicked item is a dropdown item
-            var isDropdownItem = item.closest('.dropdown-menu');
-            // If it's not a dropdown item, close the menu
-            if (!isDropdownItem) {
-                navLinks.classList.remove('open');
+            // Get the URL of the selected dropdown item and navigate to it
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
             }
         });
     });
 });
+
 
 </script>
 </html>
