@@ -1924,7 +1924,7 @@ var regularLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
             }
         });
     });
-});
+
 
 
 </script>
