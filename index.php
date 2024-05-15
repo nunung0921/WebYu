@@ -1804,4 +1804,9 @@ nav {
         }
       };
     </script>
+    <script>
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 </html>
