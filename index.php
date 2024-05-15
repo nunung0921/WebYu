@@ -1873,7 +1873,6 @@ nav {
     </script>
    <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
     var dropdownItems = document.querySelectorAll('.dropdown-item');
@@ -1881,10 +1880,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add a click event listener to the menu button
     menuBtn.addEventListener('click', function () {
-        // Toggle the 'open' class on the navigation links
         navLinks.classList.toggle('open');
+        toggleMenuIcon();
+    });
 
-        // Change the icon based on whether the navigation links are open or not
+    // Function to toggle the menu icon
+    function toggleMenuIcon() {
         var icon = menuBtn.querySelector('i');
         if (navLinks.classList.contains('open')) {
             icon.classList.remove('ri-menu-line');
@@ -1893,14 +1894,12 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.remove('ri-close-line');
             icon.classList.add('ri-menu-line');
         }
-    });
+    }
 
     // Function to close the menu
     function closeMenu() {
         navLinks.classList.remove('open');
-        var icon = menuBtn.querySelector('i');
-        icon.classList.remove('ri-close-line');
-        icon.classList.add('ri-menu-line');
+        toggleMenuIcon();
     }
 
     // Add click event listeners to dropdown items
@@ -1915,43 +1914,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Add click event listener to document body
+    document.body.addEventListener('click', function(event) {
+        var target = event.target;
+        // Check if the clicked target is outside the dropdown
+        if (!navLinks.contains(target) && !menuBtn.contains(target)) {
+            closeMenu();
+        }
+    });
+
     // Add click event listeners to other navigation links
-    homeLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = linkink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-
-    aboutLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = aboutLink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-
-    locationLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = locationLink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-
-    servicesLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = servicesLink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            var url = link.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
     });
 });
+
 </script>
 
 
