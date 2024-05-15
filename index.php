@@ -1101,7 +1101,7 @@ nav {
 .navbar-light .navbar-nav .nav-link.dropdown-toggle {
     background-color: #007bff; /* Set background color to #007bff */
     margin-top: 5px;
-    padding: 0;
+    margin-left: -5px;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -1112,7 +1112,7 @@ nav {
     .navbar {
         display: flex;
         justify-content: center; /* Center the navbar items horizontally */
-        background-color: rgba(0, 123, 255, 0.2);
+        background-color: rgba(0, 123, 255, 0.1);
     }
     .dropdown-menu {
         top: 100% !important; /* Ensure dropdown menu appears below the dropdown toggle */
