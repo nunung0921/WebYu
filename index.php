@@ -1105,7 +1105,7 @@ nav {
         background-color: #ffffff; /* Set color of the toggle icon to white */
     }
     .bg-light {
-        background-color: #007bff !important; /* Set background color to #007bff with important to override other styles */
+        background-color: rgba(255, 255, 255, 0.5) !important; /* Set background color to white with 50% opacity */
     }
 </style>
 
