@@ -1871,20 +1871,19 @@ nav {
         }
       };
     </script>
-   <script>
-document.addEventListener('DOMContentLoaded', function () {
+    <script>
+ document.addEventListener('DOMContentLoaded', function () {
+    // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
-    var links = document.querySelectorAll('.link');
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
 
     // Add a click event listener to the menu button
     menuBtn.addEventListener('click', function () {
+        // Toggle the 'open' class on the navigation links
         navLinks.classList.toggle('open');
-        toggleMenuIcon();
-    });
 
-    // Function to toggle the menu icon
-    function toggleMenuIcon() {
+        // Change the icon based on whether the navigation links are open or not
         var icon = menuBtn.querySelector('i');
         if (navLinks.classList.contains('open')) {
             icon.classList.remove('ri-menu-line');
@@ -1893,58 +1892,28 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.remove('ri-close-line');
             icon.classList.add('ri-menu-line');
         }
-    }
-
-    // Function to close the menu
-    function closeMenu() {
-        navLinks.classList.remove('open');
-        toggleMenuIcon();
-    }
-
-    // Function to handle link clicks
-    function handleLinkClick(targetId) {
-        var targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            // Calculate the offset to consider fixed header height if present
-            var offset = 0;
-            var header = document.querySelector('header');
-            if (header) {
-                offset = header.offsetHeight;
-            }
-
-            // Calculate the target position
-            var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-
-            // Scroll smoothly to the target position
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    }
-
-    // Add click event listeners to navigation links
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            closeMenu();
-            var targetId = link.getAttribute('data-target');
-            handleLinkClick(targetId);
-        });
     });
 
-    // Add click event listener to document body
-    document.body.addEventListener('click', function(event) {
-        var target = event.target;
-        // Check if the clicked target is outside the dropdown
-        if (!navLinks.contains(target) && !menuBtn.contains(target)) {
-            closeMenu();
-        }
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+            // Close the menu
+            navLinks.classList.remove('open');
+            // Change the icon back to the menu icon
+            var icon = menuBtn.querySelector('i');
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
+            // Get the URL of the selected dropdown item and navigate to it
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
     });
 });
 
 
 </script>
-
-
 </html>
