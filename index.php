@@ -844,8 +844,8 @@ nav {
 @media screen and (max-width: 768px) {
     #scrollTopBtn {
         bottom: 20px;
-        right: 45px;
-        padding: 10px; /* Adjust padding for smaller screens */
+        right: 40px;
+        padding: 5px; /* Adjust padding for smaller screens */
         font-size: 30px; /* Adjust font size for smaller screens */
     }
 }
