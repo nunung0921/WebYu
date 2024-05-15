@@ -1877,10 +1877,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
     var dropdownItems = document.querySelectorAll('.dropdown-item');
-    var homeLink = document.getElementById('link');
-    var aboutLink = document.getElementById('link');
-    var locationLink = document.getElementById('link');
-    var servicesLink = document.getElementById('link');
+    var homeLink = document.getElementById('home-link');
+    var aboutLink = document.getElementById('about-link');
+    var locationLink = document.getElementById('location-link');
+    var servicesLink = document.getElementById('services-link');
 
     // Function to close the menu
     function closeMenu() {
