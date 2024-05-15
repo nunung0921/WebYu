@@ -1084,7 +1084,7 @@ nav {
           <li class="link"><a href="#location">Location</a></li>
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <li class="nav-item dropdown" style="list-style-type: none;"> <!-- Added style to remove default list styles -->
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #007bff; color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed border property -->
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff; padding: 10px 20px; border: none;"> <!-- Removed background-color property -->
             Activities
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
@@ -1095,16 +1095,20 @@ nav {
         </div>
     </li>
 </nav>
+
 <style>
     /* Custom styling for dropdown toggle */
     .navbar-light .navbar-nav .nav-link.dropdown-toggle {
-        color: #ffffff; /* Set font color to white */
         background-color: #007bff; /* Set background color to #007bff */
     }
+    .navbar-light .navbar-toggler-icon {
+        background-color: #ffffff; /* Set color of the toggle icon to white */
+    }
     .bg-light {
-      background-color: #007bff; /* Set background color to #007bff */
+        background-color: #007bff !important; /* Set background color to #007bff with important to override other styles */
     }
 </style>
+
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
