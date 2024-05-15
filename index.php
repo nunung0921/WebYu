@@ -1914,18 +1914,22 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+ // Function to handle link clicks and close the menu
+ function handleLinkClick(linkElement) {
+        linkElement.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            var url = linkElement.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    }
 
-    // Add click event listeners to other navigation links
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = link.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
+    // Add click event listeners to navigation links
+    links.forEach(function(link) {
+        handleLinkClick(link);
     });
-});
+
 </script>
-
-
 </html>
