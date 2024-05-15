@@ -30,7 +30,7 @@ function sendEmail($email, $password) {
         //Server settings
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host       = 'smtp.hostiger.com';  // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.hostinger.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;
         $mail->Username   = 'webyu@webyu.online';  // SMTP username
         $mail->Password   = 'Tosperjr@092103';  // SMTP password
