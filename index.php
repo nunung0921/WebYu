@@ -1907,7 +1907,7 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', function(event) {
             event.preventDefault();
             closeMenu();
-            var url = item.href;
+            var url = item.getAttribute('href');
             if (url) {
                 window.location.href = url;
             }
@@ -1928,7 +1928,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             closeMenu();
-            var url = link.href;
+            var url = link.getAttribute('href');
             if (url) {
                 window.location.href = url;
             }
