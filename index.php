@@ -1894,65 +1894,64 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.add('ri-menu-line');
         }
     });
-// Function to close the menu
-function closeMenu() {
-    navLinks.classList.remove('open');
-    var icon = menuBtn.querySelector('i');
-    icon.classList.remove('ri-close-line');
-    icon.classList.add('ri-menu-line');
-}
 
-// Function to handle link clicks and close the menu
-function handleLinkClick(linkElement) {
-    linkElement.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = linkElement.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-}
-
-// Get the menu button, navigation links, dropdown items, and links
-var menuBtn = document.getElementById('menu-btn');
-var navLinks = document.getElementById('nav-links');
-var dropdownItems = document.querySelectorAll('.dropdown-item');
-var links = document.querySelectorAll('.link');
-
-// Add click event listeners to navigation links
-links.forEach(function(link) {
-    handleLinkClick(link);
-});
-
-// Add click event listeners to dropdown items
-dropdownItems.forEach(function(item) {
-    item.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = item.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-});
-
-// Add a click event listener to the menu button
-menuBtn.addEventListener('click', function () {
-    // Toggle the 'open' class on the navigation links
-    navLinks.classList.toggle('open');
-
-    // Change the icon based on whether the navigation links are open or not
-    var icon = menuBtn.querySelector('i');
-    if (navLinks.classList.contains('open')) {
-        icon.classList.remove('ri-menu-line');
-        icon.classList.add('ri-close-line');
-    } else {
+    // Function to close the menu
+    function closeMenu() {
+        navLinks.classList.remove('open');
+        var icon = menuBtn.querySelector('i');
         icon.classList.remove('ri-close-line');
         icon.classList.add('ri-menu-line');
     }
-});
 
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
+
+    // Add click event listeners to other navigation links
+    homeLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = linkink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+
+    aboutLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = aboutLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+
+    locationLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = locationLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+
+    servicesLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeMenu();
+        var url = servicesLink.getAttribute('href');
+        if (url) {
+            window.location.href = url;
+        }
+    });
+});
 </script>
 
 
