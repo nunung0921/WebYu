@@ -1818,7 +1818,7 @@ nav {
     <script>
     $(document).ready(function(){
         $('#menu-btn').click(function(){
-            $('nav').toggleClass('active');
+            $('.navbar-collapse').toggleClass('show');
         });
     });
 </script>
