@@ -80,6 +80,8 @@ a {
 html,
 body {
   scroll-behavior: smooth;
+  width: 100%; /* Set body width to full width */
+        overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 body {
