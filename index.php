@@ -1068,7 +1068,7 @@ nav {
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
             <li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #007bff; color: #ffffff;">
                     Activities
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownActivities">
