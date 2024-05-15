@@ -1629,6 +1629,13 @@ nav {
 <br>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.237827872654!2d120.69341562388198!3d15.6859489180609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339133c9d1b6f1cd%3A0x9280b25e2e704eac!2sBrgy.%20Hall%20of%20Yuson!5e1!3m2!1sfil!2sph!4v1715253206913!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </section><br><br>
+     
+     
+      <section class="weather__container weather_container" id="weather">
+      <center><h2 class="section__header"><br><br><br>Location</h2></center>
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-4e7debec-1ac6-4dca-bafd-fe3d5d0329ac" data-elfsight-app-lazy></div>
+</section><br><br>
 
       <style>
 .location__container {
