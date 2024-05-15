@@ -1,6 +1,8 @@
 <?php
 require 'vendor/autoload.php'; // Ensure you have installed PhpSpreadsheet via Composer
-
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/PHPMailer.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/SMTP.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
