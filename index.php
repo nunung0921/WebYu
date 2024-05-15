@@ -11,6 +11,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <title>Brgy. Yuson Information Management System</title>
   </head>
 
@@ -1063,7 +1065,17 @@ nav {
           <li class="link"><a href="#choose">About</a></li>
           <li class="link"><a href="#service">Services</a></li>
           <li class="link"><a href="#location">Location</a></li>
-          <li class="link"><a href="#blog">Activities</a></li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#blog" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <!-- Dropdown items -->
+                  <a class="dropdown-item" href="#blog">Barangay Activities</a>
+                  <a class="dropdown-item" href="#blog">SK Activities</a>
+                  <!-- Additional dropdown items can be added here -->
+              </div>
+          </li>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
@@ -1768,7 +1780,9 @@ nav {
       <i class="ri-arrow-up-s-line"></i>
     </button>
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
