@@ -1101,6 +1101,7 @@ nav {
 .navbar-light .navbar-nav .nav-link.dropdown-toggle {
     background-color: #007bff; /* Set background color to #007bff */
     margin-top: 5px;
+    padding: 0;
 }
 
 .navbar-light .navbar-toggler-icon {
