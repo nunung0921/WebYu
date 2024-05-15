@@ -13,6 +13,8 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 include('classes/staff.class.php');
 include('classes/resident.class.php');
+ini_set('display_errors', 1);
+error_reporting(E_ALL); 
 
 function generateRandomPassword($length = 8) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
