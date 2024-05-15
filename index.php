@@ -237,7 +237,7 @@ nav {
 
 .header__container h1 {
   margin-bottom: 1rem;
-  font-size: 4.0rem;
+  font-size: 4.5rem;
   font-weight: 600;
   font-family: var(--header-font);
 }
@@ -764,7 +764,7 @@ nav {
 
   .header__container h1 {
     margin-top: 4rem;
-    font-size: 3.5rem;
+    font-size: 3.0rem;
   }
 
   .offer__grid__top,
