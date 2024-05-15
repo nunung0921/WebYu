@@ -1875,6 +1875,7 @@ nav {
 document.addEventListener('DOMContentLoaded', function () {
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
     var links = document.querySelectorAll('.link');
 
     // Add a click event listener to the menu button
@@ -1901,29 +1902,14 @@ document.addEventListener('DOMContentLoaded', function () {
         toggleMenuIcon();
     }
 
-    // Add click event listeners to navigation links
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
             event.preventDefault();
             closeMenu();
-            var targetId = link.getAttribute('href').substring(1); // Remove the '#' character
-            var targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                // Calculate the offset to consider fixed header height if present
-                var offset = 0;
-                var header = document.querySelector('header');
-                if (header) {
-                    offset = header.offsetHeight;
-                }
-
-                // Calculate the target position
-                var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-
-                // Scroll smoothly to the target position
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            var url = item.getAttribute('href');
+            if (url) {
+                window.location.href = url;
             }
         });
     });
@@ -1936,8 +1922,19 @@ document.addEventListener('DOMContentLoaded', function () {
             closeMenu();
         }
     });
-});
 
+    // Add click event listeners to other navigation links
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            var url = link.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
+});
 
 </script>
 
