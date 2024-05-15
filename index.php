@@ -1101,6 +1101,9 @@ nav {
         color: #ffffff; /* Set font color to white */
         background-color: #007bff; /* Set background color to #007bff */
     }
+    .bg-light {
+      background-color: #007bff; /* Set background color to #007bff */
+    }
 </style>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
