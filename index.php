@@ -823,7 +823,7 @@ nav {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 50px;
+    right: 70px;
     z-index: 99;
     border: none;
     outline: none;
