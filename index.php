@@ -1111,12 +1111,14 @@ nav {
     .navbar {
         display: flex;
         justify-content: center; /* Center the navbar items horizontally */
+        background-color: rgba(0, 123, 255, 0.9);
     }
     .dropdown-menu {
         top: 100% !important; /* Ensure dropdown menu appears below the dropdown toggle */
         margin-top: 0; /* Reset default margin */
         margin-bottom: 0; /* Reset default margin */
         transform: translateX(-50%); /* Center the dropdown menu horizontally */
+        justify-content: center; /* Center the navbar items horizontally */
     }
 }
 </style>
