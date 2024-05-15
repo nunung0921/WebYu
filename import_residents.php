@@ -54,12 +54,12 @@ function sendEmail($email, $password) {
     }
 }
 
-
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
     if ($_FILES['file']['size'] > 0) {
+        echo "File uploaded successfully.<br>";
         if ($fileType == 'csv') {
             $file = fopen($fileName, "r");
             fgetcsv($file);
@@ -93,6 +93,8 @@ if (isset($_POST['import'])) {
                     var_dump($column[0], $password); // Check the values
                     sendEmail($column[0], $password);
                     die(); // Stop further execution to see the output
+                } else {
+                    echo "Failed to create resident record.<br>";
                 }
             }
 
@@ -134,6 +136,8 @@ if (isset($_POST['import'])) {
                     var_dump($row[0], $password); // Check the values
                     sendEmail($row[0], $password);
                     die(); // Stop further execution to see the output
+                } else {
+                    echo "Failed to create resident record.<br>";
                 }
             }
         } else {
