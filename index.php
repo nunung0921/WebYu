@@ -1934,6 +1934,23 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    // Add click event listeners to navigation links
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeMenu();
+            handleLinkClick(link);
+        });
+    });
+
+    // Add click event listener to document body
+    document.body.addEventListener('click', function(event) {
+        var target = event.target;
+        // Check if the clicked target is outside the dropdown
+        if (!navLinks.contains(target) && !menuBtn.contains(target)) {
+            closeMenu();
+        }
+    });
 });
 
 </script>
