@@ -30,15 +30,15 @@ function sendEmail($email, $password) {
         //Server settings
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host       = 'smtp.hostinger.com';  // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'webyu@webyu.online';  // SMTP username
-        $mail->Password   = 'Tosperjr@092103';  // SMTP password
+        $mail->Username = 'olshco.electionupdates@gmail.com'; // Gmail email
+        $mail->Password = 'ljzujblsyyprijmx'; // Gmail app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         //Recipients
-        $mail->setFrom('webyu@webyu.online', 'WebYu');
+        $mail->setFrom('olshco.electionupdates@gmail.com', 'EL-UPS');
         $mail->addAddress($email);
 
         // Content
