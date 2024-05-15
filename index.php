@@ -1916,37 +1916,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Add click event listeners to other navigation links
-    homeLink.addEventListener('click', function(event) {
+    link.addEventListener('click', function(event) {
         event.preventDefault();
         closeMenu();
-        var url = homeLink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-
-    aboutLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = aboutLink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-
-    locationLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = locationLink.getAttribute('href');
-        if (url) {
-            window.location.href = url;
-        }
-    });
-
-    servicesLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        closeMenu();
-        var url = servicesLink.getAttribute('href');
+        var url = link.getAttribute('href');
         if (url) {
             window.location.href = url;
         }
