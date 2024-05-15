@@ -1,12 +1,20 @@
 <?php
 require 'vendor/autoload.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/PHPMailer.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/SMTP.php';
+require '/home/u813203284/domains/webyu.online/public_html/PHPMailer/src/Exception.php';
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 include('classes/staff.class.php');
 include('classes/resident.class.php');
+ini_set('display_errors', 1);
+error_reporting(E_ALL); 
 
 function generateRandomPassword($length = 8) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -18,21 +26,35 @@ function generateRandomPassword($length = 8) {
     return $randomString;
 }
 
+function sendEmail($email, $password) {
+    // Send email with basic PHP mail function
+    $to = $email;
+    $subject = 'Welcome to Our Service';
+    $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nYour Company";
+    $headers = 'From: rafaeltosper@gmail.com' . "\r\n" .
+               'Reply-To: rafaeltosper@gmail.com' . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Message has been sent to $email<br>";
+    } else {
+        echo "Message could not be sent to $email<br>";
+    }
+}
+
+
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
     if ($_FILES['file']['size'] > 0) {
+        echo "File uploaded successfully.<br>";
         if ($fileType == 'csv') {
-            // Handle CSV file
             $file = fopen($fileName, "r");
-
-            // Skip the first line (header)
             fgetcsv($file);
-
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $password = generateRandomPassword();
-                $hashedPassword = md5($password); // Hash the password
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'email' => $column[0],
@@ -45,33 +67,38 @@ if (isset($_POST['import'])) {
                     'houseno' => $column[7],
                     'street' => $column[8],
                     'brgy' => $column[9],
-                    'contact' => $column[10],
-                    'bdate' => $column[11],
-                    'bplace' => $column[12],
-                    'nationality' => $column[13],
-                    'voter' => $column[14],
+                    'municipal' => $column[10],
+                    'contact' => $column[11],
+                    'bdate' => $column[12],
+                    'bplace' => $column[13],
+                    'nationality' => $column[14],
+                    'voter' => $column[15],
                     'password' => $hashedPassword,
-                    'family_role' => 'member', // Default or retrieved value
-                    'role' => 'resident', // Default or retrieved value
-                    'request_status' => 'approved' // Default or retrieved value
+                    'family_role' => 'member',
+                    'role' => 'resident',
+                    'request_status' => 'approved'
                 ];
 
-                $residentbmis->create_resident($data);
+                if ($residentbmis->create_resident($data)) {
+                    var_dump($column[0], $password); // Check the values
+                    sendEmail($column[0], $password);
+                    die(); // Stop further execution to see the output
+                } else {
+                    echo "Failed to create resident record.<br>";
+                }
             }
 
             fclose($file);
         } else if (in_array($fileType, ['xls', 'xlsx'])) {
-            // Handle Excel file
             $spreadsheet = IOFactory::load($fileName);
             $sheet = $spreadsheet->getActiveSheet();
             $rows = $sheet->toArray();
 
-            // Skip the first row (header)
             array_shift($rows);
 
             foreach ($rows as $row) {
                 $password = generateRandomPassword();
-                $hashedPassword = md5($password); // Hash the password
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'email' => $row[0],
@@ -90,21 +117,27 @@ if (isset($_POST['import'])) {
                     'nationality' => $row[13],
                     'voter' => $row[14],
                     'password' => $hashedPassword,
-                    'family_role' => 'member', // Default or retrieved value
-                    'role' => 'resident', // Default or retrieved value
-                    'request_status' => 'approved' // Default or retrieved value
+                    'family_role' => 'member',
+                    'role' => 'resident',
+                    'request_status' => 'approved'
                 ];
 
-                $residentbmis->create_resident($data);
+                if ($residentbmis->create_resident($data)) {
+                    echo "Resident record created successfully for email: {$data['email']}<br>";
+                    sendEmail($data['email'], $password);
+                } else {
+                    echo "Failed to create resident record for email: {$data['email']}<br>";
+                }
             }
         } else {
             echo "<script>alert('Invalid file format'); window.location.href = 'admn_resident_crud.php';</script>";
             exit;
         }
 
-        echo "<script>alert('Residents imported successfully'); window.location.href = 'admn_resident_crud.php';</script>";
+        echo "<script>alert('Residents imported successfully. You will receive an email shortly!'); window.location.href = 'admn_resident_crud.php';</script>";
     } else {
         echo "<script>alert('Invalid file size or format'); window.location.href = 'admn_resident_crud.php';</script>";
     }
 }
+
 ?>
