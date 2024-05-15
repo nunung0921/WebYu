@@ -25,34 +25,21 @@ function generateRandomPassword($length = 8) {
 }
 
 function sendEmail($email, $password) {
-    $mail = new PHPMailer(true);
-    try {
-        // Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.hostinger.com'; // Hostinger's SMTP server
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'rafaeltosper@gmail.com'; // SMTP username
-        $mail->Password   = 'Tosperjr@092103'; // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
-        $mail->Port       = 587; // TCP port to connect to
+    // Send email with basic PHP mail function
+    $to = $email;
+    $subject = 'Welcome to Our Service';
+    $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nYour Company";
+    $headers = 'From: rafaeltosper@gmail.com' . "\r\n" .
+               'Reply-To: rafaeltosper@gmail.com' . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
 
-        // Recipients
-        $mail->setFrom('rafaeltosper@gmail.com', 'WebYu');
-        $mail->addAddress($email);
-
-        // Content
-        $mail->isHTML(true);
-        $mail->Subject = 'Welcome to Our Service';
-        $mail->Body    = "Dear user,<br><br>Your account has been created. Here are your login details:<br>Email: $email<br>Password: $password<br><br>Please change your password after logging in for the first time.<br><br>Best regards,<br>Your Company";
-
-        $mail->send();
+    if (mail($to, $subject, $message, $headers)) {
         echo "Message has been sent to $email<br>";
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}<br>";
-        error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+    } else {
+        echo "Message could not be sent to $email<br>";
     }
 }
+
 
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
