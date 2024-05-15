@@ -149,6 +149,24 @@ nav {
     transform: scaleY(1);
   }
 }
+
+.nav__logo {
+  flex: 1;
+}
+
+.nav__logo a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 .nav__logo {
   flex: 1;
 }
@@ -738,7 +756,6 @@ nav {
 .nav__links.open {
   transform: scaleY(1);
 }
-
   .nav__menu__btn {
     display: block;
   }
