@@ -1853,10 +1853,9 @@ nav {
     </script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-    // Get the menu button, navigation links, and icons
+    // Get the menu button and navigation links
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
-    var icon = menuBtn.querySelector('i');
 
     // Add a click event listener to the menu button
     menuBtn.addEventListener('click', function () {
@@ -1864,6 +1863,7 @@ nav {
         navLinks.classList.toggle('open');
 
         // Change the icon based on whether the navigation links are open or not
+        var icon = menuBtn.querySelector('i');
         if (navLinks.classList.contains('open')) {
             icon.classList.remove('ri-menu-line');
             icon.classList.add('ri-close-line');
@@ -1872,6 +1872,6 @@ nav {
             icon.classList.add('ri-menu-line');
         }
     });
-
+});
 </script>
 </html>
