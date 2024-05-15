@@ -32,13 +32,13 @@ function sendEmail($email, $password) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.hostinger.com'; // Hostinger's SMTP server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'webyu@webyu.online'; // SMTP username
+        $mail->Username   = 'rafaeltosper@gmail.com'; // SMTP username
         $mail->Password   = 'Tosperjr@092103'; // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
         $mail->Port       = 587; // TCP port to connect to
 
         // Recipients
-        $mail->setFrom('webyu@webyu.online', 'WebYu');
+        $mail->setFrom('rafaeltosper@gmail.com', 'WebYu');
         $mail->addAddress($email);
 
         // Content
