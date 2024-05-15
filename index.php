@@ -1067,7 +1067,7 @@ nav {
           <li class="link"><a href="#location">Location</a></li>
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
-            <li class="nav-item dropdown" style="background-color: #007bff; color:white;">
+            <li class="nav-item dropdown" >
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActivities" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Activities
                 </a>
@@ -1080,6 +1080,13 @@ nav {
             </li>
         
 </nav>
+<style>
+    /* Custom styling for dropdown menu */
+    .navbar-light .navbar-nav .dropdown-menu .dropdown-item {
+        color: #fff; /* Set font color to white */
+        background-color: #007bff; /* Set background color to #007bff */
+    }
+</style>
           <li class="link"><a href="index_login.php">LOGIN</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
