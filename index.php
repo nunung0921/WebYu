@@ -1872,7 +1872,7 @@ nav {
       };
     </script>
     <script>
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     // Get the menu button, navigation links, and dropdown items
     var menuBtn = document.getElementById('menu-btn');
     var navLinks = document.getElementById('nav-links');
@@ -1897,22 +1897,29 @@ nav {
     // Add click event listeners to dropdown items
     dropdownItems.forEach(function(item) {
         item.addEventListener('click', function(event) {
-            // Prevent the default link behavior
-            event.preventDefault();
             // Close the menu
             navLinks.classList.remove('open');
             // Change the icon back to the menu icon
             var icon = menuBtn.querySelector('i');
             icon.classList.remove('ri-close-line');
             icon.classList.add('ri-menu-line');
-            // Get the URL of the selected dropdown item and navigate to it
-            var url = item.getAttribute('href');
-            if (url) {
-                window.location.href = url;
-            }
+        });
+    });
+
+    // Add click event listener to regular navigation links
+    var regularLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+    regularLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Close the menu
+            navLinks.classList.remove('open');
+            // Change the icon back to the menu icon
+            var icon = menuBtn.querySelector('i');
+            icon.classList.remove('ri-close-line');
+            icon.classList.add('ri-menu-line');
         });
     });
 });
+
 
 
 </script>
