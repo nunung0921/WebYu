@@ -1142,7 +1142,7 @@ nav {
         </div>
       </nav>
       <div class="section__container header__container" id="home">
-        <h1>Barangay Yuson <br>Information<br>Management System</h1><br><br>
+        <h1>Barangay Yuson <br>Information<center>Management</center> System</h1><br><br>
         <div class="contact-box">
         <h2>Details</h2>
         <?php
