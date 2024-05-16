@@ -233,81 +233,81 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     });
 
     // Other chart data
-    var otherChartData = [
-        {
-            label: 'Barangay Residents',
-            value: <?= $rescount ?>
-        },
- {
-            label: 'Registered Voters',
-            value: <?= $rescountvoter ?>
-        },
- {
-            label: 'Unregistered Voters',
-            value: <?= $rescountm ?>
-        },
- {
-            label: 'Male Residents',
-            value: <?= $rescountm ?>
-        },
- {
-            label: 'Female Residents',
-            value: <?= $rescountf ?>
-        },
- {
-            label: 'Minor Residents',
-            value: <?= $minorcount ?>
-        },
- {
-            label: 'Senior Residents',
-            value: <?= $rescountsenior ?>
-        },
- {
-            label: 'Single',
-            value: <?= $singlecount ?>
-        },
- {
-            label: 'Married',
-            value: <?= $marriedcount ?>
-        },
- {
-            label: 'Widowed',
-            value: <?= $widowcount ?>
-        },
-{
-            label: 'Divorced',
-            value: <?= $divorcedcount ?>
-        },
-{
-            label: 'Purok 1 Residents',
-            value: <?= $p1count ?>
-        },
-{
-            label: 'Purok 2 Residents',
-            value: <?= $p2count ?>
-        },
-        {
-            label: 'Purok 3 Residents',
-            value: <?= $p3count ?>
-        },
-        {
-            label: 'Purok 4 Residents',
-            value: <?= $p4count ?>
-        },
-        {
-            label: 'Purok 5 Residents',
-            value: <?= $p5count ?>
-        },
-        {
-            label: 'Purok 6 Residents',
-            value: <?= $p6count ?>
-        },
-        {
-            label: 'Purok 7 Residents',
-            value: <?= $p7count ?>
-        }
- 
-    ];
+var otherChartData = [
+    {
+        label: 'Barangay Residents',
+        value: <?= $rescount ?>
+    },
+    {
+        label: 'Registered Voters',
+        value: <?= $rescountvoter ?>
+    },
+    {
+        label: 'Unregistered Voters',
+        value: <?= $rescountm ?> // Check if this is correct or needs a different variable
+    },
+    {
+        label: 'Male Residents',
+        value: <?= $rescountm ?> // Ensure this is intended and correct
+    },
+    {
+        label: 'Female Residents',
+        value: <?= $rescountf ?>
+    },
+    {
+        label: 'Minor Residents',
+        value: <?= $minorcount ?>
+    },
+    {
+        label: 'Senior Residents',
+        value: <?= $rescountsenior ?>
+    },
+    {
+        label: 'Single',
+        value: <?= $singlecount ?>
+    },
+    {
+        label: 'Married',
+        value: <?= $marriedcount ?>
+    },
+    {
+        label: 'Widowed',
+        value: <?= $widowcount ?>
+    },
+    {
+        label: 'Divorced',
+        value: <?= $divorcedcount ?>
+    },
+    {
+        label: 'Purok 1 Residents',
+        value: <?= $p1count ?>
+    },
+    {
+        label: 'Purok 2 Residents',
+        value: <?= $p2count ?>
+    },
+    {
+        label: 'Purok 3 Residents',
+        value: <?= $p3count ?>
+    },
+    {
+        label: 'Purok 4 Residents',
+        value: <?= $p4count ?>
+    },
+    {
+        label: 'Purok 5 Residents',
+        value: <?= $p5count ?>
+    },
+    {
+        label: 'Purok 6 Residents',
+        value: <?= $p6count ?>
+    },
+    {
+        label: 'Purok 7 Residents',
+        value: <?= $p7count ?>
+    }
+];
+
 
     // Define the options for the other chart
     var otherChartOptions = {
