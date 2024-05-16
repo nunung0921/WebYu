@@ -38,7 +38,7 @@
         <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admn_dashboard.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
@@ -233,24 +233,16 @@
                         </li>
 
                         <!-- Nav Item - User Information -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="index.php" id="userDropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-800 small"><?= $userdetails['surname']?>, <?= $userdetails['firstname']?></span>
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
-                                </a>
-                            </li>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+                            <div class="dropdown ml-auto">
+                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?> <?= $userdetails['firstname'];?>
+                    <span class="caret" style="margin-left: 2px;"></span>
+                </button>
+                <ul class="dropdown-menu" style="width: 175px;" >
+                    <a class="btn" href="admin_profile.php?id_admin=<?= $userdetails['id_admin'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
+                    <!--<a class="btn" href="admin_changepass.php?id_admin=<?= $userdetails['id_admin'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>-->
+                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
+                </ul>
+            </div>
                     </ul>
                 </nav>
                 
