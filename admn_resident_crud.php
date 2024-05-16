@@ -107,7 +107,6 @@
                     <th> Sex </th>
                     <th> Status </th>
                     <th> Address</th>
-                    <th> Municipal </th>
                     <th> Contact # </th>
                     <th> Birth date </th>
                     <th> Birth place </th>
@@ -150,7 +149,6 @@
                                         <td> <?= $view['sex'];?> </td>
                                         <td> <?= $view['status'];?> </td>
                                         <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?> </td>
-                                        <td> <?= $view['municipal'];?> </td>
                                         <td> <?= $view['contact'];?> </td>
                                         <td> <?= $view['bdate'];?> </td>
                                         <td> <?= $view['bplace'];?> </td>
