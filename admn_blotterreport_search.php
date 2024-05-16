@@ -104,7 +104,13 @@
                         <td> <?= $view['street'];?> </td>
                         <td> <?= $view['brgy'];?> </td>
                         <td> <?= $view['municipal'];?> </td>
-                        <td> <?php echo '<img src="data:image;base64,'.base64_encode($view['blot_photo']).'" alt="Blotter Photo" style="width: 100px; height:100px;">'; ?> <a class="btn btn-success" href="admn_blotter_download.php?blot_photo=<?php echo $view['blot_photo'] ?>">Download</a></td>
+                        <td>
+                        <?php if (!empty($view['blot_photo'])): ?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($view['blot_photo']); ?>" alt="Blotter Photo" style="width: 100px; height:100px;">
+                        <?php else: ?>
+                            No image available
+                        <?php endif; ?>
+                    </td>
                         <td> <?= $view['contact'];?> </td>
                         <td> <?= $view['narrative'];?> </td>
                         <td> <?= $view['timeapplied'];?> </td>
