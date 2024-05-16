@@ -221,14 +221,6 @@
 
     public function count_purok1() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok1'");
-        $stmt->execute();
-        $p1count = $stmt->fetchColumn();
-        return $p1count;
-    }
-
-    public function count_purok1() {
-        $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 1'");
         $stmt->execute();
         $p1count = $stmt->fetchColumn();
