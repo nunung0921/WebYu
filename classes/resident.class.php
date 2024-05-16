@@ -297,7 +297,7 @@
     public function count_male_resident() {
         $connection = $this->openConn();
 
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'male' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'male' and request_status='approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -600,7 +600,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_unreg() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'No' and request_status = 'approved'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'Nof' and request_status = 'approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
