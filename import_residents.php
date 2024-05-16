@@ -36,7 +36,7 @@ function sendEmail($email, $password) {
 
     // Attempt to send the email
     if (mail($to, $subject, $message, $headers)) {
-        echo "Message has been sent to $email<br>";
+        echo "Message has been sent!";
     } else {
         echo "Message could not be sent to $email<br>";
         // Log the error for debugging purposes
@@ -126,14 +126,19 @@ if (isset($_POST['import'])) {
                     'request_status' => 'approved'
                 ];
 
+                if ($residentbmis->create_resident($data)) {
+                    echo "Resident record created successfully for email: {$data['email']}<br>";
                     sendEmail($data['email'], $password);
+                } else {
+                    sendEmail($data['email'], $password);
+                }
             }
         } else {
             echo "<script>alert('Invalid file format'); window.location.href = 'admn_resident_crud.php';</script>";
             exit;
         }
 
-        echo "<script>alert('Residents imported successfully. You will receive an email shortly!'); window.location.href = 'admn_resident_crud.php';</script>";
+        echo "<script>alert('Residents imported successfully. You will receive an email shortly!');</script>";
     } else {
         echo "<script>alert('Invalid file size or format'); window.location.href = 'admn_resident_crud.php';</script>";
     }
