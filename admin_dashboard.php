@@ -426,23 +426,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 label: 'Population',
                 data: [p1count, p2count, p3count, p4count, p5count, p6count, p7count],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(0, 204, 102, 0.2)'
+                    'rgba(139, 0, 0, 0.8)',   // Dark Red
+                    'rgba(0, 0, 139, 0.8)',   // Dark Blue
+                    'rgba(184, 134, 11, 0.8)', // Dark Goldenrod
+                    'rgba(47, 79, 79, 0.8)',  // Dark Slate Gray
+                    'rgba(72, 61, 139, 0.8)', // Dark Slate Blue
+                    'rgba(139, 69, 19, 0.8)', // Saddle Brown
+                    'rgba(0, 100, 0, 0.8)'    // Dark Green
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(0, 204, 102, 1)'
+                    'rgba(139, 0, 0, 1)',   // Dark Red
+                    'rgba(0, 0, 139, 1)',   // Dark Blue
+                    'rgba(184, 134, 11, 1)', // Dark Goldenrod
+                    'rgba(47, 79, 79, 1)',  // Dark Slate Gray
+                    'rgba(72, 61, 139, 1)', // Dark Slate Blue
+                    'rgba(139, 69, 19, 1)', // Saddle Brown
+                    'rgba(0, 100, 0, 1)'    // Dark Green
                 ],
+
                 borderWidth: 1
             }]
         },
