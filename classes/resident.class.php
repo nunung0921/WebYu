@@ -751,7 +751,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_adult() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age >= 18 AND age <=59 AND reques_status ='approved'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age >= 18 AND age <=59 AND request_status ='approved'");
         $stmt->execute();
         $minorcount = $stmt->fetchColumn();
         return $minorcount;
