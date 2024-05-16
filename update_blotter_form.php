@@ -170,6 +170,28 @@
         }
     }
 </script>
+<script>
+    $(document).ready(function(){
+        $('form').on('submit', function(e){
+            e.preventDefault(); // Prevent default form submission
+            var formData = $(this).serialize(); // Serialize form data
+            $.ajax({
+                type: 'POST',
+                url: 'update_blotter_form.php', // Replace with your PHP script URL
+                data: formData,
+                success: function(response){
+                    // Handle success response (e.g., show a success message)
+                    alert('Data updated successfully!');
+                },
+                error: function(xhr, status, error){
+                    // Handle error response (e.g., display an error message)
+                    alert('Error: ' + error);
+                }
+            });
+        });
+    });
+</script>
+
 <?php 
     include('dashboard_sidebar_end.php');
 ?>
