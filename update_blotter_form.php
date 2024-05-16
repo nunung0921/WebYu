@@ -1,11 +1,13 @@
 <?php
+        ini_set('display_errors',0);
    error_reporting(E_ALL ^ E_WARNING);
    require('classes/resident.class.php');
    $userdetails = $bmis->get_userdata();
-   //$bmis->validate_admin();
-   $id_resident = $_GET['id_resident'];
-   $view = $residentbmis->get_single_blotter($id_resident);
+   $bmis->validate_admin();
+   $id_blotter = $_GET['id_blotter'];
    $residentbmis->update_blotter();
+   $view = $residentbmis->get_single_blotter($id_blotter);
+   
 
 ?>
 
