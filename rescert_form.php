@@ -77,11 +77,11 @@ date_default_timezone_set('Asia/Manila');
                         <div style="display: flex;">
                             <div style="flex: 1;">
                                 <image src="icons/signature.png" style="width:100px; margin-left:90px; position: absolute;" /><br>
-                                <label style="font-size:18px;margin-left:4em;"><u>ROMEO M. CASTRO</u></label>
-                                <label style="font-size:18px;margin-left:4em;">Barangay Secretary</label><br><br>
+                                <label style="font-size:14px;margin-left:4em;"><u>ROMEO M. CASTRO</u></label>
+                                <label style="font-size:14px;margin-left:4em;">Barangay Secretary</label><br><br>
                                 <p style="text-align: justify;">Noted by:</p><br><br>
-                                <label style="font-size:18px;margin-left:1em;"><u>RENATO S. CONCEPCION SR.</u></label>
-                                <label style="font-size:18px; margin-left:4em;">Barangay Captain</label>
+                                <label style="font-size:14px;margin-left:1em;"><u>RENATO S. CONCEPCION SR.</u></label>
+                                <label style="font-size:14px; margin-left:4em;">Barangay Captain</label>
                             </div>
                             <div style="flex: 1;">
                                 <!-- Second column for table -->
