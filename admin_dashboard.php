@@ -356,6 +356,7 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     'Male Residents': 'admn_resident_Male.php',
     'Female Residents': 'admn_resident_female.php',
     'Minor Residents': 'admn_resident_minor.php',
+    'Adult Residents': 'admn_resident_adult.php',
     'Senior Residents': 'admn_resident_senior.php'
     /*'PWD Residents': 'admn_resident_pwd.php',
     'Single Parents': 'admn_resident_single.php',

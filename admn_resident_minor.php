@@ -16,7 +16,7 @@
     $staffcountm = $staffbmis->count_mstaff();
     $staffcountf = $staffbmis->count_fstaff();
     
-    $view = $residentbmis->view_resident_senior();
+    $view = $residentbmis->view_resident_minor();
     $residentbmis->create_resident();
     $upstaff = $residentbmis->update_resident();
     $residentbmis->delete_resident();
