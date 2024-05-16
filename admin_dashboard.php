@@ -57,7 +57,7 @@ $colorblotter = $blottercount['color'];
 ?>
 
 <style>
- /* Custom styles */
+/* Custom styles */
 .container-fluid {
     min-height: 100%;
     padding: 0 10px; /* Dagdagan ng padding ang container para sa mas magandang pagkakasunud-sunod */
@@ -92,27 +92,19 @@ $colorblotter = $blottercount['color'];
         max-width: 100%; /* Pahabain ang graph sa malalaking screen */
     }
 }
-
 </style>
 
-
-
-<?php 
-include('dashboard_sidebar_start.php');
-?>
+<?php include('dashboard_sidebar_start.php'); ?>
 <br>
-<!-- Begin Page Content -->
-<!-- Begin Page Content -->
 <div class="container-fluid">
-    <!-- Page Heading -->
     <div class="row">
-        <div class="scrollable"> <!-- Add this container -->
+        <div class="scrollable">
             <canvas id="numberOfRecordsChart" width="1180" height="250"></canvas>
         </div>
     </div>
     <br>
     <div class="row">
-        <div class="scrollable"> <!-- Add this container -->
+        <div class="scrollable">
             <canvas id="otherChart" width="1180" height="250"></canvas>
         </div>
     </div>
@@ -120,15 +112,11 @@ include('dashboard_sidebar_start.php');
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
-<!-- responsive tags for screen compatibility -->
 <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
-<!-- custom css --> 
 <link href="customcss/regiformstyle.css" rel="stylesheet" type="text/css">
-<!-- bootstrap css --> 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
-<!-- fontawesome icons -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
-<script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
+<script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
@@ -158,19 +146,11 @@ const documentUrlMapping = {
 
 // Event handler for clicks on the "Number of Records" chart
 function handleNumberOfRecordsChartClick(event) {
-    // Get the clicked element (data point) on the chart
     const activePoint = numberOfRecordsChart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, false)[0];
-    
     if (activePoint) {
-        // Get the index of the clicked data point
         const index = activePoint.index;
-        
-        // Get the label (document type) of the clicked data point
         const clickedLabel = numberOfRecordsChart.data.labels[index];
-        
-        // Check if the label has a corresponding URL in the mapping
         if (documentUrlMapping[clickedLabel]) {
-            // Redirect the user to the corresponding URL
             window.location.href = documentUrlMapping[clickedLabel];
         }
     }
@@ -179,223 +159,106 @@ function handleNumberOfRecordsChartClick(event) {
 // Add click event listener to the "Number of Records" chart
 ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartClick);
 
-    // Function to extract labels and counts from the data
-    function extractData(data) {
-        var labels = data.map(function(item) {
-            return item.documentType;
-        });
-
-        var counts = data.map(function(item) {
-            return item.count;
-        });
-
-        return {
-            labels: labels,
-            counts: counts
-        };
-    }
-
-    // Data for the charts
-    var chartData = extractData(documentData);
-
-    // Define the options for the number of records chart
-    var numberOfRecordsOptions = {
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    stepSize: 1  // Display only whole numbers on the y-axis
-                }
-            }
-        }
-    };
-
-    // Create the number of records chart
-    var numberOfRecordsChart = new Chart(ctxNumberOfRecords, {
-        type: 'bar',
-        data: {
-            labels: chartData.labels,
-            datasets: [{
-                label: 'Request',
-                data: chartData.counts,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
-             
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: numberOfRecordsOptions
+// Function to extract labels and counts from the data
+function extractData(data) {
+    var labels = data.map(function(item) {
+        return item.documentType;
     });
 
-    // Other chart data
-var otherChartData = [
-    {
-        label: 'Barangay Residents',
-        value: <?= $rescount ?>
-    },
-    {
-        label: 'Registered Voters',
-        value: <?= $rescountvoter ?>
-    },
-    {
-        label: 'Unregistered Voters',
-        value: <?= $rescountm ?> // Check if this is correct or needs a different variable
-    },
-    {
-        label: 'Male Residents',
-        value: <?= $rescountm ?> // Ensure this is intended and correct
-    },
-    {
-        label: 'Female Residents',
-        value: <?= $rescountf ?>
-    },
-    {
-        label: 'Minor Residents',
-        value: <?= $minorcount ?>
-    },
-    {
-        label: 'Senior Residents',
-        value: <?= $rescountsenior ?>
-    },
-    {
-        label: 'Single',
-        value: <?= $singlecount ?>
-    },
-    {
-        label: 'Married',
-        value: <?= $marriedcount ?>
-    },
-    {
-        label: 'Widowed',
-        value: <?= $widowcount ?>
-    },
-    {
-        label: 'Divorced',
-        value: <?= $divorcedcount ?>
-    },
-    {
-        label: 'Purok 1 Residents',
-        value: <?= $p1count ?>
-    },
-    {
-        label: 'Purok 2 Residents',
-        value: <?= $p2count ?>
-    },
-    {
-        label: 'Purok 3 Residents',
-        value: <?= $p3count ?>
-    },
-    {
-        label: 'Purok 4 Residents',
-        value: <?= $p4count ?>
-    },
-    {
-        label: 'Purok 5 Residents',
-        value: <?= $p5count ?>
-    },
-    {
-        label: 'Purok 6 Residents',
-        value: <?= $p6count ?>
-    },
-    {
-        label: 'Purok 7 Residents',
-        value: <?= $p7count ?>
-    }
-];
-
-
-    // Define the options for the other chart
-    var otherChartOptions = {
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    stepSize: 1  // Display only whole numbers on the y-axis
-                }
-            }
-        }
-    };
-
-    // Extract data for the other chart
-    var otherChartLabels = otherChartData.map(item => item.label);
-    var otherChartValues = otherChartData.map(item => item.value);
-
-    // Create the other chart
-    var otherChart = new Chart(ctxOther, {
-        type: 'bar',
-        data: {
-            labels: otherChartLabels,
-            datasets: [{
-                label: 'Resident Data',
-                data: otherChartValues,
-                backgroundColor: [
-    'rgba(54, 162, 235, 1)',  // Blue
-   
-],
-
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: otherChartOptions
+    var counts = data.map(function(item) {
+        return item.count;
     });
 
-    // Define a mapping between the chart labels and the corresponding PHP page URLs
-    var chartUrlMapping = {
-    'Barangay Residents': 'admn_resident.php',
-    'Registered Voters': 'admn_resident_crud.php',
-    'Unregistered Voters': 'admn_resident_unregistered.php',
-    'Male Residents': 'admn_resident_Male.php',
-    'Female Residents': 'admn_resident_female.php',
-    'Minor Residents': 'admn_resident_minor.php',
-    'Senior Residents': 'admn_resident_senior.php'
-    /*'PWD Residents': 'admn_resident_pwd.php',
-    'Single Parents': 'admn_resident_single.php',
-    '4Ps Members': 'admn_resident_4ps.php',
-    'Indigent Residents': 'admn_resident_indigent.php',
-    'Malnourished Residents': 'admn_resident_Mal.php'*/
-};
+    return {
+        labels: labels,
+        counts: counts
+    };
+}
 
-// Add click event listener to the other chart
-ctxOther.canvas.onclick = function(event) {
-    var activePoint = otherChart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, false)[0];
-    if (activePoint) {
-        var index = activePoint.index;
-        var clickedLabel = otherChart.data.labels[index];
-        
-        // Check if the clicked label exists in the URL mapping
-        if (chartUrlMapping[clickedLabel]) {
-            // Redirect user to the corresponding URL
-            window.location.href = chartUrlMapping[clickedLabel];
+// Data for the charts
+var chartData = extractData(documentData);
+
+// Define the options for the number of records chart
+var numberOfRecordsOptions = {
+    scales: {
+        y: {
+            beginAtZero: true,
+            ticks: {
+                stepSize: 1  // Display only whole numbers on the y-axis
+            }
         }
     }
 };
 
-// Add click event listener to the number of records chart
-ctxNumberOfRecords.canvas.onclick = function(event) {
-    var activePoint = numberOfRecordsChart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, false)[0];
-    if (activePoint) {
-        var index = activePoint.index;
-        var clickedLabel = numberOfRecordsChart.data.labels[index];
-        
-        // Check if the clicked label exists in the URL mapping
-        if (chartUrlMapping[clickedLabel]) {
-            // Redirect user to the corresponding URL
-            window.location.href = chartUrlMapping[clickedLabel];
+// Create the number of records chart
+var numberOfRecordsChart = new Chart(ctxNumberOfRecords, {
+    type: 'bar',
+    data: {
+        labels: chartData.labels,
+        datasets: [{
+            label: 'Request',
+            data: chartData.counts,
+            backgroundColor: 'rgba(255, 99, 132, 1)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: numberOfRecordsOptions
+});
+
+// Other chart data
+var otherChartData = {
+    labels: ['Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Purok 7'],
+    datasets: [{
+        label: 'Population',
+        data: [
+            <?= $p1count ?>,
+            <?= $p2count ?>,
+            <?= $p3count ?>,
+            <?= $p4count ?>,
+            <?= $p5count ?>,
+            <?= $p6count ?>,
+            <?= $p7count ?>
+        ],
+        backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 204, 102, 1)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 204, 102, 1)'
+        ],
+        borderWidth: 1
+    }]
+};
+
+// Define the options for the other chart
+var otherChartOptions = {
+    scales: {
+        y: {
+            beginAtZero: true,
+            ticks: {
+                stepSize: 1  // Display only whole numbers on the y-axis
+            }
         }
     }
 };
 
+// Create the other chart
+var otherChart = new Chart(ctxOther, {
+    type: 'bar',
+    data: otherChartData,
+    options: otherChartOptions
+});
 </script>
-
-<?php 
-include('dashboard_sidebar_end.php');
-?>
-</html>
+<?php include('dashboard_sidebar_end.php'); ?>
