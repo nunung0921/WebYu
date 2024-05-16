@@ -42,7 +42,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
-                <img src="yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
+                <img src="icons/yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
     width: 40px;
     margin-right: 10px; /* space between logo and system name */
     border-radius: 50%; ">
@@ -184,9 +184,9 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <!--<div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div>-->
 
         </ul>
         <!-- End of Sidebar -->
