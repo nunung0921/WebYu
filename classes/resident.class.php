@@ -221,7 +221,7 @@
 
     public function count_purok1() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 1'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 1' and request_status = 'approved'");
         $stmt->execute();
         $p1count = $stmt->fetchColumn();
         return $p1count;
@@ -229,7 +229,7 @@
 
     public function count_purok2() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 2'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 2' and request_status = 'approved'");
         $stmt->execute();
         $p2count = $stmt->fetchColumn();
         return $p2count;
@@ -237,7 +237,7 @@
 
     public function count_purok3() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 3'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 3' and request_status = 'approved'");
         $stmt->execute();
         $p3count = $stmt->fetchColumn();
         return $p3count;
@@ -245,7 +245,7 @@
 
     public function count_purok4() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 4'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 4' and request_status = 'approved'");
         $stmt->execute();
         $p4count = $stmt->fetchColumn();
         return $p4count;
@@ -253,7 +253,7 @@
 
     public function count_purok5() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 5'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 5' and request_status = 'approved'");
         $stmt->execute();
         $p5count = $stmt->fetchColumn();
         return $p5count;
@@ -261,7 +261,7 @@
 
     public function count_purok6() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 6'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 6' and request_status = 'approved'");
         $stmt->execute();
         $p6count = $stmt->fetchColumn();
         return $p6count;
@@ -269,7 +269,7 @@
 
     public function count_purok7() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 7'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 7' and request_status = 'approved'");
         $stmt->execute();
         $p7count = $stmt->fetchColumn();
         return $p7count;
