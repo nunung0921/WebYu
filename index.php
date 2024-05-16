@@ -1221,7 +1221,7 @@ nav {
           ?>
       </div>
       <div class="choose__image">
-        <img src="icons/logong.jpeg" alt="choose" />
+        <img src="icons/logo.jpeg" alt="choose" />
       </div>
       <div class="choose__image">
         <img src="icons/yuson1.png" alt="modern" class="modern__img-1" />
