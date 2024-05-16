@@ -84,7 +84,7 @@ $resident = $residentbmis->get_single_clearance($id_resident);
                         <p class="text-center" style="font-size: 40px; opacity: 0.6; font-weight: bold; font-family: 'Edwardian Script ITC', cursive;">Office of the Barangay Chairman<br></p><br>
                         <p class="text-center" style="font-size: 30px; font-weight: bold; font-family: 'Copperplate Gothic Bold';">BARANGAY CLEARANCE<br></p><br>
                         <p style="font-size: 18px;">TO WHOM IT MAY CONCERN:</p> <br>
-                        <u style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr./Ms./Mrs. <u></u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>,
+                        <p style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr./Ms./Mrs. <u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u></p>,
                           <u><b><?= $resident['age'];?></b></u> years of age, <u><b><?= $resident['status'];?></b></u> and a Filipino citizen, whose signature and/or thumb marks appear hereunder, is a bona fide resident of this Barangay, with postal address at <u><b><?= $resident['houseno'];?>, <?= $resident['street'];?>, <?= $resident['brgy'];?>, <?= $resident['municipal'];?>.</b></u></p> <br>
 
                         <p style="text-indent:40px;text-align: justify;">This certifies further that the above-named person has <b>NO DEROGATORY RECORD</b> in our Barangay Files to date.</p> <br>
