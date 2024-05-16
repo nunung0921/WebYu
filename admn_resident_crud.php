@@ -107,6 +107,7 @@
                     <th> Sex </th>
                     <th> Status </th>
                     <th> Address</th>
+                    <th> Municipal </th>
                     <th> Contact # </th>
                     <th> Birth date </th>
                     <th> Birth place </th>
