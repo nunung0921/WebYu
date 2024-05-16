@@ -1828,7 +1828,18 @@ nav {
 
       </div>
     </section>
-
+    <script>
+window.embeddedChatbotConfig = {
+chatbotId: "ulhxkceDj9rrzJ3wmqm01",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="ulhxkceDj9rrzJ3wmqm01"
+domain="www.chatbase.co"
+defer>
+</script>
     <br><br><br><br><br><footer class="footer">
       <div class="section__container footer__container">
         <div class="footer__content">
