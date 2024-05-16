@@ -94,18 +94,12 @@
                 $nationality = $_POST['nationality'];
                 $voter = $_POST['voter'];
                 $familyrole = $_POST['family_role'];
-                $role = $_POST['role'];
-                $pwd = $_POST['pwd'];
-                $indigent = $_POST['indigent'];
-                $single_parent = $_POST['single_parent'];
-                $malnourished = $_POST['malnourished'];
-                $four_ps = $_POST['four_ps'];
 
                 $connection = $this->openConn();
                 $stmt = $connection->prepare("UPDATE tbl_resident SET `password` =?, `lname` =?, 
-                `fname` = ?, `mi` =?, `age` =?, `sex` =?, `status` =?, `email` =?, `houseno` =?, `street` =?, `brgy` =?, `municipal` =?, `contact` =?, `bdate` =?, `bplace` =?, `nationality` =?, `voter` =?, `family_role` =?, `role` =?, `pwd` =?, `indigent` =?, `single_parent` =?, `malnourished` =?, `four_ps` =?, `addedby` =? WHERE `id_resident` = ?");
+                `fname` = ?, `mi` =?, `age` =?, `sex` =?, `status` =?, `email` =?, `houseno` =?, `street` =?, `brgy` =?, `municipal` =?, `contact` =?, `bdate` =?, `bplace` =?, `nationality` =?, `voter` =?, `family_role` =? WHERE `id_resident` = ?");
                 $stmt->execute([$password, $lname, $fname, $mi, $age, $sex, $status,$email, $houseno, 
-                $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $role, $pwd, $indigent, $single_parent, $four_ps, $id_resident]);
+                $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $id_resident]);
                     
                 $message2 = "Resident Data Updated";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
