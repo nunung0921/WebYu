@@ -66,7 +66,7 @@ $resident = $residentbmis->get_single_bspermit($id_resident);
                         <p class="text-center" style="font-size: 40px; opacity: 0.6; font-weight: bold; font-family: 'Edwardian Script ITC', cursive;">Office of the Barangay Captain<br></p><br>
                         <p class="text-center" style="font-size: 30px; font-weight: bold; font-family: 'Copperplate Gothic Bold';">BARANGAY BUSINESS PERMIT<br></p><br>
                         <p style="font-size: 14px;">TO WHOM IT MAY CONCERN:</p> <br>
-                        <p style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr/Ms/Mrs <u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>, <u><b><?= $resident['age'];?></b></u> years of age, single/married and is a bona fide resident of <u><b>Brgy.Yuson, Guimba, Nueva Ecija</b></u> was given by this office a Barangay Business Permit to operate a <u><b><?= $resident['bsindustry'];?></b></u> in the barangay.</p> <br>
+                        <p style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr/Ms/Mrs <u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>, <u><b><?= $resident['age'];?></b></u> years of age, <u><b><?= $resident['status'];?></b></u>, and is a bona fide resident of <u><b>Brgy.Yuson, Guimba, Nueva Ecija</b></u> was given by this office a Barangay Business Permit to operate a <u><b><?= $resident['bsindustry'];?></b></u> in the barangay.</p> <br>
 
                         <p style="text-indent:40px;text-align: justify;">The Business Permit shall be valid for six (6) months effective upon the date of its issuance.</p> <br>
                         <?php
