@@ -120,12 +120,15 @@ include('dashboard_sidebar_start.php');
             <canvas id="numberOfRecordsChart" width="1180" height="250"></canvas>
         </div>
     </div>
+    <hr>
     <br>
     <div class="row">
         <div class="scrollable"> <!-- Add this container -->
             <canvas id="otherChart" width="1180" height="250"></canvas>
         </div>
     </div>
+    <hr>
+    <br>
     <div class="row">
         <div class="scrollable"> <!-- Add this container -->
             <canvas id="populationChart" width="1180" height="250"></canvas>
