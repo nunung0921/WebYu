@@ -149,11 +149,11 @@
                                         <div class="form-group">
                                         <label>Password:</label>
                                         <div class="password-input">
-                                                <input type="password" class="form-control" id="password-field" name="password" placeholder="Enter Password" minlength="8" maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_#*])[A-Za-z\d@_#*]{8,16}$" title="Password must be 8-16 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character (@, _, #, or *)." required>
+                                                <input type="password" class="form-control" id="password-field" name="password" placeholder="Enter Password" minlength="8" maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!$%&@_#*])[A-Za-z\d!$%&@_#*]{8,16}$" title="Password must be 8-16 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character (@, _, #, or *)." required>
                                                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             </div>
                                                 <div class="valid-feedback">Valid.</div>
-                                                <div class="invalid-feedback">Password must be 8-16 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character (@, _, #, or *).</div>
+                                                <div class="invalid-feedback">Password must be 8-16 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -170,8 +170,17 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                        <label> Street: </label>
-                                            <input type="text" class="form-control" name="street"  placeholder="Enter Street Name" pattern="[A-Za-z0-9\s]{2,}" title="Please enter at least 2 letters." required>
+                                            <label> Street: </label>
+                                            <select class="form-control" name="street" placeholder="Enter Purok" required>
+                                            <option value="">Select Purok</option>
+                                                <option value="Purok 1">Purok 1</option>
+                                                <option value="Purok 2">Purok 2</option>
+                                                <option value="Purok 3">Purok 3</option>
+                                                <option value="Purok 4">Purok 4</option>
+                                                <option value="Purok 5">Purok 5</option>
+                                                <option value="Purok 6">Purok 6</option>
+                                                <option value="Purok 7">Purok 7</option>
+                                            </select>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -180,14 +189,14 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Barangay: </label>
-                                                <input type="text" class="form-control" name="brgy"  value="Biclatan" readonly required>
+                                                <input type="text" class="form-control" name="brgy"  value="Yuson" readonly required>
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <div class="form-group">
                                         <label> Municipality: </label>
-                                                <input type="text" class="form-control" name="municipal" value="General Trias" readonly required>
+                                                <input type="text" class="form-control" name="municipal" value="Guimba" readonly required>
                                         </div>
                                     </div>
                                 </div>
