@@ -598,6 +598,15 @@ if($hashed_old_password !== $result['password']) {
         return $rescount;
     }
 
+    public function count_unreg() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'No' and request_status = 'approved'");
+        $stmt->execute();
+        $rescount = $stmt->fetchColumn();
+
+        return $rescount;
+    }
+
 //========================= SEARCH =====================================
     public function search_admn_voter() {
         

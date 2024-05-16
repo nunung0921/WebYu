@@ -20,6 +20,7 @@ $rescountfh = $residentbmis->count_head_resident();
 $rescountfm = $residentbmis->count_member_resident();
 $rescountvoter = $residentbmis->count_voters();
 $rescountsenior = $residentbmis->count_resident_senior();
+$unreg = $residentbmis->count_unreg();
 
 // Count different requests and approvals
 $reqscount = $residentbmis->count_approval();
@@ -263,7 +264,7 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
         },
  {
             label: 'Unregistered Voters',
-            value: <?= $rescountm ?>
+            value: <?= $unreg ?>
         },
  {
             label: 'Male Residents',
