@@ -82,7 +82,7 @@ $residentbmis->create_resident($addedby);
 
         <!-- eto yung navbar -->
       <nav class="navbar navbar-dark bg-primary sticky-top">
-            <a class="navbar-brand" href="index_login.php">
+            <a class="navbar-brand" href="login.php">
                 <img src="icons/yuson1.png" alt="Yuson Logo"> <!-- Add your logo here -->
                 Barangay Yuson Information Management System
             </a>
@@ -108,7 +108,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Last Name: </label>
-                                            <input type="text" class="form-control" name="lname"  placeholder="Enter Last Name" pattern="[A-Za-z]{2,}" title="Please enter at least 2 letters, and only use letters." required>
+                                            <input type="text" class="form-control" name="lname"  placeholder="Enter Last Name" pattern="[A-Za-z ]{2,}" title="Please enter at least 2 letters, and only use letters." required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -117,7 +117,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop" >First Name: </label>
-                                            <input type="text" class="form-control" name="fname"  placeholder="Enter First Name" pattern="[A-Za-z ]{2,}" title="Please enter at least 2 letters, and only use letters." required>
+                                            <input type="text" class="form-control" name="fname"  placeholder="Enter First Name" pattern="[A-Za-z ]{4,}" title="Please enter at least 2 letters, and only use letters." required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -126,7 +126,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col"> 
                                         <div class="form-group">
                                             <label class="mtop"> Middle Name: </label>
-                                            <input type="text" class="form-control" name="mi" placeholder="Enter Middle Name" pattern="[A-Za-z]{2,}" title="Please enter at least 2 letters, and only use letters.">
+                                            <input type="text" class="form-control" name="mi" placeholder="Enter Middle Name" pattern="[A-Za-z ]{2,}" title="Please enter at least 2 letters, and only use letters." required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -137,38 +137,37 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Contact Number:</label>
-                                            <input type="tel" class="form-control" name="contact" maxlength="11" pattern="[0-9]{11}" placeholder="Enter Contact Number" required>
+                                            <input type="tel" class="form-control" name="contact" maxlength="11" pattern="09[0-9]{9}" placeholder="Enter Contact Number" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
 
                                     <div class="col">
-                                        <div class="form-group">
-                                            <label>Email: </label>
-                                            <input type="email" class="form-control" name="email"  placeholder="Enter Email" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
+    <div class="form-group">
+        <label>Email: </label>
+        <input type="email" class="form-control" name="email" placeholder="Enter Email" required oninput="validateEmail()">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please enter a valid email address ending with '@gmail.com'.</div>
+    </div>
+</div>
+                                    
                                     <div class="col">
                                         <div class="form-group">
-                                        <label>Password:</label>
-                                        <div class="password-input">
-                                                <input type="password" class="form-control" id="password-field" name="password" placeholder="Enter Password" minlength="8" maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!$%&@_#*])[A-Za-z\d!$%&@_#*]{8,16}$" title="Password must be 8-16 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character (@, _, #, or *)." required>
-                                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                            </div>
-                                                <div class="valid-feedback">Valid.</div>
-                                                <div class="invalid-feedback">Password must be 8-16 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
+                                            <label>Password:</label>
+                                            <input type="password" class="form-control" id="password-field" name="password" placeholder="Enter Password" minlength="8" maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_#*])[A-Za-z\d@_#*]{8,16}$" required>
+                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                <div class="col">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label> House No: </label>
-                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." maxlength="4" pattern="\d{1,4}" title="Please enter number only." required>
+                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." maxlength="3" pattern="\d{3}" title="Please enter exactly 3 numbers." required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -195,27 +194,32 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Barangay: </label>
-                                                <input type="text" class="form-control" name="brgy"  value="Yuson" readonly required>
+                                            <input type="text" class="form-control" name="brgy"  value="Yuson" readonly required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <div class="form-group">
-                                        <label> Municipality: </label>
-                                                <input type="text" class="form-control" name="municipal" value="Guimba" readonly required>
+                                            <label> Municipality: </label>
+                                            <input type="text" class="form-control" name="municipal" value="Guimba" readonly required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                <div class="col">
-                                        <div class="form-group">
-                                            <label class="mtop">Birth Date: </label>
-                                            <input type="date" class="form-control" name="bdate" id="birthdate" oninput="calculateAge()" required max="<?php echo date('Y-m-d'); ?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                    <div class="col">
+                                    <div class="form-group">
+        <label class="mtop">Birth Date: </label>
+        <input type="date" class="form-control" name="bdate" id="birthdate" oninput="calculateAge()" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
+
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Birth Place </label>
@@ -255,7 +259,7 @@ $residentbmis->create_resident($addedby);
                                 <div class="row">
                                     <div class="col"> 
                                         <div class="form-group">
-                                            <label>Civil Status: </label>
+                                            <label>Status: </label>
                                             <select class="form-control" name="status" id="status" required>
                                                 <option value="">Choose your Status</option>
                                                 <option value="Single">Single</option>
