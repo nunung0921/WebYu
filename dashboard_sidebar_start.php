@@ -79,6 +79,12 @@
                     <span>Barangay Officials</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="sk_official.php">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Sk Officials</span></a>
+            </li>
+
             <!-- Barangay Staff CRUD -->
             <li class="nav-item">
                 <a class="nav-link" href="admn_staff_crud.php">
