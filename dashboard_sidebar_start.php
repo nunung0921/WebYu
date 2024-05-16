@@ -201,7 +201,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3" style="margin-left: 5px; padding-top: 5px; padding-left: 3px; padding-bottom: 0;">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -233,7 +233,7 @@
                         </li>-->
 
                         <!-- Nav Item - User Information -->
-                            <div class="dropdown ml-auto">
+                            <div class="dropdown ml-auto" style="margin-top: 10px;">
                 <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?> <?= $userdetails['firstname'];?>
                     <span class="caret" style="margin-left: 2px;"></span>
                 </button>
