@@ -80,7 +80,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="sk_official.php">
+                <a class="nav-link" href="sk_officials.php">
                     <i class="fas fa-user-tie"></i>
                     <span>Sk Officials</span></a>
             </li>
