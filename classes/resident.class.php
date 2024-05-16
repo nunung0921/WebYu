@@ -1069,7 +1069,7 @@ public function update_blotter() {
         
         // Prepare and execute the update query
         $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, age = ? contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, blot_photo = ?, timeapplied = NOW() WHERE id_blotter = ?");
-        $stmt->execute([$lname, $fname, $mi, $age, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
+        $stmt->execute([$lname, $fname, $mi, $age, $contact, $houseno, $street, $brgy, $municipal, $narrative, $image_filename, $id_blotter]);
         
         // Check if the update was successful
         if ($stmt->rowCount() > 0) {
