@@ -80,7 +80,7 @@ $resident = $residentbmis->get_single_bspermit($id_resident);
                     </div>        
                     <div style="background-image: url('icons/yuson1.png'); background-size: cover;
                 background-repeat: no-repeat; background-position: center; background-size: 60%; background-color: rgba(255, 255, 255, 0.7); background-blend-mode: overlay; background-position: center top;">
-                        <p class="text-center" style="font-size: 40px; opacity: 0.6; font-weight: bold; font-family: 'Edwardian Script ITC', cursive;">Office of the Barangay Captain<br></p><br>
+                        <p class="text-center" style="font-size: 40px; opacity: 0.6; font-weight: bold; font-family: 'Edwardian Script ITC', cursive;">Office of the Barangay Chairman<br></p><br>
                         <p class="text-center" style="font-size: 30px; font-weight: bold; font-family: 'Copperplate Gothic Bold';">BARANGAY BUSINESS PERMIT<br></p><br>
                         <p style="font-size: 14px;">TO WHOM IT MAY CONCERN:</p> <br>
                         <p style="text-indent:40px;text-align: justify;">This is to certify that Mr./Ms./Mrs. <u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>, <u><b><?= $resident['age'];?></b></u> years of age, <u><b><?= $resident['status'];?></b></u>, and a resident of <u><b>Brgy.Yuson, Guimba, Nueva Ecija</b></u> was given by this office a Barangay Business Permit to operate a <u><b><?= $resident['bsname'];?></b></u> in the barangay.</p> <br>
