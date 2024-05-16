@@ -135,9 +135,6 @@ function debug_base64_encode($data) {
                         if (!empty($view['blot_photo'])) {
                             $encoded_image = debug_base64_encode($view['blot_photo']);
 
-                            // Debugging statements
-                            echo 'Image Data Length: ' . strlen($view['blot_photo']) . '<br>';
-                            echo 'Raw Data: ' . substr(bin2hex($view['blot_photo']), 0, 50) . '...<br>';
 
                             if ($encoded_image != 'No valid image data') {
                                 echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
