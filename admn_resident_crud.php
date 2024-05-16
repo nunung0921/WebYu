@@ -149,6 +149,7 @@
                                         <td> <?= $view['sex'];?> </td>
                                         <td> <?= $view['status'];?> </td>
                                         <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?> </td>
+                                        <td> <?= $view['municipal'];?> </td>
                                         <td> <?= $view['contact'];?> </td>
                                         <td> <?= $view['bdate'];?> </td>
                                         <td> <?= $view['bplace'];?> </td>
