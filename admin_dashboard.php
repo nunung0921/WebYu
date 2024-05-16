@@ -426,22 +426,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 label: 'Population',
                 data: [p1count, p2count, p3count, p4count, p5count, p6count, p7count],
                 backgroundColor: [
-                    'rgba(139, 0, 0, 0.8)',   // Dark Red
-                    'rgba(0, 0, 139, 0.8)',   // Dark Blue
-                    'rgba(184, 134, 11, 0.8)', // Dark Goldenrod
-                    'rgba(47, 79, 79, 0.8)',  // Dark Slate Gray
-                    'rgba(72, 61, 139, 0.8)', // Dark Slate Blue
-                    'rgba(139, 69, 19, 0.8)', // Saddle Brown
-                    'rgba(0, 100, 0, 0.8)'    // Dark Green
+                    'rgba(139, 0, 0, 0.8)' // Dark Red
                 ],
                 borderColor: [
-                    'rgba(139, 0, 0, 1)',   // Dark Red
-                    'rgba(0, 0, 139, 1)',   // Dark Blue
-                    'rgba(184, 134, 11, 1)', // Dark Goldenrod
-                    'rgba(47, 79, 79, 1)',  // Dark Slate Gray
-                    'rgba(72, 61, 139, 1)', // Dark Slate Blue
-                    'rgba(139, 69, 19, 1)', // Saddle Brown
-                    'rgba(0, 100, 0, 1)'    // Dark Green
+                    'rgba(139, 0, 0, 1)' // Dark Red
                 ],
 
                 borderWidth: 1
