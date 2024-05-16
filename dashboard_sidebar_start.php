@@ -9,13 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Barangay Yuson Information & Services  System</title>
+    <title>Barangay Biclatan Information System</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -27,7 +25,9 @@
     color: white;
     background-color: #023EBA !important; /* Change to desired background color */
 }
-</style>
+
+
+    </style>
 
 <body id="page-top">
 
@@ -38,11 +38,11 @@
         <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admn_dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
-                <img src="icons/yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
+                <img src="logojpg.jpg" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
     width: 40px;
     margin-right: 10px; /* space between logo and system name */
     border-radius: 50%; ">
@@ -52,6 +52,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
+            <!-- Nav Item - Dashboard -->
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="admin_dashboard.php">
@@ -178,16 +179,6 @@
                     <span> Barangay Info</span></a>
             </li>
 
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <!--<div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>-->
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -209,12 +200,12 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <!--<li class="nav-item dropdown no-arrow d-sm-none">
+                        <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                             Dropdown - Messages 
+                            <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -230,7 +221,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>-->
+                        </li>
 
                         <!-- Nav Item - User Information -->
                             <div class="dropdown ml-auto">
@@ -245,8 +236,8 @@
             </div>
                     </ul>
                 </nav>
-                
-                <!-- End of Topbar -->
+
+
 <script>
     // Get the current URL
     var url = window.location.href;
@@ -262,3 +253,10 @@
         }
     });
 </script>
+
+
+
+
+
+
+
