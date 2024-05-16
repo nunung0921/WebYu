@@ -1,11 +1,13 @@
 <?php
+        ini_set('display_errors',1);
    error_reporting(E_ALL ^ E_WARNING);
    require('classes/resident.class.php');
    $userdetails = $bmis->get_userdata();
-   //$bmis->validate_admin();
-   $id_resident = $_GET['id_resident'];
-   $view = $residentbmis->get_single_blotter($id_resident);
+   $bmis->validate_admin();
+   $id_blotter = $_GET['id_blotter'];
    $residentbmis->update_blotter();
+   $view = $residentbmis->get_single_blotter($id_blotter);
+   
 
 ?>
 
@@ -49,15 +51,9 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-group">
-                                        <label for="age" class="mtop">Age </label>
-                                        <input name="age" type="number" class="form-control" value="<?= $view['age']?>">
-                                    </div>
-                                </div>
-                                <div class="col">
                                     <div class="form-group">            
-                                        <label for="cno">Contact Number:</label>
-                                        <input name="contact" type="text" maxlength="11" pattern="[0-9]{11}" class="form-control" value="<?= $view  ['contact']?>" >
+                                        <label for="contact">Contact Number:</label>
+                                        <input name="contact" type="text" maxlength="11" pattern="[0-9]{11}" class="form-control" value="<?= $view ['contact']?>" >
                                     </div>
                                 </div>
                             </div>            
@@ -98,25 +94,6 @@
 
                             <hr>
 
-                            <div class="row">
-                                <div class="col">
-                                    <label>Supporting Evidence Photo:</label>
-                                    <div class="custom-file form-group">
-                                        <input type="file" onchange="readURL(this);" value="<?= $view['blot_photo']?>" class="custom-file-input" id="customFile" name="blot_photo" required>
-                                        <label class="custom-file-label" for="customFile">Choose File Photo</label>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <br>
-                            <label>Photo Display:</label>
-                            <div class="row">
-                                <div class="col">
-                                    <img id="blah" src="http://placehold.it/470x350" alt="your image" style="margin-left: 20%;" />
-                                </div>
-                            </div>
 
                             <hr>
 
@@ -125,13 +102,26 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="report">Narrative Report:</label>
-                                        <textarea class="form-control" rows="5" id="report" value="<?= $view['narrative']?>" name="narrative"></textarea>
+                                        <?php
+                                            $narrative = $view['narrative'];
+                                            $maxLength = 100; // Maximum length of the text to display
+                                            
+                                            // Check if the text exceeds the maximum length
+                                            if (strlen($narrative) > $maxLength) {
+                                                // Truncate the text and add "..."
+                                                $truncatedText = substr($narrative, 0, $maxLength) . '...';
+                                                echo '<textarea class="form-control" rows="5" id="report" name="narrative">' . $truncatedText . '</textarea>';
+                                            } else {
+                                                // Display the full text
+                                                echo '<textarea class="form-control" rows="5" id="report" name="narrative">' . $narrative . '</textarea>';
+                                            }
+                                            ?>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="modal-footer">
-                                <input name="id_resident" type="hidden" value="<?= $resident['id_resident']?>">
+                                <input name="id_blotter" type="hidden" value="<?= $view['id_blotter']?>">
                                 <a type="button" href="admn_blotterreport.php" class="btn btn-danger" 
                                 style="width: 135px;
                                 border-radius: 30px;
@@ -170,6 +160,20 @@
         }
     }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
+        <!-- responsive tags for screen compatibility -->
+        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+        <!-- custom css --> 
+        <link href="customcss/regiformstyle.css" rel="stylesheet" type="text/css">
+        <!-- bootstrap css --> 
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
+        <!-- fontawesome icons -->
+        <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
+        <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
+
+
 <?php 
     include('dashboard_sidebar_end.php');
 ?>

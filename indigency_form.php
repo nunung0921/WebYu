@@ -12,7 +12,7 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
 
 <!-- Modify the CSS to show the background image only when printing -->
 <style>
-    @media screen {
+     @media screen {
             p.print-padding {
                 font-size: 14px;
                 padding-left: 30px;
@@ -83,7 +83,7 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
                         <p class="text-center" style="font-size: 30px; font-weight: bold; font-family: 'Copperplate Gothic Bold';">BARANGAY INDIGENCY<br></p><br>
                        
 
-                        <p style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr/Ms/Mrs <b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b>,
+                        <p style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr./Ms./Mrs. <b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b>,
                           a bona fide resident of<u><b> <?= $resident['street'];?></b></u>  Barangay Yuson, Guimba, Nueva Ecija is known to us personally and belong to one of the <b>Indigent Families</b> in this Barangay</p> 
 
 
@@ -135,6 +135,7 @@ $resident = $residentbmis->get_single_certofindigency($id_resident);
                         <p style="text-align: justify;">Prepared & Verified by:</p><br>
                         <div style="display: flex;">
                             <div style="flex: 1;">
+                            <image src="icons/signature.png" style="width:100px; margin-left:80px; position: absolute;" /><br>
                                 <label style="font-size:14px;margin-left:3em;"><u><b>ROMEO M. CASTRO</b></u></label><br>
                                 <label style="font-size:14px;margin-left:3em;">Barangay Secretary</label><br><br>
                                 <p style="text-align: justify;">Noted by:</p><br>

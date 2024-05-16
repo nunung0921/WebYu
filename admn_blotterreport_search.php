@@ -1,6 +1,14 @@
 <?php
-	// require the database connection
-	require 'classes/conn.php';
+// require the database connection
+require 'classes/conn.php';
+
+function debug_base64_encode($data) {
+    $encoded = base64_encode($data);
+    if (!$encoded) {
+        return 'No valid image data';
+    }
+    return $encoded;
+}
 	if(isset($_POST['search_bspermit'])){
 		$keyword = $_POST['keyword'];
 ?>
@@ -9,7 +17,6 @@
             
 			<tr>
                 <th> Actions</th>
-                <th> Resident ID </th>
                 <th> Surname </th>
                 <th> First Name </th>
                 <th> Middle Name </th>
@@ -26,24 +33,26 @@
 		<tbody>
 		
                     
-			<?php
-				
-				$stmnt = $conn->prepare("SELECT * FROM `tbl_bspermit` WHERE `lname` LIKE '%$keyword%' or  `mi` LIKE '%$keyword%' or  `fname` LIKE '%$keyword%' 
-				or `bsname` LIKE '%$keyword%' or  `id_resident` LIKE '%$keyword%' or  `houseno` LIKE '%$keyword%' or  `street` LIKE '%$keyword%'
-				or `brgy` LIKE '%$keyword%' or `municipal` LIKE '%$keyword%' or `bsindustry` LIKE '%$keyword%' or `aoe` LIKE '%$keyword%' ");
-				$stmnt->execute();
-				
-				while($view = $stmnt->fetch()){
-			?>
+        <?php
+            $stmnt = $conn->prepare("SELECT * FROM `tbl_bspermit` WHERE `lname` LIKE :keyword OR `mi` LIKE :keyword OR `fname` LIKE :keyword OR `bsname` LIKE :keyword OR `id_resident` LIKE :keyword OR `houseno` LIKE :keyword OR `street` LIKE :keyword OR `brgy` LIKE :keyword OR `municipal` LIKE :keyword OR `bsindustry` LIKE :keyword OR `aoe` LIKE :keyword");
+            $search_term = '%' . $keyword . '%';
+            $stmnt->bindParam(':keyword', $search_term);
+            $stmnt->execute();
+
+            while ($view = $stmnt->fetch(PDO::FETCH_ASSOC)) {
+                $blot_photo_data = $view['blot_photo'];
+                $encoded_image = debug_base64_encode($blot_photo_data);
+
+                // Debugging statements
+                ?>
 			<tr>
             <td>    
                 <form action="" method="post">
-                    <a class="btn btn-success" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="update_blotter_form.php?id_resident=<?= $view['id_resident'];?>">Update</a> 
+                    <a class="btn btn-success" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
                     <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
                     <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_blotter"> Archive </button>
                 </form>
                 </td>
-                <td> <?= $view['id_resident'];?> </td> 
                 <td> <?= $view['lname'];?> </td>
                 <td> <?= $view['fname'];?> </td>
                 <td> <?= $view['mi'];?> </td>
@@ -51,7 +60,20 @@
                 <td> <?= $view['street'];?> </td>
                 <td> <?= $view['brgy'];?> </td>
                 <td> <?= $view['municipal'];?> </td>
-                <td> <?php echo '<img src="data:image;base64,'.base64_encode($view['blot_photo']).'" alt="Blotter Photo" style="width: 100px; height:100px;">'; ?> </td>
+                <td>
+                        <?php
+                        if (!empty($blot_photo_data)) {
+                            if ($encoded_image != 'No valid image data') {
+                                echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
+                            } else {
+                                echo 'No image available';
+                            }
+                        } else {
+                            echo 'No image available';
+                        }
+                        ?>
+                    </td>
+
                 <td> <?= $view['contact'];?> </td>
                 <td> <?= $view['narrative'];?> </td>
                 <td> <?= $view['timeapplied'];?> </td>
@@ -70,7 +92,6 @@
 		<thead class="alert-info">
 			<tr>
                 <th> Actions</th>
-                <th> Resident ID </th>
                 <th> Surname </th>
                 <th> First Name </th>
                 <th> Middle Name </th>
@@ -90,13 +111,12 @@
 			<tr>
             <td>    
                         <form action="" method="post">
-                        <a class="btn btn-success" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="update_blotter_form.php?id_resident=<?= $view['id_resident'];?>">Update</a> 
+                        <a class="btn btn-success" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
                             <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
                             <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_blotter"> Archive </button>
                         </form>
                         </td>
 
-                        <td> <?= $view['id_resident'];?> </td> 
                         <td> <?= $view['lname'];?> </td>
                         <td> <?= $view['fname'];?> </td>
                         <td> <?= $view['mi'];?> </td>
@@ -104,7 +124,22 @@
                         <td> <?= $view['street'];?> </td>
                         <td> <?= $view['brgy'];?> </td>
                         <td> <?= $view['municipal'];?> </td>
-                        <td><a class="btn btn-success" href="admn_blotter_download.php?blot_photo=<?php echo $view['blot_photo'] ?>">Download</a></td>
+                        <td>
+                        <?php
+                        if (!empty($view['blot_photo'])) {
+                            $encoded_image = debug_base64_encode($view['blot_photo']);
+
+
+                            if ($encoded_image != 'No valid image data') {
+                                echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
+                            } else {
+                                echo 'No image available';
+                            }
+                        } else {
+                            echo 'No image available';
+                        }
+                        ?>
+                    </td>
                         <td> <?= $view['contact'];?> </td>
                         <td> <?= $view['narrative'];?> </td>
                         <td> <?= $view['timeapplied'];?> </td>

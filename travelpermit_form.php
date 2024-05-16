@@ -12,7 +12,17 @@ $resident = $residentbmis->get_single_travelpermit($id_resident);
 
 <!-- Modify the CSS to show the background image only when printing -->
 <style>
+     @media screen {
+            p.print-padding {
+                font-size: 14px;
+                padding-left: 30px;
+                padding-right: 30px; /* Add your desired padding here */
+            }
+    }
     @media print {
+        body{
+            overflow: hidden;
+        }
         img{
             display: block !important;
         }
@@ -20,6 +30,13 @@ $resident = $residentbmis->get_single_travelpermit($id_resident);
             display: none !important;
         }
     }
+    @page {
+            size: A4;
+            margin-top: 0.15in;
+            margin-bottom: 0.15in;
+            margin-left: 1in;
+            margin-right: 1in;
+        }
 </style>
 
  <head>
@@ -82,6 +99,7 @@ $resident = $residentbmis->get_single_travelpermit($id_resident);
                         <p style="text-align: justify;">Prepared & Verified by:</p><br>
                         <div style="display: flex;">
                             <div style="flex: 1;">
+                            <image src="icons/signature.png" style="width:100px; margin-left:70px; position: absolute;" /><br>
                                 <label style="font-size:14px;margin-left:3em;"><u><b>ROMEO M. CASTRO</b></u></label><br>
                                 <label style="font-size:14px;margin-left:3em;">Barangay Secretary</label><br><br>
                                 <p style="text-align: justify;">Noted by:</p><br>

@@ -20,17 +20,32 @@ $rescountfh = $residentbmis->count_head_resident();
 $rescountfm = $residentbmis->count_member_resident();
 $rescountvoter = $residentbmis->count_voters();
 $rescountsenior = $residentbmis->count_resident_senior();
+$unreg = $residentbmis->count_unreg();
 
 // Count different requests and approvals
 $reqscount = $residentbmis->count_approval();
 $minorcount = $residentbmis->count_minor();
-//$pwdcount = $residentbmis->count_pwd();
+$adultcount = $residentbmis->count_adult();
+$singlecount = $residentbmis->count_stat_single();
+$marriedcount = $residentbmis->count_stat_married();
+$widowcount = $residentbmis->count_stat_widow();
+$divorcedcount = $residentbmis->count_stat_divorce();
 /*$spcount = $residentbmis->count_single_parent();
 $fourpscount = $residentbmis->count_fourps();
 $indigentcount = $residentbmis->count_indigent();
 $malcount = $residentbmis->count_malnourished();
 $vacxcount = $residentbmis->count_vaccinated();
 $pregnancycount = $residentbmis->count_pregnancy();*/
+
+$p1count = $residentbmis->count_purok1();
+$p2count = $residentbmis->count_purok2();
+$p3count = $residentbmis->count_purok3();
+$p4count = $residentbmis->count_purok4();
+$p5count = $residentbmis->count_purok5();
+$p6count = $residentbmis->count_purok6();
+$p7count = $residentbmis->count_purok7();
+
+
 $residencycount = $residentbmis->count_residency();
 $count = $residencycount['count'];
 $color = $residencycount['color'];
@@ -107,10 +122,18 @@ include('dashboard_sidebar_start.php');
             <canvas id="numberOfRecordsChart" width="1180" height="250"></canvas>
         </div>
     </div>
+    <hr>
     <br>
     <div class="row">
         <div class="scrollable"> <!-- Add this container -->
             <canvas id="otherChart" width="1180" height="250"></canvas>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="scrollable"> <!-- Add this container -->
+            <canvas id="populationChart" width="1180" height="250"></canvas>
         </div>
     </div>
 </div>
@@ -132,10 +155,11 @@ include('dashboard_sidebar_start.php');
 // Ensure the chart objects are correctly defined
 const ctxNumberOfRecords = document.getElementById('numberOfRecordsChart').getContext('2d');
 const ctxOther = document.getElementById('otherChart').getContext('2d');
+const ctxPopulation = document.getElementById('populationChart').getContext('2d');
 
 // Data for the charts (assuming these variables are correctly defined earlier in your code)
 const documentData = [
-    //{ documentType: 'Request for Approval', count: <?= $reqscount ?> },
+    { documentType: 'Request for Approval', count: <?= $reqscount ?> },
     { documentType: 'Certificate of Residency', count: <?= $count ?> },
     { documentType: 'Business Clearance', count: <?= $countbs ?> },
     { documentType: 'Barangay Clearance', count: <?= $countbc ?> },
@@ -145,7 +169,7 @@ const documentData = [
 
 // URL mapping for document types
 const documentUrlMapping = {
-    //'Request for Approval': 'admn_resident_request.php',
+    'Request for Approval': 'admn_resident_request.php',
     'Certificate of Residency': 'admn_certofres.php',
     'Business Clearance': 'admn_bspermit.php',
     'Barangay Clearance': 'admn_brgyclearance.php',
@@ -241,7 +265,7 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
         },
  {
             label: 'Unregistered Voters',
-            value: <?= $rescountm ?>
+            value: <?= $unreg ?>
         },
  {
             label: 'Male Residents',
@@ -255,27 +279,31 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
             label: 'Minor Residents',
             value: <?= $minorcount ?>
         },
+{
+            label: 'Adult Residents',
+            value: <?= $adultcount ?>
+        },
  {
             label: 'Senior Residents',
             value: <?= $rescountsenior ?>
         },
- /*{
-            label: 'PWD Residents',
-            value: <?= $pwdcount ?>
+ {
+            label: 'Single',
+            value: <?= $singlecount ?>
         },
  {
-            label: 'Single Parents',
-            value: <?= $spcount ?>
+            label: 'Married',
+            value: <?= $marriedcount ?>
         },
  {
-            label: '4Ps Members',
-            value: <?= $fourpscount ?>
+            label: 'Widowed',
+            value: <?= $widowcount ?>
         },
- {
-            label: 'Indigent Residents',
-            value: <?= $indigentcount ?>
+{
+            label: 'Divorced',
+            value: <?= $divorcedcount ?>
         },
- {
+ /* {
             label: 'Malnourished Residents',
             value: <?= $malcount ?>
         },*/
@@ -323,18 +351,19 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     // Define a mapping between the chart labels and the corresponding PHP page URLs
     var chartUrlMapping = {
     'Barangay Residents': 'admn_resident.php',
-    'Registered Voters': 'admn_resident_crud.php',
+    'Registered Voters': 'admn_resident_voters.php',
     'Unregistered Voters': 'admn_resident_unregistered.php',
     'Male Residents': 'admn_resident_Male.php',
     'Female Residents': 'admn_resident_female.php',
     'Minor Residents': 'admn_resident_minor.php',
-    'Senior Residents': 'admn_resident_senior.php'
-    /*'PWD Residents': 'admn_resident_pwd.php',
-    'Single Parents': 'admn_resident_single.php',
-    '4Ps Members': 'admn_resident_4ps.php',
-    'Indigent Residents': 'admn_resident_indigent.php',
-    'Malnourished Residents': 'admn_resident_Mal.php'*/
+    'Adult Residents': 'admn_resident_adult.php',
+    'Senior Residents': 'admn_resident_senior.php',
+    'Single': 'admn_resident_single.php',
+    'Married': 'admn_resident_married.php',
+    'Widowed': 'admn_resident_widow.php',
+    'Divorced': 'admn_resident_divored.php'
 };
+
 
 // Add click event listener to the other chart
 ctxOther.canvas.onclick = function(event) {
@@ -365,6 +394,66 @@ ctxNumberOfRecords.canvas.onclick = function(event) {
         }
     }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Verify if the canvas element exists
+    const ctxPopulation = document.getElementById('populationChart')?.getContext('2d');
+    
+    if (!ctxPopulation) {
+        console.error('Canvas element for populationChart not found');
+        return;
+    }
+
+    // Verify if PHP variables are correctly passed
+    const p1count = <?= json_encode($p1count) ?>;
+    const p2count = <?= json_encode($p2count) ?>;
+    const p3count = <?= json_encode($p3count) ?>;
+    const p4count = <?= json_encode($p4count) ?>;
+    const p5count = <?= json_encode($p5count) ?>;
+    const p6count = <?= json_encode($p6count) ?>;
+    const p7count = <?= json_encode($p7count) ?>;
+    
+    if (
+        typeof p1count !== 'number' ||
+        typeof p2count !== 'number' ||
+        typeof p3count !== 'number' ||
+        typeof p4count !== 'number' ||
+        typeof p5count !== 'number' ||
+        typeof p6count !== 'number' ||
+        typeof p7count !== 'number'
+    ) {
+        console.error('One or more population count variables are not numbers:', { p1count, p2count, p3count, p4count, p5count, p6count, p7count });
+        return;
+    }
+
+    // Create the population chart
+    const populationChart = new Chart(ctxPopulation, {
+        type: 'bar',
+        data: {
+            labels: ['Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Purok 7'],
+            datasets: [{
+                label: 'Population',
+                data: [p1count, p2count, p3count, p4count, p5count, p6count, p7count],
+                backgroundColor: [
+                    'rgba(139, 0, 0, 0.8)' // Dark Red
+                ],
+                borderColor: [
+                    'rgba(139, 0, 0, 1)' // Dark Red
+                ],
+
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+
 
 </script>
 

@@ -27,20 +27,23 @@ function generateRandomPassword($length = 8) {
 }
 
 function sendEmail($email, $password) {
-    // Send email with basic PHP mail function
     $to = $email;
     $subject = 'Welcome to Our Service';
-    $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nYour Company";
+    $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nWebYu";
     $headers = 'From: rafaeltosper@gmail.com' . "\r\n" .
                'Reply-To: rafaeltosper@gmail.com' . "\r\n" .
                'X-Mailer: PHP/' . phpversion();
 
+    // Attempt to send the email
     if (mail($to, $subject, $message, $headers)) {
-        echo "Message has been sent to $email<br>";
+        echo "Message has been sent!";
     } else {
         echo "Message could not be sent to $email<br>";
+        // Log the error for debugging purposes
+        error_log("Failed to send email to $email", 0);
     }
 }
+
 
 
 if (isset($_POST['import'])) {
@@ -54,7 +57,7 @@ if (isset($_POST['import'])) {
             fgetcsv($file);
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = md5($password);
 
                 $data = [
                     'email' => $column[0],
@@ -98,7 +101,7 @@ if (isset($_POST['import'])) {
 
             foreach ($rows as $row) {
                 $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = md5($password);
 
                 $data = [
                     'email' => $row[0],
@@ -117,7 +120,8 @@ if (isset($_POST['import'])) {
                     'nationality' => $row[13],
                     'voter' => $row[14],
                     'password' => $hashedPassword,
-                    'family_role' => 'member',
+                    'municipal' => 'Guimba',
+                    'family_role' => 'Yes',
                     'role' => 'resident',
                     'request_status' => 'approved'
                 ];
@@ -126,7 +130,7 @@ if (isset($_POST['import'])) {
                     echo "Resident record created successfully for email: {$data['email']}<br>";
                     sendEmail($data['email'], $password);
                 } else {
-                    echo "Failed to create resident record for email: {$data['email']}<br>";
+                    sendEmail($data['email'], $password);
                 }
             }
         } else {

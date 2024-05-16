@@ -132,7 +132,7 @@
 <!-- Footer -->
         <!-- Footer -->
 
-        <footer id="footer" style="background-color: #007bff; color: white;" class="d-flex-column text-center">
+        <footer id="footer" class="d-flex-column text-center">
 
             <!--Copyright-->
 
@@ -141,7 +141,7 @@
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
-                | Barangay Biclatan Information System
+                | Barangay Yuson Information Management System
             </div>
 
         </footer>

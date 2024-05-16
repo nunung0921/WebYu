@@ -94,18 +94,12 @@
                 $nationality = $_POST['nationality'];
                 $voter = $_POST['voter'];
                 $familyrole = $_POST['family_role'];
-                $role = $_POST['role'];
-                $pwd = $_POST['pwd'];
-                $indigent = $_POST['indigent'];
-                $single_parent = $_POST['single_parent'];
-                $malnourished = $_POST['malnourished'];
-                $four_ps = $_POST['four_ps'];
 
                 $connection = $this->openConn();
                 $stmt = $connection->prepare("UPDATE tbl_resident SET `password` =?, `lname` =?, 
-                `fname` = ?, `mi` =?, `age` =?, `sex` =?, `status` =?, `email` =?, `houseno` =?, `street` =?, `brgy` =?, `municipal` =?, `contact` =?, `bdate` =?, `bplace` =?, `nationality` =?, `voter` =?, `family_role` =?, `role` =?, `pwd` =?, `indigent` =?, `single_parent` =?, `malnourished` =?, `four_ps` =?, `addedby` =? WHERE `id_resident` = ?");
+                `fname` = ?, `mi` =?, `age` =?, `sex` =?, `status` =?, `email` =?, `houseno` =?, `street` =?, `brgy` =?, `municipal` =?, `contact` =?, `bdate` =?, `bplace` =?, `nationality` =?, `voter` =?, `family_role` =? WHERE `id_resident` = ?");
                 $stmt->execute([$password, $lname, $fname, $mi, $age, $sex, $status,$email, $houseno, 
-                $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $role, $pwd, $indigent, $single_parent, $malnourshed, $four_ps, $addedby, $id_resident]);
+                $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $id_resident]);
                     
                 $message2 = "Resident Data Updated";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -187,6 +181,94 @@
         return $rescount;
     }
 
+    public function count_stat_single() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Single' and request_status='approved'");
+        $stmt->execute();
+        $singlecount = $stmt->fetchColumn();
+        return $singlecount;
+    }
+
+    public function count_stat_married() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Married' and request_status='approved'");
+        $stmt->execute();
+        $marriedcount = $stmt->fetchColumn();
+        return $marriedcount;
+    }
+
+    public function count_stat_widow() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Widowed' and request_status='approved'");
+        $stmt->execute();
+        $widowcount = $stmt->fetchColumn();
+        return $widowcount;
+    }
+
+    public function count_stat_divorce() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Divorced' and request_status='approved'");
+        $stmt->execute();
+        $divorcedcount = $stmt->fetchColumn();
+        return $divorcedcount;
+    }
+
+    public function count_purok1() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 1' and request_status = 'approved'");
+        $stmt->execute();
+        $p1count = $stmt->fetchColumn();
+        return $p1count;
+    }
+
+    public function count_purok2() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 2' and request_status = 'approved'");
+        $stmt->execute();
+        $p2count = $stmt->fetchColumn();
+        return $p2count;
+    }
+
+    public function count_purok3() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 3' and request_status = 'approved'");
+        $stmt->execute();
+        $p3count = $stmt->fetchColumn();
+        return $p3count;
+    }
+
+    public function count_purok4() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 4' and request_status = 'approved'");
+        $stmt->execute();
+        $p4count = $stmt->fetchColumn();
+        return $p4count;
+    }
+
+    public function count_purok5() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 5' and request_status = 'approved'");
+        $stmt->execute();
+        $p5count = $stmt->fetchColumn();
+        return $p5count;
+    }
+
+    public function count_purok6() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 6' and request_status = 'approved'");
+        $stmt->execute();
+        $p6count = $stmt->fetchColumn();
+        return $p6count;
+    }
+
+    public function count_purok7() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 7' and request_status = 'approved'");
+        $stmt->execute();
+        $p7count = $stmt->fetchColumn();
+        return $p7count;
+    }
+
     public function check_household($lname, $mi) {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE lname = ? AND mi = ?");
@@ -209,7 +291,7 @@
     public function count_male_resident() {
         $connection = $this->openConn();
 
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'male' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'male' and request_status='approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -320,6 +402,37 @@ public function profile_update_admin() {
         return $view;
     }
 
+    public function view_resident_single(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Single' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_resident_widow(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Widowed' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_resident_divorced(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Divorced' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_resident_married(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Married' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
     public function count_resident_senior() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) FROM tbl_resident WHERE `age` >= 60 and request_status = 'approved'");
@@ -471,7 +584,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function view_resident_voters(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_resident WHERE `voter` = 'Yes'");
+        $stmt = $connection->prepare("SELECT * from tbl_resident WHERE `voter` = 'Yes' and request_status = 'approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
@@ -504,6 +617,15 @@ if($hashed_old_password !== $result['password']) {
     public function count_voters() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'Yes' and request_status = 'approved'");
+        $stmt->execute();
+        $rescount = $stmt->fetchColumn();
+
+        return $rescount;
+    }
+
+    public function count_unreg() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'Nof' and request_status = 'approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -607,7 +729,7 @@ if($hashed_old_password !== $result['password']) {
 
 
     public function delete_approval(){
-        $id_announcement = $_POST['id_approval'];
+        $id_approval = $_POST['id_approval'];
 
         if(isset($_POST['delete_announcement'])) {
             $connection = $this->openConn();
@@ -647,6 +769,14 @@ if($hashed_old_password !== $result['password']) {
     public function count_minor() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age <= 17 ");
+        $stmt->execute();
+        $minorcount = $stmt->fetchColumn();
+        return $minorcount;
+    }
+
+    public function count_adult() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age >= 18 AND age <=59 AND request_status ='approved'");
         $stmt->execute();
         $minorcount = $stmt->fetchColumn();
         return $minorcount;
@@ -879,38 +1009,38 @@ if($hashed_old_password !== $result['password']) {
             }
         }
 
-public function update_blotter() {
-    if (isset($_POST['update_blotter'])) {
-        $id_blotter = $_POST['id_blotter'];
-        $lname = $_POST['lname'];
-        $fname = $_POST['fname'];
-        $mi = $_POST['mi'];
-        $contact = $_POST['contact'];
-        $houseno = $_POST['houseno'];
-        $street = $_POST['street'];
-        $brgy = $_POST['brgy'];
-        $municipal = $_POST['municipal'];
-        $narrative = $_POST['narrative'];
-
-        // Open database connection
-        $connection = $this->openConn();
+        public function update_blotter() {
+            if (isset($_POST['update_blotter'])) {
+                $id_blotter = $_POST['id_blotter'];
+                $lname = $_POST['lname'];
+                $fname = $_POST['fname'];
+                $mi = $_POST['mi'];
+                $contact = $_POST['contact'];
+                $houseno = $_POST['houseno'];
+                $street = $_POST['street'];
+                $brgy = $_POST['brgy'];
+                $municipal = $_POST['municipal'];
+                $narrative = $_POST['narrative'];
         
-        // Prepare and execute the update query
-        $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
-        $stmt->execute([$lname, $fname, $mi, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
-        
-        // Check if the update was successful
-        if ($stmt->rowCount() > 0) {
-            $message2 = "Complain/Blotter Data Updated";
-        } else {
-            $message2 = "Error updating data";
+                // Open database connection
+                $connection = $this->openConn();
+                
+                // Prepare and execute the update query
+                $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
+                $stmt->execute([$lname, $fname, $mi, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
+                
+                // Check if the update was successful
+                if ($stmt->rowCount() > 0) {
+                    $message2 = "Complain/Blotter Data Updated";
+                } else {
+                    $message2 = "Error updating data";
+                }
+                
+                // Redirect to the form page after update
+                header("Location: update_blotter_form.php?id_blotter=$id_blotter");
+                exit(); // Terminate script execution after redirection
+            }
         }
-        
-        // Redirect to the form page after update
-        header("Location: update_blotter_form.php?id_blotter=$id_blotter");
-        exit(); // Terminate script execution after redirection
-    }
-}
 
 
 

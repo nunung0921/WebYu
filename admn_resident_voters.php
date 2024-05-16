@@ -16,7 +16,7 @@
     $staffcountm = $staffbmis->count_mstaff();
     $staffcountf = $staffbmis->count_fstaff();
     
-    $view = $residentbmis->view_resident_senior();
+    $view = $residentbmis->view_resident_voters();
     $residentbmis->create_resident();
     $upstaff = $residentbmis->update_resident();
     $residentbmis->delete_resident();
@@ -78,7 +78,7 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        <h1 class="mb-4 text-center">Senior Residents</h1>
+        <h1 class="mb-4 text-center">Registered Voter Residents</h1>
         <hr>
         <br>
 

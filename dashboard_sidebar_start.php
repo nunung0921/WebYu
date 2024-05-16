@@ -38,10 +38,14 @@
         <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admn_dashboard.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
+                <img src="icons/yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
+    width: 40px;
+    margin-right: 10px; /* space between logo and system name */
+    border-radius: 50%; ">
                 <div class="sidebar-brand-text">Administrator Dashboard </div>
             </a>
 
@@ -73,6 +77,12 @@
                 <a class="nav-link" href="admn_official.php">
                     <i class="fas fa-user-tie"></i>
                     <span>Barangay Officials</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="sk_officials.php">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Sk Officials</span></a>
             </li>
 
             <!-- Barangay Staff CRUD -->
@@ -180,9 +190,9 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <!--<div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div>-->
 
         </ul>
         <!-- End of Sidebar -->
@@ -197,7 +207,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3" style="margin-left: 5px; padding-top: 5px; padding-left: 3px; padding-bottom: 0;">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -205,12 +215,12 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
+                        <!--<li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
+                             Dropdown - Messages 
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -226,27 +236,19 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li>-->
 
                         <!-- Nav Item - User Information -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="index.php" id="userDropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-800 small"><?= $userdetails['surname']?>, <?= $userdetails['firstname']?></span>
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
-                                </a>
-                            </li>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+                            <div class="dropdown ml-auto" style="margin-top: 10px;">
+                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?> <?= $userdetails['firstname'];?>
+                    <span class="caret" style="margin-left: 2px;"></span>
+                </button>
+                <ul class="dropdown-menu" style="width: 175px;" >
+                    <a class="btn" href="admin_profile.php?id_admin=<?= $userdetails['id_admin'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
+                    <!--<a class="btn" href="admin_changepass.php?id_admin=<?= $userdetails['id_admin'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>-->
+                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
+                </ul>
+            </div>
                     </ul>
                 </nav>
                 

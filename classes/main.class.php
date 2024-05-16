@@ -1719,26 +1719,19 @@ public function create_travelpermit() {
 
 
     public function create_blotter() {
-
-        if(isset($_POST['create_blotter'])) {
+        if (isset($_POST['create_blotter'])) {
             
-           $blot_photo_path = '';
-            if(isset($_FILES['blot_photo']['tmp_name']) && !empty($_FILES['blot_photo']['tmp_name'])) {
-                // Process blot_photo file upload and move it to the desired directory
-                $blot_photo_path = $_SERVER['DOCUMENT_ROOT'] . '/gallery_photo/' . $_FILES['blot_photo']['name']; 
-                move_uploaded_file($_FILES['blot_photo']['tmp_name'], $blot_photo_path);
+            $blot_photo = null;
+            if (isset($_FILES['blot_photo']['tmp_name']) && !empty($_FILES['blot_photo']['tmp_name'])) {
+                // Get the image data
+                $blot_photo = file_get_contents($_FILES['blot_photo']['tmp_name']);
             }
-            
-            if(isset($_POST['id_blotter'])) {
-            $id_blotter = $_POST['id_blotter'];
-            } else {
-                //nugagawen pag wala
-                $id_blotter = null; 
-            }
+    
+            $id_blotter = isset($_POST['id_blotter']) ? $_POST['id_blotter'] : null;
             $id_resident = $_POST['id_resident'];
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
-            $mi = $_POST['mi']; 
+            $mi = $_POST['mi'];
             $houseno = $_POST['houseno'];
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
@@ -1751,15 +1744,29 @@ public function create_travelpermit() {
                 `houseno`, `street`, `brgy`, `municipal`, `blot_photo`, `contact`, `narrative`)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
-            $stmt->execute([$id_blotter, $id_resident, $lname, $fname, $mi, $houseno, $street, $brgy, $municipal, 
-                $blot_photo_path, $contact, $narrative]);
-
-
+            // Bind parameters, using PDO::PARAM_LOB for the BLOB data
+            $stmt->bindParam(1, $id_blotter);
+            $stmt->bindParam(2, $id_resident);
+            $stmt->bindParam(3, $lname);
+            $stmt->bindParam(4, $fname);
+            $stmt->bindParam(5, $mi);
+            $stmt->bindParam(6, $houseno);
+            $stmt->bindParam(7, $street);
+            $stmt->bindParam(8, $brgy);
+            $stmt->bindParam(9, $municipal);
+            $stmt->bindParam(10, $blot_photo, PDO::PARAM_LOB);
+            $stmt->bindParam(11, $contact);
+            $stmt->bindParam(12, $narrative);
+            
+            // Execute statement
+            $stmt->execute();
+    
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
-        }  
+        }
     }
+    
 
     public function get_single_blotter($id_resident){
 
