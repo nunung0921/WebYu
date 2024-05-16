@@ -138,7 +138,7 @@ if (isset($_POST['import'])) {
             exit;
         }
 
-        echo "<script>alert('Residents imported successfully. You will receive an email shortly!');</script>";
+        echo "<script>alert('Residents imported successfully. You will receive an email shortly!'); window.location.href = 'admn_resident_crud.php';</script>";
     } else {
         echo "<script>alert('Invalid file size or format'); window.location.href = 'admn_resident_crud.php';</script>";
     }
