@@ -1342,6 +1342,63 @@ nav {
 </div>
       </div>
     </section>
+
+    <section class="section__container testimonial__container" id="testimonial">
+      <><h2 class="section__header">Sangguniang Kabataan Officials</h2>
+      <!--<p class="section__description">
+      A barangay councilor (Filipino: kagawad or konsehal) is an elected government official who is a member of the Sangguniang Barangay (Barangay Council) of a particular barangay. The barangay is the smallest political unit in the Philippines.
+      </p></center>--><br>
+    <div class="table-responsive">
+        <table class="table table-hover text-center table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-light"> <!-- Use thead-light class for header styling -->
+                <tr>
+                  <th style="width: 50%;">Position</th>
+                  <th style="width: 50%;">Full Name</th>
+                  <th style="width: 50%;">Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                require('classes/conn.php');
+
+                try {
+                    // Establish database connection
+                    $conn = new PDO('mysql:host=localhost;dbname=u813203284_bmis', 'u813203284_webyu', 'Webyu@2023');
+
+                    // Set PDO error mode to exception
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // Prepare and execute SQL query
+                    $stmt = $conn->prepare("SELECT name, position, avatar FROM tbl_sk");
+                    $stmt->execute();
+
+                    // Check if there are rows returned
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch data and display in HTML table
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
+                            <tr>
+                                <td><?= $row['position']; ?></td>
+                                <td><?= $row['name']; ?></td>
+                                <td><img src="icons/<?= $row['avatar']; ?>" alt="Avatar" style="height: 100px; width: 100px;"></td>
+                            </tr>
+                            <?php
+                        }
+                    } else {
+                        // Display message if no data found
+                        echo '<tr><td colspan="2">No records found</td></tr>';
+                    }
+                } catch (PDOException $e) {
+                    // Handle database errors
+                    echo '<tr><td colspan="2">Error: ' . $e->getMessage() . '</td></tr>';
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+      </div>
+    </section>
   
 
     <section class="section__container service__container" id="service">

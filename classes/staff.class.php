@@ -421,6 +421,104 @@
                 }
         }
 
+        public function create_sk() {
+
+            if(isset($_POST['add_sk'])) {
+                $avatar = $_POST['avatar'];
+                $name = $_POST['name'];
+                $position = ($_POST['position']);
+                $termstart = $_POST['termstart'];
+                $termend = $_POST['termend'];
+
+                    $connection = $this->openConn();
+                    $stmt = $connection->prepare("INSERT INTO tbl_sk (`avatar`, `name`,`position`,`termstart`,`termend`) VALUES (?, ?, ?, ?, ?)");
+    
+                    $stmt->Execute([$avatar, $name, $position, $termstart, $termend]);
+                    $message2 = "New SK Official Adedd";
+    
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header('refresh:0');
+
+            }
+        }
+
+
+        public function view_sk(){
+
+            $connection = $this->openConn();
+
+            $stmt = $connection->prepare("SELECT * from tbl_sk");
+            $stmt->execute();
+            $view = $stmt->fetchAll();
+
+            //$rows = $stmt->
+            return $view;
+           
+        }
+
+
+        public function update_sk() {
+            if (isset($_POST['update_sk'])) {
+                $id_sk = $_GET['id_sk'];
+                $lname = $_POST['lname']; // Assuming these are the values from the form
+                $fname = $_POST['fname'];
+                $mi = $_POST['mi'];
+                $name = $fname . ' ' . $mi . ' ' . $lname;
+                $position = $_POST['position'];
+                $termstart = $_POST['termstart'];
+                $termend = $_POST['termend'];
+                $avatar = $_POST['avatar'];
+                
+                    $connection = $this->openConn();
+                    $stmt = $connection->prepare("UPDATE tbl_sk SET name =?, 
+                    position = ?, termstart =?, termend =?, avatar =? WHERE id_sk = ?");
+                    $stmt->execute([ $name, $position, $termstart, $termend, $avatar, $id_sk]);
+                   
+                    $message2 = "SK Official's Information Updated";
+    
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header('Location: admn_officials.php');
+                    exit;
+
+            }
+        }
+
+        public function delete_sk(){
+
+            $id_sk = $_POST['id_sk'];
+
+            if(isset($_POST['delete_sk'])) {
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("DELETE FROM tbl_sk where id_sk = ?");
+                $stmt->execute([$id_sk]);
+                
+                $message2 = "SK Official Account Deleted";
+                
+                echo "<script type='text/javascript'>alert('$message2');</script>";
+                 header('refresh:0');
+            }
+        }
+
+        public function get_single_sk($id_sk){
+
+                $id_sk = $_GET['id_sk'];
+                
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("SELECT * FROM tbl_sk where id_sk = ?");
+                $stmt->execute([$id_sk]);
+                $user = $stmt->fetch();
+                $total = $stmt->rowCount();
+
+                if($total > 0 )  {
+                    return $user;
+                }
+                else{
+                    return false;
+                }
+        }
+
+
+
     }
     $staffbmis = new StaffClass();
 ?>
