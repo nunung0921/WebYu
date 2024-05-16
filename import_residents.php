@@ -27,7 +27,6 @@ function generateRandomPassword($length = 8) {
 }
 
 function sendEmail($email, $password) {
-    // Send email with basic PHP mail function
     $to = $email;
     $subject = 'Welcome to Our Service';
     $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nYour Company";
@@ -35,12 +34,16 @@ function sendEmail($email, $password) {
                'Reply-To: rafaeltosper@gmail.com' . "\r\n" .
                'X-Mailer: PHP/' . phpversion();
 
+    // Attempt to send the email
     if (mail($to, $subject, $message, $headers)) {
         echo "Message has been sent to $email<br>";
     } else {
         echo "Message could not be sent to $email<br>";
+        // Log the error for debugging purposes
+        error_log("Failed to send email to $email", 0);
     }
 }
+
 
 
 if (isset($_POST['import'])) {
