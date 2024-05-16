@@ -408,6 +408,37 @@ public function profile_update_admin() {
         return $view;
     }
 
+    public function view_resident_single(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Single' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_resident_widow(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Widowed' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_resident_divorced(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Divorced' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_resident_married(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Married' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
     public function count_resident_senior() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) FROM tbl_resident WHERE `age` >= 60 and request_status = 'approved'");

@@ -357,12 +357,11 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     'Female Residents': 'admn_resident_female.php',
     'Minor Residents': 'admn_resident_minor.php',
     'Adult Residents': 'admn_resident_adult.php',
-    'Senior Residents': 'admn_resident_senior.php'
-    /*'PWD Residents': 'admn_resident_pwd.php',
-    'Single Parents': 'admn_resident_single.php',
-    '4Ps Members': 'admn_resident_4ps.php',
-    'Indigent Residents': 'admn_resident_indigent.php',
-    'Malnourished Residents': 'admn_resident_Mal.php'*/
+    'Senior Residents': 'admn_resident_senior.php',
+    'Single': 'admn_resident_single.php',
+    'Married': 'admn_resident_married.php',
+    'Widowed': 'admn_resident_widow.php',
+    'Divorced': 'admn_resident_divored.php'
 };
 
 
