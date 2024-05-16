@@ -66,8 +66,8 @@ $resident = $residentbmis->get_single_certofres($id_resident);
                 background-repeat: no-repeat; background-position: center; background-size: 60%; background-color: rgba(255, 255, 255, 0.7); background-blend-mode: overlay; background-position: center top;">
                         <p class="text-center" style="font-size: 40px; opacity: 0.6; font-weight: bold; font-family: 'Edwardian Script ITC', cursive;">Office of the Barangay Chairman<br></p><br>
                         <p class="text-center" style="font-size: 30px; font-weight: bold; font-family: 'Copperplate Gothic Bold';"><u>CERTIFICATE OF RESIDENCY</u><br></p><br>
-                        <p style="text-indent:40px;text-align: justify;">This is to certify that Mr./Ms./Mrs., <u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>, <u><b><?= $resident['age'];?></b></u> years of age,<u><b><?= $resident['status'];?></b></u> is a bona fide resident of this Barangay.
-                        <p style="text-indent:40px;text-align: justify;">That he/she is presently residing at <u><b><?= $resident['street'];?></b></u>, Brgy. Yuson, Guimba, Nueva Ecija since ____________ to date.</p>
+                        <p style="text-indent:40px;text-align: justify;">This is to certify that Mr./Ms./Mrs., <u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>, <u><b><?= $resident['age'];?></b></u> years of age, <u><b><?= $resident['status'];?></b></u> is a bona fide resident of this Barangay.
+                        <p style="text-indent:40px;text-align: justify;">That he/she is presently residing at <u><b><?= $resident['street'];?></b></u>, Brgy. Yuson, Guimba, Nueva Ecija since <u><b><?= $resident['residing'];?></b></u> to date.</p>
                         <p style="text-indent:40px;text-align: justify;">This certification is issued upon request of a forenamed person for whatever legal purposes it may serve.
                         <?php
 date_default_timezone_set('Asia/Manila');
@@ -76,6 +76,7 @@ date_default_timezone_set('Asia/Manila');
                         <p style="text-align: justify;">Prepared & Verified by:</p><br><br>
                         <div style="display: flex;">
                             <div style="flex: 1;">
+                                <image src="icons/signature.jpg" style="width:100px; margin-left:65px; position: absolute;" /><br>
                                 <label style="font-size:18px;margin-left:4em;"><u>ROMEO M. CASTRO</u></label>
                                 <label style="font-size:18px;margin-left:4em;">Barangay Secretary</label><br><br>
                                 <p style="text-align: justify;">Noted by:</p><br><br>
