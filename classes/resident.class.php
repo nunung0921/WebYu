@@ -187,6 +187,38 @@
         return $rescount;
     }
 
+    public function count_stat_single() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Single'");
+        $stmt->execute();
+        $singlecount = $stmt->fetchColumn();
+        return $singlecount;
+    }
+
+    public function count_stat_married() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Married'");
+        $stmt->execute();
+        $marriedcount = $stmt->fetchColumn();
+        return $marriedcount;
+    }
+
+    public function count_stat_widow() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Widowed'");
+        $stmt->execute();
+        $widowcount = $stmt->fetchColumn();
+        return $widowcount;
+    }
+
+    public function count_stat_divorce() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE status = 'Divorced'");
+        $stmt->execute();
+        $divorcedcount = $stmt->fetchColumn();
+        return $divorcedcount;
+    }
+
     public function check_household($lname, $mi) {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE lname = ? AND mi = ?");

@@ -24,7 +24,10 @@ $rescountsenior = $residentbmis->count_resident_senior();
 // Count different requests and approvals
 $reqscount = $residentbmis->count_approval();
 $minorcount = $residentbmis->count_minor();
-//$pwdcount = $residentbmis->count_pwd();
+$singlecount = $residentbmis->count_stat_single();
+$marriedcount = $residentbmis->count_stat_married();
+$widowcount = $residentbmis->count_stat_widow();
+$divorcedcount = $residentbmis->count_stat_divorce();
 /*$spcount = $residentbmis->count_single_parent();
 $fourpscount = $residentbmis->count_fourps();
 $indigentcount = $residentbmis->count_indigent();
@@ -259,23 +262,23 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
             label: 'Senior Residents',
             value: <?= $rescountsenior ?>
         },
- /*{
-            label: 'PWD Residents',
-            value: <?= $pwdcount ?>
+ {
+            label: 'Single',
+            value: <?= $singlecount ?>
         },
  {
-            label: 'Single Parents',
-            value: <?= $spcount ?>
+            label: 'Married',
+            value: <?= $marriedcount ?>
         },
  {
-            label: '4Ps Members',
-            value: <?= $fourpscount ?>
+            label: 'Widowed',
+            value: <?= $widowcount ?>
         },
- {
-            label: 'Indigent Residents',
-            value: <?= $indigentcount ?>
+{
+            label: 'Divorced',
+            value: <?= $divorcedcount ?>
         },
- {
+ /* {
             label: 'Malnourished Residents',
             value: <?= $malcount ?>
         },*/
