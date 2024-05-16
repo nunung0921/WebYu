@@ -113,20 +113,20 @@ function debug_base64_encode($data) {
                         <td> <?= $view['brgy'];?> </td>
                         <td> <?= $view['municipal'];?> </td>
                         <td>
-                            <?php
-                            if (!empty($view['blot_photo'])) {
-                                $encoded_image = debug_base64_encode($view['blot_photo']);
-                                if ($encoded_image != 'No valid image data') {
-                                    echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
-                                } else {
-                                    echo 'No image available';
-                                }
+                        <?php
+                        if (!empty($view['blot_photo'])) {
+                            $encoded_image = debug_base64_encode($view['blot_photo']);
+                            if ($encoded_image != 'No valid image data') {
+                                echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
                             } else {
                                 echo 'No image available';
                             }
-                            ?>
-                            <a class="btn btn-success" href="admn_blotter_download.php?blot_photo=<?= urlencode($view['blot_photo']); ?>">Download</a>
-                        </td>
+                        } else {
+                            echo 'No image available';
+                        }
+                        ?>
+                        <a class="btn btn-success" href="admn_blotter_download.php?blot_photo=<?= urlencode($view['blot_photo']); ?>">Download</a>
+                    </td>
                         <td> <?= $view['contact'];?> </td>
                         <td> <?= $view['narrative'];?> </td>
                         <td> <?= $view['timeapplied'];?> </td>
