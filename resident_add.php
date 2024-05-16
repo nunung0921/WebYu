@@ -298,7 +298,7 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>                                    
-                                    <!--<div class="col rb"> 
+                                    <div class="col rb"> 
                                         <div class="form-group">
                                             <label>Are you head of the family? </label>
                                             <select class="form-control" name="family_role" id="famhead" required>
@@ -309,7 +309,7 @@
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </div>
 
                                 <br>
