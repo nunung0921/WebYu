@@ -54,7 +54,7 @@ if (isset($_POST['import'])) {
             fgetcsv($file);
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = md5($password);
 
                 $data = [
                     'email' => $column[0],
@@ -98,7 +98,7 @@ if (isset($_POST['import'])) {
 
             foreach ($rows as $row) {
                 $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = md5($password);
 
                 $data = [
                     'email' => $row[0],
@@ -117,7 +117,8 @@ if (isset($_POST['import'])) {
                     'nationality' => $row[13],
                     'voter' => $row[14],
                     'password' => $hashedPassword,
-                    'family_role' => 'member',
+                    'municipal' => 'Guimba',
+                    'family_role' => 'Yes',
                     'role' => 'resident',
                     'request_status' => 'approved'
                 ];
