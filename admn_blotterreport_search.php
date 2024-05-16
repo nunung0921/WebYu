@@ -139,7 +139,6 @@ function debug_base64_encode($data) {
                             echo 'No image available';
                         }
                         ?>
-                        <a class="btn btn-success" href="admn_blotter_download.php?blot_photo=<?= urlencode($view['blot_photo']); ?>">Download</a>
                     </td>
                         <td> <?= $view['contact'];?> </td>
                         <td> <?= $view['narrative'];?> </td>
