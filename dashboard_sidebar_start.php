@@ -35,14 +35,14 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
-                <img src="icons/yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
+                <img src="yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
     width: 40px;
     margin-right: 10px; /* space between logo and system name */
     border-radius: 50%; ">
@@ -209,13 +209,13 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <!--<li class="nav-item dropdown no-arrow d-sm-none">
+                        <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                             Dropdown - Messages -->
-                            <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
@@ -230,7 +230,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>-->
+                        </li>
 
                         <!-- Nav Item - User Information -->
                             <div class="dropdown ml-auto">
