@@ -8,7 +8,7 @@
     $view = $staffbmis->view_sk();
     $staffbmis->update_sk();
     $staffbmis->delete_sk();
-    $id_official = $_GET['id_sk'];
+    $id_dk = $_GET['id_sk'];
     $staff = $staffbmis->get_single_sk($id_sk);
 ?>
 
