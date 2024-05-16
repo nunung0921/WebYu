@@ -126,12 +126,7 @@ if (isset($_POST['import'])) {
                     'request_status' => 'approved'
                 ];
 
-                if ($residentbmis->create_resident($data)) {
-                    echo "Resident record created successfully for email: {$data['email']}<br>";
                     sendEmail($data['email'], $password);
-                } else {
-                    echo "Failed to create resident record for email: {$data['email']}<br>";
-                }
             }
         } else {
             echo "<script>alert('Invalid file format'); window.location.href = 'admn_resident_crud.php';</script>";
