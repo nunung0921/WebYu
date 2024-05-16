@@ -29,7 +29,7 @@ function generateRandomPassword($length = 8) {
 function sendEmail($email, $password) {
     $to = $email;
     $subject = 'Welcome to Our Service';
-    $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nYour Company";
+    $message = "Dear user,\n\nYour account has been created. Here are your login details:\n\nEmail: $email\nPassword: $password\n\nPlease change your password after logging in for the first time.\n\nBest regards,\nWebYu";
     $headers = 'From: rafaeltosper@gmail.com' . "\r\n" .
                'Reply-To: rafaeltosper@gmail.com' . "\r\n" .
                'X-Mailer: PHP/' . phpversion();
