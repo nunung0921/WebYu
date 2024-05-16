@@ -76,7 +76,7 @@ date_default_timezone_set('Asia/Manila');
                         <p style="text-align: justify;">Prepared & Verified by:</p><br><br>
                         <div style="display: flex;">
                             <div style="flex: 1;">
-                                <image src="icons/signature.png" style="width:100px; height: 150px; margin-left:90px; position: absolute;" /><br>
+                                <image src="icons/signature.png" style="width:100px; height: 100px; margin-left:90px; position: absolute;" /><br>
                                 <label style="font-size:18px;margin-left:4em;"><u>ROMEO M. CASTRO</u></label>
                                 <label style="font-size:18px;margin-left:4em;">Barangay Secretary</label><br><br>
                                 <p style="text-align: justify;">Noted by:</p><br><br>
