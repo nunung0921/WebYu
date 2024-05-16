@@ -14,7 +14,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 include('classes/staff.class.php');
 include('classes/resident.class.php');
 ini_set('display_errors', 1);
-error_reporting(E_ALL); 
+error_reporting(E_ALL);
 
 function generateRandomPassword($length = 8) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -42,7 +42,6 @@ function sendEmail($email, $password) {
     }
 }
 
-
 if (isset($_POST['import'])) {
     $fileName = $_FILES['file']['tmp_name'];
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
@@ -51,8 +50,14 @@ if (isset($_POST['import'])) {
         echo "File uploaded successfully.<br>";
         if ($fileType == 'csv') {
             $file = fopen($fileName, "r");
-            fgetcsv($file);
+            fgetcsv($file); // Skip header
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+                // Check if all required columns are present
+                if (count($column) < 16) {
+                    echo "Incomplete data found. Skipping this entry.<br>";
+                    continue;
+                }
+
                 $password = generateRandomPassword();
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -67,7 +72,7 @@ if (isset($_POST['import'])) {
                     'houseno' => $column[7],
                     'street' => $column[8],
                     'brgy' => $column[9],
-                    'municipal' => $column[10],
+                    'municipal' => $column[10], // Check if correct index
                     'contact' => $column[11],
                     'bdate' => $column[12],
                     'bplace' => $column[13],
@@ -79,12 +84,13 @@ if (isset($_POST['import'])) {
                     'request_status' => 'approved'
                 ];
 
+                // Create resident record
+                $residentbmis = new ResidentBMIS(); // Assuming ResidentBMIS is your class object
                 if ($residentbmis->create_resident($data)) {
-                    var_dump($column[0], $password); // Check the values
-                    sendEmail($column[0], $password);
-                    die(); // Stop further execution to see the output
+                    echo "Resident record created successfully for email: {$data['email']}<br>";
+                    sendEmail($data['email'], $password);
                 } else {
-                    echo "Failed to create resident record.<br>";
+                    echo "Failed to create resident record for email: {$data['email']}<br>";
                 }
             }
 
@@ -94,24 +100,20 @@ if (isset($_POST['import'])) {
             $sheet = $spreadsheet->getActiveSheet();
             $rows = $sheet->toArray();
 
-            array_shift($rows);
-
+            array_shift($rows); // Skip header
             foreach ($rows as $row) {
-                $password = generateRandomPassword();
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
                 $data = [
-                    'email' => $row[0],
-                    'lname' => $row[1],
-                    'fname' => $row[2],
-                    'mi' => $row[3],
-                    'age' => $row[4],
-                    'sex' => $row[5],
-                    'status' => $row[6],
-                    'houseno' => $row[7],
-                    'street' => $row[8],
-                    'brgy' => $row[9],
-                    'municipal' => $column[10],
+                    'email' => $column[0],
+                    'lname' => $column[1],
+                    'fname' => $column[2],
+                    'mi' => $column[3],
+                    'age' => $column[4],
+                    'sex' => $column[5],
+                    'status' => $column[6],
+                    'houseno' => $column[7],
+                    'street' => $column[8],
+                    'brgy' => $column[9],
+                    'municipal' => $column[10], // Check if correct index
                     'contact' => $column[11],
                     'bdate' => $column[12],
                     'bplace' => $column[13],
@@ -122,13 +124,6 @@ if (isset($_POST['import'])) {
                     'role' => 'resident',
                     'request_status' => 'approved'
                 ];
-
-                if ($residentbmis->create_resident($data)) {
-                    echo "Resident record created successfully for email: {$data['email']}<br>";
-                    sendEmail($data['email'], $password);
-                } else {
-                    echo "Failed to create resident record for email: {$data['email']}<br>";
-                }
             }
         } else {
             echo "<script>alert('Invalid file format'); window.location.href = 'admn_resident_crud.php';</script>";
