@@ -151,6 +151,7 @@ $residentbmis->create_resident($addedby);
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
+                                    
                                     <div class="col">
                                         <div class="form-group">
                                         <label>Password:</label>
@@ -165,10 +166,10 @@ $residentbmis->create_resident($addedby);
                                 </div>
 
                                 <div class="row">
-                                <div class="col">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label> House No: </label>
-                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." maxlength="4" pattern="\d{1,4}" title="Please enter number only." required>
+                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." maxlength="3" pattern="\d{3}" title="Please enter exactly 3 numbers." required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -195,27 +196,32 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Barangay: </label>
-                                                <input type="text" class="form-control" name="brgy"  value="Yuson" readonly required>
+                                            <input type="text" class="form-control" name="brgy"  value="Yuson" readonly required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
 
                                     <div class="col">
                                         <div class="form-group">
-                                        <label> Municipality: </label>
-                                                <input type="text" class="form-control" name="municipal" value="Guimba" readonly required>
+                                            <label> Municipality: </label>
+                                            <input type="text" class="form-control" name="municipal" value="Guimba" readonly required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                <div class="col">
-                                        <div class="form-group">
-                                            <label class="mtop">Birth Date: </label>
-                                            <input type="date" class="form-control" name="bdate" id="birthdate" oninput="calculateAge()" required max="<?php echo date('Y-m-d'); ?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                    <div class="col">
+                                    <div class="form-group">
+        <label class="mtop">Birth Date: </label>
+        <input type="date" class="form-control" name="bdate" id="birthdate" oninput="calculateAge()" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
+
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Birth Place </label>
@@ -255,7 +261,7 @@ $residentbmis->create_resident($addedby);
                                 <div class="row">
                                     <div class="col"> 
                                         <div class="form-group">
-                                            <label>Civil Status: </label>
+                                            <label>Status: </label>
                                             <select class="form-control" name="status" id="status" required>
                                                 <option value="">Choose your Status</option>
                                                 <option value="Single">Single</option>
