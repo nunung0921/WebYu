@@ -1852,10 +1852,6 @@ nav {
        
       </div>
     </footer>
-    <!-- Scroll to top button -->
-    <button id="scrollTopBtn" onclick="scrollToTop()">
-      <i class="ri-arrow-up-s-line"></i>
-    </button>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
