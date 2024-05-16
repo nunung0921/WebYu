@@ -51,9 +51,7 @@
                 <td> <?= $view['street'];?> </td>
                 <td> <?= $view['brgy'];?> </td>
                 <td> <?= $view['municipal'];?> </td>
-                <td>
-                                <img src="<?= $view['blot_photo']; ?>" alt="Blot Image" style="width: 180px; height: 100px;">
-                            </td>
+                <td> <?php echo '<img src="data:image;base64,'.base64_encode($view['blot_photo']).'" alt="Blotter Photo" style="width: 100px; height:100px;">'; ?> </td>
                 <td> <?= $view['contact'];?> </td>
                 <td> <?= $view['narrative'];?> </td>
                 <td> <?= $view['timeapplied'];?> </td>
