@@ -1009,39 +1009,39 @@ if($hashed_old_password !== $result['password']) {
             }
         }
 
-public function update_blotter() {
-    if (isset($_POST['update_blotter'])) {
-        $id_blotter = $_POST['id_blotter'];
-        $lname = $_POST['lname'];
-        $fname = $_POST['fname'];
-        $mi = $_POST['mi'];
-        $age = $_POST['age'];
-        $contact = $_POST['contact'];
-        $houseno = $_POST['houseno'];
-        $street = $_POST['street'];
-        $brgy = $_POST['brgy'];
-        $municipal = $_POST['municipal'];
-        $narrative = $_POST['narrative'];
-
-        // Open database connection
-        $connection = $this->openConn();
+        public function update_blotter() {
+            if (isset($_POST['update_blotter'])) {
+                $id_blotter = $_POST['id_blotter'];
+                $lname = $_POST['lname'];
+                $fname = $_POST['fname'];
+                $mi = $_POST['mi'];
+                $age = $_POST['age'];
+                $contact = $_POST['contact'];
+                $houseno = $_POST['houseno'];
+                $street = $_POST['street'];
+                $brgy = $_POST['brgy'];
+                $municipal = $_POST['municipal'];
+                $narrative = $_POST['narrative'];
         
-        // Prepare and execute the update query
-        $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, age=?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
-        $stmt->execute([$lname, $fname, $mi, $age, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
-        
-        // Check if the update was successful
-        if ($stmt->rowCount() > 0) {
-            $message2 = "Complain/Blotter Data Updated";
-        } else {
-            $message2 = "Error updating data";
+                // Open database connection
+                $connection = $this->openConn();
+                
+                // Prepare and execute the update query
+                $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, age = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
+                $stmt->execute([$lname, $fname, $mi, $age, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
+                
+                // Check if the update was successful
+                if ($stmt->rowCount() > 0) {
+                    $message2 = "Complain/Blotter Data Updated";
+                } else {
+                    $message2 = "Error updating data";
+                }
+                
+                // Redirect to the form page after update
+                header("Location: update_blotter_form.php?id_blotter=$id_blotter");
+                exit(); // Terminate script execution after redirection
+            }
         }
-        
-        // Redirect to the form page after update
-        header("Location: update_blotter_form.php?id_blotter=$id_blotter");
-        exit(); // Terminate script execution after redirection
-    }
-}
 
 
 
