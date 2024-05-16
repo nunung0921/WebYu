@@ -355,40 +355,6 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     'Malnourished Residents': 'admn_resident_Mal.php'*/
 };
 
-var populationChartData = {
-    labels: ['Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Purok 7'],
-    datasets: [{
-        label: 'Population',
-        data: [
-            <?= $p1count ?>,
-            <?= $p2count ?>,
-            <?= $p3count ?>,
-            <?= $p4count ?>,
-            <?= $p5count ?>,
-            <?= $p6count ?>,
-            <?= $p7count ?>
-        ],
-        backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(0, 204, 102, 1)'
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(0, 204, 102, 1)'
-        ],
-        borderWidth: 1
-    }]
-};
 
 // Add click event listener to the other chart
 ctxOther.canvas.onclick = function(event) {
@@ -419,6 +385,77 @@ ctxNumberOfRecords.canvas.onclick = function(event) {
         }
     }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Verify if the canvas element exists
+    const ctxPopulation = document.getElementById('populationChart')?.getContext('2d');
+    
+    if (!ctxPopulation) {
+        console.error('Canvas element for populationChart not found');
+        return;
+    }
+
+    // Verify if PHP variables are correctly passed
+    const p1count = <?= json_encode($p1count) ?>;
+    const p2count = <?= json_encode($p2count) ?>;
+    const p3count = <?= json_encode($p3count) ?>;
+    const p4count = <?= json_encode($p4count) ?>;
+    const p5count = <?= json_encode($p5count) ?>;
+    const p6count = <?= json_encode($p6count) ?>;
+    const p7count = <?= json_encode($p7count) ?>;
+    
+    if (
+        typeof p1count !== 'number' ||
+        typeof p2count !== 'number' ||
+        typeof p3count !== 'number' ||
+        typeof p4count !== 'number' ||
+        typeof p5count !== 'number' ||
+        typeof p6count !== 'number' ||
+        typeof p7count !== 'number'
+    ) {
+        console.error('One or more population count variables are not numbers:', { p1count, p2count, p3count, p4count, p5count, p6count, p7count });
+        return;
+    }
+
+    // Create the population chart
+    const populationChart = new Chart(ctxPopulation, {
+        type: 'bar',
+        data: {
+            labels: ['Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Purok 7'],
+            datasets: [{
+                label: 'Population',
+                data: [p1count, p2count, p3count, p4count, p5count, p6count, p7count],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(0, 204, 102, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 204, 102, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+
 
 </script>
 
