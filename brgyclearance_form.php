@@ -13,7 +13,17 @@ $resident = $residentbmis->get_single_clearance($id_resident);
 
 <!-- Modify the CSS to show the background image only when printing -->
 <style>
+     @media screen {
+            p.print-padding {
+                font-size: 14px;
+                padding-left: 30px;
+                padding-right: 30px; /* Add your desired padding here */
+            }
+    }
     @media print {
+        body{
+            overflow: hidden;
+        }
         img{
             display: block !important;
         }
@@ -21,6 +31,13 @@ $resident = $residentbmis->get_single_clearance($id_resident);
             display: none !important;
         }
     }
+    @page {
+            size: A4;
+            margin-top: 0.15in;
+            margin-bottom: 0.15in;
+            margin-left: 1in;
+            margin-right: 1in;
+        }
 </style>
 
  <head>
@@ -67,8 +84,8 @@ $resident = $residentbmis->get_single_clearance($id_resident);
                         <p class="text-center" style="font-size: 40px; opacity: 0.6; font-weight: bold; font-family: 'Edwardian Script ITC', cursive;">Office of the Barangay Chairman<br></p><br>
                         <p class="text-center" style="font-size: 30px; font-weight: bold; font-family: 'Copperplate Gothic Bold';">BARANGAY CLEARANCE<br></p><br>
                         <p style="font-size: 18px;">TO WHOM IT MAY CONCERN:</p> <br>
-                        <p style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr/Ms/Mrs <b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b>,
-                          of legal age, single/married and a Filipino citizen, whose signature and/or thumb marks appear hereunder, is a bona fide resident of this Barangay, with postal address at <u><b><?= $resident['houseno'];?>, <?= $resident['street'];?>, <?= $resident['brgy'];?>, <?= $resident['municipal'];?>.</b></u></p> <br>
+                        <u style="text-indent:40px;text-align: justify;">THIS IS TO CERTIFY that Mr./Ms./Mrs. <u></u><b><?= $resident['lname'];?>, <?= $resident['fname'];?> <?= $resident['mi'];?></b></u>,
+                          <u><b><?= $resident['age'];?></b></u> years of age, <u><b><?= $resident['status'];?></b></u> and a Filipino citizen, whose signature and/or thumb marks appear hereunder, is a bona fide resident of this Barangay, with postal address at <u><b><?= $resident['houseno'];?>, <?= $resident['street'];?>, <?= $resident['brgy'];?>, <?= $resident['municipal'];?>.</b></u></p> <br>
 
                         <p style="text-indent:40px;text-align: justify;">This certifies further that the above-named person has <b>NO DEROGATORY RECORD</b> in our Barangay Files to date.</p> <br>
                         <?php
@@ -78,6 +95,7 @@ date_default_timezone_set('Asia/Manila');
                         <p style="text-align: justify;">Prepared & Verified by:</p><br>
                         <div style="display: flex;">
                             <div style="flex: 1;">
+                            <image src="icons/signature.png" style="width:100px; margin-left:70px; position: absolute;" /><br>
                                 <label style="font-size:18px;margin-left:4em;"><u>ROMEO M. CASTRO</u></label>
                                 <label style="font-size:18px;margin-left:4em;">Barangay Secretary</label><br><br>
                                 <p style="text-align: justify;">Noted by:</p><br>
