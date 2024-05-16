@@ -33,7 +33,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Barangay Biclatan Information System</title>
+    <title>Barangay Yuson Information Management System</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -78,7 +78,7 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        <h1 class="mb-4 text-center">UnRegistered Residents</h1>
+        <h1 class="mb-4 text-center">Registered Voter Residents</h1>
         <hr>
         <br>
 
