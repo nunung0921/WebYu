@@ -559,7 +559,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function view_resident_voters(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_resident WHERE `voter` = 'Yes'");
+        $stmt = $connection->prepare("SELECT * from tbl_resident WHERE `voter` = 'Yes' and request_status = 'approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
