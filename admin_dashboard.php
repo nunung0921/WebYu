@@ -116,11 +116,6 @@ include('dashboard_sidebar_start.php');
             <canvas id="otherChart" width="1180" height="250"></canvas>
         </div>
     </div>
-    <div class="row">
-        <div class="scrollable"> <!-- Add this container -->
-            <canvas id="populationChart" width="1180" height="250"></canvas>
-        </div>
-    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
@@ -238,53 +233,57 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     });
 
     // Other chart data
-var otherChartData = [
-    {
-        label: 'Barangay Residents',
-        value: <?= $rescount ?>
-    },
-    {
-        label: 'Registered Voters',
-        value: <?= $rescountvoter ?>
-    },
-    {
-        label: 'Unregistered Voters',
-        value: <?= $rescountm ?> // Check if this is correct or needs a different variable
-    },
-    {
-        label: 'Male Residents',
-        value: <?= $rescountm ?> // Ensure this is intended and correct
-    },
-    {
-        label: 'Female Residents',
-        value: <?= $rescountf ?>
-    },
-    {
-        label: 'Minor Residents',
-        value: <?= $minorcount ?>
-    },
-    {
-        label: 'Senior Residents',
-        value: <?= $rescountsenior ?>
-    },
-    {
-        label: 'Single',
-        value: <?= $singlecount ?>
-    },
-    {
-        label: 'Married',
-        value: <?= $marriedcount ?>
-    },
-    {
-        label: 'Widowed',
-        value: <?= $widowcount ?>
-    },
-    {
-        label: 'Divorced',
-        value: <?= $divorcedcount ?>
-    }
-];
-
+    var otherChartData = [
+        {
+            label: 'Barangay Residents',
+            value: <?= $rescount ?>
+        },
+ {
+            label: 'Registered Voters',
+            value: <?= $rescountvoter ?>
+        },
+ {
+            label: 'Unregistered Voters',
+            value: <?= $rescountm ?>
+        },
+ {
+            label: 'Male Residents',
+            value: <?= $rescountm ?>
+        },
+ {
+            label: 'Female Residents',
+            value: <?= $rescountf ?>
+        },
+ {
+            label: 'Minor Residents',
+            value: <?= $minorcount ?>
+        },
+ {
+            label: 'Senior Residents',
+            value: <?= $rescountsenior ?>
+        },
+ {
+            label: 'Single',
+            value: <?= $singlecount ?>
+        },
+ {
+            label: 'Married',
+            value: <?= $marriedcount ?>
+        },
+ {
+            label: 'Widowed',
+            value: <?= $widowcount ?>
+        },
+{
+            label: 'Divorced',
+            value: <?= $divorcedcount ?>
+        },
+ /* {
+            label: 'Malnourished Residents',
+            value: <?= $malcount ?>
+        },*/
+ 
+    ];
 
     // Define the options for the other chart
     var otherChartOptions = {
