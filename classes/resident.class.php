@@ -304,7 +304,7 @@
         return $rescount;
     }
 
-    public function count_female_resident() {
+    public function female_resident() {
         $connection = $this->openConn();
 
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'female' and request_status = 'approved'");
@@ -744,6 +744,14 @@ if($hashed_old_password !== $result['password']) {
     public function count_minor() {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age <= 17 ");
+        $stmt->execute();
+        $minorcount = $stmt->fetchColumn();
+        return $minorcount;
+    }
+
+    public function count_adult() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age >= 17 AND <=59");
         $stmt->execute();
         $minorcount = $stmt->fetchColumn();
         return $minorcount;
