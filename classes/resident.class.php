@@ -304,7 +304,7 @@
         return $rescount;
     }
 
-    public function female_resident() {
+    public function count_female_resident() {
         $connection = $this->openConn();
 
         $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'female' and request_status = 'approved'");
