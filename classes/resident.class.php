@@ -1021,12 +1021,53 @@ public function update_blotter() {
         $brgy = $_POST['brgy'];
         $municipal = $_POST['municipal'];
         $narrative = $_POST['narrative'];
+        $image_filename = ''; 
 
+        if ($_FILES['blot_photo']['error'] == UPLOAD_ERR_OK && !empty($_FILES['blot_photo']['name'])) {
+            $image_filename = $_FILES['blot_photo']['name']; // Get the filename
+            
+            // Move the uploaded file to a permanent location
+            $target_dir = 'icons/'; // Directory where uploaded images will be stored
+            
+            // Ensure the directory exists
+            if (!file_exists($target_dir)) {
+                mkdir($target_dir, 0755, true);
+            }
+            
+            // Check file size
+            if ($_FILES['blot_photo']['size'] > 500000) {
+                echo "Error: File size too large.";
+                return;
+            }
+            
+            // Check file type
+            $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+            $file_extension = strtolower(pathinfo($_FILES['blot_photo']['name'], PATHINFO_EXTENSION));
+            if (!in_array($file_extension, $allowed_extensions)) {
+                echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
+                return;
+            }
+            
+            // Move the uploaded file to the desired location
+            $target_file = $target_dir . basename($_FILES['blot_photo']['name']);
+            if (move_uploaded_file($_FILES['blot_photo']['tmp_name'], $target_file)) {
+                // File upload successful
+                $image_filename = $target_file;
+            } else {
+                // Error moving uploaded file
+                $image_filename = $_POST['blot_photo'];
+                return;
+            }
+        } else {
+            // No file uploaded or error occurred
+            echo "Error: No file uploaded or file upload error.";
+            return;
+        }
         // Open database connection
         $connection = $this->openConn();
         
         // Prepare and execute the update query
-        $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
+        $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, blot_photo = ? timeapplied = NOW() WHERE id_blotter = ?");
         $stmt->execute([$lname, $fname, $mi, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
         
         // Check if the update was successful
