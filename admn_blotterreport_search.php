@@ -17,7 +17,6 @@ function debug_base64_encode($data) {
             
 			<tr>
                 <th> Actions</th>
-                <th> Resident ID </th>
                 <th> Surname </th>
                 <th> First Name </th>
                 <th> Middle Name </th>
@@ -45,8 +44,6 @@ function debug_base64_encode($data) {
                 $encoded_image = debug_base64_encode($blot_photo_data);
 
                 // Debugging statements
-                echo 'Image Data Length: ' . strlen($blot_photo_data) . '<br>';
-                echo 'Raw Data: ' . substr(bin2hex($blot_photo_data), 0, 50) . '...<br>';
                 ?>
 			<tr>
             <td>    
@@ -56,7 +53,6 @@ function debug_base64_encode($data) {
                     <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_blotter"> Archive </button>
                 </form>
                 </td>
-                <td> <?= $view['id_resident'];?> </td> 
                 <td> <?= $view['lname'];?> </td>
                 <td> <?= $view['fname'];?> </td>
                 <td> <?= $view['mi'];?> </td>
@@ -96,7 +92,6 @@ function debug_base64_encode($data) {
 		<thead class="alert-info">
 			<tr>
                 <th> Actions</th>
-                <th> Resident ID </th>
                 <th> Surname </th>
                 <th> First Name </th>
                 <th> Middle Name </th>
@@ -122,7 +117,6 @@ function debug_base64_encode($data) {
                         </form>
                         </td>
 
-                        <td> <?= $view['id_resident'];?> </td> 
                         <td> <?= $view['lname'];?> </td>
                         <td> <?= $view['fname'];?> </td>
                         <td> <?= $view['mi'];?> </td>
