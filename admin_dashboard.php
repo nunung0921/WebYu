@@ -34,6 +34,16 @@ $indigentcount = $residentbmis->count_indigent();
 $malcount = $residentbmis->count_malnourished();
 $vacxcount = $residentbmis->count_vaccinated();
 $pregnancycount = $residentbmis->count_pregnancy();*/
+
+$p1count = $residentbmis->count_purok1();
+$p2count = $residentbmis->count_purok2();
+$p3count = $residentbmis->count_purok3();
+$p4count = $residentbmis->count_purok4();
+$p5count = $residentbmis->count_purok5();
+$p6count = $residentbmis->count_purok6();
+$p7count = $residentbmis->count_purok7();
+
+
 $residencycount = $residentbmis->count_residency();
 $count = $residencycount['count'];
 $color = $residencycount['color'];
@@ -116,6 +126,11 @@ include('dashboard_sidebar_start.php');
             <canvas id="otherChart" width="1180" height="250"></canvas>
         </div>
     </div>
+    <div class="row">
+        <div class="scrollable"> <!-- Add this container -->
+            <canvas id="populationChart" width="1180" height="250"></canvas>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
@@ -135,6 +150,7 @@ include('dashboard_sidebar_start.php');
 // Ensure the chart objects are correctly defined
 const ctxNumberOfRecords = document.getElementById('numberOfRecordsChart').getContext('2d');
 const ctxOther = document.getElementById('otherChart').getContext('2d');
+const ctxPopulation = document.getElementById('populationChart').getContext('2d');
 
 // Data for the charts (assuming these variables are correctly defined earlier in your code)
 const documentData = [
@@ -337,6 +353,41 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
     '4Ps Members': 'admn_resident_4ps.php',
     'Indigent Residents': 'admn_resident_indigent.php',
     'Malnourished Residents': 'admn_resident_Mal.php'*/
+};
+
+var populationChartData = {
+    labels: ['Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Purok 7'],
+    datasets: [{
+        label: 'Population',
+        data: [
+            <?= $p1count ?>,
+            <?= $p2count ?>,
+            <?= $p3count ?>,
+            <?= $p4count ?>,
+            <?= $p5count ?>,
+            <?= $p6count ?>,
+            <?= $p7count ?>
+        ],
+        backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 204, 102, 1)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 204, 102, 1)'
+        ],
+        borderWidth: 1
+    }]
 };
 
 // Add click event listener to the other chart
