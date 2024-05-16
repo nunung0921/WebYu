@@ -105,7 +105,7 @@
                 $stmt = $connection->prepare("UPDATE tbl_resident SET `password` =?, `lname` =?, 
                 `fname` = ?, `mi` =?, `age` =?, `sex` =?, `status` =?, `email` =?, `houseno` =?, `street` =?, `brgy` =?, `municipal` =?, `contact` =?, `bdate` =?, `bplace` =?, `nationality` =?, `voter` =?, `family_role` =?, `role` =?, `pwd` =?, `indigent` =?, `single_parent` =?, `malnourished` =?, `four_ps` =?, `addedby` =? WHERE `id_resident` = ?");
                 $stmt->execute([$password, $lname, $fname, $mi, $age, $sex, $status,$email, $houseno, 
-                $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $role, $pwd, $indigent, $single_parent, $malnourshed, $four_ps, $addedby, $id_resident]);
+                $street, $brgy, $municipal, $contact, $bdate, $bplace, $nationality, $voter, $familyrole, $role, $pwd, $indigent, $single_parent, $four_ps, $id_resident]);
                     
                 $message2 = "Resident Data Updated";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -704,7 +704,7 @@ if($hashed_old_password !== $result['password']) {
 
 
     public function delete_approval(){
-        $id_announcement = $_POST['id_approval'];
+        $id_approval = $_POST['id_approval'];
 
         if(isset($_POST['delete_announcement'])) {
             $connection = $this->openConn();

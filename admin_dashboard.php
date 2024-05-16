@@ -25,6 +25,7 @@ $unreg = $residentbmis->count_unreg();
 // Count different requests and approvals
 $reqscount = $residentbmis->count_approval();
 $minorcount = $residentbmis->count_minor();
+$adultcount = $residentbmis->count_adult();
 $singlecount = $residentbmis->count_stat_single();
 $marriedcount = $residentbmis->count_stat_married();
 $widowcount = $residentbmis->count_stat_widow();
@@ -277,6 +278,10 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
  {
             label: 'Minor Residents',
             value: <?= $minorcount ?>
+        },
+{
+            label: 'Adult Residents',
+            value: <?= $adultcount ?>
         },
  {
             label: 'Senior Residents',
