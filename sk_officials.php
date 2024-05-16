@@ -42,7 +42,7 @@
 
 <div class="container-fluid">
 
-    <h1 class="mb-1 text-center">Barangay Officials Data</h1>
+    <h1 class="mb-1 text-center">SK Officials Data</h1>
 
     <hr>
     <br>
@@ -57,7 +57,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Adding of Official</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Adding of SK Official</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -72,7 +72,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="name">Fullname:</label>
-                                            <input name="name" type="text" class="form-control" placeholder="Enter Official's name" required>
+                                            <input name="name" type="text" class="form-control" placeholder="Enter SK Official's name" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
