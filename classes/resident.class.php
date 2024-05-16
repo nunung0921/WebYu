@@ -219,6 +219,70 @@
         return $divorcedcount;
     }
 
+    public function count_purok1() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok1'");
+        $stmt->execute();
+        $p1count = $stmt->fetchColumn();
+        return $p1count;
+    }
+
+    public function count_purok1() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 1'");
+        $stmt->execute();
+        $p1count = $stmt->fetchColumn();
+        return $p1count;
+    }
+
+    public function count_purok2() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 2'");
+        $stmt->execute();
+        $p2count = $stmt->fetchColumn();
+        return $p2count;
+    }
+
+    public function count_purok3() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 3'");
+        $stmt->execute();
+        $p3count = $stmt->fetchColumn();
+        return $p3count;
+    }
+
+    public function count_purok4() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 4'");
+        $stmt->execute();
+        $p4count = $stmt->fetchColumn();
+        return $p4count;
+    }
+
+    public function count_purok5() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 5'");
+        $stmt->execute();
+        $p5count = $stmt->fetchColumn();
+        return $p5count;
+    }
+
+    public function count_purok6() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 6'");
+        $stmt->execute();
+        $p6count = $stmt->fetchColumn();
+        return $p6count;
+    }
+
+    public function count_purok7() {
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE street = 'Purok 7'");
+        $stmt->execute();
+        $p7count = $stmt->fetchColumn();
+        return $p7count;
+    }
+
     public function check_household($lname, $mi) {
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE lname = ? AND mi = ?");

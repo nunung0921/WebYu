@@ -27,13 +27,13 @@ $minorcount = $residentbmis->count_minor();
 $singlecount = $residentbmis->count_stat_single();
 $marriedcount = $residentbmis->count_stat_married();
 $widowcount = $residentbmis->count_stat_widow();
-$divorcedcount = $residentbmis->count_stat_divorce();
-/*$spcount = $residentbmis->count_single_parent();
-$fourpscount = $residentbmis->count_fourps();
-$indigentcount = $residentbmis->count_indigent();
-$malcount = $residentbmis->count_malnourished();
-$vacxcount = $residentbmis->count_vaccinated();
-$pregnancycount = $residentbmis->count_pregnancy();*/
+$p1count = $residentbmis->count_purok1();
+$p2count = $residentbmis->count_purok2();
+$p3count = $residentbmis->count_purok3();
+$p4count = $residentbmis->count_purok4();
+$p5count = $residentbmis->count_purok5();
+$p6count = $residentbmis->count_purok6();
+$p7count = $residentbmis->count_purok7();
 $residencycount = $residentbmis->count_residency();
 $count = $residencycount['count'];
 $color = $residencycount['color'];
@@ -278,10 +278,34 @@ ctxNumberOfRecords.canvas.addEventListener('click', handleNumberOfRecordsChartCl
             label: 'Divorced',
             value: <?= $divorcedcount ?>
         },
- /* {
-            label: 'Malnourished Residents',
-            value: <?= $malcount ?>
-        },*/
+{
+            label: 'Purok 1 Residents',
+            value: <?= $p1count ?>
+        },
+{
+            label: 'Purok 2 Residents',
+            value: <?= $p2count ?>
+        },
+        {
+            label: 'Purok 3 Residents',
+            value: <?= $p3count ?>
+        },
+        {
+            label: 'Purok 4 Residents',
+            value: <?= $p4count ?>
+        },
+        {
+            label: 'Purok 5 Residents',
+            value: <?= $p5count ?>
+        },
+        {
+            label: 'Purok 6 Residents',
+            value: <?= $p6count ?>
+        },
+        {
+            label: 'Purok 7 Residents',
+            value: <?= $p7count ?>
+        }
  
     ];
 
