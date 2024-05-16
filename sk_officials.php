@@ -184,9 +184,9 @@
                                 </td>-->
                                 <td>    
                                     <form action="" onsubmit="return confirmAction();" method="post">
-                                        <a href="update_official_form.php?id_official=<?= $view['id_official'];?>" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" class="btn btn-success"> Update </a>
-                                        <input type="hidden" name="id_official" value="<?= $view['id_official'];?>">
-                                        <button class="btn btn-danger" type="submit" name="delete_official"style="width: 80px; font-size: 15px; border-radius:5px; "> Delete </button>
+                                        <a href="update_sk_form.php?id_sk=<?= $view['id_sk'];?>" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" class="btn btn-success"> Update </a>
+                                        <input type="hidden" name="id_sk" value="<?= $view['id_sk'];?>">
+                                        <button class="btn btn-danger" type="submit" name="delete_sk"style="width: 80px; font-size: 15px; border-radius:5px; "> Delete </button>
                                     </form>
                                     <script>
                                                     function confirmAction() {
