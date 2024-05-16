@@ -100,7 +100,7 @@
 
                             <hr>
 
-                            <div class="row">
+                            <!--<div class="row">
                                 <div class="col">
                                     <label>Supporting Evidence Photo:</label>
                                     <div class="custom-file form-group">
@@ -118,9 +118,7 @@
                                 <div class="col">
                                     <img id="blah" src="http://placehold.it/470x350" alt="your image" style="margin-left: 20%;" />
                                 </div>
-                            </div>
-
-                            <hr>
+                            </div>-->
 
 
                             <div class="row">
