@@ -1015,7 +1015,6 @@ if($hashed_old_password !== $result['password']) {
                 $lname = $_POST['lname'];
                 $fname = $_POST['fname'];
                 $mi = $_POST['mi'];
-                $age = $_POST['age'];
                 $contact = $_POST['contact'];
                 $houseno = $_POST['houseno'];
                 $street = $_POST['street'];
@@ -1027,8 +1026,8 @@ if($hashed_old_password !== $result['password']) {
                 $connection = $this->openConn();
                 
                 // Prepare and execute the update query
-                $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, age = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
-                $stmt->execute([$lname, $fname, $mi, $age, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
+                $stmt = $connection->prepare("UPDATE tbl_blotter SET lname = ?, fname = ?, mi = ?, contact = ?, houseno = ?, street = ?, brgy = ?, municipal = ?, narrative = ?, timeapplied = NOW() WHERE id_blotter = ?");
+                $stmt->execute([$lname, $fname, $mi, $contact, $houseno, $street, $brgy, $municipal, $narrative, $id_blotter]);
                 
                 // Check if the update was successful
                 if ($stmt->rowCount() > 0) {
