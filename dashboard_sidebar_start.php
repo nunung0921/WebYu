@@ -42,6 +42,10 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
+                <img src="icons/yuson1.png" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
+    width: 40px;
+    margin-right: 10px; /* space between logo and system name */
+    border-radius: 50%; ">
                 <div class="sidebar-brand-text">Administrator Dashboard </div>
             </a>
 
