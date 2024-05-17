@@ -167,6 +167,12 @@
             </div>
 
             <li class="nav-item">
+                <a class="nav-link" href="archive.php">
+                    <i class="fas fa-archive"></i>
+                    <span> Archives</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="activities.php">
                     <i class="fas fa-info-circle"></i>
                     <span> Barangay Activities</span></a>
