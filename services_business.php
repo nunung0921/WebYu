@@ -684,9 +684,6 @@
         </div>
         </form>
 
-        <br>
-        <br>
-        <br>
 
         
         <button id="scrollTopBtn" onclick="scrollToTop()">
