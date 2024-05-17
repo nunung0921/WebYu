@@ -15,7 +15,6 @@
 <html>
 
     <head> 
-    <link rel="shortcut icon" href="icons/yuson1.png" type="">
     <title> Barangay Yuson Information Management System </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -28,10 +27,6 @@
         <!-- fontawesome icons --> 
         <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="css/responsive.css" rel="stylesheet" />
 
 
     <style>
@@ -111,7 +106,7 @@
         color: white; /* White text */
         font-size: 16px; /* Set a font size */
         cursor: pointer; /* Mouse pointer on hover */
-        margin-left: 23%;
+        margin-left: 15%;
         padding: 8px 22px;
         }
 
@@ -268,39 +263,67 @@
         -webkit-transform: scale(1.4); /* Safari 3-8 */
         transform: scale(1.4); 
         }
-.info_section .info_col {
-  height: 200px; /* Set a fixed height for each row */
-  overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
+        /* Scroll to top button styles */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgba(17, 43, 90, 0.7);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 100%;
+    transition: background-color 0.3s ease;
+    font-size: 30px; /* Adjust the size as needed */
 }
-.dropdown-menu {
-    min-width: 15rem;
+
+#scrollTopBtn:hover {
+    background-color: rgba(17, 43, 90, 0.9);
 }
-   .logo {
-    max-height: 70px;
-    margin-right: 5px;
-    .element.style {
-    margin-left: 37%;
-    width: 143px;
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #scrollTopBtn {
+        bottom: 20px;
+        right: 60px;
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-size: 30px; /* Adjust font size for smaller screens */
+    }
 }
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    #scrollTopBtn {
+        font-size: 30px;
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+}
+
     </style>
     <body> 
 
         <!-- Back-to-Top and Back Button -->
 
-        <a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-            <span class="screen-reader-text">Back to top</span>
-        </a>
+     
 
         <!-- Eto yung navbar -->
 
         <nav class="navbar navbar-dark bg-primary sticky-top">
-             <img src="images/yuson1.png" alt="Yuson Logo" class="logo"  style="background-size: cover; background-repeat: no-repeat;">
-            <a class="navbar-brand" href="resident_homepage.php">Barangay Yuson Information Management System</a>
-            <a href="resident_homepage.php" data-toggle="tooltip" title="Home" class="btn3 bg-primary"><i class="fa fa-home fa-lg"></i></a>
-            <a href="#down2" data-toggle="tooltip" title="View Information" class="btn6 bg-primary"><i class="fa fa-user-circle fa-lg"></i></a>
-            <a href="#down1" data-toggle="tooltip" title="Update Information" class="btn5 bg-primary"><i class="fa fa-user-edit fa-lg"></i></a>
-            <a href="#down" data-toggle="tooltip" title="Contact" class="btn4 bg-primary"><i class="fa fa-phone fa-lg"></i></a>
+            <div class="logo">
+            <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+          </div>
+            <a class="navbar-brand" href="resident_homepage.php" style="margin-left:10px;"><b>WebYu</b></a>
+            <a href="resident_homepage.php" title="Home" class="btn3 bg-primary" style="color: white; margin-left:130px;"><b>HOME</b></a>
+            <a href="#down2" class="btn3 bg-primary" style="color: white; margin-left: 10px;"><b>VIEW INFO</b></a>
+            <a href="#down1"  class="btn3 bg-primary" style="color: white; margin-left: 25px;"><b>UPDATE INFO</b></a>
            
             <div class="dropdown ml-auto">
                 <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
@@ -308,7 +331,7 @@
                 </button>
                 <ul class="dropdown-menu" style="width: 175px;" >
                     <a class="btn" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
-                    <a class="btn" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>
+                    <!--<a class="btn" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>-->
                     <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
                 </ul>
             </div>
@@ -463,150 +486,61 @@
 
         <br>
         <br>
-<footer>
-       <section class="info_section layout_padding2">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-3 info_col">
-        <div class="info_contact">
-          <h4>
-            Contact Us
-          </h4>
-          <div class="contact_link_box">
-            <a href="https://www.google.com/maps/place/Yuson,+Nueva+Ecija/@15.6957075,120.7008206,15z/data=!3m1!4b1!4m6!3m5!1s0x3391327d2c1823c3:0x638916b810c7aaf!8m2!3d15.6957143!4d120.703379!16s%2Fg%2F11gbfbpd45?entry=ttu">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                Yuson, Nueva Ejica
-              </span>
-            </a>
-            <a href="https://web.facebook.com/profile.php?id=61553042492757" target="_blank"><i class="fab fa-facebook-f"></i> Sanguniang Kabataan Ng Yuson</a>
-            <a href="mailto:skyuson01@gmail.com"><i class="far fa-envelope"></i> skyuson01@gmail.com</a>
-          </div>
+        <br>
+  <!-- Modal Footer -->
+            
+  <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
+                            <div class="paa">
+                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
+                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
         </div>
+        </form>
+
+
         
-      </div>
-      <div class="col-md-6 col-lg-3 info_col">
-        <div class="info_detail">
-          <h4>
-            Info
-          </h4>
-          <p>
-            Yuson is a barangay in the municipality of Guimba, in the province of Nueva Ecija. Its population as determined by the 2020 Census was 987.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-2 mx-auto info_col">
-        <div class="info_link_box">
-          <h4>
-            Services
-          </h4>
-          <div class="info_links">
-            <a class="active" href="services_business.php">
-              
-              Business Permit
-            </a>
-            <a class="" href="services_travelpermit.php">
-              
-              Travel Permit
-            </a>
-            <a class="" href="services_certofindigency.php">
-             
-              Indigency
-            </a>
+        <button id="scrollTopBtn" onclick="scrollToTop()">
+                <i class="fas fa-angle-up"></i>
+    </button>
+<style>
+ #footer {
+        width: 100%;
+        bottom: 0;
+        position: relative;
+    }
 
-            <a class="" href="services_certofres.php">
-              
-              Residency
-            </a>
-             <a class="" href="services_brgyclearance.php">
-              
-              Barangay Clearance
-            </a>
-             <a class="" href="services_blotter.php">
-              
-              Peace and Order
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 info_col">
-        <div class="info_contact">
-          <h4>
-            Developer
-          </h4>
-          <div class="contact_link_box">
-    
-            <a href="https://www.facebook.com/rafaeltosper21" target="_blank"><i class="fab fa-facebook-f"></i> Rafael M. Tosper Jr.</a>
-            <a href="https://www.facebook.com/katrina.t.obena" target="_blank"><i class="fab fa-facebook-f"></i> Katrina T. Obena</a>
-            <a href="https://www.facebook.com/profile.php?id=100007062167999&_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i> Marian C. Simon</a>
-            <a href="https://www.facebook.com/kristinejoy.villano.9" target="_blank"><i class="fab fa-facebook-f"></i> Kristine Joy G. Villano</a>
-            <a href="https://www.facebook.com/jayvee.mangalino.1" target="_blank"><i class="fab fa-facebook-f"></i> Jayvee T. Mangalino</a>
-            <a href="https://www.facebook.com/Marjuntayag11?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i> Marjun A. Tayag</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end info section -->
+    @media (max-width: 768px) {
+        #footer {
+            position: absolute;
+        }
+    }
+</style>
 
-<!-- footer section -->
-<section class="footer_section">
-  <div class="container">
-    <p>
-      &copy; <span id="displayYear"></span> All Rights Reserved By
-      <a href="https://html.design/">Barangay Yuson Information Management System</a>
-    </p>
-  </div>
-</section>
-        </footer>
+        <!-- Footer -->
 
+      
         <script>
-            // Set a variable for our button element.
-            const scrollToTopButton = document.getElementById('js-top');
+      // Function to scroll to the top of the page
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
-            // Let's set up a function that shows our scroll-to-top button if we scroll beyond the height of the initial window.
-            const scrollFunc = () => {
-            // Get the current scroll value
-            let y = window.scrollY;
-            
-            // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
-            if (y > 0) {
-                scrollToTopButton.className = "top-link show";
-            } else {
-                scrollToTopButton.className = "top-link hide";
-            }
-            };
-
-            window.addEventListener("scroll", scrollFunc);
-
-            const scrollToTop = () => {
-            // Let's set a variable for the number of pixels we are from the top of the document.
-            const c = document.documentElement.scrollTop || document.body.scrollTop;
-            
-            // If that number is greater than 0, we'll scroll back to 0, or the top of the document.
-            // We'll also animate that scroll with requestAnimationFrame:
-            // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-            if (c > 0) {
-                window.requestAnimationFrame(scrollToTop);
-                // ScrollTo takes an x and a y coordinate.
-                // Increase the '10' value to get a smoother/slower scroll!
-                window.scrollTo(0, c - c / 10);
-            }
-            };
-
-            // When the button is clicked, run our ScrolltoTop function above!
-            scrollToTopButton.onclick = function(e) {
-            e.preventDefault();
-            scrollToTop();
-            }
-        </script>
-
-        <script>
-            $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-            });
-        </script>
+      // Show or hide the scroll to top button based on scroll position
+      window.onscroll = function () {
+        var scrollTopBtn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollTopBtn.style.display = "block";
+        } else {
+          scrollTopBtn.style.display = "none";
+        }
+      };
+    </script>
 
         <script>
             $(document).ready(function(){
@@ -638,4 +572,8 @@
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
+</html><br><br><br><br>
+<?php include('footer.php'); ?>
+    </body>
 </html>
+
