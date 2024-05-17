@@ -1595,6 +1595,30 @@ public function create_travelpermit() {
         }
     }
 
+    public function archive_bspermit(){
+        $id_bspermit = $_POST['id_bspermit'];
+
+        if(isset($_POST['archive_bspermit'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_bspermit SET req_status = 'archived' where id_bspermit = ?");
+            $stmt->execute([$id_bspermit]);
+
+            header("Refresh:0");
+        }
+    }
+
+    public function approve_bspermit(){
+        $id_bspermit = $_POST['id_bspermit'];
+
+        if(isset($_POST['approve_bspermit'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_bspermit SET req_status = 'approved' where id_bspermit = ?");
+            $stmt->execute([$id_bspermit]);
+
+            header("Refresh:0");
+        }
+    }
+
     public function update_bspermit() {
         if (isset($_POST['update_bspermit'])) {
             $id_bspermit = $_GET['id_bspermit'];
