@@ -1913,9 +1913,12 @@ defer>
         </div>
       </div>
       <div class="section__container footer__bar">
-        <div class="footer__logo">
-          <h4><a>WebYu</a></h4>
-          <p>Copyright © 2024 Yuson Information Management System. All rights reserved.</p>
+      <div class="py-3 text-center">
+            Copyright 2023 
+            <script>
+            document.write(new Date().getFullYear())
+            </script> 
+              | <a href="dev.html" style="color:white;">WebYu Team</a>
         </div>
        
       </div>
