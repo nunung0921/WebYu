@@ -481,7 +481,7 @@
 
                 <div class="col"> 
                     <a href="services_travelpermit.php?id_resident=<?= $userdetails['id_resident'];?>">
-                        <div class="zoom1"> 
+                        <div class="zoom1" style="height: 50px;"> 
                             <div class="card"> 
                                 <div class="card-body text-center"> 
                                     <img src="icons/ResidentHomepage/brgyid.png">
@@ -582,7 +582,7 @@
                             <div class="zoom">
                                 <div class="chip" style="font-size:10px;">
                                         <img src="assets/goloo.png" alt="Person" width="96" height="96">
-                                    Barangay Biclatan | (046) 509 1644
+                                    Barangay Yuson | 041-526-7382
                                 </div>
                             </div>
                         </li>
@@ -604,7 +604,7 @@
             <script>
             document.write(new Date().getFullYear())
             </script> 
-              | Barangay Biclatan Information System
+              | Barangay Yuson Information Management System
         </div>
 
     </footer>
