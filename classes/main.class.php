@@ -1760,7 +1760,7 @@ public function create_travelpermit() {
     public function approve_rescert(){
         $id_rescert = $_POST['id_rescert'];
 
-        if(isset($_POST['approve_bspermit'])) {
+        if(isset($_POST['approve_rescert'])) {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_rescert SET req_status = 'approved' where id_rescert = ?");
             $stmt->execute([$id_rescert]);
