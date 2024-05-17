@@ -437,7 +437,7 @@
                                         <tr>
                                             <td>
                                                 <form method="POST" action="" onsubmit="return confirmAction();">
-                                                    <input type="hidden" name="id_indigenyc" value="<?= $view['id_indigency']; ?>">
+                                                    <input type="hidden" name="id_indigency" value="<?= $view['id_indigency']; ?>">
                                                     <button type="submit" name="approve_indigency" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
                                                     <button type="submit" name="delete_certofindigency" class="btn btn-danger" style="width: 85px;">Delete</button>
                                                     <!-- Use a hidden input to pass the id_resident -->
