@@ -352,6 +352,9 @@
             }
             @media (max-width: 480px) {
     .flip-card {
+        padding:0;
+        margin: 0;
+        gap: 5px;
         max-width: 200px;
         height: 200px;
     }
