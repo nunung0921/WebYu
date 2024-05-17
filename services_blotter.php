@@ -313,6 +313,7 @@
             }
 
             .flip-card {
+                position: center;
                 background-color: transparent;
                 width: 300px;
                 height: 300px;
