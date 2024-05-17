@@ -1459,7 +1459,7 @@ public function create_travelpermit() {
     public function delete_certofindigency(){
         $id_indigency = $_POST['id_indigency'];
 
-        if(isset($_POST['delete_certofindegency'])) {
+        if(isset($_POST['delete_certofindigency'])) {
             $connection = $this->openConn();
             $stmt = $connection->prepare("DELETE FROM tbl_indigency where id_indigency = ?");
             $stmt->execute([$id_indigency]);
