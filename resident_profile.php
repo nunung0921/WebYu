@@ -26,6 +26,7 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
         <!-- fontawesome icons --> 
         <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -324,10 +325,20 @@
 <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
 </div>
 <a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav">
     <li class="nav-item">
         <a href="resident_homepage.php" class="nav-link">HOME</a>
+    </li>
+    <li class="nav-item">
+        <a href="#down3" class="nav-link">PROCEDURE</a>
+    </li>
+    <li class="nav-item">
+        <a href="#down1" class="nav-link">REGISTRATION</a>
     </li>
 </ul>
 </div>
@@ -595,6 +606,10 @@
         </script>
 
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     </body>
 </html>
