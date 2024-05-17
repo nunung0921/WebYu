@@ -515,7 +515,7 @@
     <div class="logo">
         <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
     </div>
-    <a class="navbar-brand" href="resident_homepage.php"><b>WebYu</b></a>
+    <a class="navbar-brand" href="resident_homepage.php"><b>Webyu</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -665,7 +665,7 @@
 
         <div class="container container4">
 
-            <br><br><h1 class="text-center">Complain</h1>
+            <h1 class="text-center">Complain</h1>
             
             <hr style="background-color:black;">
 
@@ -691,7 +691,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post" enctype="multipart/form-data"> 
+                            <form method="post" class="was-validated" enctype="multipart/form-data"> 
 
                                 <div class="row"> 
                                     <div class="col">
@@ -715,7 +715,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="mname">Middle name:</label>
-                                            <input name="mi" type="text" class="form-control" value="<?= $userdetails['mname']?>">
+                                            <input name="mi" type="text" class="form-control" value="<?= $userdetails['mname']?>" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>  
                                         </div>
@@ -736,7 +736,7 @@
                                     <div class="col">
                                         <div class="form-group">            
                                             <label for="cno">Contact Number:</label>
-                                            <input name="contact" type="text" maxlength="11" class="form-control" value="<?= $userdetails['contact']?>" pattern="[0-9]{11}" placeholder="0912-345-6789"required>
+                                            <input name="contact" type="text" maxlength="11" class="form-control" value="<?= $userdetails['contact']?>" pattern="[0-9]{11}" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -764,15 +764,68 @@
                                         </div>
                                     </div>
 
-                                            <!--<label> Barangay: </label>-->
-                                            <input type="hidden" class="form-control" name="brgy"  
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> Barangay: </label>
+                                            <input type="text" class="form-control" name="brgy"  
                                             placeholder="Enter Barangay" value="<?= $userdetails['brgy']?>" required>
-
-                                    
-                                            <!--<label> Municipality: </label>-->
-                                            <input type="hidden" class="form-control" name="municipal" 
-                                            placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> Municipality: </label>
+                                            <input type="text" class="form-control" name="municipal" 
+                                            placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <h6>Guidelines for Supporting Evidence Photo:</h6>
+
+                                <p>
+                                    <ul style="font-size: 15px;">
+                                        <li>
+                                            Good quality photo.
+                                        </li>
+                                        <li>
+                                            At least 50KB and no more than 50MB.
+                                        </li>
+                                        <li>
+                                            File Format: JPEG or PNG
+                                        </li>
+                                        <li>
+                                            Clear and in focus.
+                                        </li>
+                                    </ul>
+                                </p>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Supporting Evidence Photo:</label>
+                                        <div class="custom-file form-group">
+                                            <input type="file" onchange="readURL(this);" class="custom-file-input" id="customFile" name="blot_photo" required>
+                                            <label class="custom-file-label" for="customFile">Choose File Photo</label>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Photo Display:</label>
+                                        <img id="blah" src="http://placehold.it/470x350" alt="your image" />
+                                    </div>
+                                </div>
 
                                 <hr>
 
@@ -809,26 +862,9 @@
                                     </div>
                                 </div>
 
-                                <div class="modal-footer" style="justify-content: flex-start; margin-left:105px; width: 100%; border: none;">
-                                    <div class="paa">
-                                        <input name="id_resident" type="hidden" value="<?= $resident['id_resident']?>">
-                                        <button type="submit" name="create_blotter" class="btn btn-primary">Save changes</button>
-                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                                        
-                                    </div>
-                                </div> 
-                            
-                            </form>
- 
-                        </div>
-                    </div>
-                </div>
-            </div>  
-        </div>
-
-  <!-- Modal Footer -->
+                                  <!-- Modal Footer -->
             
-  <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
+   <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
                             <div class="paa">
                                 <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
                                 <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
@@ -915,4 +951,5 @@
 <?php include('footer.php'); ?>
     </body>
 </html>
+
 
