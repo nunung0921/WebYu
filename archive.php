@@ -30,6 +30,11 @@
         $bmis->approve_rescert();
         $bmis->delete_certofres();
 
+        $view_clearance = $bmis->view_clearance_archive();
+        $bmis->archive_clearance();
+        $bmis->approve_clearance();
+        $bmis->delete_clearance();
+
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
         $upstaff = $residentbmis->update_resident();
@@ -314,6 +319,79 @@
                                             <td> <?= $view['municipal'];?> </td>
                                             <td> <?= $view['bsindustry'];?> </td>
                                             <td> <?= $view['aoe'];?> </td>
+                                        </tr>
+                                    <?php }?>
+                                <?php } ?>
+                                            </tbody>
+            </table>
+
+            <hr>
+
+            <h1 class="mb-1 text-center">Archive Barangay Clearance</h1>
+
+                <hr>
+                <br>
+
+                <!-- Page Heading -->
+
+                <table class="table table-hover table-bordered text-center table-responsive">
+                <thead class="alert-info">
+                    <tr>
+                        <th> Action </th>
+                        <th> Resident ID </th>
+                        <th> Surname </th>
+                        <th> First name </th>
+                        <th> Middle name </th>
+                        <th> Purpose </th>
+                        <th> Business Name </th>
+                        <th> House No. </th>
+                        <th> Street</th>
+                        <th> Barangay </th>
+                        <th> Municipality </th>
+                        <th> Status </th>
+                        <th> Age </th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php if(is_array($view_clearance)) {?>
+                                    <?php foreach($view_clearance as $view) {?>
+                                        <tr>
+                                            <td>
+                                                <form method="POST" action="" onsubmit="return confirmAction();">
+                                                    <input type="hidden" name="id_clearance" value="<?= $view['id_clearance']; ?>">
+                                                    <button type="submit" name="approve_clearance" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
+                                                    <button type="submit" name="delete_clearance" class="btn btn-danger" style="width: 85px;">Delete</button>
+                                                    <!-- Use a hidden input to pass the id_resident -->
+                                                    
+                                                </form>
+                                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
+                                            </td>
+                                            <td> <?= $view['id_rescert'];?> </td>
+                                            <td> <?= $view['lname'];?> </td>
+                                            <td> <?= $view['fname'];?> </td>
+                                            <td> <?= $view['mi'];?> </td>
+                                            <td> <?= $view['purpose'];?> </td>
+                                            <td> <?= $view['houseno'];?>
+                                            <td> <?= $view['street'];?> </td>
+                                            <td> <?= $view['brgy'];?> </td>
+                                            <td> <?= $view['municipal'];?> </td>
+                                            <td> <?= $view['status'];?> </td>
+                                            <td> <?= $view['age'];?> </td>
                                         </tr>
                                     <?php }?>
                                 <?php } ?>
