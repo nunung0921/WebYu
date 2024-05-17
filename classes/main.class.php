@@ -1726,7 +1726,7 @@ public function create_travelpermit() {
 
         if(isset($_POST['archive_rescert'])) {
             $connection = $this->openConn();
-            $stmt = $connection->prepare("UPDATE tbl_rescert SET req_status = 'archived' where id_bspermit = ?");
+            $stmt = $connection->prepare("UPDATE tbl_rescert SET req_status = 'archived' where id_rescert = ?");
             $stmt->execute([$id_rescert]);
 
             $message2 = "Certificate of Residency Data Archived";
