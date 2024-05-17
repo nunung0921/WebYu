@@ -1547,6 +1547,38 @@ public function create_travelpermit() {
         
     }
 
+    public function create_bspermit_walkin() {
+
+        if(isset($_POST['create_bspermit_walkin'])) {
+            $id_bspermit = $_POST['id_bspermit'];
+            $lname = $_POST['lname'];
+            $fname = $_POST['fname'];
+            $mi = $_POST['mi'];
+            $bsname = $_POST['bsname']; 
+            $houseno = $_POST['houseno'];
+            $street = $_POST['street'];
+            $brgy = $_POST['brgy'];
+            $municipal = $_POST['municipal'];
+            $bsindustry = $_POST['bsindustry'];
+            $aoe = $_POST['aoe'];
+
+
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`req_status`, `lname`, `fname`, `mi`,
+             `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            $stmt->execute(['approved', $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
+
+            $message2 = "Application Applied!";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
+        }
+        
+        
+    }
+
+
     public function get_single_bspermit($id_resident){
 
         $id_resident = $_GET['id_resident'];
