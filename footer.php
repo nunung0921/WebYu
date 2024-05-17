@@ -22,7 +22,7 @@
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                            <img src="assets/goloo.png" alt="Person" width="50" height="50">
+                                            <img src="icons/yuson1.png" alt="Person" width="50" height="50">
                                         Barangay Biclatan | (046) 509 1644
                                     </div>
                                 </div>

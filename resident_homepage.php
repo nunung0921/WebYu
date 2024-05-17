@@ -569,6 +569,7 @@
                 <!--Fourth column-->
 
                 <div class="col-md-3 mx-auto shfooter" id="down">
+                <h5 class="my-2 font-weight-bold d-none d-md-block">Contact Us:</h5>
                 <div class="zoom">
                                 <div class="chip" style="font-size:10px;">
                                         <img src="icons/yuson1.png" alt="Person" width="96" height="96">
