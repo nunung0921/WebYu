@@ -112,10 +112,10 @@
 
             if(isset($_POST['delete_resident'])) {
                 $connection = $this->openConn();
-                $stmt = $connection->prepare("DELETE FROM tbl_resident where id_resident = ?");
+                $stmt = $connection->prepare("UPDATE tbl_resident SET request_status = 'archived' WHERE id_resident = ?");
                 $stmt->execute([$id_resident]);
 
-                $message2 = "Resident Data Deleted";
+                $message2 = "Resident Data Archived";
                 
                 echo "<script type='text/javascript'>alert('$message2');</script>";
                 header("Refresh:0");
