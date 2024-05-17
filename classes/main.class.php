@@ -1600,6 +1600,23 @@ public function create_travelpermit() {
         }
     }
 
+    public function get_single_bspermit_walkin($id_bspermit){
+
+        $id_bspermit = $_GET['id_bspermit'];
+        
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_bspermit where id_bspermit = ?");
+        $stmt->execute([$id_bspermit]);
+        $resident = $stmt->fetch();
+        $total = $stmt->rowCount();
+
+        if($total > 0 )  {
+            return $resident;
+        }
+        else{
+            return false;
+        }
+    }
 
     public function view_bspermit(){
         $connection = $this->openConn();
