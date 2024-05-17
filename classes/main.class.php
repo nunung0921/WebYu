@@ -1617,6 +1617,8 @@ public function create_travelpermit() {
             $stmt = $connection->prepare("UPDATE tbl_bspermit SET req_status = 'approved' where id_bspermit = ?");
             $stmt->execute([$id_bspermit]);
 
+            $message2 = "Restored Successfully";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
             header("Refresh:0");
         }
     }
