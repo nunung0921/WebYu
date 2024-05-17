@@ -390,7 +390,6 @@ $residentbmis->create_resident($addedby);
         }
     }
 </script>
-
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
     </body>
 </html>
