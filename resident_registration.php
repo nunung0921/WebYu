@@ -343,13 +343,13 @@ $residentbmis->create_resident($addedby);
 
             <!--Copyright-->
 
-            <div class="py-3 text-center">
-                2023 - 
-                <script>
-                document.write(new Date().getFullYear())
-                </script> 
-                | Barangay Yuson Information Management System
-            </div>
+            <div class="py-3 text-center" style="color:white;">
+            Copyright 2023 
+            <script>
+            document.write(new Date().getFullYear())
+            </script> 
+              | <a href="dev.html" style="color:white;">WebYu Team</a>
+        </div>
 
         </footer>
 
