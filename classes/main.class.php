@@ -1394,11 +1394,11 @@ public function create_travelpermit() {
             $date = $_POST['date'];
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_indigency (`id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_indigency (`id_resident`, `req_status`, `lname`, `fname`, `mi`,
              `nationality`, `houseno`, `street`,`brgy`, `municipal`,`purpose`, `date`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
 
-            $stmt->execute([$id_resident, $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -1408,17 +1408,53 @@ public function create_travelpermit() {
         
     }
 
+    public function create_certofindigency_walkin() {
+
+        if(isset($_POST['create_certofindigency_walkin'])) {
+            $id_indigency = $_POST['id_indigency'];
+            $lname = $_POST['lname'];
+            $fname = $_POST['fname'];
+            $mi = $_POST['mi'];
+            $nationality = $_POST['nationality']; 
+            $houseno = $_POST['houseno'];
+            $street = $_POST['street'];
+            $brgy = $_POST['brgy'];
+            $municipal = $_POST['municipal'];
+            $purpose = $_POST['purpose'];
+            $date = $_POST['date'];
+
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("INSERT INTO tbl_indigency (`req_status`, `lname`, `fname`, `mi`,
+             `nationality`, `houseno`, `street`,`brgy`, `municipal`,`purpose`, `date`)
+            VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            $stmt->execute(['approved', $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
+
+            $message2 = "Application Applied!";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
+        }
+        
+        
+    }
 
     
 
     public function view_certofindigency(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_indigency");
+        $stmt = $connection->prepare("SELECT * from tbl_indigency WHERE req_status = 'approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
     }
 
+    public function view_certofindigency_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_indigency WHERE req_status = 'archived'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
 
     public function delete_certofindigency(){
         $id_indigency = $_POST['id_indigency'];
@@ -1794,6 +1830,20 @@ public function create_travelpermit() {
         }
     }
 
+    public function archive_indigency(){
+        $id_indigency = $_POST['id_indigency'];
+
+        if(isset($_POST['archive_indigency'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_indigency SET req_status = 'archived' where id_indigency = ?");
+            $stmt->execute([$id_indigency]);
+
+            $message2 = "Certificate of Indigency Data Archived";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
     public function approve_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
 
@@ -1829,6 +1879,20 @@ public function create_travelpermit() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' where id_clearance = ?");
             $stmt->execute([$id_clearance]);
+
+            $message2 = "Restored Successfully";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
+    public function approve_indigency(){
+        $id_indigency = $_POST['id_indigency'];
+
+        if(isset($_POST['approve_indigency'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' where id_indigency = ?");
+            $stmt->execute([$id_indigency]);
 
             $message2 = "Restored Successfully";
             echo "<script type='text/javascript'>alert('$message2');</script>";
