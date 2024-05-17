@@ -1533,11 +1533,11 @@ public function create_travelpermit() {
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `req_status`, `lname`, `fname`, `mi`,
              `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -1569,6 +1569,14 @@ public function create_travelpermit() {
     public function view_bspermit(){
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * from tbl_bspermit");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_bspermit_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_bspermit WHERE req_status = 'archived'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
