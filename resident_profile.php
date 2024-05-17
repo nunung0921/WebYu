@@ -328,7 +328,6 @@
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
-
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav">
     <li class="nav-item">
@@ -337,10 +336,18 @@
 </ul>
 </div>
 
-<button title="Your Account" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-  <?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-  <span class="caret"></span>
-</button>
+<div class="dropdown ml-auto">
+    <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown">
+        <?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+        <span class="caret" style="margin-left: 2px;"></span>
+    </button>
+    <ul class="dropdown-menu" style="width: 175px;">
+        <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"><i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
+        <!-- <li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"><i class="fas fa-lock"></i>&nbsp; Change Password</a></li> -->
+        <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+    </ul>
+</div>
+
 
 </nav>
 
