@@ -526,12 +526,12 @@
             <!--Copyright-->
 
             <div class="py-3 text-center">
-                Copyright 2023 -
-                <script>
-                document.write(new Date().getFullYear())
-                </script> 
-                  | Barangay Yuson Information Management System
-            </div>
+            Copyright 2023 
+            <script>
+            document.write(new Date().getFullYear())
+            </script> 
+              | <a href="dev.html" style="color:white;">WebYu Team</a>
+        </div>
             
             <button id="scrollTopBtn" onclick="scrollToTop()">
                 <i class="fas fa-angle-up"></i>
