@@ -350,12 +350,6 @@
                 color: white;
                 transform: rotateY(180deg);
             }
-            @media (max-width: 480px) {
-    .flip-card {
-        max-width: 200px;
-        height: 200px;
-    }
-}
 
             /* Footer */
 
