@@ -6,6 +6,7 @@
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
     $bmis->delete_bspermit();
+    $bmis->archive_bspermit();
     $view = $bmis->view_bspermit();
     $id_resident = $_GET['id_resident'];
     $resident = $residentbmis->get_single_bspermit($id_resident);

@@ -23,7 +23,8 @@
         $view_bspermit = $bmis->view_bspermit_archive();
         $bmis->archive_bspermit();
         $bmis->approve_bspermit();
-        
+        $bmis->delete_bspermit();
+
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
         $upstaff = $residentbmis->update_resident();
@@ -207,8 +208,8 @@
                                             <td>
                                                 <form method="POST" action="" onsubmit="return confirmAction();">
                                                     <input type="hidden" name="id_resident" value="<?= $view['id_resident']; ?>">
-                                                    <button type="submit" name="approve_request" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
-                                                    <button type="submit" name="reject_request" class="btn btn-danger" style="width: 85px;">Delete</button>
+                                                    <button type="submit" name="approve_bspermit" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
+                                                    <button type="submit" name="delete_bspermit" class="btn btn-danger" style="width: 85px;">Delete</button>
                                                     <!-- Use a hidden input to pass the id_resident -->
                                                     
                                                 </form>
