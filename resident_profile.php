@@ -15,7 +15,7 @@
 <html>
 
     <head> 
-    <title> Barangay Yuson Information Management System </title>
+    <title> Barangay Biclatan Information System </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <!-- responsive tags for screen compatibility -->
@@ -318,9 +318,9 @@
 
         <nav class="navbar navbar-dark bg-primary sticky-top">
             <div class="logo">
-            <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+            <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
           </div>
-            <a class="navbar-brand" href="resident_homepage.php" style="margin-left:10px;"><b>WebYu</b></a>
+            <a class="navbar-brand" href="resident_homepage.php" style="margin-left:10px;"><b>Barangay Biclatan Information System</b></a>
             <a href="resident_homepage.php" title="Home" class="btn3 bg-primary" style="color: white; margin-left:130px;"><b>HOME</b></a>
             <a href="#down2" class="btn3 bg-primary" style="color: white; margin-left: 10px;"><b>VIEW INFO</b></a>
             <a href="#down1"  class="btn3 bg-primary" style="color: white; margin-left: 25px;"><b>UPDATE INFO</b></a>
@@ -487,45 +487,61 @@
         <br>
         <br>
         <br>
-  <!-- Modal Footer -->
-            
-  <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
-                            <div class="paa">
-                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
-                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
-                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                                
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </div>
-        </form>
-
-
-        
-        <button id="scrollTopBtn" onclick="scrollToTop()">
-                <i class="fas fa-angle-up"></i>
-    </button>
-<style>
- #footer {
-        width: 100%;
-        bottom: 0;
-        position: relative;
-    }
-
-    @media (max-width: 768px) {
-        #footer {
-            position: absolute;
-        }
-    }
-</style>
 
         <!-- Footer -->
 
-      
-        <script>
+        <footer id="footer" class="bg-primary text-white d-flex-column text-center">
+            <hr class="mt-0">
+
+            
+                    <!--/.Third column-->
+
+                    <hr class="clearfix w-100 d-md-none mb-0">
+ 
+                    <!--Fourth column-->
+
+                    <div class="col-md-3 mx-auto shfooter" id="down">
+                        <h5 class="my-2 font-weight-bold d-none d-md-block">Contact Us:</h5>
+                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
+                        <div class="mt-3 font-weight-bold">Contact Us:
+                            <div class="float-right navbar-toggler">
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-up"></i>
+                            </div>
+                        </div>
+                        </div>
+                        <ul class="list-unstyled collapse" id="Contact-Us">
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                            <img src="assets/golo.png" alt="Person" width="96" height="96">
+                                        Barangay Biclatan | (046) 509 1644
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+             <!--/.Footer Links-->
+
+            <hr class="mb-0">
+
+            <!--Copyright-->
+
+            <div class="py-3 text-center">
+                Copyright 2023 -
+                <script>
+                document.write(new Date().getFullYear())
+                </script> 
+                  | Barangay Biclatan Information System
+            </div>
+            
+            <button id="scrollTopBtn" onclick="scrollToTop()">
+                <i class="fas fa-angle-up"></i>
+    </button>
+            </footer>
+
+            <script>
       // Function to scroll to the top of the page
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -541,6 +557,12 @@
         }
       };
     </script>
+
+        <script>
+            $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+            });
+        </script>
 
         <script>
             $(document).ready(function(){
@@ -572,8 +594,4 @@
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
-</html><br><br><br><br>
-<?php include('footer.php'); ?>
-    </body>
 </html>
-
