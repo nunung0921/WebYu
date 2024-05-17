@@ -480,7 +480,7 @@
                 </div>
 
                 <div class="col"> 
-                    <a href="services_certofindigency.php?id_resident=<?= $userdetails['id_resident'];?>">
+                    <a href="services_travelpermit.php?id_resident=<?= $userdetails['id_resident'];?>">
                         <div class="zoom1">
                             <div class="card"> 
                                 <div class="card-body text-center"> 
