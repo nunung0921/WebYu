@@ -19,8 +19,11 @@
         $staffcountf = $staffbmis->count_fstaff();
         
         $view = $residentbmis->view_archive();
+
         $view_bspermit = $bmis->view_bspermit_archive();
-        $approve_bspermit = $bmis->approve_bspermit();
+        $bmis->archive_bspermit();
+        $bmis->approve_bspermit();
+        
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
         $upstaff = $residentbmis->update_resident();
