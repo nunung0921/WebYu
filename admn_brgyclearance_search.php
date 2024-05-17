@@ -35,9 +35,9 @@
             <tr>
                 <td>    
                     <form action="" method="post">
-                        <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="brgyclearance_form.php?id_resident=<?= $view['id_resident'];?>"></a> 
+                        <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="brgyclearance_form.php?id_clearance=<?= $view['id_clearance'];?>"></a> 
                         <input type="hidden" name="id_clearance" value="<?= $view['id_clearance'];?>">
-                        <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="delete_clearance"> Archive </button>
+                        <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="archive_clearance"> Archive </button>
                     </form>
                 </td>
                 <td> <?= $view['id_resident'];?> </td> 
@@ -87,9 +87,9 @@
                    <tr>
                        <td>    
                            <form action="" method="post">
-                               <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="brgyclearance_form.php?id_resident=<?= $view['id_resident'];?>">Generate</a> 
+                               <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="brgyclearance_form.php?id_clearance=<?= $view['id_clearance'];?>">Generate</a> 
                                <input type="hidden" name="id_clearance" value="<?= $view['id_clearance'];?>">
-                               <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="delete_clearance"> Archive </button>
+                               <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="archive_clearance"> Archive </button>
                             </form>
                         </td>
                         <td> <?= $view['id_resident'];?> </td> 
