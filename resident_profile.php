@@ -312,9 +312,7 @@
 
         <!-- Back-to-Top and Back Button -->
 
-     
-
-        <!-- Eto yung navbar -->
+    
 
        <!-- Eto yung navbar -->
 
@@ -333,10 +331,10 @@
                 <a href="resident_homepage.php" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="#down3" class="nav-link">PROCEDURE</a>
+                <a href="#down3" class="nav-link">Personal Info</a>
             </li>
             <li class="nav-item">
-                <a href="#down1" class="nav-link">REGISTRATION</a>
+                <a href="#down1" class="nav-link">Update Info</a>
             </li>
         </ul>
     </div>
