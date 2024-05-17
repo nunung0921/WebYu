@@ -611,7 +611,7 @@
             <script>
             document.write(new Date().getFullYear())
             </script> 
-              | <a href="dev.html"></a>WebYu Team</a>
+              | <a href="dev.html">WebYu Team</a>
         </div>
 
     </footer>
