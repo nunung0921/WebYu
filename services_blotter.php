@@ -1,8 +1,10 @@
 <?php 
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL ^ E_WARNING);
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
-    
-    
+    $id_resident = $_GET['id_resident'];
+    $resident = $residentbmis->get_single_resident($id_resident);
 
     $bmis->create_blotter();
 
@@ -14,8 +16,7 @@
 
 <html>
     <head> 
-    <link rel="shortcut icon" href="icons/yuson1.png" type="">
-        <title> Barangay Yuson Information Management System </title>
+        <title> Barangay Biclatan Information System </title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
         <!-- responsive tags for screen compatibility -->
@@ -24,11 +25,6 @@
         <!-- fontawesome icons --> 
         <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
     
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="css/responsive.css" rel="stylesheet" />
-
         <style>
 
             /* Back-to-Top */
@@ -119,7 +115,7 @@
             color: white; /* White text */
             font-size: 16px; /* Set a font size */
             cursor: pointer; /* Mouse pointer on hover */
-            margin-left: 23%;
+            margin-left: 13%;
             padding: 8px 22px;
             }
 
@@ -457,31 +453,51 @@
             -webkit-transform: scale(1.4); /* Safari 3-8 */
             transform: scale(1.4); 
             }
-            .info_section .info_contact .contact_link_box a {
-  margin: 5px 0;
-  color: #ffffff;
+            /* Scroll to top button styles */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgba(17, 43, 90, 0.7);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 100%;
+    transition: background-color 0.3s ease;
+    font-size: 30px; /* Adjust the size as needed */
 }
 
-.info_section .info_contact .contact_link_box a i {
-  margin-right: 5px;
+#scrollTopBtn:hover {
+    background-color: rgba(17, 43, 90, 0.9);
 }
 
-.info_section .info_contact .contact_link_box a:hover {
-  color: #000000;
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #scrollTopBtn {
+        bottom: 20px;
+        right: 60px;
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-size: 30px; /* Adjust font size for smaller screens */
+    }
 }
 
-.logo {
-    max-height: 70px;
-    margin-right: 5px;
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    #scrollTopBtn {
+        font-size: 30px;
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+    }
 }
-.info_section .info_col {
-  height: 200px; /* Set a fixed height for each row */
-  overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
-}
-.dropdown-menu {
-    min-width: 15rem;
-}
-   
+
+
         </style>
     </head>
 
@@ -494,111 +510,73 @@
             <span class="screen-reader-text">Back to top</span>
         </a>
 
-        <!-- Eto yung navbar -->
+     
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="logo">
+        <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
+    </div>
+    <a class="navbar-brand" href="resident_homepage.php"><b>Biclatan InfoSystem</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="resident_homepage.php" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a href="#down3" class="nav-link">PROCEDURE</a>
+            </li>
+            <li class="nav-item">
+                <a href="#down1" class="nav-link">REGISTRATION</a>
+            </li>
+        </ul>
+    </div>
 
-        <nav class="navbar navbar-dark bg-primary sticky-top">
-            <img src="images/yuson1.png" alt="Yuson Logo" class="logo"  style="background-size: cover; background-repeat: no-repeat;">
-            <a class="navbar-brand" href="resident_homepage.php">Barangay Yuson Information Management System</a>
-            <a href="resident_homepage.php" data-toggle="tooltip" title="Home" class="btn1 bg-primary"><i class="fa fa-home fa-lg"></i></a>
-            <a href="#down3" data-toggle="tooltip" title="Blotter Reason" class="btn5 bg-primary"><i class="fa fa-question fa-lg"></i></a>
-            <a href="#down2" data-toggle="tooltip" title="Blotter Information" class="btn4 bg-primary"><i class="fa fa-info fa-lg"></i></a>
-            <a href="#down1" data-toggle="tooltip" title="Registration" class="btn3 bg-primary"><i class="fa fa-edit fa-lg"></i></a>
-            <a href="#down" data-toggle="tooltip" title="Contact" class="btn2 bg-primary"><i class="fa fa-phone fa-lg"></i></a>
-           
-            <div class="dropdown ml-auto">
-                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-                    <span class="caret" style="margin-left: 2px;"></span>
-                </button>
-                <ul class="dropdown-menu" style="width: 175px;" >
-                    <a class="btn" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
-                    <a class="btn" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>
-                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
-                </ul>
-            </div>
-        </nav>
+    <div class="dropdown ml-auto">
+        <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+            <span class="caret" style="margin-left: 2px;"></span>
+        </button>
+        <ul class="dropdown-menu" style="width: 175px;">
+            <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
+            <!--<li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>-->
+            <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
 
         <!-- Under Navbar -->
 
-        <div class="container-fluid container1">
-            <img src="icons/Blotter/blotter2.png" alt="Nature" style="width:100%; height: 400px;">
-            <div class="text-block text-center taytel" >
-                <h1 style="font-size: 100px; letter-spacing: 5px;">Peace and Order</h1>
-            </div>
-        </div>
+        <div class="container-fluid container1" style="position: relative; text-align: center;">
+    <img src="icons/Blotter/blotter2.png" alt="Nature" style="width:100%; height: 400px;   @media (max-width: 768px) {
+        .taytel h1 {
+            font-size: 50px;
+        }
+
+        img {
+            height: auto;
+        }
+    }">
+    <div class="text-block text-center taytel" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; background-color: rgba(0, 0, 0, 0.5); padding: 20px;">
+        <h1 style="font-size: 5vw; letter-spacing: 5px; margin: 0;">Peace and Order</h1>
+    </div>
+</div>
+
+
 
         <div id="down3"></div>
 
         <br>
-        <br>
-        <br>
+        
 
         <!-- Slideshow -->
 
-        <div class="container container2">
-            <h1 style="text-align:center">Blotter Reason</h1>
-            <hr style="background-color: black;">
-
-            <br> 
-
-            <div class="mySlides">
-                <img style="width: 1140px; height:450px;" class="picture" src="icons/Blotter/blotter3.jpg">
-            </div>
-
-            <div class="mySlides">
-                <img style="width: 1140px; height:450px;" class="picture" src="icons/Blotter/blotter4.jpg">
-            </div>
-
-            <div class="mySlides">
-                <img style="width: 1140px; height:450px;" class="picture" src="icons/Blotter/blotter5.jpg">
-            </div>
-                
-            <div class="mySlides">
-                <img style="width: 1140px; height:450px;" class="picture" src="icons/Blotter/blotter6.jpg">
-            </div>
-
-            <div class="mySlides">
-                <img style="width: 1140px; height:450px;" class="picture" src="icons/Blotter/blotter7.jpg">
-            </div>
-                
-            <div class="mySlides">
-                <img style="width: 1140px; height:450px;" class="picture" src="icons/Blotter/blotter8.jpg">
-            </div>
-                
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-
-            <div class="caption-container">
-                <p id="caption"></p>
-            </div>
-
-            <div class="row">
-                <div class="column">
-                <img class="demo cursor picture1" src="icons/Blotter/blotter3.jpg" style="width:100%" onclick="currentSlide(1)" alt="Physical Threatening">
-                </div>
-                <div class="column">
-                <img class="demo cursor picture1" src="icons/Blotter/blotter4.jpg" style="width:100%" onclick="currentSlide(2)" alt="Domestic Violence">
-                </div>
-                <div class="column">
-                <img class="demo cursor picture1" src="icons/Blotter/blotter5.jpg" style="width:100%" onclick="currentSlide(3)" alt="Aggresiveness">
-                </div>
-                <div class="column">
-                <img class="demo cursor picture1" src="icons/Blotter/blotter6.jpg" style="width:100%" onclick="currentSlide(4)" alt="Sexual Harassment">
-                </div>
-                <div class="column">
-                <img class="demo cursor picture1" src="icons/Blotter/blotter7.jpg" style="width:100%" onclick="currentSlide(5)" alt="Psychological Abuse">
-                </div>    
-                <div class="column">
-                <img class="demo cursor picture1" src="icons/Blotter/blotter8.jpg" style="width:100%" onclick="currentSlide(6)" alt="Emotional Abuse">
-                </div>
-            </div>
-        </div>
-
-        <div id="down2"></div>
-
-        <br>
-        <br>
-        <br>
-
+        
         <div class="container container3">
             <h1 style="text-align:center">Blotter Information</h1>
             <hr style="background-color: black;">
@@ -687,7 +665,7 @@
 
         <div class="container container4">
 
-            <h1 class="text-center">Complain</h1>
+            <br><br><h1 class="text-center">Complain</h1>
             
             <hr style="background-color:black;">
 
@@ -713,7 +691,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post" class="was-validated" enctype="multipart/form-data"> 
+                            <form method="post" enctype="multipart/form-data"> 
 
                                 <div class="row"> 
                                     <div class="col">
@@ -737,7 +715,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="mname">Middle name:</label>
-                                            <input name="mi" type="text" class="form-control" value="<?= $userdetails['mname']?>" required>
+                                            <input name="mi" type="text" class="form-control" value="<?= $userdetails['mname']?>">
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>  
                                         </div>
@@ -758,7 +736,7 @@
                                     <div class="col">
                                         <div class="form-group">            
                                             <label for="cno">Contact Number:</label>
-                                            <input name="contact" type="text" maxlength="11" class="form-control" value="<?= $userdetails['contact']?>" pattern="[0-9]{11}" required>
+                                            <input name="contact" type="text" maxlength="11" class="form-control" value="<?= $userdetails['contact']?>" pattern="[0-9]{11}" placeholder="0912-345-6789"required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -786,68 +764,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> Barangay: </label>
-                                            <input type="text" class="form-control" name="brgy"  
+                                            <!--<label> Barangay: </label>-->
+                                            <input type="hidden" class="form-control" name="brgy"  
                                             placeholder="Enter Barangay" value="<?= $userdetails['brgy']?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> Municipality: </label>
-                                            <input type="text" class="form-control" name="municipal" 
+                                    
+                                            <!--<label> Municipality: </label>-->
+                                            <input type="hidden" class="form-control" name="municipal" 
                                             placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <hr>
-
-                                <h6>Guidelines for Supporting Evidence Photo:</h6>
-
-                                <p>
-                                    <ul style="font-size: 15px;">
-                                        <li>
-                                            Good quality photo.
-                                        </li>
-                                        <li>
-                                            At least 50KB and no more than 50MB.
-                                        </li>
-                                        <li>
-                                            File Format: JPEG or PNG
-                                        </li>
-                                        <li>
-                                            Clear and in focus.
-                                        </li>
-                                    </ul>
-                                </p>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Supporting Evidence Photo:</label>
-                                        <div class="custom-file form-group">
-                                            <input type="file" onchange="readURL(this);" class="custom-file-input" id="customFile" name="blot_photo" required>
-                                            <label class="custom-file-label" for="customFile">Choose File Photo</label>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <br>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Photo Display:</label>
-                                        <img id="blah" src="http://placehold.it/470x350" alt="your image" />
-                                    </div>
-                                </div>
 
                                 <hr>
 
@@ -884,11 +809,12 @@
                                     </div>
                                 </div>
 
-                                <div class="modal-footer">
+                                <div class="modal-footer" style="justify-content: flex-start; margin-left:105px; width: 100%; border: none;">
                                     <div class="paa">
                                         <input name="id_resident" type="hidden" value="<?= $resident['id_resident']?>">
-                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                                         <button type="submit" name="create_blotter" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                        
                                     </div>
                                 </div> 
                             
@@ -900,208 +826,60 @@
             </div>  
         </div>
 
+  <!-- Modal Footer -->
+            
+  <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
+                            <div class="paa">
+                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
+                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+
+
+        
+        <button id="scrollTopBtn" onclick="scrollToTop()">
+                <i class="fas fa-angle-up"></i>
+    </button>
+<style>
+ #footer {
+        width: 100%;
+        bottom: 0;
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+        #footer {
+            position: absolute;
+        }
+    }
+</style>
+
         <!-- Footer -->
 
-       <section class="info_section layout_padding2">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-3 info_col">
-        <div class="info_contact">
-          <h4>
-            Contact Us
-          </h4>
-          <div class="contact_link_box">
-            <a href="https://www.google.com/maps/place/Yuson,+Nueva+Ecija/@15.6957075,120.7008206,15z/data=!3m1!4b1!4m6!3m5!1s0x3391327d2c1823c3:0x638916b810c7aaf!8m2!3d15.6957143!4d120.703379!16s%2Fg%2F11gbfbpd45?entry=ttu">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                Yuson, Nueva Ejica
-              </span>
-            </a>
-            <a href="https://web.facebook.com/profile.php?id=61553042492757" target="_blank"><i class="fab fa-facebook-f"></i> Sanguniang Kabataan Ng Yuson</a>
-            <a href="mailto:skyuson01@gmail.com"><i class="far fa-envelope"></i> skyuson01@gmail.com</a>
-          </div>
-        </div>
-        
-      </div>
-      <div class="col-md-6 col-lg-3 info_col">
-        <div class="info_detail">
-          <h4>
-            Info
-          </h4>
-          <p>
-            Yuson is a barangay in the municipality of Guimba, in the province of Nueva Ecija. Its population as determined by the 2020 Census was 987.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-2 mx-auto info_col">
-        <div class="info_link_box">
-          <h4>
-            Services
-          </h4>
-          <div class="info_links">
-            <a class="active" href="services_business.php">
-              
-              Business Permit
-            </a>
-            <a class="" href="services_travelpermit.php">
-              
-              Travel Permit
-            </a>
-            <a class="" href="services_certofindigency.php">
-             
-              Indigency
-            </a>
-
-            <a class="" href="services_certofres.php">
-              
-              Residency
-            </a>
-             <a class="" href="services_brgyclearance.php">
-              
-              Barangay Clearance
-            </a>
-             <a class="" href="services_blotter.php">
-              
-              Peace and Order
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 info_col">
-        <div class="info_contact">
-          <h4>
-            Developer
-          </h4>
-          <div class="contact_link_box">
-    
-            <a href="https://www.facebook.com/rafaeltosper21" target="_blank"><i class="fab fa-facebook-f"></i> Rafael M. Tosper Jr.</a>
-            <a href="https://www.facebook.com/katrina.t.obena" target="_blank"><i class="fab fa-facebook-f"></i> Katrina T. Obena</a>
-            <a href="https://www.facebook.com/profile.php?id=100007062167999&_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i> Marian C. Simon</a>
-            <a href="https://www.facebook.com/kristinejoy.villano.9" target="_blank"><i class="fab fa-facebook-f"></i> Kristine Joy G. Villano</a>
-            <a href="https://www.facebook.com/jayvee.mangalino.1" target="_blank"><i class="fab fa-facebook-f"></i> Jayvee T. Mangalino</a>
-            <a href="https://www.facebook.com/Marjuntayag11?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i> Marjun A. Tayag</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- end info section -->
-
-<!-- footer section -->
-<section class="footer_section">
-  <div class="container">
-    <p>
-      &copy; <span id="displayYear"></span> All Rights Reserved By
-      <a href="https://html.design/">Barangay Yuson Information Management System</a>
-    </p>
-  </div>
-</section>
-        </footer>
-        
+      
         <script>
-            var slideIndex = 1;
-            showSlides(slideIndex);
+      // Function to scroll to the top of the page
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
-            function plusSlides(n) {
-            showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-            showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            var captionText = document.getElementById("caption");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
-            captionText.innerHTML = dots[slideIndex-1].alt;
-            }
-        </script>
-
-        <script>
-            // Add the following code if you want the name of the file appear on select
-            $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            });
-        </script>
-
-        <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $('#blah')
-                            .attr('src', e.target.result)
-                            .width(470)
-                            .height(350);
-                    };
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-        </script>
-
-        <script>
-            // Set a variable for our button element.
-            const scrollToTopButton = document.getElementById('js-top');
-
-            // Let's set up a function that shows our scroll-to-top button if we scroll beyond the height of the initial window.
-            const scrollFunc = () => {
-            // Get the current scroll value
-            let y = window.scrollY;
-            
-            // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
-            if (y > 0) {
-                scrollToTopButton.className = "top-link show";
-            } else {
-                scrollToTopButton.className = "top-link hide";
-            }
-            };
-
-            window.addEventListener("scroll", scrollFunc);
-
-            const scrollToTop = () => {
-            // Let's set a variable for the number of pixels we are from the top of the document.
-            const c = document.documentElement.scrollTop || document.body.scrollTop;
-            
-            // If that number is greater than 0, we'll scroll back to 0, or the top of the document.
-            // We'll also animate that scroll with requestAnimationFrame:
-            // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-            if (c > 0) {
-                window.requestAnimationFrame(scrollToTop);
-                // ScrollTo takes an x and a y coordinate.
-                // Increase the '10' value to get a smoother/slower scroll!
-                window.scrollTo(0, c - c / 10);
-            }
-            };
-
-            // When the button is clicked, run our ScrolltoTop function above!
-            scrollToTopButton.onclick = function(e) {
-            e.preventDefault();
-            scrollToTop();
-            }
-        </script>
-
-        <script>
-            $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-            });
-        </script>
+      // Show or hide the scroll to top button based on scroll position
+      window.onscroll = function () {
+        var scrollTopBtn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollTopBtn.style.display = "block";
+        } else {
+          scrollTopBtn.style.display = "none";
+        }
+      };
+    </script>
 
         <script>
             $(document).ready(function(){
@@ -1133,4 +911,8 @@
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
+</html><br><br><br><br>
+<?php include('footer.php'); ?>
+    </body>
 </html>
+
