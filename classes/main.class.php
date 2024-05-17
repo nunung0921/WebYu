@@ -1603,6 +1603,8 @@ public function create_travelpermit() {
             $stmt = $connection->prepare("UPDATE tbl_bspermit SET req_status = 'archived' where id_bspermit = ?");
             $stmt->execute([$id_bspermit]);
 
+            $message2 = "Barangay Business Permit Data Archived";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
             header("Refresh:0");
         }
     }
