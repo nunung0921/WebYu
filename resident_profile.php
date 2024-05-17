@@ -26,7 +26,6 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
         <!-- fontawesome icons --> 
         <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -311,44 +310,33 @@
     </style>
     <body>
 
-<!-- Back-to-Top and Back Button -->
+        <!-- Back-to-Top and Back Button -->
 
-<a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-    <span class="screen-reader-text">Back to top</span>
-</a>
+        <a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+            <span class="screen-reader-text">Back to top</span>
+        </a>
 
-<!-- Eto yung navbar -->
+        <!-- Eto yung navbar -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-<div class="logo">
-<a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
-</div>
-<a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a href="resident_homepage.php" class="nav-link">HOME</a>
-    </li>
-</ul>
-</div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="logo">
+        <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+    </div>
+    <a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
+                <a href="resident_homepage.php" class="nav-link">HOME</a>
+    </div>
 
-<div class="dropdown ml-auto">
-    <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-        <span class="caret" style="margin-left: 2px;"></span>
-    </button>
-    <ul class="dropdown-menu" style="width: 175px;">
-        <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
-        <!--<li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>-->
-        <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
-    </ul>
-</div>
-
-
-
+    <div class="dropdown ml-auto">
+        <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+            <span class="caret" style="margin-left: 2px;"></span>
+        </button>
+        <ul class="dropdown-menu" style="width: 175px;">
+            <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
+            <!--<li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>-->
+            <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+        </ul>
+    </div>
 </nav>
 
         <div class="container"> 
@@ -602,10 +590,6 @@
         </script>
 
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 
     </body>
 </html>
