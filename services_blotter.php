@@ -690,7 +690,7 @@
 
                         <!-- Modal Body -->
 
-                        <div class="modal-body">
+                        < class="modal-body">
                             <form method="post" enctype="multipart/form-data"> 
 
                                 <div class="row"> 
@@ -819,6 +819,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                </form>
+                            
 
                                  <!-- Modal Footer -->
             
