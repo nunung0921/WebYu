@@ -2,8 +2,8 @@
 ini_set('display_errors', 1);
 require('classes/resident.class.php');
 $userdetails = $residentbmis->get_userdata();
-$id_permit = $_GET['id_bspermit'];
-$resident = $bmis->get_single_bspermit_walkin($id_bspermit);
+$id_bspermit = $_GET['id_bspermit'];
+$resident = $residentbmis->get_single_bspermit_walkin($id_bspermit);
 ?>
 <!DOCTYPE html>
 <html id="clearance">
