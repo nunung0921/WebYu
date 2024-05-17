@@ -7,6 +7,7 @@
     $bmis->validate_admin();
     $create = $bmis->create_certofres_walkin();
     $bmis->delete_certofres();
+    $bmis->archive_certofres();
     $view = $bmis->view_certofres();
     $id_resident = $_GET['id_resident'];
     $resident = $residentbmis->get_single_certofres($id_resident);
