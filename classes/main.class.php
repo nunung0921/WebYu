@@ -1280,6 +1280,14 @@ class BMISClass {
         return $view;
     }
 
+    public function view_certofres_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_rescert WHERE req_status='archived'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
 
     public function delete_certofres(){
         $id_rescert = $_POST['id_rescert'];
