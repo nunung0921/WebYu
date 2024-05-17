@@ -1469,11 +1469,11 @@ public function create_travelpermit() {
             $age = $_POST['age'];
             
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`id_resident`, `req_status`, `lname`, `fname`, `mi`,
              `purpose`, `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, $lname, $fname, $mi,  $purpose, 
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $purpose, 
             $houseno,  $street, $brgy,   $municipal, $status, $age]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
@@ -1483,7 +1483,36 @@ public function create_travelpermit() {
         
         
     }
+    public function create_brgyclearance_walkin() {
 
+        if(isset($_POST['create_brgyclearance_walkin'])) {
+            $id_clearance = $_POST['id_clearance'];
+            $lname = $_POST['lname'];
+            $fname = $_POST['fname'];
+            $mi = $_POST['mi'];
+            $purpose = $_POST['purpose'];
+            $houseno = $_POST['houseno'];
+            $street = $_POST['street'];
+            $brgy = $_POST['brgy'];
+            $municipal = $_POST['municipal'];
+            $status = $_POST['status'];
+            $age = $_POST['age'];
+            
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`req_status`, `lname`, `fname`, `mi`,
+             `purpose`, `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            $stmt->execute(['approved', $lname, $fname, $mi,  $purpose, 
+            $houseno,  $street, $brgy,   $municipal, $status, $age]);
+
+            $message2 = "Application Applied!";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
+        }
+        
+        
+    }
     public function get_single_clearance($id_resident){
 
         $id_resident = $_GET['id_resident'];
