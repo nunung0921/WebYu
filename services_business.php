@@ -587,14 +587,23 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
+                                            <label for="age">Age:</label>
+                                            <input name="age" type="text" class="form-control" value="<?= $userdetails['age'];?>"required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col">
+                                        <div class="form-group">
                                             <label for="bsname">Business Name:</label>
                                             <input name="bsname" type="text" class="form-control" placeholder="Enter Business Name" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                </div>
-                                    
+                                    </div>
                                 <br>
 
                                 <h6>Business Address:</h6>
