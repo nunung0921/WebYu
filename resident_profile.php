@@ -499,7 +499,8 @@
                     <!--Fourth column-->
 
                     <div class="col-md-3 mx-auto shfooter" id="down">
-                        <h5 class="my-2 font-weight-bold d-none d-md-block">Contact Us:</h5>
+                    <img src="assets/golo.png" alt="Person" width="96" height="96">
+                        <h5 class="my-2 font-weight-bold d-none d-md-block">Barangay Yuson | 041-526-7382 </h5>
                         <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
                         <div class="mt-3 font-weight-bold">Contact Us:
                             <div class="float-right navbar-toggler">
