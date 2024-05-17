@@ -533,7 +533,8 @@
 
                     <br>
                     <br>
-
+                    <br>
+                    <br>
                     <h3>Step 2: Assessment</h3>
                     <p>Second step is to verify all of the information you've been given
                     in our system that we can use to make the information of your document
