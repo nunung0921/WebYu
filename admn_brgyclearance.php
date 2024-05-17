@@ -1,12 +1,13 @@
 <?php
     
     error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_errors',0);
+    ini_set('display_errors',1);
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
     $bmis->create_brgyclearance_walkin();
     $bmis->delete_clearance();
+    $bmis->archive_clearance();
     $view = $bmis->view_clearance();
     $id_resident = $_GET['id_resident'];
     $resident = $residentbmis->get_single_clearance($id_resident);
