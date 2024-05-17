@@ -1558,7 +1558,7 @@ public function create_travelpermit() {
 
     public function archive_clearance(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'arvhived' WHERE id_clearance = ?");
+        $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'archived' WHERE id_clearance = ?");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
