@@ -128,7 +128,7 @@
                                             <td>
                                                 <form method="POST" action="" onsubmit="return confirmAction();">
                                                     <input type="hidden" name="id_resident" value="<?= $view['id_resident']; ?>">
-                                                    <button type="submit" name="approve_request" class="btn btn-primary" style="margin-bottom: 10px;">Restore</button>
+                                                    <button type="submit" name="approve_request" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
                                                     <button type="submit" name="reject_request" class="btn btn-danger" style="width: 85px;">Delete</button>
                                                     <!-- Use a hidden input to pass the id_resident -->
                                                     
