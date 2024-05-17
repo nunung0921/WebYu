@@ -1540,29 +1540,6 @@ public function create_travelpermit() {
         return $view;
     }
 
-    public function view_clearance_archive(){
-        $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_clearance WHERE req_status = 'archived'");
-        $stmt->execute();
-        $view = $stmt->fetchAll();
-        return $view;
-    }
-
-    public function approve_clearance(){
-        $connection = $this->openConn();
-        $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' WHERE id_clearance = ?");
-        $stmt->execute();
-        $view = $stmt->fetchAll();
-        return $view;
-    }
-
-    public function archive_clearance(){
-        $connection = $this->openConn();
-        $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'archived' WHERE id_clearance = ?");
-        $stmt->execute();
-        $view = $stmt->fetchAll();
-        return $view;
-    }
 
     public function delete_clearance(){
         $id_clearance = $_POST['id_clearance'];
@@ -1754,6 +1731,14 @@ public function create_travelpermit() {
         return $view;
     }
 
+    public function view_clearance_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_clearance WHERE req_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
 
     public function delete_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
@@ -1795,6 +1780,20 @@ public function create_travelpermit() {
         }
     }
 
+    public function archive_clearance(){
+        $id_clearance = $_POST['id_clearance'];
+
+        if(isset($_POST['archive_rescert'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'archived' where id_clearance = ?");
+            $stmt->execute([$id_clearance]);
+
+            $message2 = "Barangay Clearance Data Archived";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
     public function approve_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
 
@@ -1816,6 +1815,20 @@ public function create_travelpermit() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_rescert SET req_status = 'approved' where id_rescert = ?");
             $stmt->execute([$id_rescert]);
+
+            $message2 = "Restored Successfully";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
+    public function approve_clearance(){
+        $id_clearance = $_POST['id_clearance'];
+
+        if(isset($_POST['approve_clearance'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' where id_clearance = ?");
+            $stmt->execute([$id_clearance]);
 
             $message2 = "Restored Successfully";
             echo "<script type='text/javascript'>alert('$message2');</script>";
