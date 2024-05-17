@@ -500,8 +500,7 @@
         <div id="down3"></div>
 
         <br>
-        <br>
-        <br>
+        
 
         <div class="container text-center">
             <div class="row">
@@ -521,7 +520,7 @@
                     <br>
 
                     <h3>Step 1: Fill-Up</h3>
-                    <p>First step is to Fill-Up the entire form in our system.</p>
+                    <p style="text-align:justify;">First step is to Fill-Up the entire form in our system.</p>
                 </div>
                 <br>
                     <br>
@@ -531,7 +530,7 @@
                     <br>
                     <br>
                     <h3>Step 2: Assessment</h3>
-                    <p>Second step is to verify all of the information you've been given
+                    <p style="text-align:justify;">Second step is to verify all of the information you've been given
                     in our system that we can use to make the information of your document
                     accurately.</p>
                 </div>
@@ -543,7 +542,7 @@
                     <br>
 
                     <h3>Step 3: Release</h3>
-                    <p>Fourth step is for releasing of your document.</p>
+                    <p style="text-align:justify;">Fourth step is for releasing of your document.</p>
                 </div>
             </div>
 
