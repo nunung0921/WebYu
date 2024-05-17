@@ -479,7 +479,7 @@
     </div>
 </nav>
 
-<div class="container-fluid container1"style="height:450px; background-color: #ececec;"> 
+<div class="container-fluid container1"style="height:400px; background-color: #ececec;"> 
             <div class="row"> 
                 <div class="col" style="background-color: #ececec;"> 
                     <div class="header">
