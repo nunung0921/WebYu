@@ -309,7 +309,7 @@
             /* Card Flip */
 
             .container3{
-                margin-left: 10px;
+                margin-left: 500px;
                 margin-top: 3%;
             }
 
