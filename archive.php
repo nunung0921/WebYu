@@ -18,7 +18,7 @@
         $staffcountm = $staffbmis->count_mstaff();
         $staffcountf = $staffbmis->count_fstaff();
         
-        $view = $residentbmis->view_request();
+        $view = $residentbmis->view_archive();
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
         $upstaff = $residentbmis->update_resident();
