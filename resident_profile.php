@@ -324,7 +324,7 @@
         <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
     </div>
     <a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
-                <a href="resident_homepage.php" class="nav-link">HOME</a>
+                <a href="resident_homepage.php" class="nav-link" style="color: white;">HOME</a>
     </div>
 
     <div class="dropdown ml-auto">
