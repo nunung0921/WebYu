@@ -1891,7 +1891,7 @@ public function create_travelpermit() {
 
         if(isset($_POST['approve_indigency'])) {
             $connection = $this->openConn();
-            $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' where id_indigency = ?");
+            $stmt = $connection->prepare("UPDATE tbl_indigency SET req_status = 'approved' where id_indigency = ?");
             $stmt->execute([$id_indigency]);
 
             $message2 = "Restored Successfully";
