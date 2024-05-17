@@ -16,7 +16,7 @@
 
 <html>
     <head> 
-        <title> Barangay Biclatan Information System </title>
+        <title> Barangay Yuson Information Management System </title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
         <!-- responsive tags for screen compatibility -->
@@ -513,9 +513,9 @@
      
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="logo">
-        <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
+        <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
     </div>
-    <a class="navbar-brand" href="resident_homepage.php"><b>Biclatan InfoSystem</b></a>
+    <a class="navbar-brand" href="resident_homepage.php"><b>WebYu</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
