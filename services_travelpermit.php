@@ -812,7 +812,7 @@
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
-                  | Barangay Biclatan Information System
+                  | Barangay Yuson Information Management System
             </div>
             
             <button id="scrollTopBtn" onclick="scrollToTop()">
