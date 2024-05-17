@@ -483,7 +483,7 @@
             <div class="row"> 
                 <div class="col" style="background-color: #ececec;"> 
                     <div class="header">
-                        <h1 class="text1">Business Permit (Mayor's Permit) </h1>
+                        <h1 class="text1">Livestock Travel Permit</h1>
                         <h5>The described livestock is permitted to travel from one location to another.<br>It serves as an authorization for the transportation of livestock and ensures compliance with <br>regulations and standards regarding animal movement and health.</h5>
                     </div>
 
