@@ -206,12 +206,12 @@
                 </thead>
 
                 <tbody>
-                    <?php if(is_array($view_bspermit)) {?>
-                                    <?php foreach($view_bspermit as $view) {?>
+                    <?php if(is_array($view_rescert)) {?>
+                                    <?php foreach($view_rescert as $view) {?>
                                         <tr>
                                             <td>
                                                 <form method="POST" action="" onsubmit="return confirmAction();">
-                                                    <input type="hidden" name="id_bspermit" value="<?= $view['id_bspermit']; ?>">
+                                                    <input type="hidden" name="id_rescert" value="<?= $view['id_rescert']; ?>">
                                                     <button type="submit" name="approve_rescert" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
                                                     <button type="submit" name="delete_certofres" class="btn btn-danger" style="width: 85px;">Delete</button>
                                                     <!-- Use a hidden input to pass the id_resident -->
