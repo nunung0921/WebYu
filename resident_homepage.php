@@ -465,7 +465,7 @@
                 </div> 
             </div>
             
-            <div class="row">
+            <div class="row card-spacing">
                 <div class="col"> 
                     <a href="services_business.php?id_resident=<?= $userdetails['id_resident'];?>">
                         <div class="zoom1"> 
