@@ -123,41 +123,33 @@
                                     </div>
                                 </div>
                                 
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="bsname">Business Name:</label>
-                                            <input name="bsname" style="text-align:left;" type="text" class="form-control" placeholder="Enter Business Name" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
-                                </div>
                                     
                                 <br>
 
-                                <h6>Business Address:</h6>
+                                <h6>Business Information:</h6>
 
                                 <hr>
 
                                 <div class="row">
-                                    <div class="col">
+                                    <!--<div class="col">
                                         <div class="form-group">
                                             <label> House No: </label>
                                             <input type="text" style="text-align:left;" class="form-control" name="houseno"  placeholder="Enter House No." required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
+                                    </div>-->
 
-                                    <div class="col">
+                                    <!--<div class="col">
                                         <div class="form-group">
                                             <label> Street: </label>
                                             <input type="text" style="text-align:left;" class="form-control" name="street"  placeholder="Enter Street" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
+                                    </div>-->
+
+                                    
 
                                             <!--<label> Barangay: </label>-->
                                             <input type="hidden" class="form-control" name="brgy" value="Yuson" required readonly>
@@ -167,6 +159,14 @@
                                 </div>
 
                                 <div class="row">
+                                <div class="col">
+                                        <div class="form-group">
+                                            <label for="bsname">Business Name:</label>
+                                            <input name="bsname" style="text-align:left;" type="text" class="form-control" placeholder="Enter Business Name" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="status">Business Industry:</label>
@@ -196,14 +196,14 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <!--<div class="col">
                                         <div class="form-group">
                                             <label for="aoe" class="mtop">Area of Establishment (SqM): </label>
                                             <input type="number" style="text-align:left;" name="aoe" class="form-control" placeholder="Enter your AOE" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                            
                         </div>
