@@ -1,7 +1,7 @@
 <?php
 	// require the database connection
 	require 'classes/conn.php';
-	if(isset($_POST['search_bspermit'])){
+	if(isset($_POST['search_brgyclearance'])){
 		$keyword = $_POST['keyword'];
 ?>
 <table class="table table-hover text-center table-bordered table-responsive" >
