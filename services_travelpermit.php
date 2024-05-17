@@ -745,8 +745,7 @@
             </div>
         </div>
     </div>
-                            
-                        </div>
+</div>
    <!-- Modal Footer -->
             
    <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
@@ -762,30 +761,67 @@
             </div>
         </div>
         </form>
+        </div>                               
+            </div>
+        </div>
 
-
-        
-        <button id="scrollTopBtn" onclick="scrollToTop()">
-                <i class="fas fa-angle-up"></i>
-    </button>
-<style>
- #footer {
-        width: 100%;
-        bottom: 0;
-        position: relative;
-    }
-
-    @media (max-width: 768px) {
-        #footer {
-            position: absolute;
-        }
-    }
-</style>
+        <br>
+        <br>
+        <br>
 
         <!-- Footer -->
 
-      
-        <script>
+        <footer id="footer" class="bg-primary text-white d-flex-column text-center">
+            <hr class="mt-0">
+
+            
+                    <!--/.Third column-->
+
+                    <hr class="clearfix w-100 d-md-none mb-0">
+ 
+                    <!--Fourth column-->
+
+                    <div class="col-md-3 mx-auto shfooter" id="down">
+                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
+                        <div class="mt-3 font-weight-bold">Contact Us:
+                            <div class="float-right navbar-toggler">
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-up"></i>
+                            </div>
+                        </div>
+                        </div>
+                        <ul class="list-unstyled collapse" id="Contact-Us">
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                            <img src="icons/yuson1.png" alt="Person" width="96" height="96">
+                                        Barangay Yuson | 041-526-7382
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+             <!--/.Footer Links-->
+
+            <hr class="mb-0">
+
+            <!--Copyright-->
+
+            <div class="py-3 text-center">
+                Copyright 2023 -
+                <script>
+                document.write(new Date().getFullYear())
+                </script> 
+                  | Barangay Biclatan Information System
+            </div>
+            
+            <button id="scrollTopBtn" onclick="scrollToTop()">
+                <i class="fas fa-angle-up"></i>
+    </button>
+            </footer>
+
+            <script>
       // Function to scroll to the top of the page
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -801,6 +837,12 @@
         }
       };
     </script>
+
+        <script>
+            $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+            });
+        </script>
 
         <script>
             $(document).ready(function(){
@@ -832,8 +874,7 @@
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
-</html><br><br><br><br>
-<?php include('footer.php'); ?>
-    </body>
 </html>
+
+
 
