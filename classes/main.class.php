@@ -1556,7 +1556,7 @@ public function create_travelpermit() {
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
             $age = $_POST['age'];
-            $age = $_POST['status'];
+            $status = $_POST['status'];
             $bsname = $_POST['bsname']; 
             //$houseno = $_POST['houseno'];
             //$street = $_POST['street'];
