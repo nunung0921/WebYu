@@ -689,8 +689,6 @@
                         </div>
 
                         <!-- Modal Body -->
-
-                        < class="modal-body">
                             <form method="post" enctype="multipart/form-data"> 
 
                                 <div class="row"> 
