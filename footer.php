@@ -46,15 +46,42 @@
 
         </footer>
         <style>
-    html, body {
-        height: 100%;
-    }
-    #content-wrapper {
-        flex: 1;
-    }
+   html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     #footer {
-        bottom: 0;
-        left: 0;
-        right: 0;
+        padding: 8px;
     }
+}
+
+@media (max-width: 480px) {
+    #footer {
+        padding: 6px;
+        font-size: 14px;
+    }
+}
+
 </style>
