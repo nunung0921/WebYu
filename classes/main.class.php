@@ -1187,6 +1187,24 @@ class BMISClass {
         }
     }
 
+    public function get_single_certofres_walkin($id_rescert){
+
+        $id_rescert = $_GET['id_rescert'];
+        
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_rescert where id_rescert = ?");
+        $stmt->execute([$id_rescert]);
+        $resident = $stmt->fetch();
+        $total = $stmt->rowCount();
+
+        if($total > 0 )  {
+            return $resident;
+        }
+        else{
+            return false;
+        }
+    }
+
     public function create_certofres() {
 
         if(isset($_POST['create_certofres'])) {

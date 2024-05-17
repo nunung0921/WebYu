@@ -1,10 +1,10 @@
 <?php
-ini_set('display_errors',0);
+ini_set('display_errors', 0);
 require('classes/resident.class.php');
 $userdetails = $residentbmis->get_userdata();
 $id_resident = $_GET['id_resident'];
-$resident = $residentbmis->get_single_certofres($id_resident);
-  ?>
+$resident = $residentbmis->get_single_certofres_walkin($id_rescert);
+?>
 <!DOCTYPE html>
 <html id="clearance">
 <!-- Add this <img> tag to include the background image -->
