@@ -366,7 +366,7 @@
     </nav>
 
     <div class="header"> 
-        <br><center><h2 style="font-size: 50px;"> Welcome to <br><b>Barangay Biclatan Information System</b></h2><bR></center>
+        <br><center><h2 style="font-size: 50px;"> Welcome to <br><b>Barangay Yuson Information Management System</b></h2><bR></center>
     </div>
     <div id="down2"></div>
 
