@@ -124,7 +124,7 @@
                                             <form action="" onsubmit="return confirmAction();" method="post">
                                                 <a href="update_resident_form.php?id_resident=<?= $view['id_resident'];?>" style="width:70px; font-size: 14px; border-radius:5px; margin-bottom: 2px;" class="btn btn-success"> Update </a>
                                                 <input type="hidden" name="id_resident" value="<?= $view['id_resident'];?>">
-                                                <button class="btn btn-danger" type="submit" name="delete_resident"style="width: 70px; font-size: 14px; border-radius:5px;"> Delete </button>
+                                                <button class="btn btn-danger" type="submit" name="delete_resident"style="width: 70px; font-size: 14px; border-radius:5px;"> Archive </button>
                                             </form>
                                             <script>
                                                     function confirmAction() {
