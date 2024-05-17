@@ -479,7 +479,7 @@
     </div>
 </nav>
 
-<div class="container-fluid container1"style="height:350px; background-color: #ececec;"> 
+<div class="container-fluid container1"style="height:310px; background-color: #ececec;"> 
             <div class="row"> 
                 <div class="col" style="background-color: #ececec;"> 
                     <div class="header">
@@ -499,6 +499,8 @@
         </div>
         <div id="down3"></div>
 
+        <br>
+        <br>
         <br>
         <br>
         <br>
