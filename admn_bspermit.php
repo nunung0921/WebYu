@@ -5,6 +5,7 @@
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
+    $bmis->create_bspermit_walkin();
     $bmis->delete_bspermit();
     $bmis->archive_bspermit();
     $view = $bmis->view_bspermit();
