@@ -1534,12 +1534,35 @@ public function create_travelpermit() {
 
     public function view_clearance(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_clearance");
+        $stmt = $connection->prepare("SELECT * from tbl_clearance WHERE req_status = 'approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
     }
 
+    public function view_clearance_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_clearance WHERE req_status = 'archived'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function approve_clearance(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' WHERE id_clearance = ?");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function archive_clearance(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'arvhived' WHERE id_clearance = ?");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
 
     public function delete_clearance(){
         $id_clearance = $_POST['id_clearance'];
