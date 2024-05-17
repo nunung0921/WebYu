@@ -22,7 +22,7 @@
 <html>
 
 <head> 
-    <title>Barangay Biclatan Information System</title>
+    <title>Barangay Yuson Information Management System</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- responsive tags for screen compatibility -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -328,9 +328,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="logo">
-            <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
+            <a href="#"><img src="icons/logo.jpeg" alt="logo" height="60px" /></a>
         </div>
-        <a class="navbar-brand" href="resident_homepage.php"><b>Biclatan InfoSystem</b></a>
+        <a class="navbar-brand" href="resident_homepage.php"><b> Webyu</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
