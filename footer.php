@@ -23,7 +23,7 @@
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
                                             <img src="icons/yuson1.png" alt="Person" width="50" height="50">
-                                        Barangay Biclatan | (046) 509 1644
+                                            Barangay Yuson | 041-526-7382
                                     </div>
                                 </div>
                             </li>
@@ -41,7 +41,7 @@
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
-                  | Barangay Biclatan Information System
+                  | Barangay Yuson Information Management System
             </div>
 
         </footer>
