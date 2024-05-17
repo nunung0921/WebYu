@@ -1523,6 +1523,7 @@ public function create_travelpermit() {
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
+            $age = $_POST['age'];
             $bsname = $_POST['bsname']; 
             $houseno = $_POST['houseno'];
             $street = $_POST['street'];
@@ -1533,11 +1534,11 @@ public function create_travelpermit() {
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `req_status`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `req_status`, `lname`, `fname`, `mi`, `age`,
              `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $age, $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -1554,6 +1555,7 @@ public function create_travelpermit() {
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
+            $age = $_POST['age'];
             $bsname = $_POST['bsname']; 
             $houseno = $_POST['houseno'];
             $street = $_POST['street'];
@@ -1564,11 +1566,11 @@ public function create_travelpermit() {
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`req_status`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`req_status`, `lname`, `fname`, `mi`, `age`,
              `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute(['approved', $lname, $fname, $mi,  $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
+            $stmt->execute(['approved', $lname, $fname, $mi, $age, $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
 
             $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
