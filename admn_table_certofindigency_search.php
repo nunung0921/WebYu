@@ -36,9 +36,9 @@
             <tr>
                 <td>    
                     <form action="" method="post">
-                        <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="indigency_form.php?id_resident=<?= $view['id_resident'];?>">Generate</a> 
+                        <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="indigency_form.php?id_indigency=<?= $view['id_indigency'];?>">Generate</a> 
                         <input type="hidden" name="id_indigency" value="<?= $view['id_indigency'];?>">
-                        <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_certofindigency"> Archive </button>
+                        <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="archive_indigency"> Archive </button>
                     </form>
                 </td>
                 <td> <?= $view['id_resident'];?> </td> 
@@ -88,9 +88,9 @@
                 <tr>
                     <td>    
                         <form action="" method="post">
-                            <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="indigency_form.php?id_resident=<?= $view['id_resident'];?>">Generate</a> 
+                            <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="indigency_form.php?id_indigency=<?= $view['id_indigency'];?>">Generate</a> 
                             <input type="hidden" name="id_indigency" value="<?= $view['id_indigency'];?>">
-                            <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_certofindigency"> Archive </button>
+                            <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="archive_indigency"> Archive </button>
                         </form>
                     </td>
                     <td> <?= $view['id_resident'];?> </td> 
