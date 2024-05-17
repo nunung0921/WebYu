@@ -350,6 +350,12 @@
                 color: white;
                 transform: rotateY(180deg);
             }
+            @media (max-width: 480px) {
+    .flip-card {
+        max-width: 200px;
+        height: 200px;
+    }
+}
 
             /* Footer */
 
@@ -800,6 +806,20 @@
                                 
                                 <div class="row">
                                     <div class="col">
+                                        <label>Supporting Evidence Photo:</label>
+                                        <div class="custom-file form-group">
+                                            <input type="file" onchange="readURL(this);" class="custom-file-input" id="customFile" name="blot_photo" required>
+                                            <label class="custom-file-label" for="customFile">Choose File Photo</label>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label for="report">Narrative Report:</label>
                                             <textarea class="form-control" rows="5" id="report" name="narrative" placeholder="Enter Message here" required></textarea>
@@ -826,9 +846,10 @@
             </div>  
         </div>
 
+       
   <!-- Modal Footer -->
             
-  <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
+   <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
                             <div class="paa">
                                 <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
                                 <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
