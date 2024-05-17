@@ -479,11 +479,11 @@
     </div>
 </nav>
 
-<div class="container-fluid container1"style="height:450px; background-color: #ececec;"> 
+<div class="container-fluid container1"style="height:350px; background-color: #ececec;"> 
             <div class="row"> 
                 <div class="col" style="background-color: #ececec;"> 
                     <div class="header">
-                        <h1 class="text1">Business Permit (Mayor's Permit) </h1>
+                        <h1 class="text1">Livestock Travel Permit</h1>
                         <h5>The described livestock is permitted to travel from one location to another.<br>It serves as an authorization for the transportation of livestock and ensures compliance with <br>regulations and standards regarding animal movement and health.</h5>
                     </div>
 
@@ -502,6 +502,7 @@
         <br>
         <br>
         <br>
+        
 
         <div class="container text-center">
             <div class="row">
@@ -521,7 +522,7 @@
                     <br>
 
                     <h3>Step 1: Fill-Up</h3>
-                    <p>First step is to Fill-Up the entire form in our system.</p>
+                    <p style="text-align:justify;">First step is to Fill-Up the entire form in our system.</p>
                 </div>
                 <br>
                     <br>
@@ -531,7 +532,7 @@
                     <br>
                     <br>
                     <h3>Step 2: Assessment</h3>
-                    <p>Second step is to verify all of the information you've been given
+                    <p style="text-align:justify;">Second step is to verify all of the information you've been given
                     in our system that we can use to make the information of your document
                     accurately.</p>
                 </div>
@@ -543,7 +544,7 @@
                     <br>
 
                     <h3>Step 3: Release</h3>
-                    <p>Fourth step is for releasing of your document.</p>
+                    <p style="text-align:justify;">Fourth step is for releasing of your document.</p>
                 </div>
             </div>
 
