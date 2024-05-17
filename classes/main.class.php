@@ -1274,7 +1274,7 @@ class BMISClass {
 
     public function view_certofres(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_rescert");
+        $stmt = $connection->prepare("SELECT * from tbl_rescert WHERE req_status='approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
