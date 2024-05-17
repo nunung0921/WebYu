@@ -68,14 +68,6 @@
     </div>
 
     <br>
-
-    <div class="row"> 
-        <div class="col-md-12"> 
-            <?php 
-                include('admn_bspermit_search.php');
-            ?>
-        </div>
-    </div>
     <button class="btn btn-success" style="width: 95px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add</button>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -217,6 +209,14 @@
                     </div>
                 </div>
             </div>
+    <div class="row"> 
+        <div class="col-md-12"> 
+            <?php 
+                include('admn_bspermit_search.php');
+            ?>
+        </div>
+    </div>
+    
     <!-- /.container-fluid -->
     
 </div>
