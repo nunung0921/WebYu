@@ -424,11 +424,10 @@
             <div class="row"> 
                 <div class="col"> 
                     <div class="header">
-                        <h1 class="text1">Barangay Clearance </h1>
-                        <h5> A Barangay Clearance is a document issued by the Barangay Secretary and signed by the 
-                        <br> Barangay Captain stating that you are a living at that specific place and you are 
-                        <br> of good moral character. Somehow, a smaller version of NBI or Police clearance.</h5>
+                        <h1 class="text1">Livestock Travel Permit</h1>
+                        <h5>The described livestock is permitted to travel from one location to another.<br>It serves as an authorization for the transportation of livestock and ensures compliance with <br>regulations and standards regarding animal movement and health.</h5>
                     </div>
+
 
                     <br>
 
@@ -762,7 +761,7 @@
         </div>
     </div>
                             
-                        </div>
+            
 
                         <!-- Modal Footer -->
             
