@@ -1907,13 +1907,13 @@ defer>
         </div>
         <div class="footer__form">
            <ul class="footer__nav">
-          <li class="footer__link"><a>skyuson1@gmail.com</a></li>
-          <li class="footer__link"><a>0995-265-0331</a></li>
+          <li class="footer__link" style="color:white;"><a>skyuson1@gmail.com</a></li>
+          <li class="footer__link" style="color:white;"><a>0995-265-0331</a></li>
         </ul>
         </div>
       </div>
       <div class="section__container footer__bar">
-      <div class="py-3 text-center">
+      <div class="py-3 text-center" style="color:white;">
             Copyright 2023 
             <script>
             document.write(new Date().getFullYear())
