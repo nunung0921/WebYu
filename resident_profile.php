@@ -15,7 +15,7 @@
 <html>
 
     <head> 
-    <title> Barangay Biclatan Information System </title>
+    <title> Barangay Yuson Information Management System </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <!-- responsive tags for screen compatibility -->
@@ -499,15 +499,7 @@
                     <!--Fourth column-->
 
                     <div class="col-md-3 mx-auto shfooter" id="down">
-                    <img src="icons/yuson1.png" alt="Person" width="96" height="96">
                         <h5 class="my-2 font-weight-bold d-none d-md-block">Barangay Yuson | 041-526-7382 </h5>
-                        < class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
-                        <div class="mt-3 font-weight-bold">Contact Us:
-                            <div class="float-right navbar-toggler">
-                            <i class="fas fa-angle-down"></i>
-                            <i class="fas fa-angle-up"></i>
-                            </div>
-                        </div>
                     </div>
 
              <!--/.Footer Links-->
@@ -521,7 +513,7 @@
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
-                  | Barangay Biclatan Information System
+                  | Barangay Yuson Information Management System
             </div>
             
             <button id="scrollTopBtn" onclick="scrollToTop()">
