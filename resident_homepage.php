@@ -465,7 +465,7 @@
                 </div> 
             </div>
             
-            <div class="row">
+            <div class="row card-spacing">
                 <div class="col"> 
                     <a href="services_business.php?id_resident=<?= $userdetails['id_resident'];?>">
                         <div class="zoom1"> 
@@ -581,8 +581,8 @@
                         <li>
                             <div class="zoom">
                                 <div class="chip" style="font-size:10px;">
-                                        <img src="assets/goloo.png" alt="Person" width="96" height="96">
-                                    Barangay Biclatan | (046) 509 1644
+                                        <img src="icons/yuson1.png" alt="Person" width="96" height="96">
+                                    Barangay Yuson | 041-526-7382
                                 </div>
                             </div>
                         </li>
@@ -604,7 +604,7 @@
             <script>
             document.write(new Date().getFullYear())
             </script> 
-              | Barangay Biclatan Information System
+              | Barangay Yuson Information Management System
         </div>
 
     </footer>
