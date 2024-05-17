@@ -16,7 +16,7 @@
 
 <html>
     <head> 
-        <title> Barangay Yuson Information Management System </title>
+        <title> Barangay Biclatan Information System </title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
         <!-- responsive tags for screen compatibility -->
@@ -513,9 +513,9 @@
      
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="logo">
-        <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+        <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
     </div>
-    <a class="navbar-brand" href="resident_homepage.php"><b>WebYu</b></a>
+    <a class="navbar-brand" href="resident_homepage.php"><b>Biclatan InfoSystem</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -689,6 +689,8 @@
                         </div>
 
                         <!-- Modal Body -->
+
+                        <div class="modal-body">
                             <form method="post" enctype="multipart/form-data"> 
 
                                 <div class="row"> 
@@ -823,46 +825,63 @@
                 </div>
             </div>  
         </div>
-                            
 
-                                 <!-- Modal Footer -->
+       
+<!-- Footer -->
+
+        <footer id="footer" class="bg-primary text-white d-flex-column text-center">
+            <hr class="mt-0">
+
             
-   <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
-                            <div class="paa">
-                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
-                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
-                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                                
+                    <!--/.Third column-->
+
+                    <hr class="clearfix w-100 d-md-none mb-0">
+ 
+                    <!--Fourth column-->
+
+                    <div class="col-md-3 mx-auto shfooter" id="down">
+                        <h5 class="my-2 font-weight-bold d-none d-md-block">Contact Us:</h5>
+                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
+                        <div class="mt-3 font-weight-bold">Contact Us:
+                            <div class="float-right navbar-toggler">
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-up"></i>
                             </div>
-                        </div> 
+                        </div>
+                        </div>
+                        <ul class="list-unstyled collapse" id="Contact-Us">
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                            <img src="assets/goloo.png" alt="Person" width="96" height="96">
+                                        Barangay Biclatan | (046) 509 1644
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </div>
+
+       
+
+            <!--/.Footer Links-->
+
+            <hr class="mb-0">
+
+            <!--Copyright-->
+
+            <div class="py-3 text-center">
+                Copyright 2023 -
+                <script>
+                document.write(new Date().getFullYear())
+                </script> 
+                  | Barangay Biclatan Information System
             </div>
-        </div>
-        </form>
-
-
         
-        <button id="scrollTopBtn" onclick="scrollToTop()">
+            <button id="scrollTopBtn" onclick="scrollToTop()">
                 <i class="fas fa-angle-up"></i>
     </button>
-<style>
- #footer {
-        width: 100%;
-        bottom: 0;
-        position: relative;
-    }
-
-    @media (max-width: 768px) {
-        #footer {
-            position: absolute;
-        }
-    }
-</style>
-
-        <!-- Footer -->
-
-      
+        </footer>
+        
         <script>
       // Function to scroll to the top of the page
       function scrollToTop() {
@@ -879,6 +898,78 @@
         }
       };
     </script>
+
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
+
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#blah')
+                            .attr('src', e.target.result)
+                            .width(470)
+                            .height(350);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+
+        <script>
+            // Set a variable for our button element.
+            const scrollToTopButton = document.getElementById('js-top');
+
+            // Let's set up a function that shows our scroll-to-top button if we scroll beyond the height of the initial window.
+            const scrollFunc = () => {
+            // Get the current scroll value
+            let y = window.scrollY;
+            
+            // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
+            if (y > 0) {
+                scrollToTopButton.className = "top-link show";
+            } else {
+                scrollToTopButton.className = "top-link hide";
+            }
+            };
+
+            window.addEventListener("scroll", scrollFunc);
+
+            const scrollToTop = () => {
+            // Let's set a variable for the number of pixels we are from the top of the document.
+            const c = document.documentElement.scrollTop || document.body.scrollTop;
+            
+            // If that number is greater than 0, we'll scroll back to 0, or the top of the document.
+            // We'll also animate that scroll with requestAnimationFrame:
+            // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+            if (c > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                // ScrollTo takes an x and a y coordinate.
+                // Increase the '10' value to get a smoother/slower scroll!
+                window.scrollTo(0, c - c / 10);
+            }
+            };
+
+            // When the button is clicked, run our ScrolltoTop function above!
+            scrollToTopButton.onclick = function(e) {
+            e.preventDefault();
+            scrollToTop();
+            }
+        </script>
+
+        <script>
+            $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+            });
+        </script>
 
         <script>
             $(document).ready(function(){
@@ -910,8 +1001,4 @@
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
-</html><br><br><br><br>
-<?php include('footer.php'); ?>
-    </body>
 </html>
-
