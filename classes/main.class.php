@@ -1220,6 +1220,40 @@ class BMISClass {
         
     }
 
+    public function create_certofres_walkin() {
+
+        if(isset($_POST['create_certofres_walkin'])) {
+            $id_rescert = $_POST['id_rescert'];
+            $lname = $_POST['lname'];
+            $fname = $_POST['fname'];
+            $mi = $_POST['mi'];
+            $age = $_POST['age'];
+            $nationality = $_POST['nationality']; 
+            $houseno = $_POST['houseno'];
+            $street = $_POST['street'];
+            $brgy = $_POST['brgy'];
+            $municipal = $_POST['municipal'];
+            $date = $_POST['date'];
+            $purpose = $_POST['purpose'];
+            
+
+
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("INSERT INTO tbl_rescert (`lname`, `fname`, `mi`, `age`, `nationality`, `houseno`, `street`, `brgy`, `municipal`, `date`, `purpose`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+
+            $stmt->execute([$lname, $fname, $mi, $age, $nationality, $houseno, $street, $brgy, $municipal, $date, $purpose]);
+
+
+            $message2 = "Application Applied!";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
+        }
+        
+        
+    }
+
+
     public function view_certofres(){
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * from tbl_rescert");
