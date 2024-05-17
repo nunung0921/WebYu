@@ -1233,16 +1233,16 @@ class BMISClass {
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
             $municipal = $_POST['municipal'];
-            $date = $_POST['date'];
-            $purpose = $_POST['purpose'];
+            //$date = $_POST['date'];
+            //$purpose = $_POST['purpose'];
             
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_rescert (`lname`, `fname`, `mi`, `age`, `nationality`, `houseno`, `street`, `brgy`, `municipal`, `date`, `purpose`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $connection->prepare("INSERT INTO tbl_rescert (`req_status`, `lname`, `fname`, `mi`, `age`, `nationality`, `houseno`, `street`, `brgy`, `municipal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
-            $stmt->execute([$lname, $fname, $mi, $age, $nationality, $houseno, $street, $brgy, $municipal, $date, $purpose]);
+            $stmt->execute(['approved',$lname, $fname, $mi, $age, $nationality, $houseno, $street, $brgy, $municipal]);
 
 
             $message2 = "Application Applied!";

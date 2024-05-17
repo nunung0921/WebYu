@@ -178,7 +178,7 @@
                                             placeholder="Enter Municipality" value="General Trais" required readonly>
                                 </div>
 
-                                <div class="row">
+                                <!--<div class="row">
 
                                     <div class="col">
                                         <div class="form-group">
@@ -204,7 +204,7 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>  
-                                </div>
+                                </div>-->
                         
                         </div>
                         <!-- Modal Footer -->
