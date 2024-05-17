@@ -76,7 +76,147 @@
             ?>
         </div>
     </div>
-    
+    <button class="btn btn-success" style="width: 95px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add</button>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Business Permit Form</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <!-- Modal Body -->
+
+                        <div class="modal-body">
+                            <form method="post">
+
+                                <div class="row"> 
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="lname">Last Name:</label>
+                                            <input name="lname" style="text-align:left;" type="text" class="form-control" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="fname">First Name:</label>
+                                            <input name="fname" style="text-align:left;" type="text" class="form-control" required>
+                                                <div class="valid-feedback">Valid.</div>
+                                                <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="mi" class="mtop">Middle Name </label>
+                                            <input name="mi" style="text-align:left;" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="bsname">Business Name:</label>
+                                            <input name="bsname" style="text-align:left;" type="text" class="form-control" placeholder="Enter Business Name" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+                                <br>
+
+                                <h6>Business Address:</h6>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> House No: </label>
+                                            <input type="text" style="text-align:left;" class="form-control" name="houseno"  placeholder="Enter House No." required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> Street: </label>
+                                            <input type="text" style="text-align:left;" class="form-control" name="street"  placeholder="Enter Street" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                            <!--<label> Barangay: </label>-->
+                                            <input type="hidden" class="form-control" name="brgy" value="Biclatan" required readonly>
+
+                                            <!--<label> Municipality: </label>-->
+                                            <input type="hidden" class="form-control" name="municipal" value="General Trias" required readonly>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="status">Business Industry:</label>
+                                            <select class="form-control" style="text-align:left;" name="bsindustry" id="status" placeholder="Enter Status" required>
+                                            <option value="">Choose your Business Industry</option>
+                                                <option value="Computer">Computer</option>
+                                                <option value="Telecommunication">Telecommunication</option>
+                                                <option value="Agriculture">Agriculture</option>
+                                                <option value="Construction">Construction</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Pharmaceutical">Pharmaceutical</option>
+                                                <option value="Food">Food</option>
+                                                <option value="HealthCare">HealthCare</option>
+                                                <option value="Hospitality">Hospitality</option>
+                                                <option value="Entertainment">Entertainment</option>
+                                                <option value="News Media">News Media</option>
+                                                <option value="Energy">Energy</option>
+                                                <option value="Manufacturing">Manufacturing</option>
+                                                <option value="Music">Music</option>
+                                                <option value="Mining">Mining</option>
+                                                <option value="WorldWide Web">WorldWide Web</option>
+                                                <option value="Electronics">Electronics</option>
+                                                <option value="Transport">Pharmaceutical</option>
+                                                <option value="Transport">Aerospace</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="aoe" class="mtop">Area of Establishment (SqM): </label>
+                                            <input type="number" style="text-align:left;" name="aoe" class="form-control" placeholder="Enter your AOE" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                        </div>
+
+                        <!-- Modal Footer -->
+            
+                        <div class="modal-footer" style="justify-content: flex-start;">
+                            <div class="paa">
+                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
+                                <button name ="create_bspermit_walkin" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
     <!-- /.container-fluid -->
     
 </div>
