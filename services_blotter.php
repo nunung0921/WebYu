@@ -515,7 +515,7 @@
     <div class="logo">
         <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
     </div>
-    <a class="navbar-brand" href="resident_homepage.php"><b>Webyu</b></a>
+    <a class="navbar-brand" href="resident_homepage.php"><b>WebYu</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -665,7 +665,7 @@
 
         <div class="container container4">
 
-            <h1 class="text-center">Complain</h1>
+            <br><br><h1 class="text-center">Complain</h1>
             
             <hr style="background-color:black;">
 
@@ -691,7 +691,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post" class="was-validated" enctype="multipart/form-data"> 
+                            <form method="post" enctype="multipart/form-data"> 
 
                                 <div class="row"> 
                                     <div class="col">
@@ -715,7 +715,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="mname">Middle name:</label>
-                                            <input name="mi" type="text" class="form-control" value="<?= $userdetails['mname']?>" required>
+                                            <input name="mi" type="text" class="form-control" value="<?= $userdetails['mname']?>">
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>  
                                         </div>
@@ -736,7 +736,7 @@
                                     <div class="col">
                                         <div class="form-group">            
                                             <label for="cno">Contact Number:</label>
-                                            <input name="contact" type="text" maxlength="11" class="form-control" value="<?= $userdetails['contact']?>" pattern="[0-9]{11}" required>
+                                            <input name="contact" type="text" maxlength="11" class="form-control" value="<?= $userdetails['contact']?>" pattern="[0-9]{11}" placeholder="0912-345-6789"required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -764,26 +764,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> Barangay: </label>
-                                            <input type="text" class="form-control" name="brgy"  
+                                            <!--<label> Barangay: </label>-->
+                                            <input type="hidden" class="form-control" name="brgy"  
                                             placeholder="Enter Barangay" value="<?= $userdetails['brgy']?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> Municipality: </label>
-                                            <input type="text" class="form-control" name="municipal" 
+                                    
+                                            <!--<label> Municipality: </label>-->
+                                            <input type="hidden" class="form-control" name="municipal" 
                                             placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
-                                </div>
 
                                 <hr>
 
@@ -819,37 +808,6 @@
                                 </div>
 
                                 <br>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Photo Display:</label>
-                                        <img id="blah" src="http://placehold.it/470x350" alt="your image" />
-                                    </div>
-                                </div>
-
-                                <hr>
-
-                                <h6>Guidelines for Narrative Report:</h6>
-
-                                <p>
-                                    <ul style="font-size: 15px;">
-                                        <li>
-                                            Use simple, everyday words rather than complex terminology.
-                                        </li>
-                                        <li>
-                                            Be specific on your report
-                                        </li>
-                                        <li>
-                                            Don't use bad words
-                                        </li>
-                                        <li>
-                                            Clear and Easy to read report
-                                        </li>
-                                        <li>
-                                            Don't use Emoji or any kind of Symbols. 
-                                        </li>
-                                    </ul>
-                                </p>
                                 
                                 <div class="row">
                                     <div class="col">
@@ -862,7 +820,7 @@
                                     </div>
                                 </div>
 
-                                  <!-- Modal Footer -->
+                                 <!-- Modal Footer -->
             
    <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
                             <div class="paa">
@@ -951,5 +909,4 @@
 <?php include('footer.php'); ?>
     </body>
 </html>
-
 
