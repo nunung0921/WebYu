@@ -458,7 +458,7 @@
                                                     }
                                                 </script>
                                             </td>
-                                            <td> <?= $view['id_rescert'];?> </td>
+                                            <td> <?= $view['id_indigency'];?> </td>
                                             <td> <?= $view['lname'];?> </td>
                                             <td> <?= $view['fname'];?> </td>
                                             <td> <?= $view['mi'];?> </td>
