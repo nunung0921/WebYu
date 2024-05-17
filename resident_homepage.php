@@ -607,11 +607,11 @@
         <!--Copyright-->
 
         <div class="py-3 text-center">
-            Copyright 2023 -
+            Copyright 2023 
             <script>
             document.write(new Date().getFullYear())
             </script> 
-              | Barangay Yuson Information Management System
+              | <a href="dev.html"></a>WebYu Team</a>
         </div>
 
     </footer>
