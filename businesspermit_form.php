@@ -1,9 +1,10 @@
 <?php
+ini_set('display_errors', 0);
 require('classes/resident.class.php');
 $userdetails = $residentbmis->get_userdata();
-$id_resident = $_GET['id_resident'];
-$resident = $residentbmis->get_single_bspermit($id_resident);
-  ?>
+$id_permit = $_GET['id_bspermit'];
+$resident = $bmis->get_single_bspermit_walkin($id_bspermit);
+?>
 <!DOCTYPE html>
 <html id="clearance">
 <!-- Add this <img> tag to include the background image -->
