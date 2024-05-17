@@ -15,7 +15,7 @@
 <html>
 
     <head> 
-    <title> Barangay Yuson Information Management System </title>
+    <title> Barangay Biclatan Information System </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <!-- responsive tags for screen compatibility -->
@@ -467,7 +467,7 @@
                                 <div class="form-inline">
                                     <input class="form-control" name="lname" type="hidden" value="<?= $resident['lname'];?>"/>
                                     <input class="form-control" name="mi" type="hidden" value="<?= $resident['mi'];?>" />
-                                    <button type="submit button" class="btn btn-info" style="margin-left: 37%; width:143px;"  name="search_household">View Household</button>
+                                    <!--<button type="submit button" class="btn btn-info" style="margin-left: 37%; width:143px;"  name="search_household">View Household</button>-->
                                     <button class="btn btn-primary" style="margin-left: .2%; width:143px;" type="submit" name="profile_update"> Update </button>
                                     <a href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"></a>   
                                     <div>
@@ -499,7 +499,26 @@
                     <!--Fourth column-->
 
                     <div class="col-md-3 mx-auto shfooter" id="down">
+                    <img src="icons/yuson1.png" alt="Person" width="96" height="96">
                         <h5 class="my-2 font-weight-bold d-none d-md-block">Barangay Yuson | 041-526-7382 </h5>
+                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
+                        <div class="mt-3 font-weight-bold">Contact Us:
+                            <div class="float-right navbar-toggler">
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-up"></i>
+                            </div>
+                        </div>
+                        </div>
+                        <ul class="list-unstyled collapse" id="Contact-Us">
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                            <img src="icons/yuson1.png" alt="Person" width="96" height="96">
+                                        Barangay Yuson | 041-526-7382
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
              <!--/.Footer Links-->
@@ -513,7 +532,7 @@
                 <script>
                 document.write(new Date().getFullYear())
                 </script> 
-                  | Barangay Yuson Information Management System
+                  | Barangay Biclatan Information System
             </div>
             
             <button id="scrollTopBtn" onclick="scrollToTop()">
