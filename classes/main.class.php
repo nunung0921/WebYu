@@ -1783,7 +1783,7 @@ public function create_travelpermit() {
     public function archive_clearance(){
         $id_clearance = $_POST['id_clearance'];
 
-        if(isset($_POST['archive_rescert'])) {
+        if(isset($_POST['archive_clearance'])) {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'archived' where id_clearance = ?");
             $stmt->execute([$id_clearance]);
