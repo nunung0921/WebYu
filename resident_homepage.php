@@ -568,10 +568,16 @@
                 <!--Fourth column-->
 
                 <div class="col-md-3 mx-auto shfooter" id="down">
-                <div class="chip" style="font-size:10px;">
+                <ul class="list-unstyled collapse" id="Contact-Us">
+                        <li>
+                            <div class="zoom">
+                                <div class="chip" style="font-size:10px;">
                                         <img src="icons/yuson1.png" alt="Person" width="96" height="96">
                                     Barangay Yuson | 041-526-7382
                                 </div>
+                            </div>
+                        </li>
+                    </ul>
                     <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
                     <div class="mt-3 font-weight-bold">Contact Us:
                         <div class="float-right navbar-toggler">
