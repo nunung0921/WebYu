@@ -334,25 +334,14 @@
     <li class="nav-item">
         <a href="resident_homepage.php" class="nav-link">HOME</a>
     </li>
-    <li class="nav-item">
-        <a href="#down3" class="nav-link">PROCEDURE</a>
-    </li>
-    <li class="nav-item">
-        <a href="#down1" class="nav-link">REGISTRATION</a>
-    </li>
 </ul>
 </div>
 
-<div class="dropdown ml-auto">
-        <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-            <span class="caret" style="margin-left: 2px;"></span>
-        </button>
-        <ul class="dropdown-menu" style="width: 175px;">
-            <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
-            <!--<li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>-->
-            <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
-        </ul>
-    </div>
+<button title="Your Account" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+  <?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+  <span class="caret"></span>
+</button>
+
 </nav>
 
         <div class="container"> 
