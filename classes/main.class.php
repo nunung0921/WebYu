@@ -1733,7 +1733,7 @@ public function create_travelpermit() {
 
     public function view_clearance_archive(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_clearance WHERE req_status = 'approved'");
+        $stmt = $connection->prepare("SELECT * from tbl_clearance WHERE req_status = 'archived'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
