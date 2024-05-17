@@ -5,6 +5,7 @@
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
+    $bmis->create_bspermit_walkin();
     $bmis->delete_bspermit();
     $bmis->archive_bspermit();
     $view = $bmis->view_bspermit();
@@ -148,10 +149,10 @@
                                     </div>
 
                                             <!--<label> Barangay: </label>-->
-                                            <input type="hidden" class="form-control" name="brgy" value="Biclatan" required readonly>
+                                            <input type="hidden" class="form-control" name="brgy" value="Yuson" required readonly>
 
                                             <!--<label> Municipality: </label>-->
-                                            <input type="hidden" class="form-control" name="municipal" value="General Trias" required readonly>
+                                            <input type="hidden" class="form-control" name="municipal" value="Guimba" required readonly>
                                 </div>
 
                                 <div class="row">
