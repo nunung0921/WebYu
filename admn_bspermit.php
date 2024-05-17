@@ -83,7 +83,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post" onsubmit="return validateForm()">
+                            <form method="post">
 
                                 <div class="row"> 
 
@@ -117,6 +117,14 @@
                                         <div class="form-group">
                                             <label> Age </label>
                                             <input type="text" style="text-align:left;" class="form-control" name="age" id="age" placeholder="Enter age" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> Civil Status </label>
+                                            <input type="text" style="text-align:left;" class="form-control" name="status" placeholder="Enter Status" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -245,34 +253,6 @@
 <!-- fontawesome icons -->
 <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
 <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
-<script>
-    function validateForm() {
-        var ageInput = document.getElementById('age').value;
-        var age = parseInt(ageInput);
-
-        // Check if the input is a number
-        if (isNaN(age)) {
-            alert("Please enter a valid age.");
-            return false;
-        }
-
-        // Check if the age is non-negative
-        if (age &lt; 0) {
-            alert("Age cannot be negative.");
-            return false;
-        }
-
-        // Check if the age is below the minimum threshold (e.g., 18 years)
-        var minAge = 18;
-        if (age &lt; minAge) {
-            alert("You must be at least " + minAge + " years old.");
-            return false;
-        }
-
-        // If all validations pass, return true to submit the form
-        return true;
-    }
-</script>
 <?php 
     include('dashboard_sidebar_end.php');
 ?>

@@ -1556,6 +1556,7 @@ public function create_travelpermit() {
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
             $age = $_POST['age'];
+            $status = $_POST['status'];
             $bsname = $_POST['bsname']; 
             //$houseno = $_POST['houseno'];
             //$street = $_POST['street'];
@@ -1566,11 +1567,11 @@ public function create_travelpermit() {
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`req_status`, `lname`, `fname`, `mi`, `age`,
+            $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`req_status`, `lname`, `fname`, `mi`, `age`, `status`,
              `bsname`, `brgy`, `municipal`, `bsindustry`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute(['approved', $lname, $fname, $mi, $age, $bsname, $brgy, $municipal, $bsindustry]);
+            $stmt->execute(['approved', $lname, $fname, $mi, $age, $status, $bsname, $brgy, $municipal, $bsindustry]);
 
             $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
