@@ -420,6 +420,14 @@ public function profile_update_admin() {
         return $view;
     }
 
+    public function archive_certofres(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_rescert WHERE req_status = 'archived'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
     public function view_resident_widow(){
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Widowed' and request_status = 'approved'");

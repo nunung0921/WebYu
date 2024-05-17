@@ -38,7 +38,7 @@
                     <form action="" method="post">
                         <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
                         <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
-                        <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="delete_certofres"> Archive </button>
+                        <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="archive_rescert"> Archive </button>
                     </form>
                 </td>
                 <td> <?= $view['id_resident'];?> </td> 
@@ -93,7 +93,7 @@
                             <form action="" method="post">
                                 <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
                                 <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
-                                <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="delete_certofres"> Archive </button>
+                                <button class="btn btn-danger" type="submit" style="width: 90px; font-size: 17px; border-radius:30px;" name="archive_rescert"> Archive </button>
                             </form>
                         </td>
                         <td> <?= $view['id_resident'];?> </td> 

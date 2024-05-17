@@ -1274,7 +1274,15 @@ class BMISClass {
 
     public function view_certofres(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_rescert");
+        $stmt = $connection->prepare("SELECT * from tbl_rescert WHERE req_status='approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_certofres_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_rescert WHERE req_status='archived'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
@@ -1686,6 +1694,14 @@ public function create_travelpermit() {
         return $view;
     }
 
+    public function view_rescert_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_rescert WHERE req_status = 'archived'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
 
     public function delete_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
@@ -1713,6 +1729,20 @@ public function create_travelpermit() {
         }
     }
 
+    public function archive_rescert(){
+        $id_rescert = $_POST['id_rescert'];
+
+        if(isset($_POST['archive_rescert'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_rescert SET req_status = 'archived' where id_rescert = ?");
+            $stmt->execute([$id_rescert]);
+
+            $message2 = "Certificate of Residency Data Archived";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
     public function approve_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
 
@@ -1720,6 +1750,20 @@ public function create_travelpermit() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_bspermit SET req_status = 'approved' where id_bspermit = ?");
             $stmt->execute([$id_bspermit]);
+
+            $message2 = "Restored Successfully";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
+    public function approve_rescert(){
+        $id_rescert = $_POST['id_rescert'];
+
+        if(isset($_POST['approve_bspermit'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_rescert SET req_status = 'approved' where id_rescert = ?");
+            $stmt->execute([$id_rescert]);
 
             $message2 = "Restored Successfully";
             echo "<script type='text/javascript'>alert('$message2');</script>";
