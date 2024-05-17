@@ -499,7 +499,7 @@
                     <!--Fourth column-->
 
                     <div class="col-md-3 mx-auto shfooter" id="down">
-                    <img src="assets/golo.png" alt="Person" width="96" height="96">
+                    <img src="icons/yuson1.png" alt="Person" width="96" height="96">
                         <h5 class="my-2 font-weight-bold d-none d-md-block">Barangay Yuson | 041-526-7382 </h5>
                         <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
                         <div class="mt-3 font-weight-bold">Contact Us:
@@ -513,8 +513,8 @@
                             <li>
                                 <div class="zoom">
                                     <div class="chip" style="font-size:10px;">
-                                            <img src="assets/golo.png" alt="Person" width="96" height="96">
-                                        Barangay Biclatan | (046) 509 1644
+                                            <img src="icons/yuson1.png" alt="Person" width="96" height="96">
+                                        Barangay Yuson | 041-526-7382 
                                     </div>
                                 </div>
                             </li>
