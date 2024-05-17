@@ -1,269 +1,363 @@
 <?php 
+    ini_set('display_errors', 1);
     error_reporting(E_ALL ^ E_WARNING);
+    require('classes/main.class.php');
     require('classes/resident.class.php');
-    ini_set('display_errors',0);
-    $userdetails = $residentbmis->get_userdata();
-    $id_resident = $_GET['id_resident'];
-    $resident = $residentbmis->get_single_resident($id_resident);
     
-
-    $residentbmis->profile_update();
-
+    $userdetails = $bmis->get_userdata();
+    $bmis->create_certofres();
 ?>
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
+
 <html>
+  <head> 
+    <title> Barangay Yuson Information Management System </title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
+      <!-- responsive tags for screen compatibility -->
+      <meta name="viewport" content="width=device-width, initial-scale=1"><!-- bootstrap css --> 
+      <link href="bootstrap.css" rel="stylesheet" type="text/css">
+      <!-- fontawesome icons --> 
+      <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
+  
+        <style>
 
-    <head> 
-    <title> Barangay Biclatan Information System </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <!-- responsive tags for screen compatibility -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- custom css --> 
-        <link href="customcss/pagestyle.css" rel="stylesheet" type="text/css">
-        <!-- bootstrap css --> 
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-        <!-- fontawesome icons --> 
-        <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
+            /* Navbar Buttons */
 
+            .btn1 {
+            border-radius: 20px;
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            margin-left: 13%;
+            padding: 8px 22px;
+            }
 
+            .btn2 {
+            border-radius: 20px;
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            padding: 8px 22px;
+            margin-left: .1%;
+            }
 
-    <style>
+            .btn3 {
+            border-radius: 20px;
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            padding: 8px 22px;
+            margin-left: .1%;
+            }
 
-        /* Back-to-Top */
+            .btn4 {
+            border-radius: 20px;
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            padding: 8px 22px;
+            margin-left: .1%;
+            }
 
-        .top-link {
-        transition: all 0.25s ease-in-out;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        display: inline-flex;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        margin: 0 3em 3em 0;
-        border-radius: 50%;
-        padding: 0.25em;
-        width: 80px;
-        height: 80px;
-        background-color: #3661D5;
-        }
-        .top-link.show {
-        visibility: visible;
-        opacity: 1;
-        }
-        .top-link.hide {
-        visibility: hidden;
-        opacity: 0;
-        }
-        .top-link svg {
-        fill: white;
-        width: 24px;
-        height: 12px;
-        }
-        .top-link:hover {
-        background-color: #3498DB;
-        }
-        .top-link:hover svg {
-        fill: #000000;
-        }
+            .btn5 {
+            border-radius: 20px;
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            padding: 8px 22px;
+            margin-left: .1%;
+            }
 
-        .screen-reader-text {
-        position: absolute;
-        clip-path: inset(50%);
-        margin: -1px;
-        border: 0;
-        padding: 0;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        word-wrap: normal !important;
-        clip: rect(1px, 1px, 1px, 1px);
-        }
-        .screen-reader-text:focus {
-        display: block;
-        top: 5px;
-        left: 5px;
-        z-index: 100000;
-        clip-path: none;
-        background-color: #eee;
-        padding: 15px 23px 14px;
-        width: auto;
-        height: auto;
-        text-decoration: none;
-        line-height: normal;
-        color: #444;
-        font-size: 1em;
-        clip: auto !important;
-        }
+            /* Darker background on mouse-over */
+            .btn1:hover {
+            background-color: RoyalBlue;
+            color: black;
+            }
 
-        /* Navbar Buttons */
+            .btn2:hover {
+            background-color: RoyalBlue;
+            color: black;
+            }
 
-        .btn3 {
-        border-radius: 20px;
-        border: none; /* Remove borders */
-        color: white; /* White text */
-        font-size: 16px; /* Set a font size */
-        cursor: pointer; /* Mouse pointer on hover */
-        margin-left: 15%;
-        padding: 8px 22px;
-        }
+            .btn3:hover {
+            background-color: RoyalBlue;
+            color: black;
+            }
 
-        .btn4 {
-        border-radius: 20px;
-        border: none; /* Remove borders */
-        color: white; /* White text */
-        font-size: 16px; /* Set a font size */
-        cursor: pointer; /* Mouse pointer on hover */
-        padding: 8px 22px;
-        margin-left: .1%;
-        }
+            .btn4:hover {
+            background-color: RoyalBlue;
+            color: black;
+            }
 
-        .btn5 {
-        border-radius: 20px;
-        border: none; /* Remove borders */
-        color: white; /* White text */
-        font-size: 16px; /* Set a font size */
-        cursor: pointer; /* Mouse pointer on hover */
-        margin-left: .1%;
-        padding: 8px 22px;
-        }
+            .btn5:hover {
+            background-color: RoyalBlue;
+            color: black;
+            }
 
-        .btn6 {
-        border-radius: 20px;
-        border: none; /* Remove borders */
-        color: white; /* White text */
-        font-size: 16px; /* Set a font size */
-        cursor: pointer; /* Mouse pointer on hover */
-        padding: 8px 22px;
-        margin-left: .1%;
-        }
+            /* Back-to-Top */
 
+            .top-link {
+            transition: all 0.25s ease-in-out;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            display: inline-flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            margin: 0 3em 3em 0;
+            border-radius: 50%;
+            padding: 0.25em;
+            width: 80px;
+            height: 80px;
+            background-color: #3661D5;
+            }
+            .top-link.show {
+            visibility: visible;
+            opacity: 1;
+            }
+            .top-link.hide {
+            visibility: hidden;
+            opacity: 0;
+            }
+            .top-link svg {
+            fill: white;
+            width: 24px;
+            height: 12px;
+            }
+            .top-link:hover {
+            background-color: #3498DB;
+            }
+            .top-link:hover svg {
+            fill: #000000;
+            }
 
-        /* Darker background on mouse-over */
+            .screen-reader-text {
+            position: absolute;
+            clip-path: inset(50%);
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            word-wrap: normal !important;
+            clip: rect(1px, 1px, 1px, 1px);
+            }
+            .screen-reader-text:focus {
+            display: block;
+            top: 5px;
+            left: 5px;
+            z-index: 100000;
+            clip-path: none;
+            background-color: #eee;
+            padding: 15px 23px 14px;
+            width: auto;
+            height: auto;
+            text-decoration: none;
+            line-height: normal;
+            color: #444;
+            font-size: 1em;
+            clip: auto !important;
+            }
 
-        .btn3:hover {
-        background-color: RoyalBlue;
-        color: black;
-        }
+            .container1
+            {
+                background-color: #3498DB;
+                height: 342px;
+                color: black;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
 
-        .btn4:hover {
-        background-color: RoyalBlue;
-        color: black;
-        }
+            .applybutton
+            {
+                width: 100% !important;
+                height: 50px !important;
+                border-radius: 20px;
+                margin-top: 5%;
+                margin-bottom: 8%;
+                font-size: 25px;
+                letter-spacing: 2px;
+            }
 
-        .btn5:hover {
-        background-color: RoyalBlue;
-        color: black;
-        }
+            .paa
+            {
+                margin-top: 10px;
+                position: relative;
+                left: -28%;
+            }
 
-        .btn6:hover {
-        background-color: RoyalBlue;
-        color: black;
-        }
+            .text1{
+                margin-top: 30px;
+                font-size: 50px;
+            }
 
-        .footerlinks{
-        color:white;
-        }
-        .shfooter .collapse {
-            display: inherit;
-        }
-            @media (max-width:767px) {
-        .shfooter ul {
-                margin-bottom: 0;
-        }
+            .picture{
+                height: 120px;
+                width: 120px;
+            }
 
-        .shfooter .collapse {
-                display: none;
-        }
+            /* width */
+            ::-webkit-scrollbar {
+            width: 5px;
+            }
 
-        .shfooter .collapse.show {
-                display: block;
-        }
+            /* Track */
+            ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: #888; 
+            }
 
-        .shfooter .title .fa-angle-up,
-        .shfooter .title[aria-expanded=true] .fa-angle-down {
-                display: none;
-        }
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+            }
 
-        .shfooter .title[aria-expanded=true] .fa-angle-up {
-                display: block;
-        }
+            .card4 {
+                width: 250px;
+                height: 210px;
+                overflow: hidden;
+                margin: auto;
+                color: white;
+            }
 
-        .shfooter .navbar-toggler {
-                display: inline-block;
-                padding: 0;
-        }
+            .card3 {
+                width: 250px;
+                height: 210px;
+                overflow: hidden;
+                margin: auto;
+                color: white;
+            }
 
-        }
+            .card2 {
+                width: 250px;
+                height: 210px;
+                overflow: auto;
+                margin: auto;
+                color: white;
+            }
 
-        .resize {
-            text-align: center;
-        }
-        .resize {
-            margin-top: 3rem;
-            font-size: 1.25rem;
-        }
-        /*RESIZESCREEN ANIMATION*/
-        .fa-angle-double-right {
-            animation: rightanime 1s linear infinite;
-        }
+            .card1 {
+                width: 250px;
+                height: 210px;
+                overflow: auto;
+                margin: auto;
+                color: white;
+            }
 
-        .fa-angle-double-left {
-            animation: leftanime 1s linear infinite;
-        }
-        @keyframes rightanime {
-            50% {
-                transform: translateX(10px);
-                opacity: 0.5;
-        }
-            100% {
-                transform: translateX(10px);
-                opacity: 0;
-        }
-        }
-        @keyframes leftanime {
-            50% {
-                transform: translateX(-10px);
-                opacity: 0.5;
-        }
-            100% {
-                transform: translateX(-10px);
-                opacity: 0;
-        }
-        }
+            a{
+                color:white;
+                }
+            .shfooter .collapse {
+                display: inherit;
+            }
+                @media (max-width:767px) {
+            .shfooter ul {
+                    margin-bottom: 0;
+            }
 
-        /* Contact Chip */
+            .shfooter .collapse {
+                    display: none;
+            }
 
-        .chip {
-        display: inline-block;
-        padding: 0 25px;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 25px;
-        background-color: #2C54C1;
-        margin-top: 5px;
-        }
+            .shfooter .collapse.show {
+                    display: block;
+            }
 
-        .chip img {
-        float: left;
-        margin: 0 10px 0 -25px;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        }
+            .shfooter .title .fa-angle-up,
+            .shfooter .title[aria-expanded=true] .fa-angle-down {
+                    display: none;
+            }
 
-        .zoom {
-        transition: transform .3s;
-        }
+            .shfooter .title[aria-expanded=true] .fa-angle-up {
+                    display: block;
+            }
 
-        .zoom:hover {
-        -ms-transform: scale(1.4); /* IE 9 */
-        -webkit-transform: scale(1.4); /* Safari 3-8 */
-        transform: scale(1.4); 
-        }
-        /* Scroll to top button styles */
+            .shfooter .navbar-toggler {
+                    display: inline-block;
+                    padding: 0;
+            }
+
+            }
+
+            .resize {
+                text-align: center;
+            }
+            .resize {
+                margin-top: 3rem;
+                font-size: 1.25rem;
+            }
+            /*RESIZESCREEN ANIMATION*/
+            .fa-angle-double-right {
+                animation: rightanime 1s linear infinite;
+            }
+
+            .fa-angle-double-left {
+                animation: leftanime 1s linear infinite;
+            }
+            @keyframes rightanime {
+                50% {
+                    transform: translateX(10px);
+                    opacity: 0.5;
+            }
+                100% {
+                    transform: translateX(10px);
+                    opacity: 0;
+            }
+            }
+            @keyframes leftanime {
+                50% {
+                    transform: translateX(-10px);
+                    opacity: 0.5;
+            }
+                100% {
+                    transform: translateX(-10px);
+                    opacity: 0;
+            }
+            }
+
+            /* Contact Chip */
+
+            .chip {
+            display: inline-block;
+            padding: 0 25px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 25px;
+            background-color: #2C54C1;
+            margin-top: 5px;
+            }
+
+            .chip img {
+            float: left;
+            margin: 0 10px 0 -25px;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            }
+
+            .zoom {
+            transition: transform .3s;
+            }
+
+            .zoom:hover {
+            -ms-transform: scale(1.4); /* IE 9 */
+            -webkit-transform: scale(1.4); /* Safari 3-8 */
+            transform: scale(1.4); 
+            }
+            /* Scroll to top button styles */
 #scrollTopBtn {
     display: none;
     position: fixed;
@@ -294,9 +388,6 @@
         font-size: 30px; /* Adjust font size for smaller screens */
     }
 }
-
-
-
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     #scrollTopBtn {
@@ -307,16 +398,49 @@
     }
 }
 
-    </style>
-    <body> 
+        </style>
+  </head>
+
+    <body>
 
         <!-- Back-to-Top and Back Button -->
 
-    
+        <a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+            <span class="screen-reader-text">Back to top</span>
+        </a>
 
-       <!-- Eto yung navbar -->
+        <!-- Eto yung navbar -->
+<style>
 
-       <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+.text1 {
+    font-size: 2.5rem;
+}
+
+.text2 {
+    font-size: 1.1rem;
+}
+
+.picture {
+    width: 100px;
+    height: auto;
+}
+
+        </style>
+  </head>
+
+    <body>
+
+        <!-- Back-to-Top and Back Button -->
+
+        <a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+            <span class="screen-reader-text">Back to top</span>
+        </a>
+
+        <!-- Eto yung navbar -->
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="logo">
         <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
     </div>
@@ -331,10 +455,10 @@
                 <a href="resident_homepage.php" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="#down3" class="nav-link">Personal Info</a>
+                <a href="#down3" class="nav-link">PROCEDURE</a>
             </li>
             <li class="nav-item">
-                <a href="#down1" class="nav-link">Update Info</a>
+                <a href="#down1" class="nav-link">REGISTRATION</a>
             </li>
         </ul>
     </div>
@@ -351,9 +475,6 @@
     </div>
 </nav>
 
-        <div id="down2"></div>
-
-        <br>
 
         <div class="container"> 
             <div class="card" style="margin-top: 2em;">  
@@ -502,60 +623,45 @@
         <br>
         <br>
 
-        <!-- Footer -->
-
-        <footer id="footer" class="bg-primary text-white d-flex-column text-center">
-            <hr class="mt-0">
-
+                     <!-- Modal Footer -->
             
-                    <!--/.Third column-->
-
-                    <hr class="clearfix w-100 d-md-none mb-0">
- 
-                    <!--Fourth column-->
-
-                    <div class="col-md-3 mx-auto shfooter" id="down">
-                        <h5 class="my-2 font-weight-bold d-none d-md-block">Contact Us:</h5>
-                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
-                        <div class="mt-3 font-weight-bold">Contact Us:
-                            <div class="float-right navbar-toggler">
-                            <i class="fas fa-angle-down"></i>
-                            <i class="fas fa-angle-up"></i>
+                     <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
+                            <div class="paa">
+                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
+                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                
                             </div>
-                        </div>
-                        </div>
-                        <ul class="list-unstyled collapse" id="Contact-Us">
-                            <li>
-                                <div class="zoom">
-                                    <div class="chip" style="font-size:10px;">
-                                            <img src="assets/golo.png" alt="Person" width="96" height="96">
-                                        Barangay Biclatan | (046) 509 1644
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        </div> 
                     </div>
-
-             <!--/.Footer Links-->
-
-            <hr class="mb-0">
-
-            <!--Copyright-->
-
-            <div class="py-3 text-center">
-                Copyright 2023 -
-                <script>
-                document.write(new Date().getFullYear())
-                </script> 
-                  | Barangay Biclatan Information System
+                </div>
             </div>
-            
-            <button id="scrollTopBtn" onclick="scrollToTop()">
+        </div>
+        </form>
+
+
+        
+        <button id="scrollTopBtn" onclick="scrollToTop()">
                 <i class="fas fa-angle-up"></i>
     </button>
-            </footer>
+<style>
+ #footer {
+        width: 100%;
+        bottom: 0;
+        position: relative;
+    }
 
-            <script>
+    @media (max-width: 768px) {
+        #footer {
+            position: absolute;
+        }
+    }
+</style>
+
+        <!-- Footer -->
+
+      
+        <script>
       // Function to scroll to the top of the page
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -571,12 +677,6 @@
         }
       };
     </script>
-
-        <script>
-            $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-            });
-        </script>
 
         <script>
             $(document).ready(function(){
@@ -608,4 +708,8 @@
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
+</html><br><br><br><br>
+<?php include('footer.php'); ?>
+    </body>
 </html>
+
