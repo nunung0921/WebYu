@@ -7,6 +7,7 @@
     $bmis->validate_admin();
     $bmis->create_brgyclearance_walkin();
     $bmis->delete_clearance();
+    $bmis->archive_clearance();
     $view = $bmis->view_clearance();
     $id_resident = $_GET['id_resident'];
     $resident = $residentbmis->get_single_clearance($id_resident);
