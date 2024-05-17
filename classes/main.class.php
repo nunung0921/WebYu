@@ -1568,7 +1568,7 @@ public function create_travelpermit() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`req_status`, `lname`, `fname`, `mi`, `age`,
              `bsname`, `brgy`, `municipal`, `bsindustry`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             $stmt->execute(['approved', $lname, $fname, $mi, $age, $bsname, $brgy, $municipal, $bsindustry]);
 
