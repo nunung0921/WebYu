@@ -309,11 +309,11 @@
             /* Card Flip */
 
             .container3{
+                margin-left: 10px;
                 margin-top: 3%;
             }
 
             .flip-card {
-                position: center;
                 background-color: transparent;
                 width: 300px;
                 height: 300px;
