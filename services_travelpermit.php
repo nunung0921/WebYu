@@ -479,28 +479,24 @@
     </div>
 </nav>
 
-<div class="container-fluid container1"> 
+<div class="container-fluid container1"style="height:450px; background-color: #ececec;"> 
             <div class="row"> 
-                <div class="col"> 
+                <div class="col" style="background-color: #ececec;"> 
                     <div class="header">
-                        <h1 class="text1">Livestock Travel Permit</h1>
+                        <h1 class="text1">Business Permit (Mayor's Permit) </h1>
                         <h5>The described livestock is permitted to travel from one location to another.<br>It serves as an authorization for the transportation of livestock and ensures compliance with <br>regulations and standards regarding animal movement and health.</h5>
                     </div>
 
-
                     <br>
 
-                    <img class="picture" src="icons/Documents/docu1.png">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img class="picture" src="icons/Documents/docu3.png">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img class="picture" src="icons/Documents/docu2.png">
+                    <div class="d-flex justify-content-center">
+                <img class="picture" src="icons/Documents/docu1.png" alt="Document 1">&nbsp;
+                <img class="picture" src="icons/Documents/docu3.png" alt="Document 3">&nbsp;
+                <img class="picture" src="icons/Documents/docu2.png" alt="Document 2">&nbsp;
+            </div>
                 </div>
             </div>
         </div>
-
         <div id="down3"></div>
 
         <br>

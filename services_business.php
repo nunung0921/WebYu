@@ -426,7 +426,7 @@
             <div class="row"> 
                 <div class="col" style="background-color: #ececec;"> 
                     <div class="header">
-                        <h1 class="text1">Business Permit (Mayor's Permit) </h1>
+                        <h1 class="text1">Business Permit </h1>
                         <h5> Before you can start operating your business in the Philippines, you need to secure 
                         <br> a Mayor’s Permit or Business Permit from the Local Government Unit (LGU) where your 
                         <br> company office is located. </h5>
