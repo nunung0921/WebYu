@@ -492,7 +492,7 @@
                     </a>
                 </div>
                 
-                <div class="col"> 
+                <div class="col" style="height:10px;"> 
                     <a href="services_certofindigency.php?id_resident=<?= $userdetails['id_resident'];?>">
                         <div class="zoom1">
                             <div class="card"> 
