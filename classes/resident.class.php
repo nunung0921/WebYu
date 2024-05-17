@@ -122,6 +122,8 @@
             }
         }
 
+
+
     //-------------------------------- EXTRA FUNCTIONS FOR RESIDENT CLASS ---------------------------------
 
     
@@ -405,6 +407,14 @@ public function profile_update_admin() {
     public function view_resident_single(){
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE status = 'Single' and request_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE request_status = 'archived'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
