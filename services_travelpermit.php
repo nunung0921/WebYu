@@ -527,12 +527,11 @@
                     <h3>Step 1: Fill-Up</h3>
                     <p>First step is to Fill-Up the entire form in our system.</p>
                 </div>
-
+                <br>
+                    <br>
                 <div class="col">
                     <i class="fas fa-user-check fa-4x"></i>
 
-                    <br>
-                    <br>
                     <br>
                     <br>
                     <h3>Step 2: Assessment</h3>
