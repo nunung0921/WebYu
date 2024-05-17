@@ -306,50 +306,71 @@
                 left: -28%;
             }
 
-            /* Card Flip */
+           /* Card Flip */
+.container3 {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-            .container3{
-                margin-top: 3%;
-            }
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 10px; /* Add some margin for spacing between cards */
+}
 
-            .flip-card {
-                background-color: transparent;
-                width: 300px;
-                height: 300px;
-                perspective: 1000px;
-            }
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
 
-            .flip-card-inner {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                text-align: center;
-                transition: transform 0.6s;
-                transform-style: preserve-3d;
-                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            }
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
 
-            .flip-card:hover .flip-card-inner {
-                transform: rotateY(180deg);
-            }
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 
-            .flip-card-front, .flip-card-back {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-            }
+.flip-card-front {
+    color: white;
+}
 
-            .flip-card-front {
-                color: white;
-            }
+.flip-card-back {
+    padding: 7px;
+    color: white;
+    transform: rotateY(180deg);
+}
 
-            .flip-card-back {
-                padding: 7px;
-                color: white;
-                transform: rotateY(180deg);
-            }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .flip-card {
+        max-width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flip-card {
+        max-width: 200px;
+        height: 200px;
+    }
+}
+
 
             /* Footer */
 
