@@ -484,14 +484,13 @@
                         <div class="zoom1">
                             <div class="card"> 
                                 <div class="card-body text-center"> 
-                                    <img src="icons/ResidentHomepage/indigency.png">
-                                    <h4> Certificate of Indigency </h4>
+                                    <img src="icons/ResidentHomepage/residents.png">
+                                    <h4> Travel Permit </h4>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-
 
                 
                 <div class="col"> 
