@@ -308,38 +308,51 @@
 }
 
     </style>
-    <body> 
+    <body>
 
-        <!-- Back-to-Top and Back Button -->
+<!-- Back-to-Top and Back Button -->
 
-     
+<a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+    <span class="screen-reader-text">Back to top</span>
+</a>
 
-        <!-- Eto yung navbar -->
+<!-- Eto yung navbar -->
 
-        <nav class="navbar navbar-dark bg-primary sticky-top">
-            <div class="logo">
-            <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
-          </div>
-            <a class="navbar-brand" href="resident_homepage.php" style="margin-left:10px;"><b>Barangay Biclatan Information System</b></a>
-            <a href="resident_homepage.php" title="Home" class="btn3 bg-primary" style="color: white; margin-left:130px;"><b>HOME</b></a>
-            <a href="#down2" class="btn3 bg-primary" style="color: white; margin-left: 10px;"><b>VIEW INFO</b></a>
-            <a href="#down1"  class="btn3 bg-primary" style="color: white; margin-left: 25px;"><b>UPDATE INFO</b></a>
-           
-            <div class="dropdown ml-auto">
-                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-                    <span class="caret" style="margin-left: 2px;"></span>
-                </button>
-                <ul class="dropdown-menu" style="width: 175px;" >
-                    <a class="btn" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
-                    <!--<a class="btn" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>-->
-                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
-                </ul>
-            </div>
-        </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<div class="logo">
+<a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+</div>
+<a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a href="resident_homepage.php" class="nav-link">HOME</a>
+    </li>
+    <li class="nav-item">
+        <a href="#down3" class="nav-link">PROCEDURE</a>
+    </li>
+    <li class="nav-item">
+        <a href="#down1" class="nav-link">REGISTRATION</a>
+    </li>
+</ul>
+</div>
 
-        <div id="down2"></div>
-
-        <br>
+<div class="dropdown ml-auto">
+<button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+    <span class="caret" style="margin-left: 2px;"></span>
+</button>
+<ul class="dropdown-menu" style="width: 175px;">
+    <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
+    <!--<li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>-->
+    <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+</ul>
+</div>
+</nav>
 
         <div class="container"> 
             <div class="card" style="margin-top: 2em;">  
