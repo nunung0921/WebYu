@@ -800,6 +800,20 @@
                                 
                                 <div class="row">
                                     <div class="col">
+                                        <label>Supporting Evidence Photo:</label>
+                                        <div class="custom-file form-group">
+                                            <input type="file" onchange="readURL(this);" class="custom-file-input" id="customFile" name="blot_photo" required>
+                                            <label class="custom-file-label" for="customFile">Choose File Photo</label>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+                                
+                                <div class="row">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label for="report">Narrative Report:</label>
                                             <textarea class="form-control" rows="5" id="report" name="narrative" placeholder="Enter Message here" required></textarea>
