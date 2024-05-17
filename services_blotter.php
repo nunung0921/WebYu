@@ -776,38 +776,27 @@
 
                                 <hr>
 
-                                <h6>Guidelines for Supporting Evidence Photo:</h6>
+                                <h6>Guidelines for Narrative Report:</h6>
 
                                 <p>
                                     <ul style="font-size: 15px;">
                                         <li>
-                                            Good quality photo.
+                                            Use simple, everyday words rather than complex terminology.
                                         </li>
                                         <li>
-                                            At least 50KB and no more than 50MB.
+                                            Be specific on your report
                                         </li>
                                         <li>
-                                            File Format: JPEG or PNG
+                                            Don't use bad words
                                         </li>
                                         <li>
-                                            Clear and in focus.
+                                            Clear and Easy to read report
+                                        </li>
+                                        <li>
+                                            Don't use Emoji or any kind of Symbols. 
                                         </li>
                                     </ul>
                                 </p>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Supporting Evidence Photo:</label>
-                                        <div class="custom-file form-group">
-                                            <input type="file" onchange="readURL(this);" class="custom-file-input" id="customFile" name="blot_photo" required>
-                                            <label class="custom-file-label" for="customFile">Choose File Photo</label>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <br>
                                 
                                 <div class="row">
                                     <div class="col">
@@ -819,7 +808,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                </form>
+
+                                <div class="modal-footer" style="justify-content: flex-start; margin-left:105px; width: 100%; border: none;">
+                                    <div class="paa">
+                                        <input name="id_resident" type="hidden" value="<?= $resident['id_resident']?>">
+                                        <button type="submit" name="create_blotter" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                        
+                                    </div>
+                                </div> 
+                            
+                            </form>
+ 
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
                             
 
                                  <!-- Modal Footer -->
