@@ -519,7 +519,7 @@
 
             <div class="row">
                 <div class="col">
-                    <i class="fas fa-laptop fa-7x"></i>
+                    <i class="fas fa-laptop fa-4x"></i>
 
                     <br>
                     <br>
@@ -529,7 +529,7 @@
                 </div>
 
                 <div class="col">
-                    <i class="fas fa-user-check fa-7x"></i>
+                    <i class="fas fa-user-check fa-4x"></i>
 
                     <br>
                     <br>
@@ -541,7 +541,7 @@
                 </div>
 
                 <div class="col">
-                    <i class="fas fa-file fa-7x"></i>
+                    <i class="fas fa-file fa-4x"></i>
 
                     <br>
                     <br>
