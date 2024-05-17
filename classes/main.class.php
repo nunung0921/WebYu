@@ -1568,7 +1568,7 @@ public function create_travelpermit() {
 
     public function view_bspermit(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_bspermit");
+        $stmt = $connection->prepare("SELECT * from tbl_bspermit WHERE req_status = 'approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
