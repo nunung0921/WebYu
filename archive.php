@@ -25,6 +25,11 @@
         $bmis->approve_bspermit();
         $bmis->delete_bspermit();
 
+        $view_rescert = $bmis->view_rescert_archive();
+        $bmis->archive_rescert();
+        $bmis->approve_rescert();
+        $bmis->delete_certofres();
+
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
         $upstaff = $residentbmis->update_resident();
@@ -167,6 +172,76 @@
                                             <td> <?= $view['nationality'];?> </td>
                                             <td> <?= $view['family_role'];?> </td>
                                             <td> <?= $view['voter'];?> </td>
+                                        </tr>
+                                    <?php }?>
+                                <?php } ?>
+                                            </tbody>
+            </table>
+
+            <hr>
+
+            <h1 class="mb-1 text-center">Archive Certifates of Residency</h1>
+
+                <hr>
+                <br>
+
+                <!-- Page Heading -->
+
+                <table class="table table-hover table-bordered text-center table-responsive">
+                <thead class="alert-info">
+                    <tr>
+                        <th> Action </th>
+                        <th> Resident ID </th>
+                        <th> Surname </th>
+                        <th> First name </th>
+                        <th> Middle name </th>
+                        <th> Age </th>
+                        <th> Nationality </th>
+                        <th> House No. </th>
+                        <th> Street</th>
+                        <th> Barangay </th>
+                        <th> Municipality </th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php if(is_array($view_bspermit)) {?>
+                                    <?php foreach($view_bspermit as $view) {?>
+                                        <tr>
+                                            <td>
+                                                <form method="POST" action="" onsubmit="return confirmAction();">
+                                                    <input type="hidden" name="id_bspermit" value="<?= $view['id_bspermit']; ?>">
+                                                    <button type="submit" name="approve_rescert" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
+                                                    <button type="submit" name="delete_certofres" class="btn btn-danger" style="width: 85px;">Delete</button>
+                                                    <!-- Use a hidden input to pass the id_resident -->
+                                                    
+                                                </form>
+                                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
+                                            </td>
+                                            <td> <?= $view['id_rescert'];?> </td>
+                                            <td> <?= $view['lname'];?> </td>
+                                            <td> <?= $view['fname'];?> </td>
+                                            <td> <?= $view['mi'];?> </td>
+                                            <td> <?= $view['age'];?> </td>
+                                            <td> <?= $view['nationality'];?> </td>
+                                            <td> <?= $view['houseno'];?>
+                                            <td> <?= $view['street'];?> </td>
+                                            <td> <?= $view['brgy'];?> </td>
+                                            <td> <?= $view['municipal'];?> </td>
                                         </tr>
                                     <?php }?>
                                 <?php } ?>
