@@ -480,17 +480,19 @@
                 </div>
 
                 <div class="col"> 
-                    <a href="services_travelpermit.php?id_resident=<?= $userdetails['id_resident'];?>">
-                        <div class="zoom1"> 
+                    <a href="services_certofindigency.php?id_resident=<?= $userdetails['id_resident'];?>">
+                        <div class="zoom1">
                             <div class="card"> 
                                 <div class="card-body text-center"> 
-                                    <img src="icons/ResidentHomepage/brgyid.png">
-                                    <h4> Travel Permit </h4> 
+                                    <img src="icons/ResidentHomepage/indigency.png">
+                                    <h4> Certificate of Indigency </h4>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+
+
                 
                 <div class="col"> 
                     <a href="services_certofindigency.php?id_resident=<?= $userdetails['id_resident'];?>">
