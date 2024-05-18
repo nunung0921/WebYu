@@ -1,4 +1,4 @@
-<?php
+<d?php
     
     error_reporting(E_ALL ^ E_WARNING);
     ini_set('display_errors',0);
@@ -252,9 +252,9 @@
                     </div>
                 </div>
             </div>
-        </div>
         </form>
-        </div>     
+        </div>   
+</div>  
     <div class="row"> 
         <div class="col"> 
             <?php 
@@ -262,6 +262,7 @@
             ?>
         </div>
     </div>
+</div>
 </div>
 <!-- End of Main Content -->
 
