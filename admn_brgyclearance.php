@@ -118,7 +118,7 @@
                                                 <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <!--<div class="col">
                                         <div class="form-group">
                                             <label for="purposes">Purposes:</label>
                                             <select class="form-control" style="text-align:left;" name="purpose" id="purposes" placeholder="Enter Status" required>
@@ -136,7 +136,7 @@
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                                     
                                 <div class="row">
