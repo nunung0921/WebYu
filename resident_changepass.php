@@ -152,128 +152,222 @@
         color: black;
         }
     
-        .input-container {
-        display: -ms-flexbox; /* IE10 */
-        display: flex;
-        width: 100%;
-        margin-bottom: 10px;
-        }
+      /* General Styles */
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
 
-        .icon {
-        padding: 15px;
-        background: dodgerblue;
-        color: white;
-        min-width: 50px;
-        text-align: center;
-        }
+.icon {
+    padding: 15px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
 
-        .input-field {
-        width: 100%;
-        padding: 10px;
-        outline: none;
-        }
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
 
-        .input-field:focus {
-        border: 2px solid dodgerblue;
-        }
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
 
-        /* Set a style for the submit button */
-        .btn2 {
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        cursor: pointer;
-        width: 35%;
-        opacity: 0.9;
-        margin-left: 33%;
-        border-radius: 15px;
-        }
+.field-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 
-        .btn2:hover {
-        opacity: 10;
-        }
+.btn2 {
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 15px;
+}
 
-        .field-icon {
-        margin-left: 88%;
-        margin-top: 3%;
-        position: absolute;
-        z-index: 2;
-        }
+.btn2:hover {
+    opacity: 1;
+}
 
-        a{
-      color:white;
-      }
-      .shfooter .collapse {
-          display: inherit;
-      }
-          @media (max-width:767px) {
-      .shfooter ul {
-              margin-bottom: 0;
-      }
+/* Back-to-Top Button */
+.top-link {
+    transition: all 0.25s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3em 3em 0;
+    border-radius: 50%;
+    padding: 0.25em;
+    width: 80px;
+    height: 80px;
+    background-color: #3661D5;
+}
 
-      .shfooter .collapse {
-              display: none;
-      }
+.top-link.show {
+    visibility: visible;
+    opacity: 1;
+}
 
-      .shfooter .collapse.show {
-              display: block;
-      }
+.top-link.hide {
+    visibility: hidden;
+    opacity: 0;
+}
 
-      .shfooter .title .fa-angle-up,
-      .shfooter .title[aria-expanded=true] .fa-angle-down {
-              display: none;
-      }
+.top-link svg {
+    fill: white;
+    width: 24px;
+    height: 12px;
+}
 
-      .shfooter .title[aria-expanded=true] .fa-angle-up {
-              display: block;
-      }
+.top-link:hover {
+    background-color: #3498DB;
+}
 
-      .shfooter .navbar-toggler {
-              display: inline-block;
-              padding: 0;
-      }
+.top-link:hover svg {
+    fill: #000000;
+}
 
-      }
+.screen-reader-text {
+    position: absolute;
+    clip-path: inset(50%);
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    word-wrap: normal !important;
+    clip: rect(1px, 1px, 1px, 1px);
+}
 
-      .resize {
-          text-align: center;
-      }
-      .resize {
-          margin-top: 3rem;
-          font-size: 1.25rem;
-      }
-      /*RESIZESCREEN ANIMATION*/
-      .fa-angle-double-right {
-          animation: rightanime 1s linear infinite;
-      }
+.screen-reader-text:focus {
+    display: block;
+    top: 5px;
+    left: 5px;
+    z-index: 100000;
+    clip-path: none;
+    background-color: #eee;
+    padding: 15px 23px 14px;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    line-height: normal;
+    color: #444;
+    font-size: 1em;
+    clip: auto !important;
+}
 
-      .fa-angle-double-left {
-          animation: leftanime 1s linear infinite;
-      }
-      @keyframes rightanime {
-          50% {
-              transform: translateX(10px);
-              opacity: 0.5;
-      }
-          100% {
-              transform: translateX(10px);
-              opacity: 0;
-      }
-      }
-      @keyframes leftanime {
-          50% {
-              transform: translateX(-10px);
-              opacity: 0.5;
-      }
-          100% {
-              transform: translateX(-10px);
-              opacity: 0;
-      }
-      }
+/* Navbar Buttons */
+.btn3, .btn4, .btn5 {
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 22px;
+    margin-left: 0.1%;
+}
 
-    /* Contact Chip */
+.btn3 {
+    margin-left: 23%;
+}
 
-    .chip {
+.btn3:hover, .btn4:hover, .btn5:hover {
+    background-color: RoyalBlue;
+    color: black;
+}
+
+/* Responsive Footer */
+.shfooter .collapse {
+    display: inherit;
+}
+
+@media (max-width: 767px) {
+    .shfooter ul {
+        margin-bottom: 0;
+    }
+
+    .shfooter .collapse {
+        display: none;
+    }
+
+    .shfooter .collapse.show {
+        display: block;
+    }
+
+    .shfooter .title .fa-angle-up,
+    .shfooter .title[aria-expanded=true] .fa-angle-down {
+        display: none;
+    }
+
+    .shfooter .title[aria-expanded=true] .fa-angle-up {
+        display: block;
+    }
+
+    .shfooter .navbar-toggler {
+        display: inline-block;
+        padding: 0;
+    }
+}
+
+/* Other Styles */
+.resize {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.25rem;
+}
+
+/* Resizing Animation */
+.fa-angle-double-right {
+    animation: rightanime 1s linear infinite;
+}
+
+.fa-angle-double-left {
+    animation: leftanime 1s linear infinite;
+}
+
+@keyframes rightanime {
+    50% {
+        transform: translateX(10px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes leftanime {
+    50% {
+        transform: translateX(-10px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+}
+
+/* Contact Chip */
+.chip {
     display: inline-block;
     padding: 0 25px;
     height: 50px;
@@ -281,36 +375,38 @@
     border-radius: 25px;
     background-color: #2C54C1;
     margin-top: 5px;
-    }
+}
 
-    .chip img {
+.chip img {
     float: left;
     margin: 0 10px 0 -25px;
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    }
-
-    .zoom {
-    transition: transform .3s;
-    }
-
-    .zoom:hover {
-    -ms-transform: scale(1.4); /* IE 9 */
-    -webkit-transform: scale(1.4); /* Safari 3-8 */
-    transform: scale(1.4); 
-    }
-    .info_section .info_col {
-  height: 200px; /* Set a fixed height for each row */
-  overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
 }
+
+.zoom {
+    transition: transform .3s;
+}
+
+.zoom:hover {
+    transform: scale(1.4);
+}
+
+.info_section .info_col {
+    height: 200px; /* Set a fixed height for each row */
+    overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
+}
+
 .dropdown-menu {
     min-width: 15rem;
 }
-   .logo {
+
+.logo {
     max-height: 70px;
     margin-right: 5px;
 }
+
 
     </style>
 
