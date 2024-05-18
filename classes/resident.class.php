@@ -512,7 +512,7 @@ public function profile_update_admin() {
         $oldpasswordverify = ($_POST['oldpasswordverify']);
         $newpassword = ($_POST['newpassword']);
         $checkpassword = $_POST['checkpassword'];
-
+        $hashed = md5($newpassword)
         if(isset($_POST['resident_changepass'])) {
 
             $connection = $this->openConn();
@@ -536,7 +536,7 @@ public function profile_update_admin() {
             else {
                 $connection = $this->openConn();
                 $stmt = $connection->prepare("UPDATE tbl_resident SET password =? WHERE id_resident = ?");
-                $stmt->execute([$newpassword, $id_resident]);
+                $stmt->execute([$hashed, $id_resident]);
                 
                 $message2 = "Password Updated";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
