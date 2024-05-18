@@ -1305,11 +1305,11 @@ class BMISClass {
 
     public function get_single_travelpermit($id_travel){
 
-        $id_resident = $_GET['id_resident'];
+        $id_travel = $_GET['id_travel'];
         
         $connection = $this->openConn();
         $stmt = $connection->prepare("SELECT * FROM tbl_travelpermit where id_travel = ?");
-        $stmt->execute([$id_resident]);
+        $stmt->execute([$id_travel]);
         $resident = $stmt->fetch();
         $total = $stmt->rowCount();
 
@@ -1321,7 +1321,7 @@ class BMISClass {
         }
     }
 
-    
+
 public function create_travelpermit() {
     if(isset($_POST['create_travelpermit'])) {
         $id_resident = $_POST['id_resident'];
