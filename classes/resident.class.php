@@ -541,7 +541,7 @@ public function profile_update_admin() {
                 return;
             }
     
-            // Hash the new password
+            // Hash the new password using MD5
             $hashed_password = md5($newpassword);
     
             // Update the password in the database
@@ -550,7 +550,7 @@ public function profile_update_admin() {
             
             echo "Password Updated";
         }
-    }
+    }    
     
     
 
