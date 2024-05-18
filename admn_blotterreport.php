@@ -7,6 +7,7 @@
     $bmis->validate_admin();
     $bmis->create_blotter_walkin();
     $bmis->delete_blotter();
+    $bmis->archive_blotter();
     $view = $residentbmis->view_blotter();
     $id_blotter = $_GET['id_blotter'];
     $resident = $residentbmis->get_single_blotter($id_blotter);
