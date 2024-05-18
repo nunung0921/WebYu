@@ -1697,16 +1697,17 @@ public function create_travelpermit_walkin() {
             $municipal = $_POST['municipal'];
             $bsindustry = $_POST['bsindustry'];
             $aoe = $_POST['aoe'];
+            $status = $_POST['status'];
 
 
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `req_status`, `lname`, `fname`, `mi`, `age`,
-             `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+             `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`, `status`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $age, $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe]);
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $age, $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe, $status]);
 
-            $message2 = "Application Applied, you will receive our text message for further details";
+            $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
         }
