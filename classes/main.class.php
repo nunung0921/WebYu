@@ -1703,7 +1703,7 @@ public function create_travelpermit_walkin() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `req_status`, `lname`, `fname`, `mi`, `age`,
              `bsname`, `brgy`, `municipal`, `bsindustry`, `status`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $age, $bsname, $brgy, $municipal, $bsindustry, $status]);
 
