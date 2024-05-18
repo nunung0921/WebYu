@@ -508,44 +508,42 @@ public function profile_update_admin() {
 
     public function resident_changepass() {
         $id_resident = $_GET['id_resident'];
-        $oldpassword = ($_POST['oldpassword']);
-        $oldpasswordverify = ($_POST['oldpasswordverify']);
-        $newpassword = ($_POST['password1']);
+        $oldpassword = $_POST['oldpassword'];
+        $oldpasswordverify = $_POST['oldpasswordverify'];
+        $newpassword = $_POST['password1'];
         $checkpassword = $_POST['checkpassword'];
-        if(isset($_POST['resident_changepass'])) {
-
+    
+        if (isset($_POST['resident_changepass'])) {
             $connection = $this->openConn();
+            
+            // Fetch the stored password hash for the resident
             $stmt = $connection->prepare("SELECT `password` FROM tbl_resident WHERE id_resident = ?");
             $stmt->execute([$id_resident]);
-            $result = $stmt->fetch();
-
-            if($result == 0) {
-                
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if (!$result) {
+                echo "Resident not found.";
+            } elseif (!password_verify($oldpassword, $result['password'])) {
                 echo "Old Password is Incorrect";
-            }
-
-            elseif ($oldpassword != $oldpasswordverify) {
-                echo "Old Password is Incorrect";
-            }
-
-            elseif ($newpassword != $checkpassword){
-                echo "New Password and Verification Password does not Match";
-            }
-
-            else {
-                $hashed = md5($newpassword);
-                $connection = $this->openConn();
-                $stmt = $connection->prepare("UPDATE tbl_resident SET password =? WHERE id_resident = ?");
+            } elseif ($oldpassword != $oldpasswordverify) {
+                echo "Old Password verification does not match.";
+            } elseif ($newpassword != $checkpassword) {
+                echo "New Password and Verification Password do not match.";
+            } else {
+                // Hash the new password securely
+                $hashed = password_hash($newpassword, PASSWORD_DEFAULT);
+    
+                // Update the password in the database
+                $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
                 $stmt->execute([$hashed, $id_resident]);
-                
+    
                 $message2 = "Password Updated";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
                 header("refresh: 0");
             }
-
-
         }
     }
+    
 
 
 public function admin_changepass() {
