@@ -510,7 +510,7 @@
 
                 <tbody>
                     <?php if(is_array($view_blotter)) {?>
-                                    <?php foreach($view_vlotter as $view) {?>
+                                    <?php foreach($view_blotter as $view) {?>
                                         <tr>
                                             <td>
                                                 <form method="POST" action="" onsubmit="return confirmAction();">
