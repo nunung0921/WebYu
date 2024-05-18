@@ -1,5 +1,6 @@
 <?php 
     error_reporting(E_ALL ^ E_WARNING);
+    ini_set('display_error', 1);
     require('classes/resident.class.php');
 
     //$view = $residentbmis->view_single_resident($email);

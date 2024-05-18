@@ -507,15 +507,20 @@ public function profile_update_admin() {
     //-------------------------------------- EXTRA FUNCTIONS ------------------------------------------------
 
     public function resident_changepass() {
-        if(isset($_POST['resident_changepass'])) {
+        if(isset($_POST['resident_changepass']) &&
+            isset($_POST['oldpassword']) &&
+            isset($_POST['oldpasswordverify']) &&
+            isset($_POST['newpassword']) &&
+            isset($_POST['checkpassword'])) {
+    
             $id_resident = $_GET['id_resident'];
-            $oldpassword = md5($_POST['oldpassword']);
-            $oldpasswordverify = md5($_POST['oldpasswordverify']);
-            $newpassword = md5($_POST['newpassword']);
-            $checkpassword = md5($_POST['checkpassword']);
+            $oldpassword = $_POST['oldpassword'];
+            $oldpasswordverify = $_POST['oldpasswordverify'];
+            $newpassword = $_POST['newpassword'];
+            $checkpassword = $_POST['checkpassword'];
     
             // Check if old password and verification match
-            if($oldpassword != $oldpasswordverify) {
+            if(md5($oldpassword) != md5($oldpasswordverify)) {
                 echo "Old Password is Incorrect";
                 return;
             }
@@ -531,19 +536,20 @@ public function profile_update_admin() {
                 return;
             }
     
-            if ($newpassword != $checkpassword) {
+            if (md5($newpassword) != md5($checkpassword)) {
                 echo "New Password and Verification Password do not Match";
                 return;
             }
     
             $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
-            $stmt->execute([$newpassword, $id_resident]);
+            $stmt->execute([md5($newpassword), $id_resident]);
             
             $message2 = "Password Updated";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             //header("refresh: 0");
         }
     }
+    
     
 
 
