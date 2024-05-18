@@ -54,6 +54,14 @@
         $upreq = $residentbmis->approve_request();
         $residentbmis->reject_request();
         $id_resident = $_GET['id_resident'];
+
+        function debug_base64_encode($data) {
+            $encoded = base64_encode($data);
+            if (!$encoded) {
+                return 'No valid image data';
+            }
+            return $encoded;
+        }
     ?>
 
 <!DOCTYPE html>
@@ -616,7 +624,22 @@
                                             <td> <?= $view['street'];?> </td>
                                             <td> <?= $view['brgy'];?> </td>
                                             <td> <?= $view['municipal'];?> </td>
-                                            <td> <?= $view['blot_photo'];?> </td>
+                                            <td>
+                                            <?php
+                                                if (!empty($view['blot_photo'])) {
+                                                    $encoded_image = debug_base64_encode($view['blot_photo']);
+
+
+                                                    if ($encoded_image != 'No valid image data') {
+                                                        echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
+                                                    } else {
+                                                        echo 'No image available';
+                                                    }
+                                                } else {
+                                                    echo 'No image available';
+                                                }
+                                                ?>
+                                            </td>
                                             <td> <?= $view['contact'];?> </td>
                                             <td> <?= $view['narrative'];?> </td>
                                             <td> <?= $view['timeapplied'];?> </td>

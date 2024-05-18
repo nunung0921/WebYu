@@ -7,8 +7,9 @@
     $bmis->validate_admin();
     $bmis->create_certofindigency_walkin();
     $bmis->delete_certofindigency();
+    $bmis->archive_indigency();
     $view = $bmis->view_certofindigency();
-    $id_resident = $_GET['id_resident'];
+    $id_indigency = $_GET['id_indigency'];
     $resident = $residentbmis->get_single_certofindigency($id_indigency);
    
 ?>
