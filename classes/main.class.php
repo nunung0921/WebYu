@@ -1539,7 +1539,7 @@ public function create_travelpermit_walkin() {
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
-            $purpose = $_POST['purpose'];
+            //$purpose = $_POST['purpose'];
             $houseno = $_POST['houseno'];
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
@@ -1549,13 +1549,13 @@ public function create_travelpermit_walkin() {
             
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_clearance (`id_resident`, `req_status`, `lname`, `fname`, `mi`,
-             `purpose`, `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $purpose, 
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, 
             $houseno,  $street, $brgy,   $municipal, $status, $age]);
 
-            $message2 = "Application Applied, you will receive our text message for further details";
+            $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
         }

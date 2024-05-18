@@ -631,7 +631,7 @@
                                                 <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <!--<div class="col">
                                         <div class="form-group">
                                             <label for="purposes">Purposes:</label>
                                             <select class="form-control" name="purpose" id="purposes" placeholder="Enter Status" required>
@@ -649,7 +649,7 @@
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                                     
                                 <div class="row">
@@ -666,9 +666,16 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Purok: </label>
-                                            <input type="text" class="form-control" name="street"  
-                                            placeholder="Enter Purok" value="<?= $userdetails['street']?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
-       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
+                                            <select class="form-control" name="street" placeholder="Enter Purok" required>
+                                            <option value="">Select Purok</option>
+                                                <option value="Purok 1">Purok 1</option>
+                                                <option value="Purok 2">Purok 2</option>
+                                                <option value="Purok 3">Purok 3</option>
+                                                <option value="Purok 4">Purok 4</option>
+                                                <option value="Purok 5">Purok 5</option>
+                                                <option value="Purok 6">Purok 6</option>
+                                                <option value="Purok 7">Purok 7</option>
+                                            </select>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
