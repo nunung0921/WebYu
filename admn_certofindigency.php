@@ -1,16 +1,15 @@
 <?php
     
     error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_errors',0);
+    ini_set('display_errors',1);
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
     $bmis->create_certofindigency_walkin();
     $bmis->delete_certofindigency();
-    $bmis->archive_indigency();
     $view = $bmis->view_certofindigency();
     $id_resident = $_GET['id_resident'];
-    $resident = $residentbmis->get_single_certofindigency($id_resident);
+    $resident = $residentbmis->get_single_certofindigency($id_indigency);
    
 ?>
 
@@ -66,7 +65,143 @@
     </div>
 
     <br>
+    <button class="btn btn-success" style="width: 95px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add</button>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Certificate of Indigency Form</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
+                        <!-- Modal Body -->
+
+                        <div class="modal-body">
+                            <form method="post">
+
+                                <div class="row"> 
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="fname">First Name:</label>
+                                            <input name="fname" style="text-align:left;" type="text" class="form-control" 
+                                            placeholder="Enter First Name" required>
+                                                <div class="valid-feedback">Valid.</div>
+                                                <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="mi" class="mtop">Middle Name: </label>
+                                            <input name="mi" style="text-align:left;" type="text" class="form-control" 
+                                            placeholder="Enter Middle Name">
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="lname">Last Name:</label>
+                                            <input name="lname" style="text-align:left;" type="text" class="form-control" 
+                                            placeholder="Enter Last Name"  required>
+                                                <div class="valid-feedback">Valid.</div>
+                                                <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                            <!--<label class="mtop">Nationality: </label>-->
+                                            <input type="hidden" class="form-control" name="nationality"   
+                                            placeholder="Enter Nationality" value="Filipino" required>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> House No: </label>
+                                            <input type="text" style="text-align:left;" class="form-control" name="houseno"  
+                                            placeholder="Enter House No." required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label> Street: </label>
+                                            <input type="text" style="text-align:left;" class="form-control" name="street"  
+                                            placeholder="Enter Street" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                            <!--<label> Barangay: </label>-->
+                                            <input type="hidden" class="form-control" name="brgy"  
+                                            value="Biclatan" required readonly>
+
+                                            <!--<label> Municipality: </label>-->
+                                            <input type="hidden" class="form-control" name="municipal" 
+                                            value="General Trias" required readonly>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="purposes">Purposes:</label>
+                                            <select class="form-control" style="text-align:left;" name="purpose" id="purposes" required>
+                                                <option value="">Choose your Purposes</option>
+                                                <option value="Job/Employment">Job/Employment</option>
+                                                <option value="Business Establishment">Business Requirement</option>
+                                                <option value="Financial Transaction">Financial Transaction</option>
+                                                <option value="Scholarship">Scholarship</option>
+                                                <option value="Other important transactions.">Other important transactions.</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>  
+
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="mtop">Date Needed: </label>
+                                            <input type="date" style="text-align:left;" class="form-control" name="date" required min="<?php echo date('Y-m-d'); ?>" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                            
+                        </div>
+
+                
+                
+                        <!-- Modal Footer -->
+                        
+                        <div class="modal-footer" style="justify-content: flex-start;">
+                            <div class="paa">
+                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
+                                <button name="create_certofindigency_walkin" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div> 
     <div class="row"> 
         <div class="col"> 
             <?php 
