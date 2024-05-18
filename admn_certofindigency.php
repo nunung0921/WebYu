@@ -145,11 +145,11 @@
 
                                             <!--<label> Barangay: </label>-->
                                             <input type="hidden" class="form-control" name="brgy"  
-                                            value="Biclatan" required readonly>
+                                            value="Yuson" required readonly>
 
                                             <!--<label> Municipality: </label>-->
                                             <input type="hidden" class="form-control" name="municipal" 
-                                            value="General Trias" required readonly>
+                                            value="Guimba" required readonly>
 
                                 </div>
 
