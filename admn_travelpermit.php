@@ -237,7 +237,7 @@
                                             <div class="invalid-feedback">Please select a destination.</div>
                                         </div>
                                     </div>
-                                </form>
+                                
                         </div>
                         <!-- Modal Footer -->
             
@@ -251,6 +251,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </div>        
     <div class="row"> 
         <div class="col"> 
