@@ -464,7 +464,6 @@
                             <div class="input-container">
                                 <i class="fa fa-key icon"></i>
                                 <input type="password" id="new-password" name="password1 newpassword" class="form-control" placeholder="Enter New Password" required>
-                                <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -472,7 +471,6 @@
                             <div class="input-container">
                                 <i class="fa fa-user-lock icon"></i>
                                 <input type="password" id="confirm-password" name="checkpassword confirm_password" class="form-control" placeholder="Enter Verify Password" required>
-                                <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                         </div>
                         <span id="message"></span>
