@@ -1852,7 +1852,7 @@ public function create_travelpermit() {
             $stmt = $connection->prepare("UPDATE tbl_blotter SET req_status = 'archived' where id_blotter = ?");
             $stmt->execute([$id_blotter]);
 
-            $message2 = "BLotter Report Data Archived";
+            $message2 = "Blotter Report Data Archived";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("Refresh:0");
         }
