@@ -510,13 +510,13 @@ public function profile_update_admin() {
         if(isset($_POST['resident_changepass']) &&
             isset($_POST['oldpassword']) &&
             isset($_POST['oldpasswordverify']) &&
-            isset($_POST['newpassword']) &&
+            isset($_POST['password1']) &&
             isset($_POST['checkpassword'])) {
     
-            $id_resident = $_GET['id_resident'];
+            $id_resident = $_SESSION['id_resident']; // Assuming you store the user's ID in a session variable
             $oldpassword = $_POST['oldpassword'];
             $oldpasswordverify = $_POST['oldpasswordverify'];
-            $newpassword = $_POST['newpassword'];
+            $newpassword = $_POST['password1'];
             $checkpassword = $_POST['checkpassword'];
     
             // Check if old password and verification match
@@ -541,8 +541,8 @@ public function profile_update_admin() {
                 return;
             }
     
-            // Hash the new password using MD5
-            $hashed_password = md5($newpassword);
+            // Hash the new password using a stronger hashing algorithm like bcrypt
+            $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
     
             // Update the password in the database
             $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
@@ -552,6 +552,7 @@ public function profile_update_admin() {
             echo "<script type='text/javascript'>alert('$message2');</script>";
         }
     }
+    
     
     
     
