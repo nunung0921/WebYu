@@ -50,7 +50,7 @@ function debug_base64_encode($data) {
                 <form action="" method="post">
                     <a class="btn btn-success" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
                     <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
-                    <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_blotter"> Archive </button>
+                    <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="archive_blotter"> Archive </button>
                 </form>
                 </td>
                 <td> <?= $view['lname'];?> </td>
@@ -113,7 +113,7 @@ function debug_base64_encode($data) {
                         <form action="" method="post">
                         <a class="btn btn-success" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
                             <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
-                            <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_blotter"> Archive </button>
+                            <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="archive_blotter"> Archive </button>
                         </form>
                         </td>
 

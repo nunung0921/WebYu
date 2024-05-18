@@ -1844,6 +1844,20 @@ public function create_travelpermit() {
         }
     }
 
+    public function archive_blotter(){
+        $id_blotter = $_POST['id_blotter'];
+
+        if(isset($_POST['archive_blotter'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_blotter SET req_status = 'archived' where id_blotter = ?");
+            $stmt->execute([$id_blotter]);
+
+            $message2 = "BLotter Report Data Archived";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
     public function approve_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
 
@@ -1893,6 +1907,20 @@ public function create_travelpermit() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_indigency SET req_status = 'approved' where id_indigency = ?");
             $stmt->execute([$id_indigency]);
+
+            $message2 = "Restored Successfully";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
+    public function approve_blotter(){
+        $id_blotter = $_POST['id_blotter'];
+
+        if(isset($_POST['approve_blotter'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_blotter SET req_status = 'approved' where id_blotter = ?");
+            $stmt->execute([$id_blotter]);
 
             $message2 = "Restored Successfully";
             echo "<script type='text/javascript'>alert('$message2');</script>";
@@ -2131,12 +2159,19 @@ public function create_travelpermit() {
 
     public function view_blotter(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_blotter");
+        $stmt = $connection->prepare("SELECT * from tbl_blotter WHERE req_status = 'approved'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
     }
 
+    public function view_blotter_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_blotter WHERE req_status = 'archived'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
 
     public function delete_blotter(){
         $id_blotter = $_POST['id_blotter'];
