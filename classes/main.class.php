@@ -1510,13 +1510,13 @@ public function create_travelpermit_walkin() {
         }
     }
 
-    public function get_single_certofindigency($id_resident){
+    public function get_single_certofindigency($id_indigency){
 
-        $id_resident = $_GET['id_resident'];
+        $id_indigency = $_GET['id_indigency'];
         
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * FROM tbl_indigency where id_resident = ?");
-        $stmt->execute([$id_resident]);
+        $stmt = $connection->prepare("SELECT * FROM tbl_indigency where id_indigency = ?");
+        $stmt->execute([$id_indigency]);
         $resident = $stmt->fetch();
         $total = $stmt->rowCount();
 
