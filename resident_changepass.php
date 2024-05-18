@@ -1,14 +1,31 @@
 <?php 
-    error_reporting(E_ALL ^ E_WARNING);
-    require('classes/resident.class.php');
+error_reporting(E_ALL ^ E_WARNING);
+require('classes/resident.class.php');
 
-    //$view = $residentbmis->view_single_resident($email);
-    $userdetails = $residentbmis->get_userdata();
-    $residentbmis->resident_changepass();
-    print_r($userdetails);
+if(isset($_POST['resident_changepass'])) {
+    $oldpassword = $_POST['oldpassword'];
+    $password1 = $_POST['password1'];
+    $checkpassword = $_POST['checkpassword'];
 
-    
-    
+    // Siguraduhing ang bagong password ay parehong sa confirm password
+    if($password1 != $checkpassword) {
+        echo "New password and confirm password do not match!";
+    } else {
+        // Kapag parehong sila, i-update ang password sa database
+        $update_result = $residentbmis->update_password($oldpassword, $password1);
+        
+        if($update_result) {
+            echo "Password successfully updated!";
+            // Redirect or do something after successful password update
+        } else {
+            echo "Failed to update password. Please try again!";
+        }
+    }
+}
+
+$userdetails = $residentbmis->get_userdata();
+?>
+
 ?>
 
 
