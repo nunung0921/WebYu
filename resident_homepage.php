@@ -355,9 +355,9 @@
                         <a class="dropdown-item"
                             href="resident_profile.php?id_resident=<?= $userdetails ['id_resident'];?>"><i
                                 class="fas fa-user"></i> Personal Profile</a>
-                        <!--<a class="dropdown-item"
+                        <a class="dropdown-item"
                             href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"><i
-                                class="fas fa-lock"></i> Change Password</a>-->
+                                class="fas fa-lock"></i> Change Password</a>
                         <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </li>
