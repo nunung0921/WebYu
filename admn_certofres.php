@@ -180,11 +180,11 @@
                                         </div>
                                     </div>
                                             <!--<label> Barangay: </label>-->
-                                            <input type="hidden" class="form-control" name="brgy" value="Biclatan" required readonly>
+                                            <input type="hidden" class="form-control" name="brgy" value="Yuson" required readonly>
 
                                             <!--<label> Municipality: </label>-->
                                             <input type="hidden" class="form-control" name="municipal" 
-                                            placeholder="Enter Municipality" value="General Trais" required readonly>
+                                            placeholder="Enter Municipality" value="Guimba" required readonly>
 
                                             <div class="col"> 
                                         <div class="form-group">
