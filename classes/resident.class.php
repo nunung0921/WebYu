@@ -519,14 +519,6 @@ public function profile_update_admin() {
             $newpassword = $_POST['newpassword'];
             $checkpassword = $_POST['checkpassword'];
     
-            // Debugging: Output received data
-            echo "Received Data:<br>";
-            echo "ID Resident: " . $id_resident . "<br>";
-            echo "Old Password: " . $oldpassword . "<br>";
-            echo "Old Password Verify: " . $oldpasswordverify . "<br>";
-            echo "New Password: " . $newpassword . "<br>";
-            echo "Check Password: " . $checkpassword . "<br>";
-    
             // Check if old password and verification match
             if($oldpassword !== $oldpasswordverify) {
                 echo "Old Password is Incorrect";
@@ -552,17 +544,15 @@ public function profile_update_admin() {
             // Hash the new password using MD5
             $hashed_password = md5($newpassword);
     
-            // Debugging: Output hashed password
-            echo "Hashed Password: " . $hashed_password . "<br>";
-    
             // Update the password in the database
             $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
             $stmt->execute([$hashed_password, $id_resident]);
             
-            echo "Password Updated";
+            $message2 = "Password Updated";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
         }
     }
-     
+    
     
     
 
