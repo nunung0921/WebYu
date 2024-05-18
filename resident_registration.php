@@ -155,7 +155,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Password:</label>
-                                            <input type="password" class="form-control" id="password-field" name="password" placeholder="Enter Password" minlength="8" maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_#*])[A-Za-z\d@_#*]{8,16}$" required>
+                                            <input type="password" class="form-control" id="password-field" name="password" placeholder="Enter Password" minlength="8" maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_#*])[A-Za-z\d@_#*]{8,16}$" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*()_+)" required>
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
@@ -194,7 +194,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Barangay: </label>
-                                            <input type="text" class="form-control" name="brgy"  value="Yuson" readonly required>
+                                            <input type="text" class="form-control" name="brgy"  value="Yuson" title="Please enter a valid barangay name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" readonly required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -203,7 +203,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Municipality: </label>
-                                            <input type="text" class="form-control" name="municipal" value="Guimba" readonly required>
+                                            <input type="text" class="form-control" name="municipal" value="Guimba" title="Please enter a valid municipality name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" readonly required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -223,7 +223,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Birth Place </label>
-                                            <input type="text" class="form-control" name="bplace"  placeholder="Enter Birth Place" required>
+                                            <input type="text" class="form-control" name="bplace"  placeholder="Enter Birth Place" pattern="^[a-zA-Z\-'\s]{1,}$" title="Please enter a valid last name (only letters, hyphens, apostrophes, and spaces allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
