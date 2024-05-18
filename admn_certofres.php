@@ -5,7 +5,7 @@
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
-    $create = $bmis->create_certofres_walkin();
+    $bmis->create_certofres_walkin();
     $bmis->delete_certofres();
     $bmis->archive_rescert();
     $view = $bmis->view_certofres();
