@@ -2,13 +2,13 @@
 // require the database connection
 require 'classes/conn.php';
 
-function debug_base64_encode($data) {
+/*function debug_base64_encode($data) {
     $encoded = base64_encode($data);
     if (!$encoded) {
         return 'No valid image data';
     }
     return $encoded;
-}
+}*/
 	if(isset($_POST['search_bspermit'])){
 		$keyword = $_POST['keyword'];
 ?>
