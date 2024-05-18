@@ -1230,7 +1230,7 @@ class BMISClass {
 
             $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $age, $nationality, $houseno,  $street, $brgy,$municipal, $date,$purpose]);
 
-            $message2 = "Application Applied, you will receive our text message for further details";
+            $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
         }
@@ -1251,16 +1251,17 @@ class BMISClass {
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
             $municipal = $_POST['municipal'];
+            $status = $_POST['status'];
             //$date = $_POST['date'];
             //$purpose = $_POST['purpose'];
             
 
 
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_rescert (`req_status`, `lname`, `fname`, `mi`, `age`, `nationality`, `houseno`, `street`, `brgy`, `municipal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $connection->prepare("INSERT INTO tbl_rescert (`req_status`, `lname`, `fname`, `mi`, `age`, `nationality`, `houseno`, `street`, `brgy`, `municipal`, `status`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
-            $stmt->execute(['approved',$lname, $fname, $mi, $age, $nationality, $houseno, $street, $brgy, $municipal]);
+            $stmt->execute(['approved',$lname, $fname, $mi, $age, $nationality, $houseno, $street, $brgy, $municipal, $status]);
 
 
             $message2 = "Application Applied!";
