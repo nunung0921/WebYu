@@ -198,13 +198,13 @@
                     </div>
                 </div>
             </div>
-</div>
     <div class="row"> 
         <div class="col"> 
             <?php 
                 include('admn_table_certofindigency_search.php');
             ?>
         </div>
+    </div>
     </div>
 </div>
 <!-- End of Main Content -->
