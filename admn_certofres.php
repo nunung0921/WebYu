@@ -229,7 +229,7 @@
                                         </div>
                                     </div>  
                                 </div>-->
-                                </form>
+                                
                         
                         </div>
                         <!-- Modal Footer -->
@@ -243,6 +243,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
     <div class="row"> 
