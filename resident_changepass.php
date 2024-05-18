@@ -464,6 +464,7 @@
                             <div class="input-container">
                                 <i class="fa fa-key icon"></i>
                                 <input type="password" id="new-password" name="password1 newpassword" class="form-control" placeholder="Enter New Password" required>
+                                <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -476,7 +477,6 @@
                         </div>
                         <span id="message"></span>
                         <button type="submit" name="resident_changepass" class="btn btn-primary btn-block mt-3">Change Password</button>
-                        <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                     </form>
                 </div>
             </div>
