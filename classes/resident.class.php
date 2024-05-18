@@ -512,7 +512,7 @@ public function profile_update_admin() {
         $oldpasswordverify = ($_POST['oldpasswordverify']);
         $newpassword = ($_POST['newpassword']);
         $checkpassword = $_POST['checkpassword'];
-        $hashed = md5($newpassword)
+        $hashed = md5($newpassword);
         if(isset($_POST['resident_changepass'])) {
 
             $connection = $this->openConn();
