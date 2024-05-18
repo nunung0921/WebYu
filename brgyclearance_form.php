@@ -1,9 +1,9 @@
 <?php
-ini_set('display_errors',0);
+ini_set('display_errors',1);
 require('classes/resident.class.php');
 $userdetails = $residentbmis->get_userdata();
-$id_resident = $_GET['id_resident'];
-$resident = $residentbmis->get_single_clearance($id_resident);
+$id_clearance = $_GET['id_clearance'];
+$resident = $residentbmis->get_single_clearance($id_clearance);
   ?>
 <!DOCTYPE html>
 <html id="clearance">
