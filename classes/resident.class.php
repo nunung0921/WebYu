@@ -510,7 +510,7 @@ public function profile_update_admin() {
         $id_resident = $_GET['id_resident'];
         $oldpassword = ($_POST['oldpassword']);
         $oldpasswordverify = ($_POST['oldpasswordverify']);
-        $newpassword = ($_POST['newpassword']);
+        $newpassword = ($_POST['password1']);
         $checkpassword = $_POST['checkpassword'];
         if(isset($_POST['resident_changepass'])) {
 
