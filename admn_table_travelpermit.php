@@ -33,9 +33,9 @@
             <tr>
                 <td>    
                     <form action="" method="post">
-                        <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="travelpermit_form.php?id_resident=<?= $view['id_resident'];?>">Generate</a> 
+                        <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="travelpermit_form.php?id_travel=<?= $view['id_travel'];?>">Generate</a> 
                         <input type="hidden" name="id_travel" value="<?= $view['id_travel'];?>">
-                        <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_travelpermit"> Archive </button>
+                        <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="archive_travel"> Archive </button>
                     </form>
                 </td>
                 <td> <?= $view['id_resident'];?> </td> 
@@ -85,9 +85,9 @@
                 <tr>
                     <td>    
                         <form action="" method="post">
-                            <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="travelpermit_form.php?id_resident=<?= $view['id_resident'];?>">Generate</a> 
+                            <a class="btn btn-success" target="blank" style="width: 90px; font-size: 17px; border-radius:30px; margin-bottom: 2px;" href="travelpermit_form.php?id_travel=<?= $view['id_travel'];?>">Generate</a> 
                             <input type="hidden" name="id_travel" value="<?= $view['id_travel'];?>">
-                            <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="delete_travelpermit"> Archive </button>
+                            <button class="btn btn-danger" style="width: 90px; font-size: 17px; border-radius:30px;" type="submit" name="archive_travel"> Archive </button>
                         </form>
                     </td>
                     <td> <?= $view['id_resident'];?> </td> 
