@@ -1,7 +1,7 @@
 <?php
     
     error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_errors',0);
+    ini_set('display_errors',1);
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
@@ -67,19 +67,7 @@
     </div>
 
     <br>
-    <?php
     
-    error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_errors',0);
-    require('classes/resident.class.php');
-    $userdetails = $bmis->get_userdata();
-    $bmis->validate_admin();
-    $bmis->create_blotter_walkin();
-    $bmis->delete_blotter();
-    $view = $residentbmis->view_blotter();
-    $id_blotter = $_GET['id_blotter'];
-    $resident = $residentbmis->get_single_blotter($id_blotter);
-   
 ?>
 
 <?php 
