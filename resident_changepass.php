@@ -247,35 +247,35 @@
 
     <body> 
 
+       
         <!-- Back-to-Top and Back Button -->
+
         <a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
             <span class="screen-reader-text">Back to top</span>
         </a>
 
         <!-- Eto yung navbar -->
-        <nav class="navbar navbar-dark bg-primary sticky-top">
-            <img src="images/yuson1.png" alt="Yuson Logo" class="logo">
-            <a class="navbar-brand" href="resident_homepage.php">Barangay Yuson Information Management System</a>
-            <div class="ml-auto">
-                <a href="resident_homepage.php" data-toggle="tooltip" title="Home" class="btn3 bg-primary"><i class="fa fa-home fa-lg"></i></a>
-                <a href="#down1" data-toggle="tooltip" title="Change Password" class="btn5 bg-primary"><i class="fa fa-user-lock fa-lg"></i></a>
-                <a href="#down" data-toggle="tooltip" title="Contact" class="btn4 bg-primary"><i class="fa fa-phone fa-lg"></i></a>
-            </div>
-            <div class="dropdown ml-auto">
-                <button title="My Profile" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                    <i class="fa fa-user-circle fa-lg"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="resident_homepage.php">Home</a></li>
-                    <li><a href="resident_profile.php">My Profile</a></li>
-                    <li><a href="resident_updateprofile.php">Update Profile</a></li>
-                    <li><a href="resident_changepass.php">Change Password</a></li>
-                    <li class="divider"></li>
-                    <li><a href="logout.php"><i class="fa fa-sign-out fa-lg"></i> Sign out</a></li>
-                </ul>
-            </div>
-        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="logo">
+        <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+    </div>
+    <a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
+                <a href="resident_homepage.php" class="nav-link" style="color: white;">HOME</a>
+    </div>
+
+    <div class="dropdown ml-auto">
+        <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+            <span class="caret" style="margin-left: 2px;"></span>
+        </button>
+        <ul class="dropdown-menu" style="width: 175px;">
+            <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
+            <li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>
+            <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
         <!-- Eto yung content --> 
         <div class="container-fluid mt-5">
@@ -307,112 +307,109 @@
             </div>
         </div>
 
-        <footer class="footer_section bg-primary mt-5" id="down">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 footer-col">
-                        <div class="footer_contact">
-                            <h4>Reach at..</h4>
-                            <div class="contact_link_box">
-                                <a href="https://www.google.com/maps" target="_blank">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <span>Brgy. Yuson Poblacion, Urbiztondo Pangasinan</span>
-                                </a>
-                                <a href="https://www.facebook.com" target="_blank">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    <span>Facebook</span>
-                                </a>
-                                <a href="mailto:youremail@example.com">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>barangayyuson@gmail.com</span>
-                                </a>
-                                <a href="tel:+0123456789">
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>(+01) 123456789</span>
-                                </a>
+     <!-- Footer -->
+
+     <footer id="footer" class="bg-primary text-white d-flex-column text-center">
+            <hr class="mt-0">
+
+            
+                    <!--/.Third column-->
+
+                    <hr class="clearfix w-100 d-md-none mb-0">
+ 
+                    <!--Fourth column-->
+
+                    <div class="col-md-3 mx-auto shfooter" id="down">
+                        <div class="d-md-none title" data-target="#Contact-Us" data-toggle="collapse">
+                        <div class="mt-3 font-weight-bold">Contact Us:
+                            <div class="float-right navbar-toggler">
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-up"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 footer-col">
-                        <div class="footer_detail">
-                            <a href="resident_homepage.php" class="footer-logo">
-                                BYIS
-                            </a>
-                            <p>Barangay Yuson Information System is a modern, computerized information system designed to enhance the efficiency and effectiveness of the barangay's administrative functions.</p>
                         </div>
-                    </div>
-                    <div class="col-md-4 footer-col">
-                        <div class="footer_news">
-                            <div class="footer_contact">
-                                <h4>Developer</h4>
-                                <div class="contact_link_box">
-                                    <div class="chip">
-                                        <img src="images/man.png" alt="Person">
-                                        Developer Name
+                        <ul class="list-unstyled collapse" id="Contact-Us">
+                            <li>
+                                <div class="zoom">
+                                    <div class="chip" style="font-size:10px;">
+                                            <img src="icons/yuson1.png" alt="Person" width="96" height="96">
+                                        Barangay Yuson | 041-526-7382
                                     </div>
                                 </div>
-                            </div>
-                            <div class="footer_social mt-3">
-                                <a href="">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="footer-info">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7 mx-auto">
-                                <p class="text-center">&copy; <span id="displayYear"></span> All Rights Reserved By Barangay Yuson<br>
-                                Distributed By <a href="https://example.com/">Example</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
-        <!-- JS for Password Visibility Toggle -->
+             <!--/.Footer Links-->
+
+            <hr class="mb-0">
+
+            <!--Copyright-->
+
+            <div class="py-3 text-center">
+            Copyright 2023 
+            <script>
+            document.write(new Date().getFullYear())
+            </script> 
+              | <a href="dev.html" style="color:white;">WebYu Team</a>
+        </div>
+            
+            <button id="scrollTopBtn" onclick="scrollToTop()">
+                <i class="fas fa-angle-up"></i>
+    </button>
+            </footer>
+
+            <script>
+      // Function to scroll to the top of the page
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Show or hide the scroll to top button based on scroll position
+      window.onscroll = function () {
+        var scrollTopBtn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollTopBtn.style.display = "block";
+        } else {
+          scrollTopBtn.style.display = "none";
+        }
+      };
+    </script>
+
         <script>
-            $(".toggle-password").click(function() {
-                $(this).toggleClass("fa-eye fa-eye-slash");
-                var input = $($(this).attr("toggle"));
-                if (input.attr("type") == "password") {
-                    input.attr("type", "text");
-                } else {
-                    input.attr("type", "password");
-                }
+            $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
             });
         </script>
 
-        <!-- JS for Back-to-Top Button -->
         <script>
-            var btn = $('#js-top');
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > 300) {
-                    btn.addClass('show');
-                } else {
-                    btn.removeClass('show');
-                }
+            $(document).ready(function(){
+            // Add smooth scrolling to all links
+            $("a").on('click', function(event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+                } // End if
             });
-            btn.on('click', function(e) {
-                e.preventDefault();
-                $('html, body').animate({scrollTop: 0}, '300');
             });
         </script>
+
+        <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
     </body>
 </html>
