@@ -243,7 +243,7 @@
             
    <div class="modal-footer" style="justify-content: flex-start;  width: 100%; border: none;">
                             <div class="paa">
-                                <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
+                                <input name="id_travel" type="hidden" class="form-control" value="<?= $userdetails['id_travel']?>">
                                 <button name ="create_bspermit_walkin" type="submit" class="btn btn-primary">Submit Request</button>
                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                                 

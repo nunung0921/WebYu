@@ -1356,6 +1356,7 @@ public function create_travelpermit() {
 
 public function create_travelpermit_walkin() {
     if(isset($_POST['create_travelpermit_walkin'])) {
+        $id_travel = $_POST['id_travel'];
         $full_name = $_POST['prev_owner']; // Assuming you named the combined field as 'fullname'
         list($surname, $firstname) = explode(', ', $full_name);
         $prev_owner = $surname . ' ' . $firstname;
