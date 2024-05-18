@@ -1,10 +1,11 @@
 <?php
     
     error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_errors',0);
+    ini_set('display_errors',1);
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
+    $bmis->create_travelpermit_walkin();
     $bmis->delete_travelpermit();
     $view = $bmis->view_travelpermit();
     $id_resident = $_GET['id_resident'];
@@ -12,7 +13,7 @@
    
 ?>
 
-<div?php 
+<?php 
     include('dashboard_sidebar_start.php');
 ?>
 <style>
@@ -67,7 +68,6 @@
     <button class="btn btn-success" style="width: 100px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px;" data-toggle="modal" data-target="#exampleModalCenter">
         <i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add
     </button>
-    <br>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -81,7 +81,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post" class="was-validated">
+                            <form method="post">
 
                                 <div class="row"> 
 
@@ -203,48 +203,48 @@
                                 </div>
                                 
                                 <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="color">Livestock Color:</label>
-                <select class="form-control" name="color" id="color" required>
-                    <option value="">Select Color</option>
-                    <option value="Black">Black</option>
-                    <option value="White">White</option>
-                    <option value="Brown">Brown</option>
-                    <option value="Gray">Gray</option>
-                    <option value="Spotted">Spotted</option>
-                    <option value="Red">Red</option>
-                    <option value="Tan">Tan</option>
-                    <option value="Cream">Cream</option>
-                    <option value="Other">Other</option>
-                </select>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please select a color.</div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-group">
-                <label for="destination">Destination:</label>
-                <select class="form-control" name="destination" id="destination" required>
-                    <option value="">Select Destination</option>
-                    <option value="Farm">Farm</option>
-                    <option value="Market">Market</option>
-                    <option value="Abattoir/Slaughterhouse">Abattoir/Slaughterhouse</option>
-                    <option value="Show/Exhibition">Show/Exhibition</option>
-                    <option value="Other">Other</option>
-                </select>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please select a destination.</div>
-            </div>
-        </div>
-    </div>
-</div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="color">Livestock Color:</label>
+                                            <select class="form-control" name="color" id="color" required>
+                                                <option value="">Select Color</option>
+                                                <option value="Black">Black</option>
+                                                <option value="White">White</option>
+                                                <option value="Brown">Brown</option>
+                                                <option value="Gray">Gray</option>
+                                                <option value="Spotted">Spotted</option>
+                                                <option value="Red">Red</option>
+                                                <option value="Tan">Tan</option>
+                                                <option value="Cream">Cream</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please select a color.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="destination">Destination:</label>
+                                            <select class="form-control" name="destination" id="destination" required>
+                                                <option value="">Select Destination</option>
+                                                <option value="Farm">Farm</option>
+                                                <option value="Market">Market</option>
+                                                <option value="Abattoir/Slaughterhouse">Abattoir/Slaughterhouse</option>
+                                                <option value="Show/Exhibition">Show/Exhibition</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please select a destination.</div>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
    <!-- Modal Footer -->
             
-   <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
+   <div class="modal-footer" style="justify-content: flex-start;  width: 100%; border: none;">
                             <div class="paa">
                                 <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
-                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button name ="create_travelpermit_walkin" type="submit" class="btn btn-primary">Submit Request</button>
                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                                 
                             </div>
@@ -252,9 +252,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </form>
-        </div>     
+        </div>        
     <div class="row"> 
         <div class="col"> 
             <?php 
@@ -262,6 +260,7 @@
             ?>
         </div>
     </div>
+</div>
 </div>
 <!-- End of Main Content -->
 
