@@ -568,7 +568,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="fname">First Name:</label>
-                                            <input name="fname" type="text" class="form-control" value="<?= $userdetails['firstname'];?>" pattern="^[a-zA-Z\-']{1,}$" required>
+                                            <input name="fname" type="text" class="form-control" title="Please enter letters and/or apostrophe." value="<?= $userdetails['firstname'];?>" pattern="^[a-zA-Z\-']{1,}$" required>
                                                 <div class="valid-feedback">Valid.</div>
                                                 <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
