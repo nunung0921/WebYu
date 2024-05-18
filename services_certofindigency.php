@@ -460,7 +460,7 @@
         </button>
         <ul class="dropdown-menu" style="width: 175px;">
             <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
-            <!--<li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>-->
+            <li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>
             <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
         </ul>
     </div>
@@ -472,7 +472,7 @@
             <div class="row"> 
                 <div class="col"> 
                     <div class="header">
-                        <h1 class="text1">Business Permit (Mayor's Permit) </h1>
+                        <h1 class="text1">Business Permit</h1>
                         <h5> Before you can start operating your business in the Philippines, you need to secure 
                         <br> a Mayor’s Permit or Business Permit from the Local Government Unit (LGU) where your 
                         <br> company office is located. </h5>
