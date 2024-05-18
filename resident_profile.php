@@ -356,13 +356,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Last Name:</label>
-                                    <input class="form-control" value="<?= $resident['lname'];?>" disabled>
+                                    <input class="form-control" value="<?= $resident['lname'];?>" pattern="^[a-zA-Z\-'\s]{1,}$" title="Please enter a valid last name (only letters, hyphens, apostrophes, and spaces allowed)" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>First Name:</label>
-                                    <input class="form-control" value="<?= $resident['fname'];?>" disabled>
+                                    <input class="form-control" value="<?= $resident['fname'];?>" pattern="^[a-zA-Z\-'\s]{1,}$" title="Please enter a valid first name (only letters, hyphens, apostrophes, and spaces allowed)" disabled>
                                 </div>
                             </div>
                             <div class="col">
@@ -422,19 +422,19 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Age:</label>
-                                    <input class="form-control" type="number" name="age" value="<?= $resident['age'];?>">
+                                    <input class="form-control" type="number" name="age" value="<?= $resident['age'];?>" pattern="^(?:1[01][0-9]|120|1[6-9]|[2-9][0-9])$" title="Please enter a valid age (only numbers allowed)">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Status:</label>
-                                    <input class="form-control" type="text" name="status" value="<?= $resident['status'];?>">
+                                    <input class="form-control" type="text" name="status" value="<?= $resident['status'];?>" pattern="[A-Za-z]+" title="Please enter letters only">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Contact:</label>
-                                    <input class="form-control" type="tel" name="contact" maxlength="11" pattern="[0-9]{11}" value="<?= $resident['contact'];?>">
+                                    <input class="form-control" type="tel" name="contact" maxlength="11" pattern="[0-9]{11}" value="<?= $resident['contact'];?>" pattern="^[0-9]{11}$"  title="Please enter a valid 11-digit contact number (numbers only)">
                                 </div>
                             </div>
                         </div>
@@ -443,19 +443,21 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>House No:</label>
-                                    <input class="form-control" type="text" name="houseno" value="<?= $resident['houseno'];?>">
+                                    <input class="form-control" type="text" name="houseno" value="<?= $resident['houseno'];?>" pattern="^[0-9]+$" title="Please enter a valid house number (only numbers allowed)">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label>Street:</label>
-                                    <input class="form-control" type="text" name="street" value="<?= $resident['street'];?>">
+                                    <label>Purok:</label>
+                                    <input class="form-control" type="text" name="street" value="<?= $resident['street'];?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
+       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Barangay:</label>
-                                    <input class="form-control" type="text" name="brgy" value="<?= $resident['brgy'];?>">
+                                    <input class="form-control" type="text" name="brgy" value="<?= $resident['brgy'];?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
+       title="Please enter a valid barangay name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)">
                                 </div>
                             </div>
                         </div>
