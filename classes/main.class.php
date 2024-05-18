@@ -1428,22 +1428,22 @@ public function create_travelpermit_walkin() {
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
-            $nationality = $_POST['nationality']; 
-            $houseno = $_POST['houseno'];
+            //$nationality = $_POST['nationality']; 
+            //$houseno = $_POST['houseno'];
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
             $municipal = $_POST['municipal'];
             $purpose = $_POST['purpose'];
-            $date = $_POST['date'];
+            //$date = $_POST['date'];
 
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_indigency (`id_resident`, `req_status`, `lname`, `fname`, `mi`,
-             `nationality`, `houseno`, `street`,`brgy`, `municipal`,`purpose`, `date`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            `street`,`brgy`, `municipal`,`purpose`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $street, $brgy, $municipal, $purpose]);
 
-            $message2 = "Application Applied, you will receive our text message for further details";
+            $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
         }
@@ -1458,20 +1458,20 @@ public function create_travelpermit_walkin() {
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
-            $nationality = $_POST['nationality']; 
-            $houseno = $_POST['houseno'];
+            //$nationality = $_POST['nationality']; 
+            //$houseno = $_POST['houseno'];
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
             $municipal = $_POST['municipal'];
             $purpose = $_POST['purpose'];
-            $date = $_POST['date'];
+            //$date = $_POST['date'];
 
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_indigency (`req_status`, `lname`, `fname`, `mi`,
-             `nationality`, `houseno`, `street`,`brgy`, `municipal`,`purpose`, `date`)
-            VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?)");
+             `street`,`brgy`, `municipal`,`purpose`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute(['approved', $lname, $fname, $mi,  $nationality, $houseno,  $street, $brgy, $municipal,$purpose, $date]);
+            $stmt->execute(['approved', $lname, $fname, $mi, $street, $brgy, $municipal, $purpose]);
 
             $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
