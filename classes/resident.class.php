@@ -507,47 +507,44 @@ public function profile_update_admin() {
     //-------------------------------------- EXTRA FUNCTIONS ------------------------------------------------
 
     public function resident_changepass() {
-        if(isset($_POST['resident_changepass']) &&
-            isset($_POST['oldpassword']) &&
-            isset($_POST['password1']) &&
-            isset($_POST['checkpassword'])) {
-    
-            $id_resident = $_SESSION['id_resident']; // Assuming you store the user's ID in a session variable
-            $oldpassword = $_POST['oldpassword'];
-            $newpassword = $_POST['password1'];
-            $checkpassword = $_POST['checkpassword'];
-    
-            // Update password if old password matches and new password matches verification
-            $connection = $this->openConn();
-            $stmt = $connection->prepare("SELECT `password` FROM tbl_resident WHERE id_resident = ?");
-            $stmt->execute([$id_resident]);
-            $result = $stmt->fetch();
-    
-            if(!$result) {
-                echo "Old Password is Incorrect";
-                return;
-            }
-    
-            if ($newpassword !== $checkpassword) {
-                echo "New Password and Verification Password do not Match";
-                return;
-            }
-    
-            // Hash the new password using a stronger hashing algorithm like bcrypt
-            $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
-    
-            // Update the password in the database
-            $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
-            $stmt->execute([$hashed_password, $id_resident]);
-            
-            $message2 = "Password Updated";
-            echo "<script type='text/javascript'>alert('$message2');</script>";
+    if(isset($_POST['resident_changepass'])) {
+        $id_resident = $_GET['id_resident'];
+        $oldpassword = md5($_POST['oldpassword']);
+        $oldpasswordverify = md5($_POST['oldpasswordverify']);
+        $newpassword = md5($_POST['newpassword']);
+        $checkpassword = md5($_POST['checkpassword']);
+
+        // Check if old password and verification match
+        if($oldpassword != $oldpasswordverify) {
+            echo "Old Password is Incorrect";
+            return;
         }
+
+        // Update password if old password matches and new password matches verification
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT `password` FROM tbl_resident WHERE id_resident = ?");
+        $stmt->execute([$id_resident]);
+        $result = $stmt->fetch();
+
+        if(!$result) {
+            echo "Old Password is Incorrect";
+            return;
+        }
+
+        if ($newpassword != $checkpassword) {
+            echo "New Password and Verification Password do not Match";
+            return;
+        }
+
+        $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
+        $stmt->execute([$newpassword, $id_resident]);
+        
+        $message2 = "Password Updated";
+        echo "<script type='text/javascript'>alert('$message2');</script>";
+        header("refresh: 0");
     }
-    
-    
-    
-    
+}
+
 
 
 public function admin_changepass() {

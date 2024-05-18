@@ -1,6 +1,5 @@
 <?php 
     error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_error', 1);
     require('classes/resident.class.php');
 
     //$view = $residentbmis->view_single_resident($email);
@@ -455,9 +454,9 @@
                             <label for="current-password">Current Password:</label>
                             <div class="input-container">
                                 <i class="fa fa-lock icon"></i>
-                                <input type="password" id="current-password" name="oldpassword" class="form-control" placeholder="Enter Current Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}" 
+                                <input type="password" id="current-password" name="oldpassword password" class="form-control" placeholder="Enter Current Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}" 
        title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*()_+)" required>
-                                <input type="hidden" name="oldpasswordverify" value="<?= $userdetails['password'] ?>">
+                                <input type="hidden" name="oldpasswordverify password" value="<?= $userdetails['password'] ?>">
                                 <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                         </div>
@@ -465,7 +464,7 @@
                             <label for="new-password">New Password:</label>
                             <div class="input-container">
                                 <i class="fa fa-key icon"></i>
-                                <input type="password" id="new-password" name="password1" class="form-control" placeholder="Enter New Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}" 
+                                <input type="password" id="new-password" name="password1 newpassword" class="form-control" placeholder="Enter New Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}" 
        title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*()_+)" required>
                             </div>
                         </div>
@@ -473,7 +472,7 @@
                             <label for="confirm-password">Verify Password:</label>
                             <div class="input-container">
                                 <i class="fa fa-user-lock icon"></i>
-                                <input type="password" id="confirm-password" name="checkpassword" class="form-control" placeholder="Enter Verify Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}" 
+                                <input type="password" id="confirm-password" name="checkpassword confirm_password" class="form-control" placeholder="Enter Verify Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}" 
        title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*()_+)" required>
                             </div>
                         </div>
