@@ -1691,21 +1691,21 @@ public function create_travelpermit_walkin() {
             $mi = $_POST['mi'];
             $age = $_POST['age'];
             $bsname = $_POST['bsname']; 
-            $houseno = $_POST['houseno'];
-            $street = $_POST['street'];
+            //$houseno = $_POST['houseno'];
+            //$street = $_POST['street'];
             $brgy = $_POST['brgy'];
             $municipal = $_POST['municipal'];
             $bsindustry = $_POST['bsindustry'];
-            $aoe = $_POST['aoe'];
+            //$aoe = $_POST['aoe'];
             $status = $_POST['status'];
 
 
             $connection = $this->openConn();
             $stmt = $connection->prepare("INSERT INTO tbl_bspermit (`id_resident`, `req_status`, `lname`, `fname`, `mi`, `age`,
-             `bsname`, `houseno`, `street`,`brgy`, `municipal`, `bsindustry`, `aoe`, `status`)
+             `bsname`, `brgy`, `municipal`, `bsindustry`, `status`)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $age, $bsname, $houseno,  $street, $brgy, $municipal, $bsindustry, $aoe, $status]);
+            $stmt->execute([$id_resident, 'approved', $lname, $fname, $mi, $age, $bsname, $brgy, $municipal, $bsindustry, $status]);
 
             $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
