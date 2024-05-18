@@ -12,7 +12,7 @@
    
 ?>
 
-<?php 
+<footer?php 
     include('dashboard_sidebar_start.php');
 ?>
 <style>
@@ -202,7 +202,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="row">
+                                < class="row">
         <div class="col">
             <div class="form-group">
                 <label for="color">Livestock Color:</label>
@@ -237,8 +237,7 @@
                 <div class="invalid-feedback">Please select a destination.</div>
             </div>
         </div>
-    </div>
-</div>
+</footer>
    <!-- Modal Footer -->
             
    <div class="modal-footer" style="justify-content: flex-start; margin-left: 130px; width: 100%; border: none;">
