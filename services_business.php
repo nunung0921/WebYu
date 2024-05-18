@@ -595,6 +595,20 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                <div class="col"> 
+                                        <div class="form-group">
+                                            <label>Civil Status: </label>
+                                            <select class="form-control" name="status" id="status" required>
+                                                <option value="">Choose your Status</option>
+                                                <option value="Single">Single</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Widowed">Widowed</option>
+                                                <option value="Divorced">Divorced</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
                                 <div class="col">
                                         <div class="form-group">
                                             <label for="bsname">Business Name:</label>
