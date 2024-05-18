@@ -6,7 +6,11 @@
     $userdetails = $residentbmis->get_userdata();
     $residentbmis->resident_changepass();
     //print_r($userdetails);
+
+    
+    
 ?>
+
 
 <!DOCTYPE html> 
 <html>
@@ -26,237 +30,395 @@
         <!-- fontawesome icons --> 
         <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
 
-        <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet" />
-        <!-- responsive style -->
-        <link href="css/responsive.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
 
-        <style>
-            /* Back-to-Top */
-            .top-link {
-                transition: all 0.25s ease-in-out;
-                position: fixed;
-                bottom: 0;
-                right: 0;
-                display: inline-flex;
-                cursor: pointer;
-                align-items: center;
-                justify-content: center;
-                margin: 0 3em 3em 0;
-                border-radius: 50%;
-                padding: 0.25em;
-                width: 80px;
-                height: 80px;
-                background-color: #3661D5;
-            }
-            .top-link.show {
-                visibility: visible;
-                opacity: 1;
-            }
-            .top-link.hide {
-                visibility: hidden;
-                opacity: 0;
-            }
-            .top-link svg {
-                fill: white;
-                width: 24px;
-                height: 12px;
-            }
-            .top-link:hover {
-                background-color: #3498DB;
-            }
-            .top-link:hover svg {
-                fill: #000000;
-            }
-            .screen-reader-text {
-                position: absolute;
-                clip-path: inset(50%);
-                margin: -1px;
-                border: 0;
-                padding: 0;
-                width: 1px;
-                height: 1px;
-                overflow: hidden;
-                word-wrap: normal !important;
-                clip: rect(1px, 1px, 1px, 1px);
-            }
-            .screen-reader-text:focus {
-                display: block;
-                top: 5px;
-                left: 5px;
-                z-index: 100000;
-                clip-path: none;
-                background-color: #eee;
-                padding: 15px 23px 14px;
-                width: auto;
-                height: auto;
-                text-decoration: none;
-                line-height: normal;
-                color: #444;
-                font-size: 1em;
-                clip: auto !important;
-            }
-            /* Navbar Buttons */
-            .btn3, .btn4, .btn5 {
-                border-radius: 20px;
-                border: none; /* Remove borders */
-                color: white; /* White text */
-                font-size: 16px; /* Set a font size */
-                cursor: pointer; /* Mouse pointer on hover */
-                padding: 8px 22px;
-                margin-left: .1%;
-            }
-            .btn3:hover, .btn4:hover, .btn5:hover {
-                background-color: RoyalBlue;
-                color: black;
-            }
-            .input-container {
-                display: flex;
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            .icon {
-                padding: 15px;
-                background: dodgerblue;
-                color: white;
-                min-width: 50px;
-                text-align: center;
-            }
-            .input-field {
-                width: 100%;
-                padding: 10px;
-                outline: none;
-            }
-            .input-field:focus {
-                border: 2px solid dodgerblue;
-            }
-            /* Set a style for the submit button */
-            .btn2 {
-                color: white;
-                padding: 10px 15px;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                opacity: 0.9;
-                border-radius: 15px;
-            }
-            .btn2:hover {
-                opacity: 1;
-            }
-            .field-icon {
-                position: absolute;
-                right: 10px;
-                top: 10px;
-                cursor: pointer;
-                z-index: 2;
-            }
-            .shfooter .collapse {
-                display: inherit;
-            }
-            @media (max-width:767px) {
-                .shfooter ul {
-                    margin-bottom: 0;
-                }
-                .shfooter .collapse {
-                    display: none;
-                }
-                .shfooter .collapse.show {
-                    display: block;
-                }
-                .shfooter .title .fa-angle-up,
-                .shfooter .title[aria-expanded=true] .fa-angle-down {
-                    display: none;
-                }
-                .shfooter .title[aria-expanded=true] .fa-angle-up {
-                    display: block;
-                }
-                .shfooter .navbar-toggler {
-                    display: inline-block;
-                    padding: 0;
-                }
-            }
-            .resize {
-                text-align: center;
-                margin-top: 3rem;
-                font-size: 1.25rem;
-            }
-            /*RESIZESCREEN ANIMATION*/
-            .fa-angle-double-right {
-                animation: rightanime 1s linear infinite;
-            }
-            .fa-angle-double-left {
-                animation: leftanime 1s linear infinite;
-            }
-            @keyframes rightanime {
-                50% {
-                    transform: translateX(10px);
-                    opacity: 0.5;
-                }
-                100% {
-                    transform: translateX(10px);
-                    opacity: 0;
-                }
-            }
-            @keyframes leftanime {
-                50% {
-                    transform: translateX(-10px);
-                    opacity: 0.5;
-                }
-                100% {
-                    transform: translateX(-10px);
-                    opacity: 0;
-                }
-            }
-            /* Contact Chip */
-            .chip {
-                display: inline-block;
-                padding: 0 25px;
-                height: 50px;
-                line-height: 50px;
-                border-radius: 25px;
-                background-color: #2C54C1;
-                margin-top: 5px;
-            }
-            .chip img {
-                float: left;
-                margin: 0 10px 0 -25px;
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
-            }
-            .zoom {
-                transition: transform .3s;
-            }
-            .zoom:hover {
-                transform: scale(1.4); 
-            }
-            .info_section .info_col {
-                height: 200px; /* Set a fixed height for each row */
-                overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
-            }
-            .dropdown-menu {
-                min-width: 15rem;
-            }
-            .logo {
-                max-height: 70px;
-                margin-right: 5px;
-            }
-        </style>
+    <style>
 
-    </head>
+        /* Back-to-Top */
+
+        .top-link {
+        transition: all 0.25s ease-in-out;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        display: inline-flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        margin: 0 3em 3em 0;
+        border-radius: 50%;
+        padding: 0.25em;
+        width: 80px;
+        height: 80px;
+        background-color: #3661D5;
+        }
+        .top-link.show {
+        visibility: visible;
+        opacity: 1;
+        }
+        .top-link.hide {
+        visibility: hidden;
+        opacity: 0;
+        }
+        .top-link svg {
+        fill: white;
+        width: 24px;
+        height: 12px;
+        }
+        .top-link:hover {
+        background-color: #3498DB;
+        }
+        .top-link:hover svg {
+        fill: #000000;
+        }
+
+        .screen-reader-text {
+        position: absolute;
+        clip-path: inset(50%);
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        word-wrap: normal !important;
+        clip: rect(1px, 1px, 1px, 1px);
+        }
+        .screen-reader-text:focus {
+        display: block;
+        top: 5px;
+        left: 5px;
+        z-index: 100000;
+        clip-path: none;
+        background-color: #eee;
+        padding: 15px 23px 14px;
+        width: auto;
+        height: auto;
+        text-decoration: none;
+        line-height: normal;
+        color: #444;
+        font-size: 1em;
+        clip: auto !important;
+        }
+
+        /* Navbar Buttons */
+
+        .btn3 {
+        border-radius: 20px;
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+        margin-left: 23%;
+        padding: 8px 22px;
+        }
+
+        .btn4 {
+        border-radius: 20px;
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+        padding: 8px 22px;
+        margin-left: .1%;
+        }
+
+        .btn5 {
+        border-radius: 20px;
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+        padding: 8px 22px;
+        margin-left: .1%;
+        }
+
+        /* Darker background on mouse-over */
+        .btn3:hover {
+        background-color: RoyalBlue;
+        color: black;
+        }
+
+        .btn4:hover {
+        background-color: RoyalBlue;
+        color: black;
+        }
+
+        .btn5:hover {
+        background-color: RoyalBlue;
+        color: black;
+        }
+    
+      /* General Styles */
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.icon {
+    padding: 15px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+
+.field-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.btn2 {
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 15px;
+}
+
+.btn2:hover {
+    opacity: 1;
+}
+
+/* Back-to-Top Button */
+.top-link {
+    transition: all 0.25s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3em 3em 0;
+    border-radius: 50%;
+    padding: 0.25em;
+    width: 80px;
+    height: 80px;
+    background-color: #3661D5;
+}
+
+.top-link.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.top-link.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.top-link svg {
+    fill: white;
+    width: 24px;
+    height: 12px;
+}
+
+.top-link:hover {
+    background-color: #3498DB;
+}
+
+.top-link:hover svg {
+    fill: #000000;
+}
+
+.screen-reader-text {
+    position: absolute;
+    clip-path: inset(50%);
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    word-wrap: normal !important;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.screen-reader-text:focus {
+    display: block;
+    top: 5px;
+    left: 5px;
+    z-index: 100000;
+    clip-path: none;
+    background-color: #eee;
+    padding: 15px 23px 14px;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    line-height: normal;
+    color: #444;
+    font-size: 1em;
+    clip: auto !important;
+}
+
+/* Navbar Buttons */
+.btn3, .btn4, .btn5 {
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 22px;
+    margin-left: 0.1%;
+}
+
+.btn3 {
+    margin-left: 23%;
+}
+
+.btn3:hover, .btn4:hover, .btn5:hover {
+    background-color: RoyalBlue;
+    color: black;
+}
+
+/* Responsive Footer */
+.shfooter .collapse {
+    display: inherit;
+}
+
+@media (max-width: 767px) {
+    .shfooter ul {
+        margin-bottom: 0;
+    }
+
+    .shfooter .collapse {
+        display: none;
+    }
+
+    .shfooter .collapse.show {
+        display: block;
+    }
+
+    .shfooter .title .fa-angle-up,
+    .shfooter .title[aria-expanded=true] .fa-angle-down {
+        display: none;
+    }
+
+    .shfooter .title[aria-expanded=true] .fa-angle-up {
+        display: block;
+    }
+
+    .shfooter .navbar-toggler {
+        display: inline-block;
+        padding: 0;
+    }
+}
+
+/* Other Styles */
+.resize {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.25rem;
+}
+
+/* Resizing Animation */
+.fa-angle-double-right {
+    animation: rightanime 1s linear infinite;
+}
+
+.fa-angle-double-left {
+    animation: leftanime 1s linear infinite;
+}
+
+@keyframes rightanime {
+    50% {
+        transform: translateX(10px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes leftanime {
+    50% {
+        transform: translateX(-10px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+}
+
+/* Contact Chip */
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #2C54C1;
+    margin-top: 5px;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.zoom {
+    transition: transform .3s;
+}
+
+.zoom:hover {
+    transform: scale(1.4);
+}
+
+.info_section .info_col {
+    height: 200px; /* Set a fixed height for each row */
+    overflow-y: auto; /* Add vertical scrollbars if content exceeds the height */
+}
+
+.dropdown-menu {
+    min-width: 15rem;
+}
+
+.logo {
+    max-height: 70px;
+    margin-right: 5px;
+}
+
+
+    </style>
 
     <body> 
 
-       
         <!-- Back-to-Top and Back Button -->
 
-        <a data-toggle="tooltip" title="Back-To-Top" class="top-link hide" href="" id="js-top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-            <span class="screen-reader-text">Back to top</span>
-        </a>
+       
 
         <!-- Eto yung navbar -->
 
+        
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="logo">
         <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
@@ -277,39 +439,57 @@
     </div>
 </nav>
 
-        <!-- Eto yung content --> 
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-md-4"></div> 
-                <div class="col-md-4">
-                    <form action="resident_changepass.php" method="post">
-                        <div class="input-container">
-                            <i class="fa fa-lock icon"></i>
-                            <input type="password" class="input-field" name="currentpassword" placeholder="Current Password" id="currentpassword" required>
-                            <span toggle="#currentpassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+        <div id="down1"></div>
+
+        <br>
+
+        <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card card-custom-width mb-4">
+                <div class="card-header bg-primary text-white text-center" style="font-size: 30px">Change Password</div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="current-password">Current Password:</label>
+                            <div class="input-container">
+                                <i class="fa fa-lock icon"></i>
+                                <input type="password" id="current-password" name="oldpassword password" class="form-control" placeholder="Enter Current Password" required>
+                                <input type="hidden" name="oldpasswordverify password" value="<?= $userdetails['password'] ?>">
+                                <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
                         </div>
-                        <div class="input-container">
-                            <i class="fa fa-lock icon"></i>
-                            <input type="password" class="input-field" name="newpassword" placeholder="New Password" id="newpassword" required>
-                            <span toggle="#newpassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        <div class="form-group">
+                            <label for="new-password">New Password:</label>
+                            <div class="input-container">
+                                <i class="fa fa-key icon"></i>
+                                <input type="password" id="new-password" name="password1 newpassword" class="form-control" placeholder="Enter New Password" required>
+                            </div>
                         </div>
-                        <div class="input-container">
-                            <i class="fa fa-lock icon"></i>
-                            <input type="password" class="input-field" name="confirmpassword" placeholder="Confirm New Password" id="confirmpassword" required>
-                            <span toggle="#confirmpassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        <div class="form-group">
+                            <label for="confirm-password">Verify Password:</label>
+                            <div class="input-container">
+                                <i class="fa fa-user-lock icon"></i>
+                                <input type="password" id="confirm-password" name="checkpassword confirm_password" class="form-control" placeholder="Enter Verify Password" required>
+                            </div>
                         </div>
-                        <div>
-                            <button type="submit" class="btn2 bg-primary text-light"><i class="fa fa-paper-plane"></i> Submit </button>
-                        </div>
+                        <span id="message"></span>
+                        <button type="submit" name="resident_changepass" class="btn btn-primary btn-block mt-3">Change Password</button>
                     </form>
                 </div>
-                <div class="col-md-4"></div>
             </div>
         </div>
+    </div>
+</div>
 
-     <!-- Footer -->
+        <br>
+        <br>
+        <br>
+        <br>
 
-     <footer id="footer" class="bg-primary text-white d-flex-column text-center">
+ <!-- Footer -->
+
+ <footer id="footer" class="bg-primary text-white d-flex-column text-center">
             <hr class="mt-0">
 
             
@@ -354,7 +534,9 @@
               | <a href="dev.html" style="color:white;">WebYu Team</a>
         </div>
             
-      
+            <button id="scrollTopBtn" onclick="scrollToTop()">
+                <i class="fas fa-angle-up"></i>
+    </button>
             </footer>
 
             <script>
