@@ -609,6 +609,14 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
+                
+                                <br>
+
+                                <h6>Business Information:</h6>
+
+                                <hr>
+
+                                <div class="row">
                                 <div class="col">
                                         <div class="form-group">
                                             <label for="bsname">Business Name:</label>
@@ -618,21 +626,6 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                    </div>
-                                <br>
-
-                                <h6>Business Address:</h6>
-
-                                <hr>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> House No: </label>
-                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." value="<?= $userdetails['houseno'];?>" pattern="^[0-9]+$" title="Please enter a valid house number (only numbers allowed)"  required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
