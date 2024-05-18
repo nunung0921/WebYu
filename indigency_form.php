@@ -1,8 +1,8 @@
 <?php
 require('classes/resident.class.php');
 $userdetails = $residentbmis->get_userdata();
-$id_resident = $_GET['id_resident'];
-$resident = $residentbmis->get_single_certofindigency($id_resident);
+$id_indigency = $_GET['id_indigency'];
+$resident = $residentbmis->get_single_certofindigency($id_indigency);
   ?>
 <!DOCTYPE html>
 <html id="clearance">

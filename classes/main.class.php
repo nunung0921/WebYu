@@ -1510,13 +1510,13 @@ public function create_travelpermit_walkin() {
         }
     }
 
-    public function get_single_certofindigency($id_resident){
+    public function get_single_certofindigency($id_indigency){
 
-        $id_resident = $_GET['id_resident'];
+        $id_indigency = $_GET['id_indigency'];
         
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * FROM tbl_indigency where id_resident = ?");
-        $stmt->execute([$id_resident]);
+        $stmt = $connection->prepare("SELECT * FROM tbl_indigency where id_indigency = ?");
+        $stmt->execute([$id_indigency]);
         $resident = $stmt->fetch();
         $total = $stmt->rowCount();
 
@@ -1568,7 +1568,7 @@ public function create_travelpermit_walkin() {
             $lname = $_POST['lname'];
             $fname = $_POST['fname'];
             $mi = $_POST['mi'];
-            $purpose = $_POST['purpose'];
+            //$purpose = $_POST['purpose'];
             $houseno = $_POST['houseno'];
             $street = $_POST['street'];
             $brgy = $_POST['brgy'];
@@ -1577,12 +1577,10 @@ public function create_travelpermit_walkin() {
             $age = $_POST['age'];
             
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`req_status`, `lname`, `fname`, `mi`,
-             `purpose`, `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $connection->prepare("INSERT INTO tbl_clearance (`req_status`, `lname`, `fname`, `mi`, `houseno`, `street`,`brgy`, `municipal`, `status`, `age`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->execute(['approved', $lname, $fname, $mi,  $purpose, 
-            $houseno,  $street, $brgy,   $municipal, $status, $age]);
+            $stmt->execute(['approved', $lname, $fname, $mi, $houseno,  $street, $brgy,   $municipal, $status, $age]);
 
             $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
