@@ -623,7 +623,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label> Street: </label>
+                                            <label> Purok: </label>
                                             <input type="text" class="form-control" name="street"  placeholder="Enter Street" value="<?= $userdetails['street'];?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
        title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
