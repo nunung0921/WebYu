@@ -446,67 +446,44 @@
 
         <br>
 
-        <div class="container" style="margin-top: 3em;">
-            <div class="row">
-                <div class="col-12">
-
-                    <br>
-
-                    <div class="row margin mtop"> 
-                        <div class="col-3"> </div>
-                        <div class="col-6">   
-                            <div class="card mbottom">
-                            <div class="card-header bg-primary text-white text-center" style="font-size:30px"> Change Password </div>
-                            <br>
-
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <form method="post">
-                                                
-                                                <label> Current Password: </label>
-                                                <div class="input-container">
-                                                    <i class="fa fa-lock icon"></i>
-                                                    <input class="input-field" type="password" id="password-field" name="oldpassword password" placeholder="Enter Current Password" require>
-                                                    <input class="input-field" type="hidden" id="password-field" name="oldpasswordverify password" value="<?= $userdetails['password']?>">
-                                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                                </div>
-
-                                                <br>
-
-                                                <label> New Password: </label>
-                                                <div class="input-container">
-                                                    <i class="fa fa-key icon"></i>
-                                                    <input class="input-field" id="password1" type="password" name="password1 newpassword" placeholder="Enter New Password" require>
-                                                </div>
-                                                
-                                                <br>
-
-                                                <label> Verify Password: </label>
-                                                <div class="input-container">
-                                                    <i class="fa fa-user-lock icon"></i>
-                                                    <input class="input-field" id="confirm_password" type="password" name="checkpassword confirm_password" placeholder="Enter Verify Password" require>
-                                                </div>
-
-                                                <span id="message"></span>
-
-                                                <br>
-                                                <br>
-
-                                                <button class="btn2 btn-primary" type="submit" name="resident_changepass"> Change Password </button>
-                                            </form>
-                                        </div>  
-                                    </div>   
-                                </div>
+        <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card card-custom-width mb-4">
+                <div class="card-header bg-primary text-white text-center" style="font-size: 30px">Change Password</div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="current-password">Current Password:</label>
+                            <div class="input-container">
+                                <i class="fa fa-lock icon"></i>
+                                <input type="password" id="current-password" name="oldpassword password" class="form-control" placeholder="Enter Current Password" required>
+                                <input type="hidden" name="oldpasswordverify password" value="<?= $userdetails['password'] ?>">
+                                <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
-                        </div> 
-
-                        <div class="col-3"> 
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="new-password">New Password:</label>
+                            <div class="input-container">
+                                <i class="fa fa-key icon"></i>
+                                <input type="password" id="new-password" name="password1 newpassword" class="form-control" placeholder="Enter New Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Verify Password:</label>
+                            <div class="input-container">
+                                <i class="fa fa-user-lock icon"></i>
+                                <input type="password" id="confirm-password" name="checkpassword confirm_password" class="form-control" placeholder="Enter Verify Password" required>
+                            </div>
+                        </div>
+                        <span id="message"></span>
+                        <button type="submit" name="resident_changepass" class="btn btn-primary btn-block mt-3">Change Password</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <br>
         <br>
