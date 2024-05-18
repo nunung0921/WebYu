@@ -639,6 +639,21 @@
                                             <input type="hidden" name="nationality" class="form-control" 
                                             placeholder="Enter your Nationality" value="Filipino" required>
 
+                                            <div class="col"> 
+                                        <div class="form-group">
+                                            <label>Civil Status: </label>
+                                            <select class="form-control" name="status" id="status" required>
+                                                <option value="">Choose your Status</option>
+                                                <option value="Single">Single</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Widowed">Widowed</option>
+                                                <option value="Divorced">Divorced</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="row">
@@ -655,9 +670,16 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Purok: </label>
-                                            <input type="text" class="form-control" name="street"  
-                                            placeholder="Enter Street" value="<?= $userdetails['street']?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
-       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
+                                            <select class="form-control" name="street" placeholder="Enter Purok" required>
+                                            <option value="">Select Purok</option>
+                                                <option value="Purok 1">Purok 1</option>
+                                                <option value="Purok 2">Purok 2</option>
+                                                <option value="Purok 3">Purok 3</option>
+                                                <option value="Purok 4">Purok 4</option>
+                                                <option value="Purok 5">Purok 5</option>
+                                                <option value="Purok 6">Purok 6</option>
+                                                <option value="Purok 7">Purok 7</option>
+                                            </select>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -673,16 +695,8 @@
                                             placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" required>
                                 </div>
 
-                                <div class="row">
+                                <!--<div class="row">
 
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label class="mtop">Date Needed: </label>
-                                            <input type="date" class="form-control" name="date" required min="<?php echo date('Y-m-d'); ?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
 
                                     <div class="col">
                                         <div class="form-group">
@@ -699,7 +713,7 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>  
-                                </div>
+                                </div>-->
                         
                         </div>
                      
