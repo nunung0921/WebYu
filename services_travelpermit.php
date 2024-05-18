@@ -596,7 +596,7 @@
                                             <label for="prev_owner">Previous Owner:</label>
                                             <input name="prev_owner" type="text" class="form-control" 
                                                    placeholder="Enter Full Name (Last Name, First Name)" 
-                                                   value="<?= $userdetails['surname'] . ', ' . $userdetails['firstname'] ?>" required>
+                                                   value="<?= $userdetails['surname'] . ', ' . $userdetails['firstname'] ?>" pattern="^[a-zA-Z\-'\s]{1,}$" title="Please enter a complete name (only letters, hyphens, apostrophes, and spaces allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -608,7 +608,7 @@
                                         <div class="form-group">
                                             <label for="buyers_name">Buyer's Name:</label>
                                             <input name="buyers_name" type="text" class="form-control" 
-                                            placeholder="Enter Buyer's Name" required>
+                                            placeholder="Enter Buyer's Name" pattern="^[a-zA-Z\-'\s]{1,}$" title="Please enter a complete name (only letters, hyphens, apostrophes, and spaces allowed)" required>
                                                 <div class="valid-feedback">Valid.</div>
                                                 <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -636,7 +636,7 @@
                                         <div class="form-group">
                                             <label> House No: </label>
                                             <input type="text" class="form-control" name="houseno"  
-                                            placeholder="Enter House No." value="<?= $userdetails['houseno']?>"  required>
+                                            placeholder="Enter House No." value="<?= $userdetails['houseno']?>" pattern="^[0-9]+$" title="Please enter a valid house number (only numbers allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -644,9 +644,10 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label> Street: </label>
+                                            <label> Purok: </label>
                                             <input type="text" class="form-control" name="street"  
-                                            placeholder="Enter Purok" value="<?= $userdetails['street']?>" required>
+                                            placeholder="Enter Purok" value="<?= $userdetails['street']?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
+       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -656,7 +657,8 @@
                                         <div class="form-group">
                                             <label> Barangay: </label>
                                             <input type="text" class="form-control" name="brgy"  value="Yuson"
-                                            placeholder="Enter Barangay" value="<?= $userdetails['brgy']?>" required>
+                                            placeholder="Enter Barangay" value="<?= $userdetails['brgy']?>" pattern="^[a-zA-Z\s]*$" 
+       title="Please enter a valid Barangay (letters and spaces only)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -666,7 +668,8 @@
                                         <div class="form-group">
                                             <label> Municipality: </label>
                                             <input type="text" class="form-control" name="municipal" value="Guimba"
-                                            placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" required>
+                                            placeholder="Enter Municipality" value="<?= $userdetails['municipal']?>" pattern="^[a-zA-Z\s]*$" 
+       title="Please enter a valid Municipality (letters and spaces only)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
