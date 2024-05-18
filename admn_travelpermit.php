@@ -81,7 +81,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post" class="was-validated">
+                            <form method="post">
 
                                 <div class="row"> 
 

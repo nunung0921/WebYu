@@ -1378,7 +1378,7 @@ public function create_travelpermit_walkin() {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute(['approved', $prev_owner, $breed, $gender, $color, $destination, $current_date, $brgy, $municipal, $buyers_name, $purpose]);
 
-            $message2 = "Application Applied, you will receive our text message for further details";
+            $message2 = "Application Applied!";
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
         } catch(PDOException $e) {
