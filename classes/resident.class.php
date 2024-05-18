@@ -509,21 +509,13 @@ public function profile_update_admin() {
     public function resident_changepass() {
         if(isset($_POST['resident_changepass']) &&
             isset($_POST['oldpassword']) &&
-            isset($_POST['oldpasswordverify']) &&
             isset($_POST['password1']) &&
             isset($_POST['checkpassword'])) {
     
             $id_resident = $_SESSION['id_resident']; // Assuming you store the user's ID in a session variable
             $oldpassword = $_POST['oldpassword'];
-            $oldpasswordverify = $_POST['oldpasswordverify'];
             $newpassword = $_POST['password1'];
             $checkpassword = $_POST['checkpassword'];
-    
-            // Check if old password and verification match
-            if($oldpassword !== $oldpasswordverify) {
-                echo "Old Password is Incorrect";
-                return;
-            }
     
             // Update password if old password matches and new password matches verification
             $connection = $this->openConn();
