@@ -1591,13 +1591,13 @@ public function create_travelpermit_walkin() {
         
         
     }
-    public function get_single_clearance($id_resident){
+    public function get_single_clearance($id_clearance){
 
-        $id_resident = $_GET['id_resident'];
+        $id_clearance = $_GET['id_clearance'];
         
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * FROM tbl_clearance where id_resident = ?");
-        $stmt->execute([$id_resident]);
+        $stmt = $connection->prepare("SELECT * FROM tbl_clearance where id_clearance = ?");
+        $stmt->execute([$id_clearance]);
         $resident = $stmt->fetch();
         $total = $stmt->rowCount();
 
