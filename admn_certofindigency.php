@@ -37,7 +37,7 @@
 </style>
 
 <!-- Begin Page Content -->
-<class="container-fluid">
+<div class="container-fluid">
 
     <!-- Page Heading -->
 
@@ -198,6 +198,7 @@
                     </div>
                 </div>
             </div>
+</div>
     <div class="row"> 
         <div class="col"> 
             <?php 
