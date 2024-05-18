@@ -1,4 +1,4 @@
-<d?php
+<?php
     
     error_reporting(E_ALL ^ E_WARNING);
     ini_set('display_errors',0);
@@ -12,7 +12,7 @@
    
 ?>
 
-<div?php 
+<?php 
     include('dashboard_sidebar_start.php');
 ?>
 <style>
@@ -252,9 +252,9 @@
                     </div>
                 </div>
             </div>
+        </div>
         </form>
-        </div>   
-</div>  
+        </div>        
     <div class="row"> 
         <div class="col"> 
             <?php 
