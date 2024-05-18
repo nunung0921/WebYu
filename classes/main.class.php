@@ -1336,14 +1336,46 @@ public function create_travelpermit() {
         $municipal = $_POST['municipal'];
         $buyers_name = $_POST['buyers_name'];
         $purpose = $_POST['purpose'];
+
+        try {
+            $connection = $this->openConn();
+            $current_date = date('Y-m-d H:i:s'); // Get current date and time
+            $stmt = $connection->prepare("INSERT INTO tbl_travelpermit (`id_travel`, `id_resident`, `req_status`, `prev_owner`, `breed`, `gender`,
+             `color`, `destination`, `date`, `brgy`, `municipal`, `buyers_name`, `purpose`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([null, $id_resident, 'approved', $prev_owner, $breed, $gender, $color, $destination, $current_date, $brgy, $municipal, $buyers_name, $purpose]);
+
+            $message2 = "Application Applied, you will receive our text message for further details";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+}
+
+public function create_travelpermit_walkin() {
+    if(isset($_POST['create_travelpermit_walkin'])) {
+        $full_name = $_POST['prev_owner']; // Assuming you named the combined field as 'fullname'
+        list($surname, $firstname) = explode(', ', $full_name);
+        $prev_owner = $surname . ' ' . $firstname;
+
+        $breed = $_POST['breed'];
+        $gender = $_POST['gender'];
+        $color = $_POST['color'];
+        $destination = $_POST['destination']; 
+        $brgy = $_POST['brgy'];
+        $municipal = $_POST['municipal'];
+        $buyers_name = $_POST['buyers_name'];
+        $purpose = $_POST['purpose'];
         
         try {
             $connection = $this->openConn();
             $current_date = date('Y-m-d H:i:s'); // Get current date and time
-            $stmt = $connection->prepare("INSERT INTO tbl_travelpermit (`id_travel`, `id_resident`, `prev_owner`, `breed`, `gender`,
+            $stmt = $connection->prepare("INSERT INTO tbl_travelpermit (`req_status`, `prev_owner`, `breed`, `gender`,
              `color`, `destination`, `date`, `brgy`, `municipal`, `buyers_name`, `purpose`)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([null, $id_resident, $prev_owner, $breed, $gender, $color, $destination, $current_date, $brgy, $municipal, $buyers_name, $purpose]);
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute(['approved', $prev_owner, $breed, $gender, $color, $destination, $current_date, $brgy, $municipal, $buyers_name, $purpose]);
 
             $message2 = "Application Applied, you will receive our text message for further details";
             echo "<script type='text/javascript'>alert('$message2');</script>";

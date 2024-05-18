@@ -5,6 +5,7 @@
     require('classes/resident.class.php');
     $userdetails = $bmis->get_userdata();
     $bmis->validate_admin();
+    $bmis->create_travelpermit_walkin();
     $bmis->delete_travelpermit();
     $view = $bmis->view_travelpermit();
     $id_resident = $_GET['id_resident'];
@@ -242,7 +243,7 @@
    <div class="modal-footer" style="justify-content: flex-start;  width: 100%; border: none;">
                             <div class="paa">
                                 <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
-                                <button name ="create_bspermit" type="submit" class="btn btn-primary">Submit Request</button>
+                                <button name ="create_bspermit_walkin" type="submit" class="btn btn-primary">Submit Request</button>
                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                                 
                             </div>
