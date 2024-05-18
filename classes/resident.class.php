@@ -856,7 +856,7 @@ if($hashed_old_password !== $result['password']) {
     }*/
     public function count_residency() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_rescert");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_rescert WHERE req_status = 'approved'");
         $stmt->execute();
         $residencycount = $stmt->fetchColumn();
         
@@ -870,7 +870,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_bspermit() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_bspermit");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_bspermit WHERE req_status = 'approved'");
         $stmt->execute();
         $bspermitcount = $stmt->fetchColumn();
         
@@ -884,7 +884,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_blotter() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_blotter");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_blotter WHERE req_status = 'approved'");
         $stmt->execute();
         $blottercount = $stmt->fetchColumn();
         
@@ -898,7 +898,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_clearance() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_clearance");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_clearance WHERE req_status = 'approved'");
         $stmt->execute();
         $clearancecount = $stmt->fetchColumn();
         
@@ -912,7 +912,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_indigency() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_indigency");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_indigency WHERE req_status = 'approved'");
         $stmt->execute();
         $indigencycount = $stmt->fetchColumn();
         
