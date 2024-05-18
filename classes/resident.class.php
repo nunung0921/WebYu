@@ -541,7 +541,7 @@ public function profile_update_admin() {
             
             $message2 = "Password Updated";
             echo "<script type='text/javascript'>alert('$message2');</script>";
-            header("refresh: 0");
+            //header("refresh: 0");
         }
     }
     
