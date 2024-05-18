@@ -604,7 +604,7 @@
                                         <div class="form-group">
                                             <label for="lname">Last Name:</label>
                                             <input name="lname" type="text" class="form-control" 
-                                            placeholder="Enter Last Name" value="<?= $userdetails['surname']?>">
+                                            placeholder="Enter Last Name" value="<?= $userdetails['surname']?> pattern="[a-zA-Z\-'\s]{1,}$" title="Please enter a valid last name (only letters, hyphens, apostrophes, and spaces allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -626,7 +626,7 @@
                                         <div class="form-group">
                                             <label for="fname">First Name:</label>
                                             <input name="fname" type="text" class="form-control" 
-                                            placeholder="Enter First Name" value="<?= $userdetails['firstname']?>" required>
+                                            placeholder="Enter First Name" value="<?= $userdetails['firstname']?>" pattern="^[a-zA-Z\-'\s]{1,}$" title="Please enter a valid first name (only letters, hyphens, apostrophes, and spaces allowed)" required>
                                                 <div class="valid-feedback">Valid.</div>
                                                 <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -657,7 +657,7 @@
                                         <div class="form-group">
                                             <label> House No: </label>
                                             <input type="text" class="form-control" name="houseno"  
-                                            placeholder="Enter House No." value="<?= $userdetails['houseno']?>"  required>
+                                            placeholder="Enter House No." value="<?= $userdetails['houseno']?>" pattern="^[0-9]+$" title="Please enter a valid house number (only numbers allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -665,9 +665,10 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label> Street: </label>
+                                            <label> Purok: </label>
                                             <input type="text" class="form-control" name="street"  
-                                            placeholder="Enter Purok" value="<?= $userdetails['street']?>" required>
+                                            placeholder="Enter Purok" value="<?= $userdetails['street']?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
+       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -704,7 +705,7 @@
                                         <div class="form-group">
                                             <label for="Age" class="mtop">Age: </label>
                                             <input type="number" name="age" class="form-control" 
-                                            placeholder="Enter your Age" value="<?= $userdetails['age']?>" required>
+                                            placeholder="Enter your Age" value="<?= $userdetails['age']?>"pattern="^(?:1[01][0-9]|120|1[6-9]|[2-9][0-9])$" title="Please enter a valid age (only numbers allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
