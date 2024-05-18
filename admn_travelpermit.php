@@ -68,7 +68,7 @@
     <button class="btn btn-success" style="width: 100px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px;" data-toggle="modal" data-target="#exampleModalCenter">
         <i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add
     </button>
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -81,7 +81,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post">
+                            <form method="post" class="was-validated">
 
                                 <div class="row"> 
 
@@ -239,14 +239,13 @@
                                     </div>
                                 </form>
                         </div>
-   <!-- Modal Footer -->
+                        <!-- Modal Footer -->
             
-   <div class="modal-footer" style="justify-content: flex-start;  width: 100%; border: none;">
+                        <div class="modal-footer" style="justify-content: flex-start;">
                             <div class="paa">
                                 <input name="id_resident" type="hidden" class="form-control" value="<?= $userdetails['id_resident']?>">
                                 <button name ="create_travelpermit_walkin" type="submit" class="btn btn-primary">Submit Request</button>
                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                                
                             </div>
                         </div> 
                     </div>
