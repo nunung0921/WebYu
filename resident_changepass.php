@@ -5,7 +5,7 @@
     //$view = $residentbmis->view_single_resident($email);
     $userdetails = $residentbmis->get_userdata();
     $residentbmis->resident_changepass();
-    //print_r($userdetails);
+    print_r($userdetails);
 
     
     
