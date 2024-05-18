@@ -354,9 +354,7 @@
               | <a href="dev.html" style="color:white;">WebYu Team</a>
         </div>
             
-            <button id="scrollTopBtn" onclick="scrollToTop()">
-                <i class="fas fa-angle-up"></i>
-    </button>
+      
             </footer>
 
             <script>
