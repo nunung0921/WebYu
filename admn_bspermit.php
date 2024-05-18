@@ -121,10 +121,16 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col"> 
                                         <div class="form-group">
-                                            <label> Civil Status </label>
-                                            <input type="text" style="text-align:left;" class="form-control" name="status" placeholder="Enter Status" required>
+                                            <label>Civil Status: </label>
+                                            <select class="form-control" name="status" id="status" required>
+                                                <option value="">Choose your Status</option>
+                                                <option value="Single">Single</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Widowed">Widowed</option>
+                                                <option value="Divorced">Divorced</option>
+                                            </select>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
