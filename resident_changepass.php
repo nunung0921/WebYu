@@ -471,10 +471,12 @@
                             <div class="input-container">
                                 <i class="fa fa-user-lock icon"></i>
                                 <input type="password" id="confirm-password" name="checkpassword confirm_password" class="form-control" placeholder="Enter Verify Password" required>
+                                <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                         </div>
                         <span id="message"></span>
                         <button type="submit" name="resident_changepass" class="btn btn-primary btn-block mt-3">Change Password</button>
+                        <span toggle="#current-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                     </form>
                 </div>
             </div>
