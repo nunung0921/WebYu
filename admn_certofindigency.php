@@ -79,7 +79,7 @@
                         <!-- Modal Body -->
 
                         <div class="modal-body">
-                            <form method="post">
+                            < method="post">
 
                                 <div class="row"> 
 
@@ -184,7 +184,7 @@
                                 </div>
 
                 
-                
+</div>
                         <!-- Modal Footer -->
                         
                         <div class="modal-footer" style="justify-content: flex-start;">
