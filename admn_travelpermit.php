@@ -203,41 +203,43 @@
                                 </div>
                                 
                                 <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="color">Livestock Color:</label>
-                <select class="form-control" name="color" id="color" required>
-                    <option value="">Select Color</option>
-                    <option value="Black">Black</option>
-                    <option value="White">White</option>
-                    <option value="Brown">Brown</option>
-                    <option value="Gray">Gray</option>
-                    <option value="Spotted">Spotted</option>
-                    <option value="Red">Red</option>
-                    <option value="Tan">Tan</option>
-                    <option value="Cream">Cream</option>
-                    <option value="Other">Other</option>
-                </select>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please select a color.</div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-group">
-                <label for="destination">Destination:</label>
-                <select class="form-control" name="destination" id="destination" required>
-                    <option value="">Select Destination</option>
-                    <option value="Farm">Farm</option>
-                    <option value="Market">Market</option>
-                    <option value="Abattoir/Slaughterhouse">Abattoir/Slaughterhouse</option>
-                    <option value="Show/Exhibition">Show/Exhibition</option>
-                    <option value="Other">Other</option>
-                </select>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please select a destination.</div>
-            </div>
-        </div>
-</div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="color">Livestock Color:</label>
+                                            <select class="form-control" name="color" id="color" required>
+                                                <option value="">Select Color</option>
+                                                <option value="Black">Black</option>
+                                                <option value="White">White</option>
+                                                <option value="Brown">Brown</option>
+                                                <option value="Gray">Gray</option>
+                                                <option value="Spotted">Spotted</option>
+                                                <option value="Red">Red</option>
+                                                <option value="Tan">Tan</option>
+                                                <option value="Cream">Cream</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please select a color.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="destination">Destination:</label>
+                                            <select class="form-control" name="destination" id="destination" required>
+                                                <option value="">Select Destination</option>
+                                                <option value="Farm">Farm</option>
+                                                <option value="Market">Market</option>
+                                                <option value="Abattoir/Slaughterhouse">Abattoir/Slaughterhouse</option>
+                                                <option value="Show/Exhibition">Show/Exhibition</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please select a destination.</div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                        </div>
    <!-- Modal Footer -->
             
    <div class="modal-footer" style="justify-content: flex-start;  width: 100%; border: none;">
