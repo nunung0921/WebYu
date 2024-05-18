@@ -175,7 +175,7 @@ $residentbmis->create_resident($addedby);
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label> Street: </label>
+                                            <label> Purok: </label>
                                             <select class="form-control" name="street" placeholder="Enter Purok" required>
                                             <option value="">Select Purok</option>
                                                 <option value="Purok 1">Purok 1</option>
