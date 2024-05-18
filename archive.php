@@ -20,6 +20,11 @@
         
         $view = $residentbmis->view_archive();
 
+        $view_travel = $bmis->view_travelpermit_archive();
+        $bmis->archive_travel();
+        $bmis->approve_travel();
+        $bmis->delete_travelpermit();
+
         $view_bspermit = $bmis->view_bspermit_archive();
         $bmis->archive_bspermit();
         $bmis->approve_bspermit();
@@ -47,7 +52,6 @@
 
         $residentbmis->create_resident();
         $upreq = $residentbmis->approve_request();
-        $upstaff = $residentbmis->update_resident();
         $residentbmis->reject_request();
         $id_resident = $_GET['id_resident'];
     ?>
@@ -257,6 +261,76 @@
                                             <td> <?= $view['street'];?> </td>
                                             <td> <?= $view['brgy'];?> </td>
                                             <td> <?= $view['municipal'];?> </td>
+                                        </tr>
+                                    <?php }?>
+                                <?php } ?>
+                                            </tbody>
+            </table>
+
+            <hr>
+
+            <h1 class="mb-1 text-center">Archive Travel Permits</h1>
+
+                <hr>
+                <br>
+
+                <!-- Page Heading -->
+
+                <table class="table table-hover table-bordered text-center table-responsive">
+                <thead class="alert-info">
+                    <tr>
+                        <th> Action </th>
+                        <th> Previous Owner </th>
+                        <th> Buyer's name </th>
+                        <th> Breed </th>
+                        <th> Gender </th>
+                        <th> Color</th>
+                        <th> Destination</th>
+                        <th> Barangay </th>
+                        <th> Municipality </th>
+                        <th> Purpose </th>
+                        <th> Date </th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php if(is_array($view_travel)) {?>
+                                    <?php foreach($view_travel as $view) {?>
+                                        <tr>
+                                            <td>
+                                                <form method="POST" action="" onsubmit="return confirmAction();">
+                                                    <input type="hidden" name="id_travel" value="<?= $view['id_travel']; ?>">
+                                                    <button type="submit" name="approve_travel" class="btn btn-success" style="margin-bottom: 10px;">Restore</button>
+                                                    <button type="submit" name="delete_travel" class="btn btn-danger" style="width: 85px;">Delete</button>
+                                                    <!-- Use a hidden input to pass the id_resident -->
+                                                    
+                                                </form>
+                                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
+                                            </td>
+                                            <td> <?= $view['prev_owner'];?> </td>
+                                            <td> <?= $view['buyers_name'];?> </td>
+                                            <td> <?= $view['breed'];?> </td>
+                                            <td> <?= $view['gender'];?>
+                                            <td> <?= $view['color'];?> </td>
+                                            <td> <?= $view['destination'];?> </td>
+                                            <td> <?= $view['brgy'];?> </td>
+                                            <td> <?= $view['municipal'];?> </td>
+                                            <td> <?= $view['purpose'];?> </td>
+                                            <td> <?= $view['date'];?> </td>
                                         </tr>
                                     <?php }?>
                                 <?php } ?>
