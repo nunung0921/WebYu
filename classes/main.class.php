@@ -1303,12 +1303,12 @@ class BMISClass {
 
     //----------TRAVEL PERMIT CRUD-------------
 
-    public function get_single_travelpermit($id_resident){
+    public function get_single_travelpermit($id_travel){
 
         $id_resident = $_GET['id_resident'];
         
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * FROM tbl_travelpermit where id_resident = ?");
+        $stmt = $connection->prepare("SELECT * FROM tbl_travelpermit where id_travel = ?");
         $stmt->execute([$id_resident]);
         $resident = $stmt->fetch();
         $total = $stmt->rowCount();
