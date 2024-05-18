@@ -588,6 +588,26 @@
         </script>
 
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
+        <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+    var togglePassword = document.querySelectorAll('.toggle-password');
+    togglePassword.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            var input = document.querySelector(this.getAttribute('toggle'));
+            if (input.getAttribute('type') === 'password') {
+                input.setAttribute('type', 'text');
+                this.classList.remove('fa-eye');
+                this.classList.add('fa-eye-slash');
+            } else {
+                input.setAttribute('type', 'password');
+                this.classList.remove('fa-eye-slash');
+                this.classList.add('fa-eye');
+            }
+        });
+    });
+});
+</script>
 
     </body>
 </html>
