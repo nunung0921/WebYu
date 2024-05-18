@@ -1459,9 +1459,9 @@ public function create_travelpermit() {
     public function delete_certofindigency(){
         $id_indigency = $_POST['id_indigency'];
 
-        if(isset($_POST['delete_certofindegency'])) {
+        if(isset($_POST['delete_certofindigency'])) {
             $connection = $this->openConn();
-            $stmt = $connection->prepare("DELETE FROM tbl_indigince where id_indigency = ?");
+            $stmt = $connection->prepare("DELETE FROM tbl_indigency where id_indigency = ?");
             $stmt->execute([$id_indigency]);
 
             header("Refresh:0");
@@ -1891,7 +1891,7 @@ public function create_travelpermit() {
 
         if(isset($_POST['approve_indigency'])) {
             $connection = $this->openConn();
-            $stmt = $connection->prepare("UPDATE tbl_clearance SET req_status = 'approved' where id_indigency = ?");
+            $stmt = $connection->prepare("UPDATE tbl_indigency SET req_status = 'approved' where id_indigency = ?");
             $stmt->execute([$id_indigency]);
 
             $message2 = "Restored Successfully";
@@ -2051,25 +2051,27 @@ public function create_travelpermit() {
             $municipal = $_POST['municipal'];
             $contact = $_POST['contact'];
             $narrative = $_POST['narrative'];
+            $req_status = 'approved';
             
             $connection = $this->openConn();
-            $stmt = $connection->prepare("INSERT INTO tbl_blotter (`id_blotter`, `id_resident`, `lname`, `fname`, `mi`,
+            $stmt = $connection->prepare("INSERT INTO tbl_blotter (`id_blotter`, `id_resident`, `req_status`, `lname`, `fname`, `mi`,
                 `houseno`, `street`, `brgy`, `municipal`, `blot_photo`, `contact`, `narrative`)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
             // Bind parameters, using PDO::PARAM_LOB for the BLOB data
             $stmt->bindParam(1, $id_blotter);
             $stmt->bindParam(2, $id_resident);
-            $stmt->bindParam(3, $lname);
-            $stmt->bindParam(4, $fname);
-            $stmt->bindParam(5, $mi);
-            $stmt->bindParam(6, $houseno);
-            $stmt->bindParam(7, $street);
-            $stmt->bindParam(8, $brgy);
-            $stmt->bindParam(9, $municipal);
-            $stmt->bindParam(10, $blot_photo, PDO::PARAM_LOB);
-            $stmt->bindParam(11, $contact);
-            $stmt->bindParam(12, $narrative);
+            $stmt->bindParam(3, $req_status);
+            $stmt->bindParam(4, $lname);
+            $stmt->bindParam(5, $fname);
+            $stmt->bindParam(6, $mi);
+            $stmt->bindParam(7, $houseno);
+            $stmt->bindParam(8, $street);
+            $stmt->bindParam(9, $brgy);
+            $stmt->bindParam(10, $municipal);
+            $stmt->bindParam(11, $blot_photo, PDO::PARAM_LOB);
+            $stmt->bindParam(12, $contact);
+            $stmt->bindParam(13, $narrative);
             
             // Execute statement
             $stmt->execute();
@@ -2078,6 +2080,33 @@ public function create_travelpermit() {
             echo "<script type='text/javascript'>alert('$message2');</script>";
             header("refresh: 0");
         }
+    }
+
+    public function create_blotter_walkin() {
+
+        if(isset($_POST['create_blotter_walkin'])) {
+            $id_blotter = $_POST['id_blotter'];
+            $lname = $_POST['lname'];
+            $fname = $_POST['fname'];
+            $mi = $_POST['mi']; 
+            $houseno = $_POST['houseno'];
+            $street = $_POST['street'];
+            $brgy = $_POST['brgy'];
+            $municipal = $_POST['municipal'];
+            $contact = $_POST['contact'];
+            $narrative = $_POST['narrative'];
+
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("INSERT INTO tbl_blotter (`req_status`, `lname`, `fname`, `mi`,
+            `houseno`, `street`,`brgy`, `municipal`, `contact`, `narrative`)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            $stmt->execute(['approved', $lname, $fname, $mi, $houseno,  $street, $brgy, $municipal, $contact, $narrative]);
+
+            $message2 = "Application Applied!";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("refresh: 0");
+        }  
     }
     
 
