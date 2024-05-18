@@ -625,8 +625,11 @@
                                             <td> <?= $view['brgy'];?> </td>
                                             <td> <?= $view['municipal'];?> </td>
                                             <td>
-                                                <?php
-                                                if (!empty($blot_photo_data)) {
+                                            <?php
+                                                if (!empty($view['blot_photo'])) {
+                                                    $encoded_image = debug_base64_encode($view['blot_photo']);
+
+
                                                     if ($encoded_image != 'No valid image data') {
                                                         echo '<img src="data:image/jpeg;base64,' . $encoded_image . '" alt="Blotter Photo" style="width: 100px; height:100px;">';
                                                     } else {
