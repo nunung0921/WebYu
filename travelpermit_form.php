@@ -1,8 +1,8 @@
 <?php
 require('classes/resident.class.php');
 $userdetails = $residentbmis->get_userdata();
-$id_resident = $_GET['id_resident'];
-$resident = $residentbmis->get_single_travelpermit($id_resident);
+$id_travel = $_GET['id_travel'];
+$resident = $residentbmis->get_single_travelpermit($id_travel);
   ?>
 <!DOCTYPE html>
 <html id="clearance">
