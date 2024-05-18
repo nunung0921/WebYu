@@ -325,24 +325,26 @@
 
         <!-- Eto yung navbar -->
 
-        <nav class="navbar navbar-dark bg-primary sticky-top">
-             <img src="images/yuson1.png" alt="Yuson Logo" class="logo"  style="background-size: cover; background-repeat: no-repeat;">
-            <a class="navbar-brand" href="resident_homepage.php">Barangay Yuson Information Management System</a>
-            <a href="resident_homepage.php" data-toggle="tooltip" title="Home" class="btn3 bg-primary"><i class="fa fa-home fa-lg"></i></a>
-            <a href="#down1" data-toggle="tooltip" title="Change Password" class="btn5 bg-primary"><i class="fa fa-user-lock fa-lg"></i></a>
-            <a href="#down" data-toggle="tooltip" title="Contact" class="btn4 bg-primary"><i class="fa fa-phone fa-lg"></i></a>
-           
-            <div class="dropdown ml-auto">
-                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-                    <span class="caret" style="margin-left: 2px;"></span>
-                </button>
-                <ul class="dropdown-menu" style="width: 175px;" >
-                    <a class="btn" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
-                    <a class="btn" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>
-                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
-                </ul>
-            </div>
-        </nav>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="logo">
+        <a href="#"><img src="icons/yuson1.png" alt="logo" height="60px" /></a>
+    </div>
+    <a class="navbar-brand" href="resident_homepage.php"><b> WebYu </b></a>
+                <a href="resident_homepage.php" class="nav-link" style="color: white;">HOME</a>
+    </div>
+
+    <div class="dropdown ml-auto">
+        <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+            <span class="caret" style="margin-left: 2px;"></span>
+        </button>
+        <ul class="dropdown-menu" style="width: 175px;">
+            <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
+            <li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>
+            <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
         <div id="down1"></div>
 
