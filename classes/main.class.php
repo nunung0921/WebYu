@@ -1321,6 +1321,7 @@ class BMISClass {
         }
     }
 
+    
 public function create_travelpermit() {
     if(isset($_POST['create_travelpermit'])) {
         $id_resident = $_POST['id_resident'];
