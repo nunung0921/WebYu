@@ -634,25 +634,6 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> Purok: </label>
-                                            <input type="text" class="form-control" name="street"  placeholder="Enter Street" value="<?= $userdetails['street'];?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
-       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
-
-                                            <!--<label> Barangay: </label>-->
-                                            <input type="hidden" class="form-control" name="brgy"  placeholder="Enter Barangay" value="<?= $userdetails['brgy'];?>"  required>
-
-                                            <!--<label> Municipality: </label>-->
-                                            <input type="hidden" class="form-control" name="municipal" placeholder="Enter Municipality" value="<?= $userdetails['municipal'];?>"  required>
-                                </div>
-
-                                <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="status">Business Industry:</label>
@@ -682,14 +663,33 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <!--<div class="col">
+                                        <div class="form-group">
+                                            <label> Purok: </label>
+                                            <input type="text" class="form-control" name="street"  placeholder="Enter Street" value="<?= $userdetails['street'];?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
+       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>-->
+
+                                            <!--<label> Barangay: </label>-->
+                                            <input type="hidden" class="form-control" name="brgy"  placeholder="Enter Barangay" value="<?= $userdetails['brgy'];?>"  required>
+
+                                            <!--<label> Municipality: </label>-->
+                                            <input type="hidden" class="form-control" name="municipal" placeholder="Enter Municipality" value="<?= $userdetails['municipal'];?>"  required>
+                                </div>
+
+                                <div class="row">
+                                    
+                                    <!--<div class="col">
                                         <div class="form-group">
                                             <label for="aoe" class="mtop">Area of Establishment (SqM): </label>
                                             <input type="number" name="aoe" class="form-control" placeholder="Enter your AOE" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                         </div>
 
