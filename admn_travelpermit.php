@@ -254,6 +254,7 @@
             </div>
         </div>
         </form>
+        </div>     
     <div class="row"> 
         <div class="col"> 
             <?php 
@@ -261,7 +262,6 @@
             ?>
         </div>
     </div>
-</div>
 </div>
 <!-- End of Main Content -->
 
