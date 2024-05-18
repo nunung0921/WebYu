@@ -12,7 +12,7 @@
    
 ?>
 
-<?php 
+<div?php 
     include('dashboard_sidebar_start.php');
 ?>
 <style>
@@ -254,7 +254,8 @@
             </div>
         </div>
         </form>
-        </div>        
+        </div>     
+</div>   
     <div class="row"> 
         <div class="col"> 
             <?php 
