@@ -124,37 +124,24 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col">
+
+                                <div class="col">
                                         <div class="form-group">
-                                            <label> House No: </label>
-                                            <input type="text" style="text-align:left;" class="form-control" name="houseno"  
-                                            placeholder="Enter House No." required>
+                                            <label> Purok: </label>
+                                            <select class="form-control" name="street" placeholder="Enter Purok" required>
+                                            <option value="">Select Purok</option>
+                                                <option value="Purok 1">Purok 1</option>
+                                                <option value="Purok 2">Purok 2</option>
+                                                <option value="Purok 3">Purok 3</option>
+                                                <option value="Purok 4">Purok 4</option>
+                                                <option value="Purok 5">Purok 5</option>
+                                                <option value="Purok 6">Purok 6</option>
+                                                <option value="Purok 7">Purok 7</option>
+                                            </select>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label> Street: </label>
-                                            <input type="text" style="text-align:left;" class="form-control" name="street"  
-                                            placeholder="Enter Street" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
-
-                                            <!--<label> Barangay: </label>-->
-                                            <input type="hidden" class="form-control" name="brgy"  
-                                            value="Yuson" required readonly>
-
-                                            <!--<label> Municipality: </label>-->
-                                            <input type="hidden" class="form-control" name="municipal" 
-                                            value="Guimba" required readonly>
-
-                                </div>
-
-                                <div class="row">
 
                                     <div class="col">
                                         <div class="form-group">
@@ -172,15 +159,13 @@
                                         </div>
                                     </div>  
 
+                                            <!--<label> Barangay: </label>-->
+                                            <input type="hidden" class="form-control" name="brgy"  
+                                            value="Yuson" required readonly>
 
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label class="mtop">Date Needed: </label>
-                                            <input type="date" style="text-align:left;" class="form-control" name="date" required min="<?php echo date('Y-m-d'); ?>" required>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </div>
-                                    </div>
+                                            <!--<label> Municipality: </label>-->
+                                            <input type="hidden" class="form-control" name="municipal" 
+                                            value="Guimba" required readonly>
 
                                 </div>
 
