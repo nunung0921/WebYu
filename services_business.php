@@ -588,7 +588,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="age">Age:</label>
-                                            <input name="age" type="text" class="form-control" value="<?= $userdetails['age'];?>"pattern="^(?:1[01][0-9]|120|1[6-9]|[2-9][0-9])$" required>
+                                            <input name="age" type="text" class="form-control" value="<?= $userdetails['age'];?>"pattern="^(?:1[01][0-9]|120|1[6-9]|[2-9][0-9])$" title="Please enter a valid age (only numbers allowed)"  required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -598,7 +598,8 @@
                                 <div class="col">
                                         <div class="form-group">
                                             <label for="bsname">Business Name:</label>
-                                            <input name="bsname" type="text" class="form-control" placeholder="Enter Business Name" pattern="^[a-zA-Z0-9\s\-',.&]*$" required>
+                                            <input name="bsname" type="text" class="form-control" placeholder="Enter Business Name"  pattern="^[a-zA-Z0-9\s\-',.&]*$" 
+       title="Please enter a valid Business Name (letters, numbers, spaces, hyphens, commas, periods, apostrophes, and ampersands allowed)"  required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -614,7 +615,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label> House No: </label>
-                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." value="<?= $userdetails['houseno'];?>" pattern="^[0-9]+$"  required>
+                                            <input type="text" class="form-control" name="houseno"  placeholder="Enter House No." value="<?= $userdetails['houseno'];?>" pattern="^[0-9]+$" title="Please enter a valid house number (only numbers allowed)"  required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -623,7 +624,8 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label> Street: </label>
-                                            <input type="text" class="form-control" name="street"  placeholder="Enter Street" value="<?= $userdetails['street'];?>"  required>
+                                            <input type="text" class="form-control" name="street"  placeholder="Enter Street" value="<?= $userdetails['street'];?>" pattern="^[a-zA-Z0-9\s\-,.'&]+$" 
+       title="Please enter a valid street name (letters, numbers, spaces, commas, periods, hyphens, apostrophes, and ampersands allowed)" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
