@@ -507,42 +507,45 @@ public function profile_update_admin() {
     //-------------------------------------- EXTRA FUNCTIONS ------------------------------------------------
 
     public function resident_changepass() {
-    $id_resident = $_GET['id_resident'];
-    $oldpassword = $_POST['oldpassword'];
-    $oldpasswordverify = $_POST['oldpasswordverify'];
-    $newpassword = $_POST['password1'];
-    $checkpassword = $_POST['checkpassword'];
+        $id_resident = $_GET['id_resident'];
+        $oldpassword = ($_POST['oldpassword']);
+        $oldpasswordverify = ($_POST['oldpasswordverify']);
+        $newpassword = ($_POST['password1']);
+        $checkpassword = $_POST['checkpassword'];
+        if(isset($_POST['resident_changepass'])) {
 
-    if (isset($_POST['resident_changepass'])) {
-        $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT `password` FROM tbl_resident WHERE id_resident = ?");
-        $stmt->execute([$id_resident]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("SELECT `password` FROM tbl_resident WHERE id_resident = ?");
+            $stmt->execute([$id_resident]);
+            $result = $stmt->fetch();
 
-        if (!$result) {
-            echo "Old Password is Incorrect";
-        } else {
-            $hashed_password = $result['password'];
-
-            if ($oldpassword !== $oldpasswordverify) {
+            if($result == 0) {
+                
                 echo "Old Password is Incorrect";
-            } elseif (md5($oldpassword) !== $hashed_password) {
-                echo "Old Password is Incorrect";
-            } elseif ($newpassword !== $checkpassword) {
-                echo "New Password and Verification Password do not Match";
-            } else {
-                $hashed_newpassword = md5($newpassword);
-                $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
-                $stmt->execute([$hashed_newpassword, $id_resident]);
+            }
 
+            elseif ($oldpassword != $oldpasswordverify) {
+                echo "Old Password is Incorrect";
+            }
+
+            elseif ($newpassword != $checkpassword){
+                echo "New Password and Verification Password does not Match";
+            }
+
+            else {
+                $hashed = md5($newpassword);
+                $connection = $this->openConn();
+                $stmt = $connection->prepare("UPDATE tbl_resident SET password =? WHERE id_resident = ?");
+                $stmt->execute([$hashed, $id_resident]);
+                
                 $message2 = "Password Updated";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
                 header("refresh: 0");
             }
+
+
         }
     }
-}
-
 
 
 public function admin_changepass() {
