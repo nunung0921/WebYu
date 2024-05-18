@@ -64,7 +64,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="title">Title:</label>
-                                    <input name="title" type="text" class="form-control" placeholder="Enter Barangay Service Name" required>
+                                    <input name="title" type="text" class="form-control" placeholder="Enter Barangay Service Name" required pattern="[A-Za-z0-9\s'-]+" minlength="2" maxlength="100" title="Please enter a valid title using letters, numbers, spaces, hyphens, and apostrophes only.">
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -72,7 +72,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="requires">Requirements:</label>
-                                    <input name="requires" type="text" class="form-control" placeholder="Enter Requirements" required>
+                                    <input name="requires" type="text" class="form-control" placeholder="Enter Requirements" required pattern=".*" minlength="2" maxlength="200" title="Please enter valid requirements.">
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -83,7 +83,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="fees">Fees:</label>
-                                    <input name="fees" type="text" class="form-control" placeholder="Enter Barangay Service Name" required>
+                                    <input name="fees" type="text" class="form-control" placeholder="Enter Fees" required pattern="^\d+(\.\d{1,2})?$" title="Please enter a valid amount with up to two decimal places.">
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -102,7 +102,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="description">Description:</label>
-                                    <input name="description" type="text" class="form-control" placeholder="Enter description" required>
+                                    <input name="description" type="text" class="form-control" placeholder="Enter description" required maxlength="255" title="Please enter a description (maximum 255 characters).">
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>

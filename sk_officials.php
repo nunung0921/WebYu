@@ -72,7 +72,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="name">Fullname:</label>
-                                            <input name="name" type="text" class="form-control" placeholder="Enter SK Official's name" required>
+                                            <input name="name" type="text" class="form-control" placeholder="Enter SK Official's name" required pattern="[A-Za-z\s'-]+">
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -112,7 +112,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="position">Position:</label>
-                                            <input name="position" type="text" class="form-control" placeholder="Enter position" required>
+                                            <input name="position" type="text" class="form-control" placeholder="Enter position" required pattern="[A-Za-z\s'-]+">
                                                 <div class="valid-feedback">Valid.</div>
                                                 <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
