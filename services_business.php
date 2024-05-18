@@ -609,7 +609,8 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>
-                
+                                
+                                    </div>
                                 <br>
 
                                 <h6>Business Information:</h6>
@@ -625,7 +626,6 @@
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
-                                    </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
