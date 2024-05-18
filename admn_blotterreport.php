@@ -167,7 +167,7 @@
 
                                     <div class="col">
                                         <div class="form-group">
-                                            <label> Street: </label>
+                                            <label> Purok: </label>
                                             <input type="text" class="form-control"  style="text-align:left;" name="street"  
                                             placeholder="Enter Street" required>
                                             <div class="valid-feedback">Valid.</div>
@@ -176,11 +176,11 @@
                                     </div>
                                             <!--<label> Barangay: </label>-->
                                             <input type="hidden" class="form-control" name="brgy"  
-                                            placeholder="Enter Barangay" value="Biclatan" required readonly>
+                                            placeholder="Enter Barangay" value="Yuson" required readonly>
 
                                             <!--<label> Municipality: </label>-->
                                             <input type="hidden" class="form-control" name="municipal" 
-                                            placeholder="Enter Municipality" value="General Trias" required readonly>
+                                            placeholder="Enter Municipality" value="Guimba" required readonly>
                                 </div>
 
                                 <hr>
