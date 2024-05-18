@@ -7,6 +7,7 @@
     $bmis->validate_admin();
     $bmis->create_travelpermit_walkin();
     $bmis->delete_travelpermit();
+    $bmis->archive_travel();
     $view = $bmis->view_travelpermit();
     $id_resident = $_GET['id_resident'];
     $resident = $residentbmis->get_single_travelpermit($id_resident);

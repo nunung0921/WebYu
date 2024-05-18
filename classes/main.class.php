@@ -1390,7 +1390,15 @@ public function create_travelpermit_walkin() {
 
     public function view_travelpermit(){
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT * from tbl_travelpermit");
+        $stmt = $connection->prepare("SELECT * from tbl_travelpermit WHERE req_status = 'approved'");
+        $stmt->execute();
+        $view = $stmt->fetchAll();
+        return $view;
+    }
+
+    public function view_travelpermit_archive(){
+        $connection = $this->openConn();
+        $stmt = $connection->prepare("SELECT * from tbl_travelpermit WHERE req_status = 'archived'");
         $stmt->execute();
         $view = $stmt->fetchAll();
         return $view;
@@ -1891,6 +1899,20 @@ public function create_travelpermit_walkin() {
         }
     }
 
+    public function archive_travel(){
+        $id_travel = $_POST['id_travel'];
+
+        if(isset($_POST['archive_travel'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_travelpermit SET req_status = 'archived' where id_travel = ?");
+            $stmt->execute([$id_travel]);
+
+            $message2 = "Travel Permit Data Archived";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
     public function approve_bspermit(){
         $id_bspermit = $_POST['id_bspermit'];
 
@@ -1954,6 +1976,20 @@ public function create_travelpermit_walkin() {
             $connection = $this->openConn();
             $stmt = $connection->prepare("UPDATE tbl_blotter SET req_status = 'approved' where id_blotter = ?");
             $stmt->execute([$id_blotter]);
+
+            $message2 = "Restored Successfully";
+            echo "<script type='text/javascript'>alert('$message2');</script>";
+            header("Refresh:0");
+        }
+    }
+
+    public function approve_travel(){
+        $id_travel = $_POST['id_travel'];
+
+        if(isset($_POST['approve_travel'])) {
+            $connection = $this->openConn();
+            $stmt = $connection->prepare("UPDATE tbl_travelpermit SET req_status = 'approved' where id_travel = ?");
+            $stmt->execute([$id_travel]);
 
             $message2 = "Restored Successfully";
             echo "<script type='text/javascript'>alert('$message2');</script>";
