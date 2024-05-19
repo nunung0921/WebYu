@@ -535,8 +535,8 @@ public function profile_update_admin() {
                     echo "<script type='text/javascript'>alert('$message2');</script>";
                 } else {
                     // Debugging statements
-                    echo "Received OTP: " . $otp . "<br>";
-                    echo "Stored OTP: " . $_SESSION['otp'] . "<br>";
+                    //echo "Received OTP: " . $otp . "<br>";
+                    //echo "Stored OTP: " . $_SESSION['otp'] . "<br>";
                     
                     // Trim both OTPs to remove whitespace
                     $received_otp = trim($otp);
