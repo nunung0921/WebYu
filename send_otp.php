@@ -1,6 +1,5 @@
-<?php
+<?
 session_start();
-include 'classes/conn.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 $email = $data['email'] ?? '';
@@ -16,10 +15,10 @@ $_SESSION['otp'] = $otp; // Set the OTP in session variable
 // Send OTP to email
 $subject = "Your OTP Code";
 $message = "Your OTP code is $otp";
-$headers = "From: rafaeltosper@gmail.com";
+$headers = "From: webyu@webyu.online";
 
 if (mail($email, $subject, $message, $headers)) {
-    echo json_encode(['success' => true]);
+    echo json_encode(['success' => true, 'otp' => $otp]); // Return OTP for testing
 } else {
     echo json_encode(['success' => false, 'message' => 'Error sending OTP. Please try again.']);
 }
