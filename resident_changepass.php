@@ -496,28 +496,40 @@
 </div>
 
 <script>
-document.querySelector('#send-otp').addEventListener('click', function() {
-    fetch('send_otp.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: '<?= $userdetails['email'] ?>' })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('OTP sent to your registered email.');
-        } else {
-            alert('Error sending OTP: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error sending OTP. Please try again.');
+    document.querySelector('#send-otp').addEventListener('click', function() {
+        const email = document.querySelector('#email').value;
+
+        fetch('send_otp.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const messageElement = document.getElementById('message');
+            if (data.success) {
+                messageElement.innerText = data.message;
+                messageElement.style.color = 'green';
+            } else {
+                messageElement.innerText = data.message;
+                messageElement.style.color = 'red';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const messageElement = document.getElementById('message');
+            messageElement.innerText = 'Error sending OTP. Please try again.';
+            messageElement.style.color = 'red';
+        });
     });
-});
-</script>
+    </script>
 
 
 
