@@ -10,23 +10,17 @@ if (empty($email)) {
     exit;
 }
 
-if (isset($data['email'])) {
-    $email = $data['email'];
-    $otp = rand(100000, 999999); // Generate a 6-digit OTP
-    $_SESSION['otp'] = $otp;
+$otp = rand(100000, 999999); // Generate a 6-digit OTP
+$_SESSION['otp'] = $otp; // Set the OTP in session variable
 
-    // Send OTP to email
-    // You can use mail() function or a library like PHPMailer to send the OTP
-    $subject = "Your OTP Code";
-    $message = "Your OTP code is $otp";
-    $headers = "From: rafaeltosper@gmail.com";
+// Send OTP to email
+$subject = "Your OTP Code";
+$message = "Your OTP code is $otp";
+$headers = "From: rafaeltosper@gmail.com";
 
-    if (mail($email, $subject, $message, $headers)) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false]);
-    }
+if (mail($email, $subject, $message, $headers)) {
+    echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['success' => false]);
+    echo json_encode(['success' => false, 'message' => 'Error sending OTP. Please try again.']);
 }
 ?>
