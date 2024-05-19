@@ -452,7 +452,13 @@
                 <div class="card-body">
                     <form method="post">
                         <div class="form-group">
-                            <input type="hidden" id="email" name="email" value = "<?= $userdetails['email'];?>" required>
+                            <label for="current-password">Email:</label>
+                            <div class="input-container">
+                                <i class="fa fa-envelope icon"></i>
+                                <input type="text" id="email" name="email" class="form-control" placeholder="Enter your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="current-password">Current Password:</label>
                             <div class="input-container">
                                 <i class="fa fa-lock icon"></i>
@@ -506,12 +512,7 @@
             },
             body: JSON.stringify({ email: email })
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             const messageElement = document.getElementById('message');
             if (data.success) {
