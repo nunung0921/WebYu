@@ -3,7 +3,7 @@ session_start();
 include 'classes/conn.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
-$email = $input['email'] ?? '';
+$email = $data['email'] ?? '';
 
 if (empty($email)) {
     echo json_encode(['success' => false, 'message' => 'Email is required.']);
