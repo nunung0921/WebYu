@@ -745,7 +745,7 @@ if($hashed_old_password !== $result['password']) {
             if(isset($_POST['reject_request'])) {
                 $id_resident = $_POST['id_resident'];
                 $connection = $this->openConn();
-                $stmt = $connection->prepare("DELETE FROM tbl_resident where id_resident = ?");
+                $stmt = $connection->prepare("UPDATE tbl_resident SET request_status = 'rejected' WHERE id_resident = ?");
                 $stmt->execute([$id_resident]);
 
                 $stmt = $connection->prepare("SELECT email FROM tbl_resident WHERE id_resident = ?");
