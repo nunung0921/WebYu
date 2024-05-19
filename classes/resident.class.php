@@ -748,6 +748,23 @@ if($hashed_old_password !== $result['password']) {
                 $stmt = $connection->prepare("DELETE FROM tbl_resident where id_resident = ?");
                 $stmt->execute([$id_resident]);
 
+                $stmt = $connection->prepare("SELECT email FROM tbl_resident WHERE id_resident = ?");
+                $stmt->execute([$id_resident]);
+                $resident = $stmt->fetch(PDO::FETCH_ASSOC);
+                $resident_email = $resident['email'];
+        
+                // Close the database connection
+                $connection = null;
+        
+                // Send email notification
+                $to = $resident_email;
+                $subject = "Registration Request Rejected";
+                $message = "Dear Resident,\n\nWe regret to inform you that your registration request has been rejected!\n\nRegards,\nWebYu";
+                $headers = "From: rafaeltosper@gmail.com\r\n";
+                $headers .= "Reply-To: rafaeltosper@gmail.com\r\n";
+                $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+                mail($to, $subject, $message, $headers);
+
                 $message2 = "Resident Request Rejected";
                 
                 echo "<script type='text/javascript'>alert('$message2');</script>";
