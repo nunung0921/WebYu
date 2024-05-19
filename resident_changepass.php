@@ -477,6 +477,14 @@
        title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*()_+)" required>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="otp">OTP:</label>
+                            <div class="input-container">
+                                <i class="fa fa-shield-alt icon"></i>
+                                <input type="text" id="otp" name="otp" class="form-control" placeholder="Enter OTP" required>
+                            </div>
+                        </div>
+                        <button type="button" id="send-otp" class="btn btn-secondary btn-block">Send OTP</button>
                         <span id="message"></span>
                         <button type="submit" name="resident_changepass" class="btn btn-primary btn-block mt-3">Change Password</button>
                     </form>
@@ -485,6 +493,29 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelector('#send-otp').addEventListener('click', function() {
+        // Add JavaScript to handle OTP sending, e.g., making an AJAX request to send the OTP
+        alert('OTP sent to your registered email/phone number.');
+    });
+
+    document.querySelectorAll('.toggle-password').forEach(function (element) {
+        element.addEventListener('click', function () {
+            let input = document.querySelector(this.getAttribute('toggle'));
+            if (input.getAttribute('type') === 'password') {
+                input.setAttribute('type', 'text');
+                this.classList.add('fa-eye-slash');
+                this.classList.remove('fa-eye');
+            } else {
+                input.setAttribute('type', 'password');
+                this.classList.add('fa-eye');
+                this.classList.remove('fa-eye-slash');
+            }
+        });
+    });
+</script>
+
 
         <br>
         <br>
