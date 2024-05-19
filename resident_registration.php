@@ -214,7 +214,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col">
                                     <div class="form-group">
         <label class="mtop">Birth Date: </label>
-        <input type="date" class="form-control" name="bdate" id="birthdate" oninput="calculateAge()" required>
+        <input type="date" class="form-control" name="bdate" id="birthdate" oninput="calculateAge()" required max="<?php echo date('Y-m-d'); ?>" required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
@@ -379,7 +379,7 @@ $residentbmis->create_resident($addedby);
         document.getElementById('age').value = age;
     }
         </script>
-        <script>
+<script>
     function validateEmail() {
         var input = document.getElementsByName('email')[0];
         var pattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
