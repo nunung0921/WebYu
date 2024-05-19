@@ -697,30 +697,45 @@ if($hashed_old_password !== $result['password']) {
         }
 
         // Function to approve a pending request
-    public function approve_request() {
-    if (isset($_POST['approve_request'])) {
-        // Retrieve the resident ID from the form submission
-        $id_resident = $_POST['id_resident'];
-        // Open the database connection
-        $connection = $this->openConn();
-
-            // Prepare and execute the SQL query to update the request status
-            $stmt = $connection->prepare("UPDATE tbl_resident SET request_status = 'approved' WHERE id_resident = ?");
-            $stmt->execute([$id_resident]);
-
-
+        public function approve_request() {
+            if (isset($_POST['approve_request'])) {
+                // Retrieve the resident ID from the form submission
+                $id_resident = $_POST['id_resident'];
+        
+                // Open the database connection
+                $connection = $this->openConn();
+        
+                // Prepare and execute the SQL query to update the request status
+                $stmt = $connection->prepare("UPDATE tbl_resident SET request_status = 'approved' WHERE id_resident = ?");
+                $stmt->execute([$id_resident]);
+        
+                // Retrieve resident email
+                $stmt = $connection->prepare("SELECT email FROM tbl_resident WHERE id_resident = ?");
+                $stmt->execute([$id_resident]);
+                $resident = $stmt->fetch(PDO::FETCH_ASSOC);
+                $resident_email = $resident['email'];
+        
+                // Close the database connection
+                $connection = null;
+        
+                // Send email notification
+                $to = $resident_email;
+                $subject = "Registration Request Accepted";
+                $message = "Dear Resident,\n\nYour registration request has been accepted. Welcome aboard!\n\nRegards,\nWebYu";
+                $headers = "From: rafaeltosper@gmail.com\r\n";
+                $headers .= "Reply-To: rafaeltosper@gmail.com\r\n";
+                $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+                mail($to, $subject, $message, $headers);
+        
                 $message = "Request status updated successfully.";
-
-
-        // Close the database connection
-        $connection = null;
-
-        // Display the message using JavaScript
-        echo "<script type='text/javascript'>alert('$message');</script>";
-
-        header("Refresh:0");
-    }
-}
+        
+                // Display the message using JavaScript
+                echo "<script type='text/javascript'>alert('$message');</script>";
+        
+                header("Refresh:0");
+            }
+        }
+        
 
 
 
