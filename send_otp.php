@@ -15,7 +15,7 @@ $_SESSION['otp'] = $otp; // Set the OTP in session variable
 // Send OTP to email
 $subject = "Your OTP Code";
 $message = "Your OTP code is $otp";
-$headers = "From: webyu@webyu.online";
+$headers = "From: rafaeltosper@gmail.com";
 
 if (mail($email, $subject, $message, $headers)) {
     echo json_encode(['success' => true, 'otp' => $otp]); // Return OTP for testing
