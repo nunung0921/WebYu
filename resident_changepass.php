@@ -485,7 +485,7 @@
                                 <input type="text" id="otp" name="otp" class="form-control" placeholder="Enter OTP" required>
                             </div>
                         </div>
-                        <button type="button" id="send-otp" class="btn btn-secondary btn-block">Send OTP</button>
+                        <button type="button" id="send-otp" name="send-otp" class="btn btn-secondary btn-block">Send OTP</button>
                         <span id="message"></span>
                         <button type="submit" name="resident_changepass" class="btn btn-primary btn-block mt-3">Change Password</button>
                     </form>
