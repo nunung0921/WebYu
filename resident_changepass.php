@@ -452,6 +452,7 @@
                 <div class="card-body">
                     <form method="post">
                         <div class="form-group">
+                            <input type="hidden" id="email" name="email" value = "<?= $userdetails['email'];?>" required>
                             <label for="current-password">Current Password:</label>
                             <div class="input-container">
                                 <i class="fa fa-lock icon"></i>
@@ -497,7 +498,21 @@
 <script>
     document.querySelector('#send-otp').addEventListener('click', function() {
         // Add JavaScript to handle OTP sending, e.g., making an AJAX request to send the OTP
-        alert('OTP sent to your registered email/phone number.');
+        fetch('send_otp.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: '<?= $userdetails['email'] ?>' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('OTP sent to your registered email.');
+            } else {
+                alert('Error sending OTP. Please try again.');
+            }
+        });
     });
 
     document.querySelectorAll('.toggle-password').forEach(function (element) {

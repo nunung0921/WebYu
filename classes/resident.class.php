@@ -507,48 +507,49 @@ public function profile_update_admin() {
     //-------------------------------------- EXTRA FUNCTIONS ------------------------------------------------
 
     public function resident_changepass() {
+        session_start(); // Ensure session is started
         $id_resident = $_GET['id_resident'];
-        $oldpassword = md5($_POST['oldpassword']);
-        $oldpasswordverify = ($_POST['oldpasswordverify']);
-        $newpassword = ($_POST['password1']);
+        $oldpassword = md5($_POST['oldpassword']); // Hashing the old password input
+        $newpassword = $_POST['password1'];
         $checkpassword = $_POST['checkpassword'];
-        if(isset($_POST['resident_changepass'])) {
-
+        $otp = $_POST['otp'];
+        
+        if (isset($_POST['resident_changepass'])) {
             $connection = $this->openConn();
             $stmt = $connection->prepare("SELECT `password` FROM tbl_resident WHERE id_resident = ?");
             $stmt->execute([$id_resident]);
-            $result = $stmt->fetch();
-
-            if($result == 0) {
-                
-                $message2 = "Old password is incorrect";
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if ($result === false) {
+                $message2 = "User not found";
                 echo "<script type='text/javascript'>alert('$message2');</script>";
+            } else {
+                $stored_password = $result['password'];
+    
+                // Verify old password
+                if ($oldpassword !== $stored_password) {
+                    $message2 = "Old password is incorrect";
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                } elseif ($newpassword !== $checkpassword) {
+                    $message2 = "New password and verification password do not match";
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                } elseif ($otp !== $_SESSION['otp']) {
+                    $message2 = "OTP is incorrect";
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                } else {
+                    // Update password using a more secure hashing method
+                    $hashed_new_password = md5($newpassword);
+                    $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
+                    $stmt->execute([$hashed_new_password, $id_resident]);
+    
+                    $message2 = "Password Updated";
+                    echo "<script type='text/javascript'>alert('$message2');</script>";
+                    header("refresh: 0");
+                }
             }
-
-            elseif ($oldpassword != $oldpasswordverify) {
-                $message2 = "Old password is incorrect";
-                echo "<script type='text/javascript'>alert('$message2');</script>";
-            }
-
-            elseif ($newpassword != $checkpassword){
-                $message2 = "New password and verification password does not match.";
-                echo "<script type='text/javascript'>alert('$message2');</script>";
-            }
-
-            else {
-                $hashed = md5($newpassword);
-                $connection = $this->openConn();
-                $stmt = $connection->prepare("UPDATE tbl_resident SET password =? WHERE id_resident = ?");
-                $stmt->execute([$hashed, $id_resident]);
-                
-                $message2 = "Password Updated";
-                echo "<script type='text/javascript'>alert('$message2');</script>";
-                header("refresh: 0");
-            }
-
-
         }
     }
+    
 
 
 public function admin_changepass() {
