@@ -496,40 +496,29 @@
 </div>
 
 <script>
-    document.querySelector('#send-otp').addEventListener('click', function() {
-        // Add JavaScript to handle OTP sending, e.g., making an AJAX request to send the OTP
-        fetch('send_otp.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: '<?= $userdetails['email'] ?>' })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('OTP sent to your registered email.');
-            } else {
-                alert('Error sending OTP. Please try again.');
-            }
-        });
+document.querySelector('#send-otp').addEventListener('click', function() {
+    fetch('send_otp.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: '<?= $userdetails['email'] ?>' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('OTP sent to your registered email.');
+        } else {
+            alert('Error sending OTP: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending OTP. Please try again.');
     });
-
-    document.querySelectorAll('.toggle-password').forEach(function (element) {
-        element.addEventListener('click', function () {
-            let input = document.querySelector(this.getAttribute('toggle'));
-            if (input.getAttribute('type') === 'password') {
-                input.setAttribute('type', 'text');
-                this.classList.add('fa-eye-slash');
-                this.classList.remove('fa-eye');
-            } else {
-                input.setAttribute('type', 'password');
-                this.classList.add('fa-eye');
-                this.classList.remove('fa-eye-slash');
-            }
-        });
-    });
+});
 </script>
+
 
 
         <br>
