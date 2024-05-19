@@ -508,7 +508,7 @@ public function profile_update_admin() {
 
     public function resident_changepass() {
         $id_resident = $_GET['id_resident'];
-        $oldpassword = ($_POST['oldpassword']);
+        $oldpassword = md5($_POST['oldpassword']);
         $oldpasswordverify = ($_POST['oldpasswordverify']);
         $newpassword = ($_POST['password1']);
         $checkpassword = $_POST['checkpassword'];
@@ -521,15 +521,18 @@ public function profile_update_admin() {
 
             if($result == 0) {
                 
-                echo "Old Password is Incorrect";
+                $message2 = "Old password is incorrect";
+                echo "<script type='text/javascript'>alert('$message2');</script>";
             }
 
             elseif ($oldpassword != $oldpasswordverify) {
-                echo "Old Password is Incorrect";
+                $message2 = "Old password is incorrect";
+                echo "<script type='text/javascript'>alert('$message2');</script>";
             }
 
             elseif ($newpassword != $checkpassword){
-                echo "New Password and Verification Password does not Match";
+                $message2 = "New password and verification password does not match.";
+                echo "<script type='text/javascript'>alert('$message2');</script>";
             }
 
             else {
