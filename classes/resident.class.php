@@ -533,23 +533,33 @@ public function profile_update_admin() {
                 } elseif ($newpassword !== $checkpassword) {
                     $message2 = "New password and verification password do not match";
                     echo "<script type='text/javascript'>alert('$message2');</script>";
-                } elseif ($otp !== $_SESSION['otp']) {
-                    $message2 = "OTP is incorrect";
-                    echo "<script type='text/javascript'>alert('$message2');</script>";
                 } else {
-                    // Update password using a more secure hashing method
-                    $hashed_new_password = md5($newpassword);
-                    $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
-                    $stmt->execute([$hashed_new_password, $id_resident]);
+                    // Debugging statements
+                    echo "Received OTP: " . $otp . "<br>";
+                    echo "Stored OTP: " . $_SESSION['otp'] . "<br>";
+                    
+                    // Trim both OTPs to remove whitespace
+                    $received_otp = trim($otp);
+                    $stored_otp = trim($_SESSION['otp']);
+                    
+                    // Compare OTPs
+                    if ($received_otp !== $stored_otp) {
+                        $message2 = "OTP is incorrect";
+                        echo "<script type='text/javascript'>alert('$message2');</script>";
+                    } else {
+                        // Update password using a more secure hashing method
+                        $hashed_new_password = md5($newpassword);
+                        $stmt = $connection->prepare("UPDATE tbl_resident SET password = ? WHERE id_resident = ?");
+                        $stmt->execute([$hashed_new_password, $id_resident]);
     
-                    $message2 = "Password Updated";
-                    echo "<script type='text/javascript'>alert('$message2');</script>";
-                    header("refresh: 0");
+                        $message2 = "Password Updated";
+                        echo "<script type='text/javascript'>alert('$message2');</script>";
+                        header("refresh: 0");
+                    }
                 }
             }
         }
-    }
-    
+    }    
 
 
 public function admin_changepass() {
