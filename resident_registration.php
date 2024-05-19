@@ -126,7 +126,7 @@ $residentbmis->create_resident($addedby);
                                     <div class="col"> 
                                         <div class="form-group">
                                             <label class="mtop"> Middle Name: </label>
-                                            <input type="text" class="form-control" name="mi" placeholder="Enter Middle Name" pattern="[A-Za-z ]{2,}" title="Please enter at least 2 letters, and only use letters." required>
+                                            <input type="text" class="form-control" name="mi" placeholder="Enter Middle Name" pattern="[A-Za-z ]{2,}" title="Please enter at least 2 letters, and only use letters.">
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
